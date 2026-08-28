@@ -71,11 +71,11 @@ Traits are narrative truths about your character. They are the **only** source o
 
 ### **E. Armor**
 
-All characters start with **2 Armor boxes**.
+Characters do not start with free Armor. Armor must be acquired as protective gear (e.g., tactical vests, riot gear, heavy coats, or makeshift plating), which grants Armor boxes.
 
-* When you would spend 1 Strain to soak a hit, you may mark off one Armor box instead.  
+* When you would spend 1 Strain to soak a hit, you may mark off an Armor box instead.  
 * Armor can only be used to negate incoming harm. It cannot pay for the Strain cost of your own Abilities.  
-* Armor is only restored during a Rest Scene.
+* Marked Armor boxes represent damaged protection and require repair, replacement, or maintenance to restore.
 
 ### **F. Inventory (The Slot System)**
 
@@ -275,9 +275,9 @@ TRAITS (Traits are your dice. Major = +2d10. Minor = +1d10. Pool cap: 4d10. Mini
 
 STATUS
 
-Strain: \[X\]\[X\]\[X\]\[X\]\[X\] (5/5)
+Strain: [X][X][X][X][X] (5/5)
 
-Armor: \[X\]\[X\] (2/2)
+Armor: [ ][ ] (0/0 - Granted by equipped armor)
 
 PP: 0
 
