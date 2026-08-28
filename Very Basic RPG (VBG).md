@@ -81,7 +81,7 @@ Every survivor starts with **1 Major Trait** and **1 Minor Trait**:
 ---
 
 ### **C. Vitals: Strain & Armor**
-- **Starting Strain:** 5 (Hard Cap: 10). Represents health, stamina, and mental composure.
+- **Starting Strain:** 4 (Hard Cap: 10). Represents health, stamina, and mental composure.
 - **Starting Armor:** 0 Boxes. Armor is not free; it must be looted or crafted.
 
 ---
@@ -251,7 +251,7 @@ Domain Name:
 Description: 
 
 VITALS & PROTECTION
-Strain:    [X][X][X][X][X] (5/5)
+Strain:    [X][X][X][X] (4/4)
 Armor:     [ ][ ] (0/0 - Granted by equipped gear)
 Infection: [0/5] Stage 0 (Clean)
 
