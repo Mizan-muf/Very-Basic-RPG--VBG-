@@ -1,323 +1,267 @@
-# **Very Basic RPG (VBG) v2.0**
-
-## **1\. THE BASICS**
-
-This system is designed for asynchronous play. We use d10s (ten-sided dice) and a Pool System. You do not need to wait for the GM to tell you the result of your roll; the dice and the margin dictate the narrative outcome immediately.
-
-### **The Core Mechanic**
-
-When you attempt a risky action:
-
-1. **Build your Pool:** Your **Traits** are the only source of dice. Add the dice from every Trait relevant to what you are doing.  
-2. **Check the Cap:** You may never roll more than **4d10**. If your pool would be higher, roll 4.  
-3. **Add your Stat Bonus:** Choose the Stat that fits how you are acting (Force, Finesse, or Focus). That Stat adds a **flat number** to your total — it does not add dice.  
-4. **Roll and Sum:** Roll all your dice. Add them together, then add your Stat bonus. That total is your result.  
-5. **Compare to the Target:** The GM sets a Target Difficulty (or Target Number). Your total vs. the target determines the outcome.
-
-### **The Results**
-
-Compare your total to the target difficulty. The margin — how far above or below — determines the outcome.
-
-| Total vs. Target | Outcome |
-|---|---|
-| Miss by 5 or more | **FAILURE** — You do not achieve your goal, or do so with a disastrous consequence. The GM inflicts damage, introduces a threat, or blocks your path. |
-| Miss by 1–4 | **SUCCESS WITH COST** — You succeed, but it is messy. Pay a cost: mark 1 Strain, accept a Condition, break gear, or alert the enemy. State the cost in your post. |
-| Beat by 0–5 | **CLEAN SUCCESS** — You achieve your goal without penalty. |
-| Beat by 6 or more | **CRITICAL** — Perfect execution. Regain 1 Strain OR gain a distinct narrative advantage. |
-
-**Rule Against Softballing (The GM Veto):** When choosing a cost for a Success with Cost, it must match the danger. Cornered by a licker and choosing "I scuff my boots" will earn a GM veto and a harder consequence. Make it hurt.
+# VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0
+*A Lightweight, Low-Latency System for Asynchronous Play-by-Post Survival Horror*
 
 ---
 
-## **2\. CHARACTER CREATION**
+## 1. THE CORE ENGINE
+
+### **The Resolution Roll**
+Whenever a survivor attempts a risky or dangerous action, make a single roll:
+
+$$\mathbf{Result = 1d20 + Stat\ Bonus + Trait\ Bonus}$$
+
+1. **Choose Your Stat:** Add your flat Stat bonus (**Force**, **Finesse**, or **Focus**).
+2. **Add Applicable Trait Bonuses:**
+   - **Major Trait:** Adds **+2** if relevant.
+   - **Minor Trait:** Adds **+1** if relevant.
+   - *(Traits stack if both apply to the same action, up to a maximum +3 from traits).*
+3. **Roll 1d20 and Compare to the Target Difficulty (TN).**
+
+---
+
+### **Target Difficulty Scale**
+
+| Target | Risk Tier | Scenario Example |
+| :--- | :--- | :--- |
+| **TN 10** | **Routine** | Searching a quiet closet, forcing a wooden latch, basic field dressing in safety. |
+| **TN 15** | **Risky** | Shooting a sprinting runner, picking a lock while footsteps approach, jumping a gap. |
+| **TN 20** | **Desperate** | Shoving a Licker off an ally, blind-firing in darkness, emergency field surgery. |
+| **TN 25+** | **Extreme** | Grappling a Tyrant solo, executing an impossible trick shot on a B.O.W. core. |
+
+---
+
+### **Margin of Success Outcomes**
+
+Compare your total roll to the Target Difficulty (TN):
+
+| Total vs. TN | Outcome Tier | Mechanical & Narrative Result |
+| :--- | :--- | :--- |
+| **Miss by 5+** | **FAILURE** | The action fails completely. The GM inflicts damage, advances a horde clock, or breaks your gear. |
+| **Miss by 1–4** | **SUCCESS WITH COST** | You succeed, but pay a price: mark 1 Strain, spend 1 extra Ammo/Durability box, make noise, or take a condition. |
+| **Beat by 0–5** | **CLEAN SUCCESS** | You achieve your goal cleanly without penalty or extra cost. |
+| **Beat by 6+** | **CRITICAL** | Perfect execution. Regain 1 Strain OR gain a major advantage (e.g., immediate free move, instant decapitation). |
+
+**Rule Against Softballing (GM Veto):** The cost chosen for a *Success with Cost* must match the danger. Cornered by a Licker and choosing "I scuff my boots" will earn a GM veto. Make the cost hurt.
+
+---
+
+## 2. SURVIVAL CHARACTER CREATION
 
 ### **A. Stats (The Three F's)**
+Distribute **3 Points** among your stats (Max 2 in any single stat at creation; Hard Cap of 5 through progression):
 
-Stats add a **flat bonus** to your roll total. They do not add dice.
-
-Start with 0 in all stats. You have **3 Points** to distribute.
-
-* *Start Limit:* No stat may start higher than 2\.  
-* *Hard Limit:* No stat may ever exceed 5\.  
-* **FORCE:** Raw power, endurance, intimidation, blocking and resisting physical harm.  
-* **FINESSE:** Agility, stealth, speed, manual dexterity, precision, and aim.  
-* **FOCUS:** Intelligence, senses, mental resilience, knowledge, and spotting details.
-
-### **B. Traits (Who You Are)**
-
-Traits are narrative truths about your character. They are the **only** source of dice in your pool. If no Trait is relevant to your action, your minimum pool is **1d10**.
-
-* **1 MAJOR Trait (+2d10):** Your primary archetype or background.  
-* **1 MINOR Trait (+1d10):** A secondary skill, training, or quirk.
-
-### **C. Strain (Your Fuel)**
-
-* **Starting Strain:** 5  
-* **Max Possible Strain:** 10  
-* **Function:** Represents health, mana, and stamina combined into a single resource.
-
-### **D. Ability (Your Power)**
-
-* **One Ability Domain:** Your unique magical or heroic power source (see [Section 3](#3.-abilities:-the-domain-system)).
-
-### **E. Armor**
-
-Characters do not start with free Armor. Armor must be acquired as protective gear (e.g., tactical vests, riot gear, heavy coats, or makeshift plating), which grants Armor boxes.
-
-* When you would spend 1 Strain to soak a hit, you may mark off an Armor box instead.  
-* Armor can only be used to negate incoming harm. It cannot pay for the Strain cost of your own Abilities.  
-* Marked Armor boxes represent damaged protection and require repair, replacement, or maintenance to restore.
-
-### **F. Inventory (The Slot System)**
-
-**Your capacity to carry gear is limited by Slots.**
-
-* **Base Capacity:** 5 Slots.  
-* **Worn vs. Held:** Items worn on the body (armor, clothing, jewelry) do not take up slots. Items held or carried do.
-
-**Item Sizes:**
-
-* **Small:** (Small tools, keys, ammo, light blades) — Stack up to 4 in 1 Slot.  
-* **Medium:** (One-handed weapons, tools, supplies, medical kits) — Takes 1 Slot.  
-* **Large:** (Two-handed weapons, heavy equipment, bulky gear) — Takes 2 Slots.
-
-Gear carried beyond base capacity requires dropping items, dedicated transport, or creating encumbrance penalties.
-
-**Gear Mechanics & Scarcity:** Gear is not cosmetic flavor. In survival horror, weapons, ammunition, light sources, and tools have distinct tactical properties, ammo limits, noise profiles, and durability. Using unsuppressed firearms alerts nearby infected; improvised melee weapons can wear down and break under sustained combat.
+- **FORCE:** Raw physical power, melee strikes, shoving, dragging casualties, enduring trauma.
+- **FINESSE:** Ranged firearm accuracy, stealth traversal, lockpicking, driving, dodging attacks.
+- **FOCUS:** Environmental perception, diagnosing infection, scavenging, technical repair, resisting panic.
 
 ---
 
-## **3\. ABILITIES: The Domain System** {#3.-abilities:-the-domain-system}
+### **B. Survivor Traits (Flat Bonuses)**
+Every survivor starts with **1 Major Trait** and **1 Minor Trait**:
 
-### **Defining Your Ability**
+- **1 MAJOR Trait (+2 Bonus):** Your pre-collapse archetype or primary survival training.
+- **1 MINOR Trait (+1 Bonus):** A specific habit, secondary background skill, or tactical perk.
 
-Name your Ability and write one sentence defining what it controls.
+#### **Sample Major Traits (+2)**
+- **S.T.A.R.S. / SWAT Specialist:** Trained in tactical room clearing, weapon control, and crisis response.
+- **Combat Engineer / Mechanic:** Specialist in generator repair, hotwiring vehicles, traps, and barricades.
+- **Trauma Surgeon / Field Medic:** Expert in wound stabilization, chemical synthesis, and emergency surgery.
+- **Bio-Researcher / Virologist:** Knowledge of B.O.W. mutations, virus strains, and suppressant crafting.
+- **Urban Scavenger:** Skilled in stealth traversal, spotting hidden supply caches, and navigating ruins.
+- **Wasteland Pointman:** Specialist in tracking movement, silent takedowns, and long-range optics.
 
-* *Example:* Field Medicine: The rapid diagnosis, trauma stabilization, and chemical synthesis of treatments under pressure.  
-* You choose which Stat to use based on how you use the power — Focus for control, Force for raw power, Finesse for precision and aim.  
-* Domains are created by the player and verified by the GM, or designed collaboratively.
-
-### **Using Abilities (The Scale)**
-
-The cost is determined by the Scale of the effect:
-
-**MINOR (Cost: 0 Strain)**
-
-* *Effect:* Minor utility, quick sensory checks, basic defensive repositioning, or simple tactical moves.  
-* *Mechanic:* Just Roll.
-
-**STANDARD (Cost: 1 Strain)**
-
-* *Effect:* Precision combat maneuvers, targeted shots on weak points, field suturing, breaching/barricading, or bypassing obstacles under fire.  
-* *Mechanic:* Spend 1 Strain + Roll.
-
-**MAJOR (Cost: 2 Strain)**
-
-* *Effect:* High-strain emergency maneuvers, suppressing fire against a cluster, dragging an ally out of a swarm, or desperate last-second countermeasures.  
-* *Mechanic:* Spend 2 Strain + Roll.
-
-### **Using Multiple Domains (Multi-Domain)**
-
-You may combine more than one specialty discipline in a single action when logically appropriate.
-
-* **Scale Cap:** Combining domains caps individual scale at Standard (1 Strain each).
-* Total Strain spent determines the combined tactical impact (capped at 2 Strain maximum).
-* You make **one roll** for the combined action. The GM narrates it as one unified event.  
-* On **Failure**, the GM may introduce severe consequences (dropped gear, weapon jam, or immediate counter-attack).
+#### **Sample Minor Traits (+1)**
+- **Steady Aim:** Bonus to firearm rolls when firing from cover or taking time to aim.
+- **Cold-Blooded:** Bonus to Focus checks when resisting horror jump-scares and panic.
+- **Field Chemist:** Extra yield when crafting/mixing herbs, medical chemicals, or gunpowder.
+- **Gunsmith:** Can repair degraded firearms and salvage usable ammo/parts from broken guns.
+- **Light Sleeper:** Cannot be ambushed while resting in semi-secure zones.
+- **Silent Step:** Moving without triggering ambient noise checks.
 
 ---
 
-## **4\. COMBAT & SURVIVAL**
-
-### **Scene Types**
-
-VBG uses a scene-based structure. The type of scene determines what resources reset and how the GM frames events.
-
-* **Battle Scene:** A physical confrontation. Players post their action; the GM responds with enemy reaction and new state. Repeats until an end condition is met (enemy defeated, objective taken, escape achieved).  
-* **Social Scene:** A high-stakes social confrontation with a clear stake. Mostly narrative. Rolls happen only at key decision points or moments of genuine risk.  
-* **Rest Scene:** Safe Haven downtime in a secure location. Strain and Armor do not automatically restore for free; recovery requires consuming medical supplies (herbs, bandages, rations) or surgical stabilization.
-* **Exploration Scene:** Characters move through the world, interact, and discover. Driven by narrative. Roll only when there is genuine risk and a meaningful cost for failure.
-
-### **Action Order**
-
-In a Battle Scene, action order is determined by **Finesse**. The highest Finesse acts first. Ties are broken by whoever posts first.
-
-### **Taking Damage**
-
-There are no HP. When an enemy hits you or you fail a dangerous roll:
-
-1. **Take the Hit:** The GM describes a narrative wound. This may apply a **Condition**.  
-2. **Soak It (Spend 1 Strain or mark 1 Armor):** You dodge, parry, or power through. The wound is ignored or reduced.
-
-### **Conditions**
-
-Conditions are negative effects applied by wounds, failed rolls, or the environment. They persist across scenes until treated or resolved.
-
-**Ongoing Strain Loss**
-
-* *Poisoned / Bleeding / Burning* — Lose 1 Strain at the start of each exchange until treated. Treatment: field medicine, bandages/antidote, or a successful first aid roll.
-
-**Max Strain Reduction**
-
-* *Limb Damaged* — Maximum Strain reduced by 2 until stabilized and treated with medical care.  
-* *Limb Severed* — Maximum Strain permanently reduced by 2. Certain physical actions become impossible. Requires emergency tourniquet and permanent adaptation/prosthetics.
-
-**Action Restrictions**
-
-* *Pinned / Restrained* — Cannot take movement or offensive actions until freed or an ally assists.  
-* *Blinded / Impaired Senses* — Target difficulties increase for actions requiring sight.  
-* *Stunned* — Skip your next action. Clears on the following turn.
-
-**Narrative Penalties**
-
-* *Concussed / Shaken / Traumatized* — Acts as a -1d10 penalty to relevant rolls based on physical or psychological trauma.
-
-### **Incapacitation, Bleeding Out & Death**
-
-If you are at **0 Strain** and have no Armor remaining, taking another hit or failing a lethal roll means you are **Incapacitated / Bleeding Out**:
-
-* **Downed:** You collapse immediately and cannot take movement or offensive actions.
-* **Bleeding Out:** You begin losing life. If an ally does not spend an action and expend medical supplies (or make a successful first aid roll) to stabilize you within the next round/exchange, your character succumbs to wounds or infection and dies.
-* **Coup de Grâce / Swarm Execution:** Any hostile with direct physical access (a nearby zombie, hunter, or stalker) can tear into or execute a downed survivor with no defense roll. Survival depends entirely on allies holding the line.
-
-### **Recovery**
-
-* **Medical Supplies & Treatment:** Strain and Armor are restored exclusively by expending medical consumables (first aid sprays, herb mixtures, bandages) or through dedicated medical treatment in a secured safe room.
-* **Critical Result:** Beating the target difficulty by 6 or more lets you regain 1 Strain as part of the adrenaline rush or tactical momentum.
+### **C. Vitals: Strain & Armor**
+- **Starting Strain:** 5 (Hard Cap: 10). Represents health, stamina, and mental composure.
+- **Starting Armor:** 0 Boxes. Armor is not free; it must be looted or crafted.
 
 ---
 
-## **5\. PROGRESSION ECONOMY**
-
-The GM awards **PP (Progression Points)** for completing missions, good roleplay, and posting consistency. All upgrades are purchased directly with PP.
-
-* **\[10 PP\] Increase Strain Cap:** Increase Max Strain by \+1 (Cap: 10).  
-* **\[15 PP\] New Ability Domain:** Unlock a new magical or skill domain.  
-* **\[20 PP\] New Minor Trait:** Add a new \+1d10 background trait.  
-* **\[20 PP\] Upgrade Trait:** Turn a Minor Trait (+1d10) into a Major Trait (+2d10).  
-* **\[25 PP\] Stat Increase:** \+1 to Force, Finesse, or Focus (Hard Limit: 5).
+### **D. Starting Inventory: 4 Base Slots**
+Your base inventory capacity is strictly **4 Slots**.
 
 ---
 
-## **6\. CHARACTER SHEET TEMPLATE**
+## 3. TACTICAL SPECIALIZATIONS (ABILITIES)
 
-Copy the text below.
+Survivors choose 1 **Specialization Domain** (e.g., *Close-Quarters Defense, Precision Marksmanship, Field Triage, Structural Fortification*). Specializations modify actions using Strain:
+
+| Scale Tier | Strain Cost | Tactical Effect & Limits |
+| :--- | :--- | :--- |
+| **MINOR** | **0 Strain** | Minor tactical utility (shoves, rapid vital checks, defensive repositioning). *Just Roll.* |
+| **STANDARD** | **1 Strain** | Tactical feats (knife counter during a grab, double-tap, combat suture). *Spend 1 Strain + Roll.* |
+| **MAJOR** | **2 Strain** | Desperate emergency maneuvers (dragging an ally out of a swarm under fire). *Spend 2 Strain + Roll.* |
+
+*Note: The god-like "Miracle" scale is completely removed. Humans cannot alter reality.*
 
 ---
 
-Character Details
+## 4. AMMO & FIREARM MANAGEMENT
 
+In survival horror, guns are noisy, powerful, and limited by ammunition.
+
+### **Ammo Storage & Carrying**
+- Ammunition is tracked in **Ammo Boxes / Magazines**.
+- **1 Ammo Slot = 1 Medium Inventory Slot.**
+- **Standard Capacities per Slot:**
+  - **9mm / Handgun Ammo:** 30 Rounds (3 Full Reloads / Magazines)
+  - **Shotgun Shells:** 12 Shells
+  - **Rifle / Mag Ammo:** 10 Rounds
+
+### **Firearms & Reload Economy**
+- **Handgun (Medium, 1 Slot):** Uses 9mm. Quietest firearm. Can reload 1 magazine as part of an action.
+- **Shotgun (Large, 2 Slots):** Uses Shells. High close-range damage. Bypasses 1 Armor box on targets. Reloading shell-by-shell costs an action for 4 shells.
+- **Rifle (Large, 2 Slots):** Uses Rifle ammo. Ignores distance penalties; high stopping power.
+
+### **Gunfire Noise & Threat Clock (1–6)**
+Every unsuppressed gunshot ticks the local area **Noise Clock** up by +1 (+2 for Shotguns/Magnums).
+- **At Noise 6:** A roaming zombie horde or a B.O.W. Stalker (Mr. X / Nemesis archetype) enters the scene immediately.
+
+---
+
+## 5. WEAPON & TOOL DURABILITY
+
+Melee weapons and survival tools degrade under heavy use.
+
+### **Durability Boxes**
+Every melee weapon and tool has **Durability Boxes**:
+- **Improvised Weapon (Pipe, Board):** ⬜ (1 Box)
+- **Combat Knife / Machete:** ⬜⬜ (2 Boxes)
+- **Fireaxe / Crowbar / Steel Bat:** ⬜⬜⬜ (3 Boxes)
+
+### **Degradation Mechanics**
+- **On a Success with Cost (Miss by 1–4):** A player can choose to mark 1 Durability Box instead of taking Strain or Damage.
+- **On a Failure (Miss by 5+):** The weapon automatically loses 1 Durability Box (or gets stuck in a target).
+- **When all boxes are marked:** The weapon breaks or snaps and becomes useless.
+
+### **Firearm Jamming & Wear**
+- **Natural 1 on a Firearm Roll:** The gun **jams**. Clearing the jam requires a full action and a Focus TN 10 check.
+- **Unmaintained Firearms:** Guns found in flooded/ruined zones start with 1 Wear box. If forced to soak damage, the gun breaks until repaired with spare parts by a *Gunsmith*.
+
+---
+
+## 6. PROTECTIVE GEAR & ARMOR
+
+Characters start with **0 Armor**. Armor must be looted or crafted:
+
+| Armor Type | Armor Boxes | Encumbrance / Penalty | Durability & Repair |
+| :--- | :--- | :--- | :--- |
+| **Leather / Padding** | ⬜ (1 Box) | Takes 1 Slot if not worn | Shreds after 1 soak; single use. |
+| **Ballistic / Kevlar Vest** | ⬜⬜ (2 Boxes) | None | Soaks bullet/blade hits; repair with Kevlar kit. |
+| **Heavy Riot Gear** | ⬜⬜⬜ (3 Boxes) | -2 penalty to Finesse stealth rolls | High bite defense; heavy and noisy. |
+
+**Armor Rule:** Marking an Armor box completely negates 1 instance of incoming Strain/harm. Marked boxes represent shattered plates or torn material and require repair to restore.
+
+---
+
+## 7. INVENTORY CAPACITY & CONTAINERS
+
+### **Base Capacity: 4 Slots**
+Everything carried must fit into your slots.
+
+- **Small Items (1/4 Slot):** Ammo boxes, keys, single herbs, lighter, batteries (up to 4 fit in 1 Slot).
+- **Medium Items (1 Slot):** Handguns, combat knives, medical sprays, rations, flashlights.
+- **Large Items (2 Slots):** Shotguns, rifles, crowbars, fuel cans.
+
+### **Containers & Expansions**
+- **Belt Pouch (+1 Slot):** Carries small items only.
+- **Rucksack (+2 Slots, Hard Cap 7 Slots Total):** Expands capacity.
+  - **Emergency Drop Mechanism:** If grappled by a zombie or B.O.W., a player can declare *"I drop my pack"* to automatically break free without taking damage, leaving the pack on the ground.
+
+---
+
+## 8. MEDICAL RECOVERY & INFECTION ENGINE
+
+Strain and Armor do **not** recover automatically during rest scenes.
+
+### **Medical Consumables Matrix**
+- **Green Herb (1/4 Slot):** Restores 2 Strain.
+- **Green + Green Herb (1/4 Slot):** Restores 4 Strain.
+- **Green + Red Herb (1/4 Slot):** Restores full Strain (5/5).
+- **Green + Blue Herb (1/4 Slot):** Restores 2 Strain and lowers Infection Track by 1 step.
+- **First Aid Spray (1 Slot):** Instantly restores full Strain and clears Bleeding.
+
+---
+
+### **Virus Infection Track (0–5)**
+Gained when bitten, clawed, or exposed to B.O.W. fluids without sealed armor:
+
+- **Stage 0 (Clean):** Healthy.
+- **Stage 1 (Exposed):** Low fever. No mechanical penalty yet.
+- **Stage 2 (Incubation):** Max Strain reduced by 1 (Cap: 4).
+- **Stage 3 (Necrosis):** Max Strain reduced by 2 (Cap: 3). -2 penalty to all Focus rolls.
+- **Stage 4 (Mutation):** Max Strain reduced by 3 (Cap: 2). Gain +2 Force (unnatural strength), but must pass a Focus TN 15 check under stress to avoid bloodlust.
+- **Stage 5 (Terminal / B.O.W.):** Character succumbs to the virus and becomes an NPC monster.
+
+---
+
+## 9. INCAPACITATION, BLEEDING OUT & DEATH
+
+When reduced to **0 Strain** and holding no active Armor:
+
+1. **Downed:** You collapse immediately and cannot move or take offensive actions.
+2. **Bleeding Out Timer:** You have **1 Round / 24-Hour Post Window** for an ally to stabilize you (expending bandages, a herb, or a successful medicine roll). If untreated by the end of the window, the survivor dies.
+3. **Swarm Execution / Coup de Grâce:** If a zombie or B.O.W. is in melee range of a downed survivor and no ally draws its aggression, the creature automatically executes or infects the downed character without requiring an attack roll.
+
+---
+
+## 10. PROGRESSION ECONOMY
+
+The GM awards **PP (Progression Points)** for completing objectives, surviving encounters, and consistent posting:
+
+- **[10 PP] Increase Strain Cap:** Increase Max Strain by +1 (Cap: 10).
+- **[15 PP] New Specialization Domain:** Unlock a new tactical discipline.
+- **[20 PP] New Minor Trait:** Add a new +1 survival trait.
+- **[20 PP] Upgrade Trait:** Upgrade a Minor Trait (+1) to a Major Trait (+2).
+- **[25 PP] Stat Increase:** +1 to Force, Finesse, or Focus (Hard Cap: 5).
+
+---
+
+## 11. SURVIVAL CHARACTER SHEET TEMPLATE
+
+```text
+==================================================
+RESIDENT EVIL VBG-Z: SURVIVOR DOSSIER
+==================================================
 Name:
+Callsign / Alias:
+Pre-Collapse Profession:
+Background Concept:
 
-Concept:
+STATS (3 Points distributed at creation. Max 2. Hard Cap 5.)
+Force:   +0
+Finesse: +0
+Focus:   +0
 
-Description:
+TRAITS (Flat bonuses to 1d20 rolls)
+[Major Trait] (+2 Bonus): 
+[Minor Trait] (+1 Bonus): 
 
-STATS (3 points to distribute. Max 2 per stat at creation. Stats are flat bonuses to your roll total, not dice.)
+TACTICAL SPECIALIZATION
+Domain Name: 
+Description: 
 
-Force: 0
+VITALS & PROTECTION
+Strain:    [X][X][X][X][X] (5/5)
+Armor:     [ ][ ] (0/0 - Granted by equipped gear)
+Infection: [0/5] Stage 0 (Clean)
 
-Finesse: 0
+ACTIVE CONDITIONS
+- None
 
-Focus: 0
-
-TRAITS (Traits are your dice. Major = +2d10. Minor = +1d10. Pool cap: 4d10. Minimum pool: 1d10.)
-
-[Major] (+2d10)
-
-[Minor] (+1d10)
-
-STATUS
-
-Strain: [X][X][X][X][X] (5/5)
-
-Armor: [ ][ ] (0/0 - Granted by equipped armor)
-
-PP: 0
-
-CONDITIONS
-
-None
-
-ABILITY DOMAIN
-
-Name:
-
-Definition:
-
-INVENTORY (5 Base Slots)
-
-1\. \[\]
-
-2\. \[\]
-
-3\. \[\]
-
-4\. \[\]
-
-5\. \[\]
-
----
-
-## **7\. CHARACTER SHEET EXAMPLE**
-
-**Marcus, Former Tactical Engineer**
-
-* **Name:** Marcus  
-* **Concept:** A former municipal engineer and tactical responder surviving in the ruins of the outbreak.
-
-**STATS**
-
-* **Force:** 1  
-* **Finesse:** 1  
-* **Focus:** 1
-
-**TRAITS**
-
-* **[Major] Tactical Engineer (+2d10):** Structural mechanics, breaching, and fortified barricading.  
-* **[Minor] Field Scavenger (+1d10):** Spotting salvageable supplies and navigating ruined urban terrain.
-
-**STATUS**
-
-* **Strain:** [X][X][X][X][X] (5/5)  
-* **Armor:** [ ][ ] (0/0 — Unequipped)  
-* **PP:** 0
-
-**CONDITIONS:** None
-
-**ABILITY / SPECIALIZATION DOMAIN**
-
-* **Name:** Rapid Fortification & Breach  
-* **Definition:** I analyze structural integrity and quickly jury-rig barricades, bypass mechanical locks, or reinforce choke points.
-
-**INVENTORY (5 Base Slots)**
-
-1. [Medium] 9mm Service Pistol (1 Slot)  
-2. [Medium] Crowbar & Pry Tool (1 Slot)  
-3. [Small] Lockpick Set | [Small] Pocket Flashlight | [Small] Spare 9mm Box (1 Slot)  
-4. [Medium] Clean Field Bandage (1 Slot)  
-5. [ ] (Empty)
-
-**Character Breakdown (Strategy)**
-
-* **Dice Pool:** Traits provide dice only. For engineering and breaching tasks, Marcus uses his Major Trait (2d10). When a task also involves urban salvage or navigating debris, his Minor Trait adds +1d10 (3d10 total).  
-* **Stats as Flat Bonuses:** Finesse +1 adds a flat 1 to precision rolls (lockpicking, shooting), while Force +1 aids in prying or barricading.
-
-**Example Play Post**  
-*Scenario: Marcus needs to unlock a rusted fire escape door before a wandering infected shambles down the corridor.*
-
-**Marcus**  
-The wet shuffle of footsteps echoes down the concrete hall. Marcus kneels by the rusted iron latch.  
-*Intent:* Quietly pick the padlock before the infected rounds the corner.  
-*Action:* Standard Action (Pick Lock). Using Finesse for manual dexterity.  
-*Dice Pool:* 2d10 (Major Trait — Tactical Engineer) + 1d10 (Minor Trait — Field Scavenger). Flat Bonus: +1 Finesse.  
-*Target Difficulty:* 15.  
-*Roll:* [6, 7, 1] → Sum: 14 + 1 = **15**  
-*Result:* Beat by 0 → **Clean Success**
-
-**Narrative:**  
-Marcus slides the tension wrench into the corroded cylinder, gently applying counter-pressure until the final tumbler clicks loose. The padlock opens silently in his palm, and he slips through the fire escape without alerting the creature.
-
-**STATUS UPDATE:**
-* Strain: [X][X][X][X][X] (5/5)  
-* Conditions: None
+INVENTORY (4 Base Slots)
+[Slot 1]: 
+[Slot 2]: 
+[Slot 3]: 
+[Slot 4]: 
+==================================================
+```

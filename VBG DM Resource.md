@@ -1,212 +1,98 @@
-# VBG: Game Master Resource v1.0
+# VBG-Z: GAME MASTER SURVIVAL HORROR RESOURCE v2.0
+*Guide for Asynchronous Play-by-Post Running Very Basic RPG: Zombie Survival Edition*
 
 ---
 
-## 1. Setting Target Difficulties
+## 1. SETTING TARGET DIFFICULTIES (TN)
 
-The Target Difficulty (or Target Number) is the number the player's total roll (sum of all dice + flat Stat bonus) must meet or exceed.
+In VBG-Z, players roll `1d20 + Stat + Traits` against a Target Difficulty (TN) set by the GM.
 
-**Transparency Rule:** Tell players the target difficulty before they roll, or give a narrative hint. Async play demands players know what they are attempting, not be surprised after the fact.
+| Target | Risk Tier | Scenario Example |
+| :--- | :--- | :--- |
+| **TN 10** | **Routine** | Searching a quiet closet, forcing a wooden latch, basic field dressing in safety. |
+| **TN 15** | **Risky** | Shooting a sprinting runner, picking a lock while footsteps approach, jumping a gap. |
+| **TN 20** | **Desperate** | Shoving a Licker off an ally, blind-firing in darkness, emergency field surgery. |
+| **TN 25+** | **Extreme** | Grappling a Tyrant solo, executing an impossible trick shot on a B.O.W. core. |
 
-**Result Tiers (what happens after the roll):**
-
-| Total vs. Target | Outcome |
-|---|---|
-| Miss by 5 or more | Failure — you do not achieve your goal, or do so with a disastrous consequence |
-| Miss by 1–4 | Success with Cost — you succeed, but must pay (mark Strain, gain a Condition, lose gear, alert an enemy) |
-| Beat by 0–5 | Clean Success — you achieve your goal without penalty |
-| Beat by 6 or more | Critical — perfect success; regain 1 Strain OR gain a distinct narrative advantage |
+**Transparency Rule:** Always state the Target TN in your scene description or GM post so players can resolve their actions immediately in text without extra round-trips.
 
 ---
 
-## 2. Scene Framework
+## 2. THE NOISE & THREAT CLOCK ENGINE
 
-VBG uses a **scene-based structure**. Scenes are the unit of play, not rounds or turns.
+In Play-by-Post survival horror, noise management creates organic group tension.
 
-### Scene Types
+### **Area Noise Clock (1 to 6 Ticks)**
+Every location has an active **Noise Clock (0/6)**:
+- **Melee Combat / Quiet Traversal:** +0 Noise ticks.
+- **Unsuppressed Handgun Fire:** +1 Noise tick.
+- **Shotgun / Rifle / Explosive Blast:** +2 Noise ticks.
+- **Screaming / Metal Door Breaches:** +1 Noise tick.
 
-**Battle Scene**
-- A physical confrontation or dangerous conflict.
-- Has a defined end condition: enemy defeated, objective taken, players escape, or a side surrenders.
-- Players post their action; GM responds with enemy reaction and the new state of the scene.
-- Continues until the end condition is met.
-
-**Social Scene**
-- A clear social confrontation.
-- Mostly narrative. Rolls happen only at key decision points or moments of genuine risk.
-- The GM plays the opposing position. A DR can be set for persuasion, deception, or pressure.
-
-**Rest Scene**
-- Safe Haven downtime in a secure shelter or safe room.
-- Strain and Armor do not automatically restore for free; recovery requires spending medical items (herbs, sprays, sutures) or rest under medical supervision.
-- Can include narrative character interactions and maintenance.
-
-**Exploration Scene**
-- Characters move through the world, interact, and discover.
-- Driven by narrative like a novel. Roll only when there is a real risk and a meaningful cost for failure.
-- The GM describes the world; players write how their characters respond.
-
-### Scene Economy Rules
-
-- **Resource Attrition:** Strain and Armor persist across scenes until repaired or treated with medical supplies.
-- **Conditions** persist across scenes until treated, stabilized, or surgically resolved.
+**Clock Escalation Milestones:**
+- **Noise 3:** Ambient cues (scratching in vents, distant groans, shadows crossing doorways).
+- **Noise 6:** **BREACH EVENT.** A shambler horde or active B.O.W. Stalker immediately enters the room.
 
 ---
 
-## 4. Action Order in Battle Scenes
+## 3. ASYNCHRONOUS MONSTER DESIGN
 
-Action order is determined by **Finesse**.
+In VBG-Z, **monsters do not roll dice**. They declare threat actions and force player resolution rolls.
 
-**Default Order:**
-1. Highest Finesse acts first.
-2. Ties are broken by whoever posts first.
-3. Enemies act after all players in a given exchange, or at GM discretion in between players if the narrative calls for it.
+### **Threat Tiers & Monster Blueprints**
 
-**Optional — Initiative Roll:**
-Use when you want variance or to simulate a surprise/ambush opening:
-- Each character rolls 1d10 and adds their Finesse as a flat bonus.
-- Order is fixed for the entire scene.
-- GM rolls once for each major enemy group (not individual mooks).
+```markdown
+## SHAMBLER HORDE (Threat Tier: Standard)
+**Description:** Rotting corpses driven by instinct to grab and bite.
+**Armor:** ⬜⬜ (2 Armor Boxes)
+**Actions:**
+- Swarm Grab: Forces a Finesse TN 15 roll to avoid being pinned.
+- Vicious Bite: Inflicts 1 Strain and increases Infection Track by +1 if target is grappled.
+**Strengths:** Immune to non-lethal strikes; decapitation (TN 20) or fire required to bypass Armor.
+**Weaknesses:** Slow movement; fire destroys corpses and prevents V-ACT resurrection.
+```
 
-*Recommendation: Use Finesse order by default. Use the Initiative Roll only when a dramatic surprise opening matters.*
+```markdown
+## LICKER (Threat Tier: Major)
+**Description:** Blind, quadrupeds with exposed brains and razor tongue spears.
+**Armor:** ⬜⬜⬜ (3 Armor Boxes)
+**Actions:**
+- Tongue Spear: Long-range strike. Forces a Finesse TN 20 roll; deals 2 Strain and Bleeding.
+- Pounce & Maul: Pins a target, dealing 1 Strain per exchange until shoved off by Force TN 15.
+**Strengths:** Blind (relies on hearing). Silent movement grants stealth advantage.
+**Weaknesses:** Complete stealth (Silent Step / Walking) allows players to pass unmolested.
+```
 
----
-
-## 5. GM Moves (On Player Failure)
-
-When a player rolls a Failure (misses DR by 5 or more), the GM must act. Choose one — do not repeat the same move twice in a row.
-
-**Inflict Harm** — The enemy or environment strikes. The player must Soak (spend Strain or mark Armor) or accept a Condition.
-
-**Introduce a Threat** — A new problem enters the scene: reinforcements arrive, the bridge cracks, an ally is targeted, a fire starts.
-
-**Block Progress** — The player's goal is denied. The door won't open. The guard doesn't believe them. The target escapes.
-
-**Complicate the Scene** — Something shifts that makes everything harder: lights go out, a third faction arrives, the weather turns violent, a key item is destroyed.
-
-**Cost Time or Resources** — The failure burns a window of opportunity. Supplies are wasted. An ally must spend Strain to compensate.
-
-**Turn the Environment** — Use the setting as a weapon: avalanche, flooding room, collapsing floor, crowd turning hostile.
-
----
-
-## 6. Condition System
-
-Conditions are **negative temporary Traits** gained from wounds, failed rolls, or narrative costs. They affect characters mechanically and must be resolved to be removed.
-
-### Condition Categories
-
-**Ongoing Strain Loss**
-- *Poisoned / Bleeding / Burning* — Lose 1 Strain at the start of each new exchange until treated.
-- Treatment: field medicine, clean bandages, or medical supplies.
-
-**Maximum Strain Reduction**
-- *Limb Damaged* — Maximum Strain reduced by 2 until stabilized and treated.
-- *Limb Severed* — Maximum Strain permanently reduced by 2. Certain actions become impossible (climbing with no arm, sprinting with no leg). Requires emergency tourniquet and permanent adaptation/prosthetics.
-
-**Action Restrictions**
-- *Pinned / Restrained* — Cannot take movement or offensive actions until freed or an ally assists.
-- *Blinded / Impaired Senses* — Target difficulties increase for any action requiring sight.
-- *Stunned* — Skip next available action. Clears on their following turn.
-
-**Narrative Penalties**
-- *Concussed / Traumatized / Shaken* — Acts as a −1d10 penalty (one fewer die in the pool) to relevant rolls based on trauma.
-
-### Removing Conditions
-
-| Method | Conditions Removed |
-|---|---|
-| First Aid / Medical Supplies | Bleeding, Poisoned, Burning, Pinned |
-| Rest & Medical Stabilization | Limb Damaged, Concussed, Shaken |
-| Surgical Care / Long-Term Treatment | Severe physical trauma, chronic injuries |
+```markdown
+## THE PURSUER / STALKER (Threat Tier: Boss)
+**Description:** Unstoppable mutated bio-weapon tracking party gunfire noise.
+**Armor:** ⬜⬜⬜⬜⬜ (5 Armor Boxes)
+**Actions:**
+- Structural Wall Breach: Destroys cover and forces a Focus/Finesse TN 20 roll to avoid crush trauma.
+- Grab & Lift: Forces a Force TN 20 roll to break free; inflicts 2 Strain per exchange.
+**Strengths:** Cannot be permanently killed in standard scenes; footsteps build ambient horror.
+**Weaknesses:** Heavy Explosives (Grenade Launchers / Rocket Launchers) or environmental traps stun it for 2 scenes.
+```
 
 ---
 
-## 7. Incapacitation, Bleeding Out & Death
+## 4. INVENTORY & ITEM MANAGEMENT GUIDANCE
 
-### When a Character at 0 Strain Takes Another Hit
-When reduced to 0 Strain with no remaining Armor, taking another hit or failing a lethal roll immediately places the survivor into **Incapacitation / Bleeding Out**:
+### **Handling Ammo & Scavenging**
+- **Scavenge Rolls:** Focus TN 10 (Routine) to find basic supplies; TN 15 (Risky) for military crates.
+- **Failure on Scavenge:** Finding 0 ammo or finding 1 ammo box at the cost of ticking the area Noise Clock.
+- **Weapon Jams:** A Natural 1 on a firearm roll jams the gun. The player must use a full action and pass a Focus TN 10 check to clear it.
 
-- **Downed State:** The character collapses and cannot take active turns or defend themselves.
-- **Bleeding Out Clock:** The survivor is actively dying. An ally must spend an action and use medical supplies (or make a first aid roll) to stabilize them within the next round/exchange. If not stabilized in time, the character dies.
-- **Swarm / Hostile Execution:** Any hostile enemy with physical reach (a shambler, licker, or hunter) may immediately execute or infect the downed survivor without a roll if allies do not intervene.
-
----
-
-## 8. Tactical Gear, Scarcity & Vulnerabilities
-
-Gear is not cosmetic in survival horror. Weapons, ammunition, light sources, and tools drive tactical decisions, risk assessment, and resource management.
-
-### Firearm & Tool Principles
-- **Noise & Heat:** Unsuppressed gunshots echo and raise local area threat, drawing nearby infected or alerting stalkers. Melee tools are quiet but force close-quarters exposure.
-- **Ammunition Scarcity:** Ammo must be tracked by loose rounds or magazines. Running empty forces desperate retreats or tool swaps.
-- **Tool Durability:** Improvised bludgeons and makeshift blades degrade or break on severe failed rolls.
-
-### Biological Vulnerabilities & Target Profiles
-Certain B.O.W.s and mutated strains have distinct biological weak points or elemental vulnerabilities:
-
-| Creature Type | Vulnerability / Tactical Requirement |
-|---|---|
-| Basic Infected / Shambler | Headshot / Decapitation (stops V-ACT rebirth) or Incineration |
-| Crimson Head / Sprinter | High-caliber stopping power, fire/acid, or heavy limb destruction |
-| Licker | Hearing-reliant (stealth traversal), sensitive exposed brain tissue |
-| Armored / Carapace B.O.W. | Armor-piercing munitions (Magnum/Rifles) or explosive shockwaves |
-| Regenerative Tyrant / Stalker | High-voltage environmental traps, heavy ordnance, or temporary stunning |
-
-**Signaling Weak Points:** The GM describes distinct visual cues ("a pulsing yellow eye on its shoulder joint" / "thick cranial carapace protecting its skull"). Discovering weak points under fire requires a FOCUS check or tactical experimentation.
-
-### Protective Gear
-Armor represents physical worn protection (tactical vests, riot gear, reinforced leather) providing discrete Armor boxes that absorb incoming trauma before breaking.
+### **Medical Triage & Treatment**
+- **Infection Treatment:** Blue Herbs / Suppressants lower the Infection Track by 1 step. They do not grant immunity.
+- **Stabilizing Downed Allies:** Requires an action and Focus TN 15 (or expending a First Aid Spray / Bandage) before the 24-hour post window closes.
 
 ---
 
-## 9. Multi-Domain Specializations
+## 5. ASYNCHRONOUS SCENE PACING IN DISCORD
 
-When a character activates **more than one specialization simultaneously** in a single action:
-
-### Scale Cap Per Domain
-- Combining disciplines caps individual scale at **Standard (1 Strain each)**.
-- Total Strain spent is capped at **2 Strain maximum** (Major tactical impact).
-
-### Rules
-
-- The character makes **one roll** for the combined action.
-- The result is **one unified outcome** — the GM narrates it as a single event, not separate actions.
-- **On Failure:** A multi-specialization failure carries severe tactical risk — weapon jams, dropped gear, or exposing oneself to an immediate grab/attack.
-
----
-
-## 10. Assist (No Direct Mechanics — GM Guidance)
-
-VBG has no mechanical assist system, but the following approaches are recommended:
-
-**Ability Setup:** A character uses their specialization to create conditions that directly benefit an ally's roll. The GM may lower the target difficulty for the follow-up action.
-
-**Sacrificial Positioning:** A character spends their action helping narratively — drawing enemy attention, creating an opening, bracing an ally against a fall. No roll, no mechanical bonus, but the GM should honor it in how the scene state is described going forward.
-
-**Domain Collaboration:** When two characters' domains naturally complement each other and both pay their own Strain cost independently, the GM may allow a combined effect that would otherwise require multi-domain — because two characters are involved, not one splitting their focus.
-
----
-
-## 11. NPC & Threat Design
-
-### Simple NPC Template
-
-**Name / Concept:**
-**Strain:** (Mook: 3–5 / Soldier: 8–12 / Elite: 15–20 / Boss: 25–40)
-**Armor:** (Mook: 0 / Soldier: 1–2 / Elite: 2–3 / Boss: 4+)
-**Attack DR:** The DR players must beat to avoid taking damage from this NPC's action.
-**Material Weakness (if any):**
-**Signature Move:** One notable thing this NPC does that makes it memorable.
-**Conditions it can apply:** (e.g., a snake can apply Poisoned; a berserker can apply Stunned)
-
-### Threat Scaling
-
-| Enemy Type | Strain | Armor | Attack DR | Notes |
-|---|---|---|---|---|
-| Mook | 3–5 | 0 | 10–15 | Falls easily; threatening in numbers |
-| Soldier | 8–12 | 1–2 | 15–20 | Professional fighter; uses tactics |
-| Elite | 15–20 | 2–3 | 20–25 | Named foe; has a special ability or weakness |
-| Boss | 25–40 | 3–5 | 25–30 | Anchor of a scene; multi-phase if desired |
-
-**Boss Phases:** A Boss can have 2–3 phases. When their Strain drops below a threshold (e.g., half), their behavior, attack DR, or available actions change. Signal the phase shift with a dramatic description.
+1. **Side-Initiative Pacing:** All players post within a 24-hour window. The GM resolves all player actions simultaneously, updates the Noise Clock, and describes enemy reactions.
+2. **Conditional Scripting:** Encourage players to write conditional statements in their posts:
+   - *"If the zombie moves within 5ft, I fire my shotgun (Finesse +0); if it stays back, I reload."*
+3. **Transparent Scene Cards:** Always include current room vitals at the top of GM posts:
+   - **Location:** Hallway 2F | **Noise:** [3/6] | **Threats:** 2 Shamblers
