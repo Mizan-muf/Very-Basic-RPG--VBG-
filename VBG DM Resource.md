@@ -226,13 +226,11 @@ The **total Strain spent across all domains** determines the power level of the 
 | 2 | Major |
 | 3 or more | Miracle |
 
-**Example:** A character combines Pyromancy (Standard, 1 Strain) + Aeromancy (Standard, 1 Strain) + Electromancy (Standard, 1 Strain) = 3 Strain total = Miracle-level effect. A supercharged storm of fire, wind, and lightning tears through the battlefield.
-
 ### Rules
 
 - The character makes **one roll** for the combined action.
 - The result is **one unified outcome** — the GM narrates it as a single event, not three separate things happening.
-- **On Failure:** A multi-domain failure is particularly dangerous. The GM may add blowback — uncontrolled energy, environmental damage, or a Condition on the caster from the strain of split focus.
+- **On Failure:** A multi-domain failure is particularly dangerous. The GM may add blowback — environmental damage or a Condition on the user from the strain of split focus.
 
 ---
 
@@ -240,13 +238,11 @@ The **total Strain spent across all domains** determines the power level of the 
 
 VBG has no mechanical assist system, but the following approaches are recommended:
 
-**Ability Setup:** A character uses their domain to create conditions that directly benefit an ally's roll. The GM may lower the DR by 5 for the follow-up action.
-- *Example: Smokecraft player creates a fog cloud. Shadowblade ally's stealth roll drops from DR 20 to DR 15.*
+**Ability Setup:** A character uses their specialization to create conditions that directly benefit an ally's roll. The GM may lower the target difficulty for the follow-up action.
 
 **Sacrificial Positioning:** A character spends their action helping narratively — drawing enemy attention, creating an opening, bracing an ally against a fall. No roll, no mechanical bonus, but the GM should honor it in how the scene state is described going forward.
 
 **Domain Collaboration:** When two characters' domains naturally complement each other and both pay their own Strain cost independently, the GM may allow a combined effect that would otherwise require multi-domain — because two characters are involved, not one splitting their focus.
-- *Example: Geomancer raises a wall (Standard, 1 Strain). Electromancer charges it (Standard, 1 Strain). Together they create an electrified barrier — without either character taking multi-domain penalties.*
 
 ---
 

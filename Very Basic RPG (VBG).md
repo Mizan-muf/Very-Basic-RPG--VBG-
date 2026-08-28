@@ -59,10 +59,6 @@ Traits are narrative truths about your character. They are the **only** source o
 * **1 MAJOR Trait (+2d10):** Your primary archetype or background.  
 * **1 MINOR Trait (+1d10):** A secondary skill, training, or quirk.
 
-### [**Major Traits**](https://docs.google.com/document/d/1SwfO6UZIvQR-3CZgh7VDGT6k830__67RfUeFvCannus/edit?usp=sharing)
-
-### [**Minor Traits**](https://docs.google.com/document/d/1hu6VuhHPJN1Umk2RWIF6SZeNeSNGLIxqV820eInVC5A/edit?usp=sharing)
-
 ### **C. Strain (Your Fuel)**
 
 * **Starting Strain:** 5  
@@ -158,11 +154,7 @@ You may activate more than one Ability Domain in a single action. When you do, y
 | 3 or more | Miracle |
 
 * You make **one roll** for the combined action. The GM narrates it as one unified event.  
-* On **Failure**, the GM may add blowback — uncontrolled energy turns on the caster.
-
-*Example: Pyromancy (Standard, 1 Strain) \+ Aeromancy (Standard, 1 Strain) \+ Electromancy (Standard, 1 Strain) \= 3 Strain \= Miracle\-level firestorm. One roll. One outcome.*
-
-### [**Abilities**](https://docs.google.com/document/d/196tmDtBRt9i8UmSkOJrsyWXaoOOvQvjApHhv5df5Nic/edit?usp=sharing)
+* On **Failure**, the GM may add blowback — uncontrolled energy turns on the user.
 
 ---
 
