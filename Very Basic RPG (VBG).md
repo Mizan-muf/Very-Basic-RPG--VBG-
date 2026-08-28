@@ -86,13 +86,11 @@ Characters do not start with free Armor. Armor must be acquired as protective ge
 
 **Item Sizes:**
 
-* **Small:** (Potions, daggers, scrolls, keys) — Stack up to 4 in 1 Slot.  
-* **Medium:** (One-handed weapons, tools, rope, rations) — Takes 1 Slot.  
-* **Large:** (Two-handed weapons, heavy equipment) — Takes 2 Slots.
+* **Small:** (Small tools, keys, ammo, light blades) — Stack up to 4 in 1 Slot.  
+* **Medium:** (One-handed weapons, tools, supplies, medical kits) — Takes 1 Slot.  
+* **Large:** (Two-handed weapons, heavy equipment, bulky gear) — Takes 2 Slots.
 
-**Containers:**
-
-* Backpack: Grants \+5 Slots (Total Capacity: 10).
+Gear carried beyond base capacity requires dropping items, dedicated transport, or creating encumbrance penalties.
 
 Gear is primarily **flavour**. Items have no mechanical stats unless the GM designates a specific narrative exception (see DM Resource: Special Materials).
 
