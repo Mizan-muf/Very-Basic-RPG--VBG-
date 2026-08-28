@@ -8,7 +8,7 @@
 ### **The Resolution Roll**
 Whenever you attempt a risky or dangerous action, roll:
 
-$$\mathbf{Result = 1d20 + Stat\ Bonus + Trait\ Bonus}$$
+**Roll:** `1d20 + relevant Stat bonus + applicable Trait bonus`
 
 1. **Stat Bonus:** Add Force, Finesse, or Focus.
 2. **Trait Bonus:** Add **+2** for a relevant **Major Trait**, and **+1** for a relevant **Minor Trait** (Max +3 from traits).
