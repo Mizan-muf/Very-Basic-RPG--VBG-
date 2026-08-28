@@ -305,69 +305,63 @@ INVENTORY (5 Base Slots)
 
 ## **7\. CHARACTER SHEET EXAMPLE**
 
-**Fen, the Bogfire Hermit**
+**Marcus, Former Tactical Engineer**
 
-* **Name:** Fen  
-* **Concept:** A reclusive hermit who learned to control the swamp's volatile gases.
+* **Name:** Marcus  
+* **Concept:** A former municipal engineer and tactical responder surviving in the ruins of the outbreak.
 
 **STATS**
 
-* **Force: 1**  
-* **Finesse: 1**  
-* **Focus: 1**
+* **Force:** 1  
+* **Finesse:** 1  
+* **Focus:** 1
 
 **TRAITS**
 
-* **\[Major\] Will-o'-the-Wisp Heart (+2d10):** Core magic identity.  
-* **\[Minor\] Bog Forager (+1d10):** Survival skills.  
-* **\[Minor\] Mistrusted Outsider (+1d10):** Social background.
+* **[Major] Tactical Engineer (+2d10):** Structural mechanics, breaching, and fortified barricading.  
+* **[Minor] Field Scavenger (+1d10):** Spotting salvageable supplies and navigating ruined urban terrain.
 
 **STATUS**
 
-* **Strain:** \[X\]\[X\]\[X\]\[X\]\[X\] (5/5)  
-* **Armor:** \[X\]\[X\] (2/2)  
+* **Strain:** [X][X][X][X][X] (5/5)  
+* **Armor:** [ ][ ] (0/0 — Unequipped)  
 * **PP:** 0
 
 **CONDITIONS:** None
 
-**ABILITY DOMAIN**
+**ABILITY / SPECIALIZATION DOMAIN**
 
-* **Name:** Bogfire  
-* **Definition:** I control and ignite the flammable gases of the swamp, creating eerie, green flames.
+* **Name:** Rapid Fortification & Breach  
+* **Definition:** I analyze structural integrity and quickly jury-rig barricades, bypass mechanical locks, or reinforce choke points.
 
-**INVENTORY**
+**INVENTORY (5 Base Slots)**
 
-1. \[Medium\] Walking Staff (1 Slot)  
-2. \[Medium\] Leather Vest (1 Slot)  
-3. \[Small\] Dried Frog Legs | \[Small\] Flint & Steel | \[Small\] Empty Vial | \[ \] (1 Slot)  
-4. \[ \]  
-5. \[ \]
+1. [Medium] 9mm Service Pistol (1 Slot)  
+2. [Medium] Crowbar & Pry Tool (1 Slot)  
+3. [Small] Lockpick Set | [Small] Pocket Flashlight | [Small] Spare 9mm Box (1 Slot)  
+4. [Medium] Clean Field Bandage (1 Slot)  
+5. [ ] (Empty)
 
 **Character Breakdown (Strategy)**
 
-* **Dice Pool:** Traits give dice only. For Bogfire magic, the Major Trait gives 2d10. When a situation also calls on his Minor Traits (surviving in a swamp, navigating outsider hostility), those add 1d10 each. Full 4d10 is available when all three Traits are relevant to the same action.  
-* **Stats as Flat Bonuses:** Focus \+1 adds 1 to every magic roll total — not dice, but consistent and stacks with any pool size. Raising Focus to 5 over time adds \+5 to every relevant roll, which is the primary growth engine for specialists.  
-* **Expertise Path:** Once Fen buys a New Minor Trait through progression, his Bogfire pool becomes 5d10 — triggering Expertise. From that point, a Success with Cost on magic rolls can be automatically downgraded to a Clean Success.
+* **Dice Pool:** Traits provide dice only. For engineering and breaching tasks, Marcus uses his Major Trait (2d10). When a task also involves urban salvage or navigating debris, his Minor Trait adds +1d10 (3d10 total).  
+* **Stats as Flat Bonuses:** Finesse +1 adds a flat 1 to precision rolls (lockpicking, shooting), while Force +1 aids in prying or barricading.
 
 **Example Play Post**  
-*Scenario: Two giant crocodilian beasts corner Fen.*
+*Scenario: Marcus needs to unlock a rusted fire escape door before a wandering infected shambles down the corridor.*
 
-**Fen**  
-The beasts hiss. Fen plants his feet.  
-*Intent:* Create a wall of bogfire to drive them back.  
-*Action:* Standard Scale Bogfire (Cost: 1 Strain). Using Focus for control.  
-*Dice Pool:* 2d10 (Major Trait \- Will-o'-the-Wisp Heart). Flat Bonus: \+1 Focus.  
-*DR:* 15 (dangerous, but within his expertise).  
-*Roll:* \[7, 6\] → Sum: 13 \+ 1 \= **14**  
-*Result:* Miss by 1 → **Success with Cost**
+**Marcus**  
+The wet shuffle of footsteps echoes down the concrete hall. Marcus kneels by the rusted iron latch.  
+*Intent:* Quietly pick the padlock before the infected rounds the corner.  
+*Action:* Standard Action (Pick Lock). Using Finesse for manual dexterity.  
+*Dice Pool:* 2d10 (Major Trait — Tactical Engineer) + 1d10 (Minor Trait — Field Scavenger). Flat Bonus: +1 Finesse.  
+*Target Difficulty:* 15.  
+*Roll:* [6, 7, 1] → Sum: 14 + 1 = **15**  
+*Result:* Beat by 0 → **Clean Success**
 
 **Narrative:**  
-Fen thrusts his hands forward. A wall of green flame erupts — the beasts recoil, screeching as the heat drives them back into the murk.
-
-**The Cost:**  
-The gas ignites faster than he can control. Fen gains the Condition: *Burning Hands* — lose 1 Strain at the start of each exchange until treated.
+Marcus slides the tension wrench into the corroded cylinder, gently applying counter-pressure until the final tumbler clicks loose. The padlock opens silently in his palm, and he slips through the fire escape without alerting the creature.
 
 **STATUS UPDATE:**
-
-* Strain: \[X\]\[X\]\[X\]\[X\]\[ \] (4/5) — 1 spent for Standard Scale cost.  
-* Conditions: *Burning Hands* (ongoing — 1 Strain lost per exchange until treated).
+* Strain: [X][X][X][X][X] (5/5)  
+* Conditions: None
