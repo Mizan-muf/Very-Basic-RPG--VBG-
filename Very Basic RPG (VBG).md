@@ -56,8 +56,8 @@ Start with 0 in all stats. You have **3 Points** to distribute.
 
 Traits are narrative truths about your character. They are the **only** source of dice in your pool. If no Trait is relevant to your action, your minimum pool is **1d10**.
 
-* **1 MAJOR Trait (+2d10):** Your primary archetype (e.g., Royal Battlemage, Master Thief).  
-* **2 MINOR Traits (+1d10):** Hobbies, background, or quirks (e.g., Historian, Bar Brawler, Noble Blood).
+* **1 MAJOR Trait (+2d10):** Your primary archetype or background.  
+* **1 MINOR Trait (+1d10):** A secondary skill, training, or quirk.
 
 ### [**Major Traits**](https://docs.google.com/document/d/1SwfO6UZIvQR-3CZgh7VDGT6k830__67RfUeFvCannus/edit?usp=sharing)
 
@@ -277,11 +277,9 @@ Focus: 0
 
 TRAITS (Traits are your dice. Major = +2d10. Minor = +1d10. Pool cap: 4d10. Minimum pool: 1d10.)
 
-\[Major\] (+2d10)
+[Major] (+2d10)
 
-\[Minor\] (+1d10)
-
-\[Minor\] (+1d10)
+[Minor] (+1d10)
 
 STATUS
 
