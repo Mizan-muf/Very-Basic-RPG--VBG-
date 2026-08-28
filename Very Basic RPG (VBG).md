@@ -112,47 +112,27 @@ The cost is determined by the Scale of the effect:
 
 **MINOR (Cost: 0 Strain)**
 
-* *Effect:* Cosmetic effects, sensory changes, lighting candles, minor attacks.  
+* *Effect:* Minor utility, quick sensory checks, basic defensive repositioning, or simple tactical moves.  
 * *Mechanic:* Just Roll.
 
 **STANDARD (Cost: 1 Strain)**
 
-* *Effect:* Combat attacks, overcoming or creating obstacles, affecting two targets, mobility.  
-* *Mechanic:* Spend 1 Strain \+ Roll.
+* *Effect:* Precision combat maneuvers, targeted shots on weak points, field suturing, breaching/barricading, or bypassing obstacles under fire.  
+* *Mechanic:* Spend 1 Strain + Roll.
 
 **MAJOR (Cost: 2 Strain)**
 
-* *Effect:* Multi-target attacks on small groups, incapacitating a strong foe, significant battlefield changes.  
-* *Mechanic:* Spend 2 Strain \+ Roll.
-
-**MIRACLE (Cost: 3 Strain)**
-
-* *Effect:* Room-clearing attacks, feats of god-like strength, permanent environmental change, defying the laws of physics.  
-* *Mechanic:* Spend 3 Strain \+ Roll.
+* *Effect:* High-strain emergency maneuvers, suppressing fire against a cluster, dragging an ally out of a swarm, or desperate last-second countermeasures.  
+* *Mechanic:* Spend 2 Strain + Roll.
 
 ### **Using Multiple Domains (Multi-Domain)**
 
-You may activate more than one Ability Domain in a single action. When you do, your maximum Scale per domain is limited based on how many are active, and even Minor scale costs Strain.
+You may combine more than one specialty discipline in a single action when logically appropriate.
 
-**Scale Cap Per Domain:**
-
-| Domains Active | Max Scale Per Domain |
-|---|---|
-| 1 | Miracle (full range) |
-| 2 | Major |
-| 3 | Standard |
-| 4 or more | Minor |
-
-**Combined Effect:** Total Strain spent across all domains determines the single unified outcome.
-
-| Total Strain Spent | Combined Effect |
-|---|---|
-| 1 | Standard |
-| 2 | Major |
-| 3 or more | Miracle |
-
+* **Scale Cap:** Combining domains caps individual scale at Standard (1 Strain each).
+* Total Strain spent determines the combined tactical impact (capped at 2 Strain maximum).
 * You make **one roll** for the combined action. The GM narrates it as one unified event.  
-* On **Failure**, the GM may add blowback — uncontrolled energy turns on the user.
+* On **Failure**, the GM may introduce severe consequences (dropped gear, weapon jam, or immediate counter-attack).
 
 ---
 

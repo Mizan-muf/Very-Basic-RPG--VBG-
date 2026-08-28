@@ -199,35 +199,19 @@ Armor is the only gear with explicit mechanics. Special armors can be assigned p
 
 ---
 
-## 9. Multi-Domain Abilities
+## 9. Multi-Domain Specializations
 
-When a character activates **more than one Ability Domain simultaneously** in a single action:
+When a character activates **more than one specialization simultaneously** in a single action:
 
-### Scale Cap Per Domain (By Number of Active Domains)
-
-| Domains Active | Max Scale Per Domain | Minor Scale Strain Cost |
-|---|---|---|
-| 1 | Miracle (free range) | 0 Strain (normal) |
-| 2 | Major (cap) | 1 Strain |
-| 3 | Standard (cap) | 1 Strain |
-| 4 or more | Minor (cap) | 1 Strain |
-
-### Combined Effect
-
-The **total Strain spent across all domains** determines the power level of the unified action:
-
-| Total Strain Spent | Combined Effect Tier |
-|---|---|
-| 0 | Minor |
-| 1 | Standard |
-| 2 | Major |
-| 3 or more | Miracle |
+### Scale Cap Per Domain
+- Combining disciplines caps individual scale at **Standard (1 Strain each)**.
+- Total Strain spent is capped at **2 Strain maximum** (Major tactical impact).
 
 ### Rules
 
 - The character makes **one roll** for the combined action.
-- The result is **one unified outcome** — the GM narrates it as a single event, not three separate things happening.
-- **On Failure:** A multi-domain failure is particularly dangerous. The GM may add blowback — environmental damage or a Condition on the user from the strain of split focus.
+- The result is **one unified outcome** — the GM narrates it as a single event, not separate actions.
+- **On Failure:** A multi-specialization failure carries severe tactical risk — weapon jams, dropped gear, or exposing oneself to an immediate grab/attack.
 
 ---
 
