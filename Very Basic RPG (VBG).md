@@ -92,7 +92,7 @@ Characters do not start with free Armor. Armor must be acquired as protective ge
 
 Gear carried beyond base capacity requires dropping items, dedicated transport, or creating encumbrance penalties.
 
-Gear is primarily **flavour**. Items have no mechanical stats unless the GM designates a specific narrative exception (see DM Resource: Special Materials).
+**Gear Mechanics & Scarcity:** Gear is not cosmetic flavor. In survival horror, weapons, ammunition, light sources, and tools have distinct tactical properties, ammo limits, noise profiles, and durability. Using unsuppressed firearms alerts nearby infected; improvised melee weapons can wear down and break under sustained combat.
 
 ---
 

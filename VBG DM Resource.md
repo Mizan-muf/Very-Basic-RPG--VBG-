@@ -169,33 +169,30 @@ They do not die immediately. The player must **immediately choose** one of two o
 
 ---
 
-## 8. Special Materials & Gear
+## 8. Tactical Gear, Scarcity & Vulnerabilities
 
-Gear is primarily **flavour** in VBG — no mechanical stats by default. Weapons, tools, and items express character and story.
+Gear is not cosmetic in survival horror. Weapons, ammunition, light sources, and tools drive tactical decisions, risk assessment, and resource management.
 
-### The Material Exception Rule
+### Firearm & Tool Principles
+- **Noise & Heat:** Unsuppressed gunshots echo and raise local area threat, drawing nearby infected or alerting stalkers. Melee tools are quiet but force close-quarters exposure.
+- **Ammunition Scarcity:** Ammo must be tracked by loose rounds or magazines. Running empty forces desperate retreats or tool swaps.
+- **Tool Durability:** Improvised bludgeons and makeshift blades degrade or break on severe failed rolls.
 
-Certain creatures, by GM decision, have a **Material Weakness**: only specific materials or damage types can reduce their Strain. Other weapons may cause narrative wounds and apply Conditions, but cannot deplete Strain.
+### Biological Vulnerabilities & Target Profiles
+Certain B.O.W.s and mutated strains have distinct biological weak points or elemental vulnerabilities:
 
-**Examples:**
-
-| Creature | Material / Damage Required |
+| Creature Type | Vulnerability / Tactical Requirement |
 |---|---|
-| Werewolf | Silver weapons only |
-| Undead (basic) | Consecrated weapons or fire-based Abilities |
-| Iron Golem | Major scale or higher Abilities only; mundane weapons useless |
-| Sea Wraith | Salt water contact or Lumenmancy; physical attacks pass through |
-| Void Horror | Requires knowledge of its true name; mundane damage does nothing |
+| Basic Infected / Shambler | Headshot / Decapitation (stops V-ACT rebirth) or Incineration |
+| Crimson Head / Sprinter | High-caliber stopping power, fire/acid, or heavy limb destruction |
+| Licker | Hearing-reliant (stealth traversal), sensitive exposed brain tissue |
+| Armored / Carapace B.O.W. | Armor-piercing munitions (Magnum/Rifles) or explosive shockwaves |
+| Regenerative Tyrant / Stalker | High-voltage environmental traps, heavy ordnance, or temporary stunning |
 
-**Signaling the Weakness:** On the first exchange where weapons fail, the GM describes the attack having no lasting effect ("your blade passes through it like smoke" / "the wound closes instantly"). This is the signal — not a surprise punishment.
+**Signaling Weak Points:** The GM describes distinct visual cues ("a pulsing yellow eye on its shoulder joint" / "thick cranial carapace protecting its skull"). Discovering weak points under fire requires a FOCUS check or tactical experimentation.
 
-**Finding the Weakness:** A FOCUS roll vs. DR 15 (recall relevant knowledge), or narrative discovery (questioning locals, finding an old text, examining the creature carefully).
-
-### Armor
-
-Armor is the only gear with explicit mechanics. Special armors can be assigned properties by the GM:
-- *Fireproof Armor:* Immune to the Burning condition.
-- *Blessed Plate:* Effective against undead (counts as consecrated for Material Weakness purposes).
+### Protective Gear
+Armor represents physical worn protection (tactical vests, riot gear, reinforced leather) providing discrete Armor boxes that absorb incoming trauma before breaking.
 
 ---
 
