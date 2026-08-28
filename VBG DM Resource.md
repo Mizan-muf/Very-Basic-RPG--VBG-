@@ -50,9 +50,9 @@ VBG uses a **scene-based structure**. Scenes are the unit of play, not rounds or
 - The GM plays the opposing position. A DR can be set for persuasion, deception, or pressure.
 
 **Rest Scene**
-- Full downtime. Restores all Strain and all Armor.
-- Can include short narrative sub-scenes (a conversation, a dream, a visitor) without triggering a new scene.
-- Conditions (except permanent ones) are cleared at the end of a Rest Scene.
+- Safe Haven downtime in a secure shelter or safe room.
+- Strain and Armor do not automatically restore for free; recovery requires spending medical items (herbs, sprays, sutures) or rest under medical supervision.
+- Can include narrative character interactions and maintenance.
 
 **Exploration Scene**
 - Characters move through the world, interact, and discover.
@@ -61,9 +61,8 @@ VBG uses a **scene-based structure**. Scenes are the unit of play, not rounds or
 
 ### Scene Economy Rules
 
-- **Catch Your Breath** (recover 3 Strain) is available **once per scene**, any scene type.
-- **Armor** is only restored between Rest Scenes.
-- **Conditions** persist across scenes until treated, resolved, or ended by Rest.
+- **Resource Attrition:** Strain and Armor persist across scenes until repaired or treated with medical supplies.
+- **Conditions** persist across scenes until treated, stabilized, or surgically resolved.
 
 ---
 

@@ -164,7 +164,7 @@ VBG uses a scene-based structure. The type of scene determines what resources re
 
 * **Battle Scene:** A physical confrontation. Players post their action; the GM responds with enemy reaction and new state. Repeats until an end condition is met (enemy defeated, objective taken, escape achieved).  
 * **Social Scene:** A high-stakes social confrontation with a clear stake. Mostly narrative. Rolls happen only at key decision points or moments of genuine risk.  
-* **Rest Scene:** Full downtime. Restores all Strain and all Armor. Clears all non-permanent Conditions.  
+* **Rest Scene:** Safe Haven downtime in a secure location. Strain and Armor do not automatically restore for free; recovery requires consuming medical supplies (herbs, bandages, rations) or surgical stabilization.
 * **Exploration Scene:** Characters move through the world, interact, and discover. Driven by narrative. Roll only when there is genuine risk and a meaningful cost for failure.
 
 ### **Action Order**
@@ -225,9 +225,8 @@ The GM should not inflate the DR for a Last Stand. Match the drama of the scene.
 
 ### **Recovery**
 
-* **Catch Your Breath:** Once per scene, recover 3 Strain.  
-* **Rest Scene:** Recover all Strain, restore all Armor, clear all non-permanent Conditions.  
-* **Critical Result:** Beating the DR by 6 or more lets you regain 1 Strain as part of the outcome.
+* **Medical Supplies & Treatment:** Strain and Armor are restored exclusively by expending medical consumables (first aid sprays, herb mixtures, bandages) or through dedicated medical treatment in a secured safe room.
+* **Critical Result:** Beating the target difficulty by 6 or more lets you regain 1 Strain as part of the adrenaline rush or tactical momentum.
 
 ---
 
