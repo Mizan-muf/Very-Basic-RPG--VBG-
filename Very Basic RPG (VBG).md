@@ -60,6 +60,14 @@ Pick 1 Specialization Domain (e.g., *Close-Quarters Defense, Precision Marksmans
 - **STANDARD (1 Strain):** Focused tactical feats (knife counter during a grab, combat suture). *Spend 1 Strain + Roll.*
 - **MAJOR (2 Strain):** Desperate emergency maneuvers (dragging an ally out of a swarm under fire). *Spend 2 Strain + Roll.*
 
+### **Encountering Enemies**
+- **Read the scene:** The GM states enemy numbers, distance, exits, cover, and hazards. Include an intent and a fallback in your post.
+- **Distance matters:** Melee is quiet but risks grabs; firearms work at range but create Noise.
+- **Survive first:** Retreat, block routes, and use cover when safer than fighting.
+- **Aim for the stop:** Headshots, fire, or identified weak points end infected; body shots may only buy time.
+- **Treat grabs as urgent:** Break free or get help before a bite. Never leave a Downed survivor beside a hostile.
+- **Track your shots:** Unsuppressed gunfire raises Noise; declare reloads and track ammo.
+
 ### **Taking Damage & Incapacitation**
 1. **Soaking Harm:** When taking a hit, mark **1 Strain** or mark **1 Armor Box** from equipped gear.
 2. **Incapacitation (0 Strain & 0 Armor):** You collapse. You are **Downed** and **Bleeding Out**.
