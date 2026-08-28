@@ -2,26 +2,15 @@
 
 ---
 
-## 1. Difficulty Ratings (DR)
+## 1. Setting Target Difficulties
 
-The DR is the number the player's total roll (sum of all dice + flat Stat bonus) must meet or exceed.
+The Target Difficulty (or Target Number) is the number the player's total roll (sum of all dice + flat Stat bonus) must meet or exceed.
 
-| DR | Tier | Example Actions |
-|---|---|---|
-| 5 | Trivial | Light a candle in calm air, recall common knowledge, open an unlocked door |
-| 10 | Easy | Climb a rope ladder, pick a simple lock, intimidate a commoner, first aid on a minor cut |
-| 20 | Standard | Scale a city wall, fight a trained soldier, persuade a skeptical merchant, navigate rough terrain |
-| 30 | Hard | Defeat an armored knight alone, pick a vault lock, survive a blizzard without shelter |
-| 40 | Heroic | Slay a monster solo, forge a masterwork weapon, negotiate a peace treaty between factions |
-| 50+ | Legendary | Kill a dragon unaided, reshape a city's fate, reverse a catastrophe, defy death itself |
-
-**Setting DR:** You can use any number. DR 15 sits between Easy and Standard — use fractions freely to tune challenge.
-
-**Transparency Rule:** Tell players the DR before they roll, or give a narrative hint ("This will be Hard"). Async play demands players know what they are attempting, not be surprised after the fact.
+**Transparency Rule:** Tell players the target difficulty before they roll, or give a narrative hint. Async play demands players know what they are attempting, not be surprised after the fact.
 
 **Result Tiers (what happens after the roll):**
 
-| Total vs. DR | Outcome |
+| Total vs. Target | Outcome |
 |---|---|
 | Miss by 5 or more | Failure — you do not achieve your goal, or do so with a disastrous consequence |
 | Miss by 1–4 | Success with Cost — you succeed, but must pay (mark Strain, gain a Condition, lose gear, alert an enemy) |

@@ -12,24 +12,13 @@ When you attempt a risky action:
 2. **Check the Cap:** You may never roll more than **4d10**. If your pool would be higher, roll 4 (check the Expertise rule).  
 3. **Add your Stat Bonus:** Choose the Stat that fits how you are acting (Force, Finesse, or Focus). That Stat adds a **flat number** to your total — it does not add dice.  
 4. **Roll and Sum:** Roll all your dice. Add them together, then add your Stat bonus. That total is your result.  
-5. **Compare to the DR:** The GM sets a Difficulty Rating. Your total vs. the DR determines the outcome.
-
-### **Difficulty Ratings (DR)**
-
-| DR | Tier |
-|---|---|
-| 5 | Trivial |
-| 10 | Easy |
-| 20 | Standard |
-| 30 | Hard |
-| 40 | Heroic |
-| 50+ | Legendary |
+5. **Compare to the Target:** The GM sets a Target Difficulty (or Target Number). Your total vs. the target determines the outcome.
 
 ### **The Results**
 
-Compare your total to the DR. The margin — how far above or below — determines the outcome.
+Compare your total to the target difficulty. The margin — how far above or below — determines the outcome.
 
-| Total vs. DR | Outcome |
+| Total vs. Target | Outcome |
 |---|---|
 | Miss by 5 or more | **FAILURE** — You do not achieve your goal, or do so with a disastrous consequence. The GM inflicts damage, introduces a threat, or blocks your path. |
 | Miss by 1–4 | **SUCCESS WITH COST** — You succeed, but it is messy. Pay a cost: mark 1 Strain, accept a Condition, break gear, or alert the enemy. State the cost in your post. |
