@@ -122,37 +122,14 @@ Conditions are **negative temporary Traits** gained from wounds, failed rolls, o
 
 ---
 
-## 7. Taken Out, Last Stand & Death
+## 7. Incapacitation, Bleeding Out & Death
 
 ### When a Character at 0 Strain Takes Another Hit
+When reduced to 0 Strain with no remaining Armor, taking another hit or failing a lethal roll immediately places the survivor into **Incapacitation / Bleeding Out**:
 
-They do not die immediately. The player must **immediately choose** one of two options:
-
----
-
-**Option A — Go Unconscious**
-
-- The character collapses. They cannot act or post actions.
-- **Recovery by Allies:** An ally may spend 2 of their own Strain and make a DR 15 roll (during a Battle Scene) to revive them with 1 Strain.
-- **Recovery by Rest:** Outside of active combat, unconscious characters revive automatically with 1 Strain after a scene ends.
-- **Hostile Execution:** Any enemy with physical access to the unconscious character may choose to end them — no roll, no defense. This is a GM decision based on the enemy's nature and intent.
-
----
-
-**Option B — Enter Last Stand**
-
-- The character refuses to fall. They act on their next turn with everything they have left.
-- They make **one final action roll** (any action of the player's choice).
-
-| Roll Result | Outcome |
-|---|---|
-| Clean Success or Critical | They pull through. The action resolves dramatically. After it concludes, they immediately fall Unconscious (see above). |
-| Failure or Success with Cost | The character **dies**. Permanently. The player narrates their final moment. |
-
-**Last Stand Notes:**
-- The player narrates what their character attempts — make it count.
-- The GM should not inflate the DR unreasonably for a Last Stand. Match the drama, not the difficulty.
-- A Last Stand that ends in death cannot be negated by enemies — the action itself was the final moment. The character's story closes there.
+- **Downed State:** The character collapses and cannot take active turns or defend themselves.
+- **Bleeding Out Clock:** The survivor is actively dying. An ally must spend an action and use medical supplies (or make a first aid roll) to stabilize them within the next round/exchange. If not stabilized in time, the character dies.
+- **Swarm / Hostile Execution:** Any hostile enemy with physical reach (a shambler, licker, or hunter) may immediately execute or infect the downed survivor without a roll if allies do not intervene.
 
 ---
 

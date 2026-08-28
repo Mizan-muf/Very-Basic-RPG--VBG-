@@ -172,27 +172,13 @@ Conditions are negative effects applied by wounds, failed rolls, or the environm
 
 * *Concussed / Shaken / Traumatized* — Acts as a -1d10 penalty to relevant rolls based on physical or psychological trauma.
 
-### **Taken Out, Last Stand & Death**
+### **Incapacitation, Bleeding Out & Death**
 
-If you have 0 Strain and take a hit, choose immediately:
+If you are at **0 Strain** and have no Armor remaining, taking another hit or failing a lethal roll means you are **Incapacitated / Bleeding Out**:
 
-**Option A — Go Unconscious**
-
-* You collapse. You cannot act.  
-* An ally may spend 2 Strain and roll vs. DR 15 during a Battle Scene to revive you with 1 Strain.  
-* Outside active combat, you revive automatically with 1 Strain at the end of the scene.  
-* A hostile with physical access may choose to **end your life** — no roll, no defense.
-
-**Option B — Last Stand**
-
-* You refuse to fall. On your next turn, make **one final action roll** of your choice.
-
-| Roll Result | Outcome |
-|---|---|
-| Clean Success or Critical | You pull through. The action resolves. You then immediately fall Unconscious. |
-| Failure or Success with Cost | You **die**. Permanently. Narrate your final moment. |
-
-The GM should not inflate the DR for a Last Stand. Match the drama of the scene.
+* **Downed:** You collapse immediately and cannot take movement or offensive actions.
+* **Bleeding Out:** You begin losing life. If an ally does not spend an action and expend medical supplies (or make a successful first aid roll) to stabilize you within the next round/exchange, your character succumbs to wounds or infection and dies.
+* **Coup de Grâce / Swarm Execution:** Any hostile with direct physical access (a nearby zombie, hunter, or stalker) can tear into or execute a downed survivor with no defense roll. Survival depends entirely on allies holding the line.
 
 ### **Recovery**
 
