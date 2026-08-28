@@ -9,7 +9,7 @@ This system is designed for asynchronous play. We use d10s (ten-sided dice) and 
 When you attempt a risky action:
 
 1. **Build your Pool:** Your **Traits** are the only source of dice. Add the dice from every Trait relevant to what you are doing.  
-2. **Check the Cap:** You may never roll more than **4d10**. If your pool would be higher, roll 4 (check the Expertise rule).  
+2. **Check the Cap:** You may never roll more than **4d10**. If your pool would be higher, roll 4.  
 3. **Add your Stat Bonus:** Choose the Stat that fits how you are acting (Force, Finesse, or Focus). That Stat adds a **flat number** to your total — it does not add dice.  
 4. **Roll and Sum:** Roll all your dice. Add them together, then add your Stat bonus. That total is your result.  
 5. **Compare to the Target:** The GM sets a Target Difficulty (or Target Number). Your total vs. the target determines the outcome.
@@ -25,16 +25,7 @@ Compare your total to the target difficulty. The margin — how far above or bel
 | Beat by 0–5 | **CLEAN SUCCESS** — You achieve your goal without penalty. |
 | Beat by 6 or more | **CRITICAL** — Perfect execution. Regain 1 Strain OR gain a distinct narrative advantage. |
 
-**Rule Against Softballing (The GM Veto):** When choosing a cost for a Success with Cost, it must match the danger. Fighting a dragon and choosing "I get mud on my boots" will earn a GM veto and a harder consequence. Make it hurt.
-
-### **The Expertise Rule (For Pools of 5+)**
-
-The dice cap is 4d10. However, if your Trait pool would total **5 dice or more** (reachable through progression, as unlocking additional Traits pushes past the cap), you have reached **Expertise**. You still roll only 4 dice, but you gain one of the following benefits on that roll:
-
-* **Downgrade the Cost:** If you receive a Success with Cost, it automatically becomes a **Clean Success**. The cost is waived. The GM cannot veto this.  
-* **Add a Boost:** Describe a minor secondary benefit alongside your result (e.g., you succeed and also manage to impress a bystander, or create an opening for an ally).
-
-The player chooses which benefit to apply after seeing the roll.
+**Rule Against Softballing (The GM Veto):** When choosing a cost for a Success with Cost, it must match the danger. Cornered by a licker and choosing "I scuff my boots" will earn a GM veto and a harder consequence. Make it hurt.
 
 ---
 

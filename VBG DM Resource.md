@@ -19,20 +19,7 @@ The Target Difficulty (or Target Number) is the number the player's total roll (
 
 ---
 
-## 2. Expertise Rule
-
-If a character's total dice pool (from Traits alone) is **5d10**, they have reached **Expertise**.
-
-They still roll only 4d10 (the cap) and sum the result. The Expertise benefit applies when they receive a **Success with Cost** result:
-
-- **Downgrade the Cost:** A Success with Cost automatically becomes a **Clean Success**. The cost is waived entirely.
-- **OR Add a Boost:** Describe a minor secondary benefit alongside the Clean Success (e.g., you not only break through the gate — you also send the guards scrambling in panic, buying your allies extra time).
-
-The player chooses which benefit to apply after seeing the roll. The GM cannot veto an Expertise downgrade.
-
----
-
-## 3. Scene Framework
+## 2. Scene Framework
 
 VBG uses a **scene-based structure**. Scenes are the unit of play, not rounds or turns.
 
