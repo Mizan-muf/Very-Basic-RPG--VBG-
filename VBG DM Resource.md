@@ -112,29 +112,27 @@ Conditions are **negative temporary Traits** gained from wounds, failed rolls, o
 
 **Ongoing Strain Loss**
 - *Poisoned / Bleeding / Burning* — Lose 1 Strain at the start of each new exchange until treated.
-- Treatment: a relevant ability or field medicine roll, DR 15 with supplies, DR 20 without.
+- Treatment: field medicine, clean bandages, or medical supplies.
 
 **Maximum Strain Reduction**
-- *Limb Damaged* — Maximum Strain reduced by 2 until healed by a Rest Scene or a healing ability.
-- *Limb Severed* — Maximum Strain permanently reduced by 2. Certain actions become impossible (climbing with no arm, sprinting with no leg). Only magical restoration reverses this.
+- *Limb Damaged* — Maximum Strain reduced by 2 until stabilized and treated.
+- *Limb Severed* — Maximum Strain permanently reduced by 2. Certain actions become impossible (climbing with no arm, sprinting with no leg). Requires emergency tourniquet and permanent adaptation/prosthetics.
 
 **Action Restrictions**
-- *Paralyzed* — Cannot take any action. Removed only by an ally spending their action and a relevant ability or DR 15 medicine roll.
-- *Blinded* — All DRs increase by 5 for any action requiring sight.
+- *Pinned / Restrained* — Cannot take movement or offensive actions until freed or an ally assists.
+- *Blinded / Impaired Senses* — Target difficulties increase for any action requiring sight.
 - *Stunned* — Skip next available action. Clears on their following turn.
 
 **Narrative Penalties**
-- *Concussed / Traumatized / Shaken* — Acts as a −1d10 penalty (one fewer die in the pool) to relevant rolls. GM applies based on what makes sense narratively.
+- *Concussed / Traumatized / Shaken* — Acts as a −1d10 penalty (one fewer die in the pool) to relevant rolls based on trauma.
 
 ### Removing Conditions
 
 | Method | Conditions Removed |
 |---|---|
-| Catch Your Breath (mid-scene) | Stunned only |
-| Ally action + relevant ability or roll | Paralyzed, Poisoned/Bleeding/Burning, Stunned |
-| End of Rest Scene | All non-permanent conditions |
-| Healing ability (Healing Touch, Regeneration, etc.) | As appropriate to the domain |
-| Narrative resolution | As GM determines (a blessing, a ritual, a specialist) |
+| First Aid / Medical Supplies | Bleeding, Poisoned, Burning, Pinned |
+| Rest & Medical Stabilization | Limb Damaged, Concussed, Shaken |
+| Surgical Care / Long-Term Treatment | Severe physical trauma, chronic injuries |
 
 ---
 

@@ -184,22 +184,22 @@ Conditions are negative effects applied by wounds, failed rolls, or the environm
 
 **Ongoing Strain Loss**
 
-* *Poisoned / Bleeding / Burning* — Lose 1 Strain at the start of each exchange until treated. Treatment: a relevant ability or DR 15 roll (DR 20 without supplies).
+* *Poisoned / Bleeding / Burning* — Lose 1 Strain at the start of each exchange until treated. Treatment: field medicine, bandages/antidote, or a successful first aid roll.
 
 **Max Strain Reduction**
 
-* *Limb Damaged* — Maximum Strain reduced by 2 until healed at a Rest Scene or by a healing ability.  
-* *Limb Severed* — Maximum Strain permanently reduced by 2. Certain actions become impossible. Only magical restoration reverses this.
+* *Limb Damaged* — Maximum Strain reduced by 2 until stabilized and treated with medical care.  
+* *Limb Severed* — Maximum Strain permanently reduced by 2. Certain physical actions become impossible. Requires emergency tourniquet and permanent adaptation/prosthetics.
 
 **Action Restrictions**
 
-* *Paralyzed* — Cannot take any action. Removed only by an ally spending their action and a relevant ability or DR 15 roll.  
-* *Blinded* — All DRs increase by 5 for actions requiring sight.  
+* *Pinned / Restrained* — Cannot take movement or offensive actions until freed or an ally assists.  
+* *Blinded / Impaired Senses* — Target difficulties increase for actions requiring sight.  
 * *Stunned* — Skip your next action. Clears on the following turn.
 
 **Narrative Penalties**
 
-* *Concussed / Shaken / Traumatized* — Acts as a \-1d10 penalty to relevant rolls. Applied at GM discretion based on the wound.
+* *Concussed / Shaken / Traumatized* — Acts as a -1d10 penalty to relevant rolls based on physical or psychological trauma.
 
 ### **Taken Out, Last Stand & Death**
 
