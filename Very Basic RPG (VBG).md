@@ -102,7 +102,7 @@ Gear is primarily **flavour**. Items have no mechanical stats unless the GM desi
 
 Name your Ability and write one sentence defining what it controls.
 
-* *Example:* Pyromancy: The control and generation of heat and flame.  
+* *Example:* Field Medicine: The rapid diagnosis, trauma stabilization, and chemical synthesis of treatments under pressure.  
 * You choose which Stat to use based on how you use the power — Focus for control, Force for raw power, Finesse for precision and aim.  
 * Domains are created by the player and verified by the GM, or designed collaboratively.
 
