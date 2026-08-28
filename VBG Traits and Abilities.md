@@ -1,5 +1,7 @@
 # VBG-Z: SURVIVOR TRAITS & SPECIALIZATIONS COMPENDIUM
 
+> **Note on Customization:** These lists are samples and baselines to inspire character creation. They are **not** strictly limited to what is written here. You are encouraged to collaborate with the GM to create your own personalized Major Traits, Minor Traits, or Tactical Specializations that fit your survivor concept.
+
 ---
 
 ## 1. MAJOR TRAITS (+2 BONUS)
