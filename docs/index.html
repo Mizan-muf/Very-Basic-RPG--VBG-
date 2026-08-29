@@ -270,9 +270,9 @@
     }
 
     .grid-toggle-btn.on {
-      border-color: var(--accent-cyan);
-      color: var(--accent-cyan);
-      background-color: rgba(0, 229, 255, 0.12);
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+      background-color: rgba(255, 85, 0, 0.14);
     }
 
     /* Document Reader Panes */
@@ -358,7 +358,7 @@
       border-radius: 4px;
       border: 1px solid var(--border-subtle);
       font-size: 13px;
-      color: var(--accent-cyan);
+      color: var(--accent-orange);
     }
 
     /* Mobile Adaptations */
@@ -414,56 +414,334 @@
         <div id="map-viewport">
           <div id="map-stage">
             <img id="map-raster" src="assets/raccoon_city_map.jpg" alt="Raccoon City Map" />
-            <!-- Perfect Vector Grid Overlay (A..O / 1..19) -->
+            <!-- Perfect Vector Grid Overlay (A..O / 1..19) in Biohazard Tactical Orange -->
             <svg id="grid-svg" viewBox="0 0 3085 3858" preserveAspectRatio="none">
               <defs>
                 <style>
-                  .grid-line { stroke: rgba(0, 229, 255, 0.45); stroke-width: 2.5px; stroke-dasharray: 8 6; }
-                  .border-line { stroke: rgba(0, 229, 255, 0.85); stroke-width: 4px; }
-                  .coord-text { fill: rgba(0, 229, 255, 0.75); font-family: 'Share Tech Mono', monospace; font-size: 26px; font-weight: bold; }
+                  .grid-line { stroke: rgba(255, 85, 0, 0.50); stroke-width: 2.5px; stroke-dasharray: 8 6; }
+                  .border-line { stroke: rgba(255, 85, 0, 0.90); stroke-width: 4px; }
+                  .coord-text { fill: rgba(255, 85, 0, 0.85); font-family: 'Share Tech Mono', monospace; font-size: 24px; font-weight: bold; text-shadow: 0 0 4px rgba(0,0,0,0.8); }
                 </style>
               </defs>
               <g id="grid-group">
-                <!-- Exact Outer Border Frame -->
-                <rect x="105" y="135" width="2879" height="3625" fill="none" class="border-line" />
-                
-                <!-- Vertical Column Lines (15 columns: A to O) -->
-                <!-- cw = 2879 / 15 = 191.9333 px -->
-                <line x1="296.93" y1="135" x2="296.93" y2="3760" class="grid-line" />
-                <line x1="488.87" y1="135" x2="488.87" y2="3760" class="grid-line" />
-                <line x1="680.80" y1="135" x2="680.80" y2="3760" class="grid-line" />
-                <line x1="872.73" y1="135" x2="872.73" y2="3760" class="grid-line" />
-                <line x1="1064.67" y1="135" x2="1064.67" y2="3760" class="grid-line" />
-                <line x1="1256.60" y1="135" x2="1256.60" y2="3760" class="grid-line" />
-                <line x1="1448.53" y1="135" x2="1448.53" y2="3760" class="grid-line" />
-                <line x1="1640.47" y1="135" x2="1640.47" y2="3760" class="grid-line" />
-                <line x1="1832.40" y1="135" x2="1832.40" y2="3760" class="grid-line" />
-                <line x1="2024.33" y1="135" x2="2024.33" y2="3760" class="grid-line" />
-                <line x1="2216.27" y1="135" x2="2216.27" y2="3760" class="grid-line" />
-                <line x1="2408.20" y1="135" x2="2408.20" y2="3760" class="grid-line" />
-                <line x1="2600.13" y1="135" x2="2600.13" y2="3760" class="grid-line" />
-                <line x1="2792.07" y1="135" x2="2792.07" y2="3760" class="grid-line" />
-
-                <!-- Horizontal Row Lines (19 rows: 1 to 19) -->
-                <!-- rh = 3625 / 19 = 190.7895 px -->
-                <line x1="105" y1="325.79" x2="2984" y2="325.79" class="grid-line" />
-                <line x1="105" y1="516.58" x2="2984" y2="516.58" class="grid-line" />
-                <line x1="105" y1="707.37" x2="2984" y2="707.37" class="grid-line" />
-                <line x1="105" y1="898.16" x2="2984" y2="898.16" class="grid-line" />
-                <line x1="105" y1="1088.95" x2="2984" y2="1088.95" class="grid-line" />
-                <line x1="105" y1="1279.74" x2="2984" y2="1279.74" class="grid-line" />
-                <line x1="105" y1="1470.53" x2="2984" y2="1470.53" class="grid-line" />
-                <line x1="105" y1="1661.32" x2="2984" y2="1661.32" class="grid-line" />
-                <line x1="105" y1="1852.11" x2="2984" y2="1852.11" class="grid-line" />
-                <line x1="105" y1="2042.89" x2="2984" y2="2042.89" class="grid-line" />
-                <line x1="105" y1="2233.68" x2="2984" y2="2233.68" class="grid-line" />
-                <line x1="105" y1="2424.47" x2="2984" y2="2424.47" class="grid-line" />
-                <line x1="105" y1="2615.26" x2="2984" y2="2615.26" class="grid-line" />
-                <line x1="105" y1="2806.05" x2="2984" y2="2806.05" class="grid-line" />
-                <line x1="105" y1="2996.84" x2="2984" y2="2996.84" class="grid-line" />
-                <line x1="105" y1="3187.63" x2="2984" y2="3187.63" class="grid-line" />
-                <line x1="105" y1="3378.42" x2="2984" y2="3378.42" class="grid-line" />
-                <line x1="105" y1="3569.21" x2="2984" y2="3569.21" class="grid-line" />
+                <rect x="105.0" y="135.0" width="2879.0" height="3625.0" fill="none" class="border-line" />
+                <line x1="296.93" y1="135.00" x2="296.93" y2="3760.00" class="grid-line" />
+                <line x1="488.87" y1="135.00" x2="488.87" y2="3760.00" class="grid-line" />
+                <line x1="680.80" y1="135.00" x2="680.80" y2="3760.00" class="grid-line" />
+                <line x1="872.73" y1="135.00" x2="872.73" y2="3760.00" class="grid-line" />
+                <line x1="1064.67" y1="135.00" x2="1064.67" y2="3760.00" class="grid-line" />
+                <line x1="1256.60" y1="135.00" x2="1256.60" y2="3760.00" class="grid-line" />
+                <line x1="1448.53" y1="135.00" x2="1448.53" y2="3760.00" class="grid-line" />
+                <line x1="1640.47" y1="135.00" x2="1640.47" y2="3760.00" class="grid-line" />
+                <line x1="1832.40" y1="135.00" x2="1832.40" y2="3760.00" class="grid-line" />
+                <line x1="2024.33" y1="135.00" x2="2024.33" y2="3760.00" class="grid-line" />
+                <line x1="2216.27" y1="135.00" x2="2216.27" y2="3760.00" class="grid-line" />
+                <line x1="2408.20" y1="135.00" x2="2408.20" y2="3760.00" class="grid-line" />
+                <line x1="2600.13" y1="135.00" x2="2600.13" y2="3760.00" class="grid-line" />
+                <line x1="2792.07" y1="135.00" x2="2792.07" y2="3760.00" class="grid-line" />
+                <line x1="105.00" y1="325.79" x2="2984.00" y2="325.79" class="grid-line" />
+                <line x1="105.00" y1="516.58" x2="2984.00" y2="516.58" class="grid-line" />
+                <line x1="105.00" y1="707.37" x2="2984.00" y2="707.37" class="grid-line" />
+                <line x1="105.00" y1="898.16" x2="2984.00" y2="898.16" class="grid-line" />
+                <line x1="105.00" y1="1088.95" x2="2984.00" y2="1088.95" class="grid-line" />
+                <line x1="105.00" y1="1279.74" x2="2984.00" y2="1279.74" class="grid-line" />
+                <line x1="105.00" y1="1470.53" x2="2984.00" y2="1470.53" class="grid-line" />
+                <line x1="105.00" y1="1661.32" x2="2984.00" y2="1661.32" class="grid-line" />
+                <line x1="105.00" y1="1852.11" x2="2984.00" y2="1852.11" class="grid-line" />
+                <line x1="105.00" y1="2042.89" x2="2984.00" y2="2042.89" class="grid-line" />
+                <line x1="105.00" y1="2233.68" x2="2984.00" y2="2233.68" class="grid-line" />
+                <line x1="105.00" y1="2424.47" x2="2984.00" y2="2424.47" class="grid-line" />
+                <line x1="105.00" y1="2615.26" x2="2984.00" y2="2615.26" class="grid-line" />
+                <line x1="105.00" y1="2806.05" x2="2984.00" y2="2806.05" class="grid-line" />
+                <line x1="105.00" y1="2996.84" x2="2984.00" y2="2996.84" class="grid-line" />
+                <line x1="105.00" y1="3187.63" x2="2984.00" y2="3187.63" class="grid-line" />
+                <line x1="105.00" y1="3378.42" x2="2984.00" y2="3378.42" class="grid-line" />
+                <line x1="105.00" y1="3569.21" x2="2984.00" y2="3569.21" class="grid-line" />
+                <text x="115.00" y="163.00" class="coord-text">A-1</text>
+                <text x="115.00" y="353.79" class="coord-text">A-2</text>
+                <text x="115.00" y="544.58" class="coord-text">A-3</text>
+                <text x="115.00" y="735.37" class="coord-text">A-4</text>
+                <text x="115.00" y="926.16" class="coord-text">A-5</text>
+                <text x="115.00" y="1116.95" class="coord-text">A-6</text>
+                <text x="115.00" y="1307.74" class="coord-text">A-7</text>
+                <text x="115.00" y="1498.53" class="coord-text">A-8</text>
+                <text x="115.00" y="1689.32" class="coord-text">A-9</text>
+                <text x="115.00" y="1880.11" class="coord-text">A-10</text>
+                <text x="115.00" y="2070.89" class="coord-text">A-11</text>
+                <text x="115.00" y="2261.68" class="coord-text">A-12</text>
+                <text x="115.00" y="2452.47" class="coord-text">A-13</text>
+                <text x="115.00" y="2643.26" class="coord-text">A-14</text>
+                <text x="115.00" y="2834.05" class="coord-text">A-15</text>
+                <text x="115.00" y="3024.84" class="coord-text">A-16</text>
+                <text x="115.00" y="3215.63" class="coord-text">A-17</text>
+                <text x="115.00" y="3406.42" class="coord-text">A-18</text>
+                <text x="115.00" y="3597.21" class="coord-text">A-19</text>
+                <text x="306.93" y="163.00" class="coord-text">B-1</text>
+                <text x="306.93" y="353.79" class="coord-text">B-2</text>
+                <text x="306.93" y="544.58" class="coord-text">B-3</text>
+                <text x="306.93" y="735.37" class="coord-text">B-4</text>
+                <text x="306.93" y="926.16" class="coord-text">B-5</text>
+                <text x="306.93" y="1116.95" class="coord-text">B-6</text>
+                <text x="306.93" y="1307.74" class="coord-text">B-7</text>
+                <text x="306.93" y="1498.53" class="coord-text">B-8</text>
+                <text x="306.93" y="1689.32" class="coord-text">B-9</text>
+                <text x="306.93" y="1880.11" class="coord-text">B-10</text>
+                <text x="306.93" y="2070.89" class="coord-text">B-11</text>
+                <text x="306.93" y="2261.68" class="coord-text">B-12</text>
+                <text x="306.93" y="2452.47" class="coord-text">B-13</text>
+                <text x="306.93" y="2643.26" class="coord-text">B-14</text>
+                <text x="306.93" y="2834.05" class="coord-text">B-15</text>
+                <text x="306.93" y="3024.84" class="coord-text">B-16</text>
+                <text x="306.93" y="3215.63" class="coord-text">B-17</text>
+                <text x="306.93" y="3406.42" class="coord-text">B-18</text>
+                <text x="306.93" y="3597.21" class="coord-text">B-19</text>
+                <text x="498.87" y="163.00" class="coord-text">C-1</text>
+                <text x="498.87" y="353.79" class="coord-text">C-2</text>
+                <text x="498.87" y="544.58" class="coord-text">C-3</text>
+                <text x="498.87" y="735.37" class="coord-text">C-4</text>
+                <text x="498.87" y="926.16" class="coord-text">C-5</text>
+                <text x="498.87" y="1116.95" class="coord-text">C-6</text>
+                <text x="498.87" y="1307.74" class="coord-text">C-7</text>
+                <text x="498.87" y="1498.53" class="coord-text">C-8</text>
+                <text x="498.87" y="1689.32" class="coord-text">C-9</text>
+                <text x="498.87" y="1880.11" class="coord-text">C-10</text>
+                <text x="498.87" y="2070.89" class="coord-text">C-11</text>
+                <text x="498.87" y="2261.68" class="coord-text">C-12</text>
+                <text x="498.87" y="2452.47" class="coord-text">C-13</text>
+                <text x="498.87" y="2643.26" class="coord-text">C-14</text>
+                <text x="498.87" y="2834.05" class="coord-text">C-15</text>
+                <text x="498.87" y="3024.84" class="coord-text">C-16</text>
+                <text x="498.87" y="3215.63" class="coord-text">C-17</text>
+                <text x="498.87" y="3406.42" class="coord-text">C-18</text>
+                <text x="498.87" y="3597.21" class="coord-text">C-19</text>
+                <text x="690.80" y="163.00" class="coord-text">D-1</text>
+                <text x="690.80" y="353.79" class="coord-text">D-2</text>
+                <text x="690.80" y="544.58" class="coord-text">D-3</text>
+                <text x="690.80" y="735.37" class="coord-text">D-4</text>
+                <text x="690.80" y="926.16" class="coord-text">D-5</text>
+                <text x="690.80" y="1116.95" class="coord-text">D-6</text>
+                <text x="690.80" y="1307.74" class="coord-text">D-7</text>
+                <text x="690.80" y="1498.53" class="coord-text">D-8</text>
+                <text x="690.80" y="1689.32" class="coord-text">D-9</text>
+                <text x="690.80" y="1880.11" class="coord-text">D-10</text>
+                <text x="690.80" y="2070.89" class="coord-text">D-11</text>
+                <text x="690.80" y="2261.68" class="coord-text">D-12</text>
+                <text x="690.80" y="2452.47" class="coord-text">D-13</text>
+                <text x="690.80" y="2643.26" class="coord-text">D-14</text>
+                <text x="690.80" y="2834.05" class="coord-text">D-15</text>
+                <text x="690.80" y="3024.84" class="coord-text">D-16</text>
+                <text x="690.80" y="3215.63" class="coord-text">D-17</text>
+                <text x="690.80" y="3406.42" class="coord-text">D-18</text>
+                <text x="690.80" y="3597.21" class="coord-text">D-19</text>
+                <text x="882.73" y="163.00" class="coord-text">E-1</text>
+                <text x="882.73" y="353.79" class="coord-text">E-2</text>
+                <text x="882.73" y="544.58" class="coord-text">E-3</text>
+                <text x="882.73" y="735.37" class="coord-text">E-4</text>
+                <text x="882.73" y="926.16" class="coord-text">E-5</text>
+                <text x="882.73" y="1116.95" class="coord-text">E-6</text>
+                <text x="882.73" y="1307.74" class="coord-text">E-7</text>
+                <text x="882.73" y="1498.53" class="coord-text">E-8</text>
+                <text x="882.73" y="1689.32" class="coord-text">E-9</text>
+                <text x="882.73" y="1880.11" class="coord-text">E-10</text>
+                <text x="882.73" y="2070.89" class="coord-text">E-11</text>
+                <text x="882.73" y="2261.68" class="coord-text">E-12</text>
+                <text x="882.73" y="2452.47" class="coord-text">E-13</text>
+                <text x="882.73" y="2643.26" class="coord-text">E-14</text>
+                <text x="882.73" y="2834.05" class="coord-text">E-15</text>
+                <text x="882.73" y="3024.84" class="coord-text">E-16</text>
+                <text x="882.73" y="3215.63" class="coord-text">E-17</text>
+                <text x="882.73" y="3406.42" class="coord-text">E-18</text>
+                <text x="882.73" y="3597.21" class="coord-text">E-19</text>
+                <text x="1074.67" y="163.00" class="coord-text">F-1</text>
+                <text x="1074.67" y="353.79" class="coord-text">F-2</text>
+                <text x="1074.67" y="544.58" class="coord-text">F-3</text>
+                <text x="1074.67" y="735.37" class="coord-text">F-4</text>
+                <text x="1074.67" y="926.16" class="coord-text">F-5</text>
+                <text x="1074.67" y="1116.95" class="coord-text">F-6</text>
+                <text x="1074.67" y="1307.74" class="coord-text">F-7</text>
+                <text x="1074.67" y="1498.53" class="coord-text">F-8</text>
+                <text x="1074.67" y="1689.32" class="coord-text">F-9</text>
+                <text x="1074.67" y="1880.11" class="coord-text">F-10</text>
+                <text x="1074.67" y="2070.89" class="coord-text">F-11</text>
+                <text x="1074.67" y="2261.68" class="coord-text">F-12</text>
+                <text x="1074.67" y="2452.47" class="coord-text">F-13</text>
+                <text x="1074.67" y="2643.26" class="coord-text">F-14</text>
+                <text x="1074.67" y="2834.05" class="coord-text">F-15</text>
+                <text x="1074.67" y="3024.84" class="coord-text">F-16</text>
+                <text x="1074.67" y="3215.63" class="coord-text">F-17</text>
+                <text x="1074.67" y="3406.42" class="coord-text">F-18</text>
+                <text x="1074.67" y="3597.21" class="coord-text">F-19</text>
+                <text x="1266.60" y="163.00" class="coord-text">G-1</text>
+                <text x="1266.60" y="353.79" class="coord-text">G-2</text>
+                <text x="1266.60" y="544.58" class="coord-text">G-3</text>
+                <text x="1266.60" y="735.37" class="coord-text">G-4</text>
+                <text x="1266.60" y="926.16" class="coord-text">G-5</text>
+                <text x="1266.60" y="1116.95" class="coord-text">G-6</text>
+                <text x="1266.60" y="1307.74" class="coord-text">G-7</text>
+                <text x="1266.60" y="1498.53" class="coord-text">G-8</text>
+                <text x="1266.60" y="1689.32" class="coord-text">G-9</text>
+                <text x="1266.60" y="1880.11" class="coord-text">G-10</text>
+                <text x="1266.60" y="2070.89" class="coord-text">G-11</text>
+                <text x="1266.60" y="2261.68" class="coord-text">G-12</text>
+                <text x="1266.60" y="2452.47" class="coord-text">G-13</text>
+                <text x="1266.60" y="2643.26" class="coord-text">G-14</text>
+                <text x="1266.60" y="2834.05" class="coord-text">G-15</text>
+                <text x="1266.60" y="3024.84" class="coord-text">G-16</text>
+                <text x="1266.60" y="3215.63" class="coord-text">G-17</text>
+                <text x="1266.60" y="3406.42" class="coord-text">G-18</text>
+                <text x="1266.60" y="3597.21" class="coord-text">G-19</text>
+                <text x="1458.53" y="163.00" class="coord-text">H-1</text>
+                <text x="1458.53" y="353.79" class="coord-text">H-2</text>
+                <text x="1458.53" y="544.58" class="coord-text">H-3</text>
+                <text x="1458.53" y="735.37" class="coord-text">H-4</text>
+                <text x="1458.53" y="926.16" class="coord-text">H-5</text>
+                <text x="1458.53" y="1116.95" class="coord-text">H-6</text>
+                <text x="1458.53" y="1307.74" class="coord-text">H-7</text>
+                <text x="1458.53" y="1498.53" class="coord-text">H-8</text>
+                <text x="1458.53" y="1689.32" class="coord-text">H-9</text>
+                <text x="1458.53" y="1880.11" class="coord-text">H-10</text>
+                <text x="1458.53" y="2070.89" class="coord-text">H-11</text>
+                <text x="1458.53" y="2261.68" class="coord-text">H-12</text>
+                <text x="1458.53" y="2452.47" class="coord-text">H-13</text>
+                <text x="1458.53" y="2643.26" class="coord-text">H-14</text>
+                <text x="1458.53" y="2834.05" class="coord-text">H-15</text>
+                <text x="1458.53" y="3024.84" class="coord-text">H-16</text>
+                <text x="1458.53" y="3215.63" class="coord-text">H-17</text>
+                <text x="1458.53" y="3406.42" class="coord-text">H-18</text>
+                <text x="1458.53" y="3597.21" class="coord-text">H-19</text>
+                <text x="1650.47" y="163.00" class="coord-text">I-1</text>
+                <text x="1650.47" y="353.79" class="coord-text">I-2</text>
+                <text x="1650.47" y="544.58" class="coord-text">I-3</text>
+                <text x="1650.47" y="735.37" class="coord-text">I-4</text>
+                <text x="1650.47" y="926.16" class="coord-text">I-5</text>
+                <text x="1650.47" y="1116.95" class="coord-text">I-6</text>
+                <text x="1650.47" y="1307.74" class="coord-text">I-7</text>
+                <text x="1650.47" y="1498.53" class="coord-text">I-8</text>
+                <text x="1650.47" y="1689.32" class="coord-text">I-9</text>
+                <text x="1650.47" y="1880.11" class="coord-text">I-10</text>
+                <text x="1650.47" y="2070.89" class="coord-text">I-11</text>
+                <text x="1650.47" y="2261.68" class="coord-text">I-12</text>
+                <text x="1650.47" y="2452.47" class="coord-text">I-13</text>
+                <text x="1650.47" y="2643.26" class="coord-text">I-14</text>
+                <text x="1650.47" y="2834.05" class="coord-text">I-15</text>
+                <text x="1650.47" y="3024.84" class="coord-text">I-16</text>
+                <text x="1650.47" y="3215.63" class="coord-text">I-17</text>
+                <text x="1650.47" y="3406.42" class="coord-text">I-18</text>
+                <text x="1650.47" y="3597.21" class="coord-text">I-19</text>
+                <text x="1842.40" y="163.00" class="coord-text">J-1</text>
+                <text x="1842.40" y="353.79" class="coord-text">J-2</text>
+                <text x="1842.40" y="544.58" class="coord-text">J-3</text>
+                <text x="1842.40" y="735.37" class="coord-text">J-4</text>
+                <text x="1842.40" y="926.16" class="coord-text">J-5</text>
+                <text x="1842.40" y="1116.95" class="coord-text">J-6</text>
+                <text x="1842.40" y="1307.74" class="coord-text">J-7</text>
+                <text x="1842.40" y="1498.53" class="coord-text">J-8</text>
+                <text x="1842.40" y="1689.32" class="coord-text">J-9</text>
+                <text x="1842.40" y="1880.11" class="coord-text">J-10</text>
+                <text x="1842.40" y="2070.89" class="coord-text">J-11</text>
+                <text x="1842.40" y="2261.68" class="coord-text">J-12</text>
+                <text x="1842.40" y="2452.47" class="coord-text">J-13</text>
+                <text x="1842.40" y="2643.26" class="coord-text">J-14</text>
+                <text x="1842.40" y="2834.05" class="coord-text">J-15</text>
+                <text x="1842.40" y="3024.84" class="coord-text">J-16</text>
+                <text x="1842.40" y="3215.63" class="coord-text">J-17</text>
+                <text x="1842.40" y="3406.42" class="coord-text">J-18</text>
+                <text x="1842.40" y="3597.21" class="coord-text">J-19</text>
+                <text x="2034.33" y="163.00" class="coord-text">K-1</text>
+                <text x="2034.33" y="353.79" class="coord-text">K-2</text>
+                <text x="2034.33" y="544.58" class="coord-text">K-3</text>
+                <text x="2034.33" y="735.37" class="coord-text">K-4</text>
+                <text x="2034.33" y="926.16" class="coord-text">K-5</text>
+                <text x="2034.33" y="1116.95" class="coord-text">K-6</text>
+                <text x="2034.33" y="1307.74" class="coord-text">K-7</text>
+                <text x="2034.33" y="1498.53" class="coord-text">K-8</text>
+                <text x="2034.33" y="1689.32" class="coord-text">K-9</text>
+                <text x="2034.33" y="1880.11" class="coord-text">K-10</text>
+                <text x="2034.33" y="2070.89" class="coord-text">K-11</text>
+                <text x="2034.33" y="2261.68" class="coord-text">K-12</text>
+                <text x="2034.33" y="2452.47" class="coord-text">K-13</text>
+                <text x="2034.33" y="2643.26" class="coord-text">K-14</text>
+                <text x="2034.33" y="2834.05" class="coord-text">K-15</text>
+                <text x="2034.33" y="3024.84" class="coord-text">K-16</text>
+                <text x="2034.33" y="3215.63" class="coord-text">K-17</text>
+                <text x="2034.33" y="3406.42" class="coord-text">K-18</text>
+                <text x="2034.33" y="3597.21" class="coord-text">K-19</text>
+                <text x="2226.27" y="163.00" class="coord-text">L-1</text>
+                <text x="2226.27" y="353.79" class="coord-text">L-2</text>
+                <text x="2226.27" y="544.58" class="coord-text">L-3</text>
+                <text x="2226.27" y="735.37" class="coord-text">L-4</text>
+                <text x="2226.27" y="926.16" class="coord-text">L-5</text>
+                <text x="2226.27" y="1116.95" class="coord-text">L-6</text>
+                <text x="2226.27" y="1307.74" class="coord-text">L-7</text>
+                <text x="2226.27" y="1498.53" class="coord-text">L-8</text>
+                <text x="2226.27" y="1689.32" class="coord-text">L-9</text>
+                <text x="2226.27" y="1880.11" class="coord-text">L-10</text>
+                <text x="2226.27" y="2070.89" class="coord-text">L-11</text>
+                <text x="2226.27" y="2261.68" class="coord-text">L-12</text>
+                <text x="2226.27" y="2452.47" class="coord-text">L-13</text>
+                <text x="2226.27" y="2643.26" class="coord-text">L-14</text>
+                <text x="2226.27" y="2834.05" class="coord-text">L-15</text>
+                <text x="2226.27" y="3024.84" class="coord-text">L-16</text>
+                <text x="2226.27" y="3215.63" class="coord-text">L-17</text>
+                <text x="2226.27" y="3406.42" class="coord-text">L-18</text>
+                <text x="2226.27" y="3597.21" class="coord-text">L-19</text>
+                <text x="2418.20" y="163.00" class="coord-text">M-1</text>
+                <text x="2418.20" y="353.79" class="coord-text">M-2</text>
+                <text x="2418.20" y="544.58" class="coord-text">M-3</text>
+                <text x="2418.20" y="735.37" class="coord-text">M-4</text>
+                <text x="2418.20" y="926.16" class="coord-text">M-5</text>
+                <text x="2418.20" y="1116.95" class="coord-text">M-6</text>
+                <text x="2418.20" y="1307.74" class="coord-text">M-7</text>
+                <text x="2418.20" y="1498.53" class="coord-text">M-8</text>
+                <text x="2418.20" y="1689.32" class="coord-text">M-9</text>
+                <text x="2418.20" y="1880.11" class="coord-text">M-10</text>
+                <text x="2418.20" y="2070.89" class="coord-text">M-11</text>
+                <text x="2418.20" y="2261.68" class="coord-text">M-12</text>
+                <text x="2418.20" y="2452.47" class="coord-text">M-13</text>
+                <text x="2418.20" y="2643.26" class="coord-text">M-14</text>
+                <text x="2418.20" y="2834.05" class="coord-text">M-15</text>
+                <text x="2418.20" y="3024.84" class="coord-text">M-16</text>
+                <text x="2418.20" y="3215.63" class="coord-text">M-17</text>
+                <text x="2418.20" y="3406.42" class="coord-text">M-18</text>
+                <text x="2418.20" y="3597.21" class="coord-text">M-19</text>
+                <text x="2610.13" y="163.00" class="coord-text">N-1</text>
+                <text x="2610.13" y="353.79" class="coord-text">N-2</text>
+                <text x="2610.13" y="544.58" class="coord-text">N-3</text>
+                <text x="2610.13" y="735.37" class="coord-text">N-4</text>
+                <text x="2610.13" y="926.16" class="coord-text">N-5</text>
+                <text x="2610.13" y="1116.95" class="coord-text">N-6</text>
+                <text x="2610.13" y="1307.74" class="coord-text">N-7</text>
+                <text x="2610.13" y="1498.53" class="coord-text">N-8</text>
+                <text x="2610.13" y="1689.32" class="coord-text">N-9</text>
+                <text x="2610.13" y="1880.11" class="coord-text">N-10</text>
+                <text x="2610.13" y="2070.89" class="coord-text">N-11</text>
+                <text x="2610.13" y="2261.68" class="coord-text">N-12</text>
+                <text x="2610.13" y="2452.47" class="coord-text">N-13</text>
+                <text x="2610.13" y="2643.26" class="coord-text">N-14</text>
+                <text x="2610.13" y="2834.05" class="coord-text">N-15</text>
+                <text x="2610.13" y="3024.84" class="coord-text">N-16</text>
+                <text x="2610.13" y="3215.63" class="coord-text">N-17</text>
+                <text x="2610.13" y="3406.42" class="coord-text">N-18</text>
+                <text x="2610.13" y="3597.21" class="coord-text">N-19</text>
+                <text x="2802.07" y="163.00" class="coord-text">O-1</text>
+                <text x="2802.07" y="353.79" class="coord-text">O-2</text>
+                <text x="2802.07" y="544.58" class="coord-text">O-3</text>
+                <text x="2802.07" y="735.37" class="coord-text">O-4</text>
+                <text x="2802.07" y="926.16" class="coord-text">O-5</text>
+                <text x="2802.07" y="1116.95" class="coord-text">O-6</text>
+                <text x="2802.07" y="1307.74" class="coord-text">O-7</text>
+                <text x="2802.07" y="1498.53" class="coord-text">O-8</text>
+                <text x="2802.07" y="1689.32" class="coord-text">O-9</text>
+                <text x="2802.07" y="1880.11" class="coord-text">O-10</text>
+                <text x="2802.07" y="2070.89" class="coord-text">O-11</text>
+                <text x="2802.07" y="2261.68" class="coord-text">O-12</text>
+                <text x="2802.07" y="2452.47" class="coord-text">O-13</text>
+                <text x="2802.07" y="2643.26" class="coord-text">O-14</text>
+                <text x="2802.07" y="2834.05" class="coord-text">O-15</text>
+                <text x="2802.07" y="3024.84" class="coord-text">O-16</text>
+                <text x="2802.07" y="3215.63" class="coord-text">O-17</text>
+                <text x="2802.07" y="3406.42" class="coord-text">O-18</text>
+                <text x="2802.07" y="3597.21" class="coord-text">O-19</text>
               </g>
             </svg>
           </div>
@@ -1101,7 +1379,6 @@
       const clampedScale = Math.min(Math.max(MIN_SCALE, targetScale), MAX_SCALE);
       if (clampedScale === scale) return;
 
-      // Current stage-relative position
       const stageX = (focusX - posX) / scale;
       const stageY = (focusY - posY) / scale;
 
@@ -1125,7 +1402,7 @@
 
     // Mouse Drag Panning
     viewport.addEventListener('mousedown', (e) => {
-      if (e.button !== 0) return; // Left click only
+      if (e.button !== 0) return;
       isDragging = true;
       startX = e.clientX - posX;
       startY = e.clientY - posY;
