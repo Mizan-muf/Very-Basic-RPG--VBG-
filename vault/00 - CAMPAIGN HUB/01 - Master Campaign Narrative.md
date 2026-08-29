@@ -1,6 +1,6 @@
 # ☣️ CAMPAIGN MASTER CHRONOLOGY: ZERO HOUR TO COLLAPSE
 
-> *A chronological, scene-by-scene campaign narrative for the Biohazard storyline. Detailed zone maps, search points, loot tables, and NPC dossier cards are linked directly within each story beat via `[[Wikilinks]]` so you can jump to mechanical references while keeping the story primary.*
+> *A chronological, scene-by-scene campaign narrative for the Biohazard storyline. Detailed zone maps, search points, loot tables, and NPC dossier cards are linked directly within each story beat via Wikilinks so you can jump to mechanical references while keeping the story primary.*
 
 ---
 
