@@ -1,196 +1,479 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full bg-zinc-950 text-zinc-100 antialiased">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>BIOHAZARD — Tactical Map & Survivor Terminal</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>BIOHAZARD — Raccoon City Tactical Terminal</title>
   <style>
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      touch-action: pan-x pan-y;
+    :root {
+      --bg-dark: #07090c;
+      --bg-card: #0d1117;
+      --bg-sidebar: #0a0d12;
+      --border-color: #1f2937;
+      --text-main: #d1d5db;
+      --text-muted: #6b7280;
+      --accent-orange: #ff6b00;
+      --accent-green: #10b981;
+      --accent-cyan: #06b6d4;
+      --accent-red: #ef4444;
+      --header-h: 56px;
+      --bottom-nav-h: 60px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       -webkit-tap-highlight-color: transparent;
     }
-    .font-mono-hud {
-      font-family: 'Share Tech Mono', monospace;
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
-    .scanlines {
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      background-size: 100% 3px, 6px 100%;
-      pointer-events: none;
+    header {
+      height: var(--header-h);
+      background: #05070a;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 50;
+      flex-shrink: 0;
     }
-    #map-viewport {
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Courier New", monospace;
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: var(--accent-orange);
+      text-shadow: 0 0 10px rgba(255, 107, 0, 0.4);
     }
-    .grid-cols-14 {
-      grid-template-columns: repeat(14, minmax(0, 1fr));
+    .badge {
+      background: rgba(255, 107, 0, 0.15);
+      border: 1px solid var(--accent-orange);
+      color: var(--accent-orange);
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 1px;
     }
-    .grid-rows-16 {
-      grid-template-rows: repeat(16, minmax(0, 1fr));
-    }
-    .grid-cell {
-      border-right: 1px dashed rgba(245, 158, 11, 0.35);
-      border-bottom: 1px dashed rgba(245, 158, 11, 0.35);
+    .app-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
       position: relative;
-      transition: background-color 0.15s ease;
     }
-    .grid-cell:nth-child(14n+1) {
-      border-left: 1px dashed rgba(245, 158, 11, 0.35);
+    /* Sidebar Navigation (Desktop) */
+    .sidebar {
+      width: 280px;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 40;
     }
-    .grid-cell:nth-child(-n+14) {
-      border-top: 1px dashed rgba(245, 158, 11, 0.35);
+    .nav-list {
+      list-style: none;
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
-    .cell-label {
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+    .nav-item:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .nav-item.active {
+      color: #fff;
+      background: rgba(255, 107, 0, 0.12);
+      border-color: rgba(255, 107, 0, 0.35);
+    }
+    .nav-item.active .nav-icon {
+      color: var(--accent-orange);
+    }
+    /* Main Content Area */
+    .content-area {
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      background: #020305;
+    }
+    .tab-pane {
+      width: 100%;
+      height: 100%;
+      display: none;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       position: absolute;
-      top: 4px;
-      left: 4px;
-      font-size: 11px;
-      font-family: 'Share Tech Mono', monospace;
-      color: rgba(245, 158, 11, 0.7);
-      text-shadow: 0 0 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.9);
-      pointer-events: none;
-      font-weight: bold;
+      top: 0;
+      left: 0;
     }
-    @media (max-width: 640px) {
-      .cell-label {
-        font-size: 9px;
-        top: 2px;
-        left: 2px;
+    .tab-pane.active {
+      display: block;
+    }
+    /* MAP VIEWPORT */
+    #tab-map {
+      overflow: hidden;
+      cursor: grab;
+      touch-action: none;
+      background: #040608;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    #tab-map:active {
+      cursor: grabbing;
+    }
+    #map-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    #map-image {
+      display: block;
+      width: 3085px;
+      height: 3858px;
+      max-width: none;
+      max-height: none;
+      pointer-events: none;
+      user-select: none;
+    }
+    .map-controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 30;
+    }
+    .map-btn {
+      background: rgba(13, 17, 23, 0.92);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.15s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .map-btn:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-orange);
+      transform: scale(1.05);
+    }
+    .map-btn:active {
+      transform: scale(0.95);
+    }
+    .map-hint {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(10, 13, 18, 0.85);
+      border: 1px solid rgba(255, 107, 0, 0.3);
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-family: "Courier New", monospace;
+      font-size: 0.75rem;
+      color: var(--accent-orange);
+      pointer-events: none;
+      z-index: 30;
+      backdrop-filter: blur(6px);
+      letter-spacing: 0.5px;
+    }
+    /* Reader Markdown View */
+    .reader-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 24px 80px 24px;
+      color: #e5e7eb;
+      line-height: 1.65;
+    }
+    .reader-container h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      border-bottom: 2px solid var(--accent-orange);
+      padding-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .reader-container h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-top: 36px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 107, 0, 0.2);
+      padding-bottom: 6px;
+    }
+    .reader-container h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #93c5fd;
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .reader-container p {
+      margin-bottom: 16px;
+      color: #d1d5db;
+    }
+    .reader-container ul, .reader-container ol {
+      margin-bottom: 20px;
+      padding-left: 24px;
+    }
+    .reader-container li {
+      margin-bottom: 8px;
+    }
+    .reader-container strong {
+      color: #fff;
+    }
+    .reader-container blockquote {
+      border-left: 4px solid var(--accent-orange);
+      background: rgba(255, 107, 0, 0.08);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-style: italic;
+      color: #fbbf24;
+    }
+    .reader-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .reader-container th, .reader-container td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    .reader-container th {
+      background: #111827;
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+    /* Mobile Bottom Navigation */
+    .bottom-nav {
+      display: none;
+      height: var(--bottom-nav-h);
+      background: #080b0f;
+      border-top: 1px solid var(--border-color);
+      padding: 0 8px;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      z-index: 50;
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .bottom-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .b-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        color: var(--text-muted);
+        font-size: 0.65rem;
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: all 0.15s;
+        user-select: none;
+      }
+      .b-nav-item.active {
+        color: var(--accent-orange);
+      }
+      .b-nav-icon {
+        font-size: 1.15rem;
+      }
+      .reader-container {
+        padding: 24px 16px 80px 16px;
+      }
+      .map-controls {
+        bottom: 16px;
+        right: 16px;
       }
     }
   </style>
 </head>
-<body class="h-full flex flex-col overflow-hidden bg-zinc-950">
-  
-  <!-- Header Bar -->
-  <header class="h-14 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between px-4 z-30 shrink-0 select-none">
-    <div class="flex items-center gap-3">
-      <div class="w-3 h-3 bg-amber-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
-      <h1 class="text-sm md:text-base font-bold font-mono-hud text-amber-500 tracking-wider flex items-center gap-2">
-        <span>BIOHAZARD</span>
-        <span class="text-zinc-600">/</span>
-        <span class="text-zinc-400 text-xs md:text-sm font-normal">TACTICAL HUD</span>
-      </h1>
+<body>
+
+  <header>
+    <div class="logo">
+      <span>☣ BIOHAZARD</span>
+      <span class="badge">VBG-Z TERMINAL</span>
     </div>
-    <div class="flex items-center gap-2">
-      <span class="hidden sm:inline-block px-2 py-0.5 bg-amber-950/40 text-amber-400 border border-amber-800/50 rounded text-xs font-mono-hud">
-        HOUR ZERO // COLLAPSE
-      </span>
-      <button id="btn-toggle-grid" class="px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 active:bg-amber-600 text-amber-400 hover:text-white border border-zinc-700 rounded text-xs font-mono-hud flex items-center gap-1.5 transition-colors">
-        <span class="w-1.5 h-1.5 rounded-full bg-amber-400" id="grid-status-dot"></span>
-        <span>GRID: ON</span>
-      </button>
-    </div>
+    <button id="btn-grid-toggle" class="map-btn" style="width:auto; height:32px; padding:0 12px; font-size:0.75rem; font-family:'Courier New', monospace; font-weight:bold; border-color:var(--accent-orange); color:var(--accent-orange);">GRID: ON</button>
   </header>
 
-  <!-- Main Work Area -->
-  <div class="flex-1 flex overflow-hidden relative">
-    
-    <!-- Left Navigation (Desktop) -->
-    <nav class="hidden md:flex flex-col w-64 bg-zinc-900/90 border-r border-zinc-800 p-4 gap-2 z-20 shrink-0 select-none">
-      <div class="text-[11px] font-mono-hud text-zinc-500 px-3 uppercase tracking-wider mb-1">Navigation</div>
-      
-      <button data-target="map" class="nav-btn active flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all bg-amber-500/10 text-amber-400 border border-amber-500/30">
-        <span class="text-lg">🗺️</span>
-        <span>Raccoon City Map</span>
-      </button>
-      
-      <button data-target="doc-player" class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent">
-        <span class="text-lg">📖</span>
-        <span>Player Rulebook</span>
-      </button>
-      
-      <button data-target="doc-traits" class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent">
-        <span class="text-lg">🧬</span>
-        <span>Traits & Specs</span>
-      </button>
-      
-      <button data-target="doc-glossary" class="nav-btn flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent">
-        <span class="text-lg">📑</span>
-        <span>Rules & Glossary</span>
-      </button>
+  <div class="app-container">
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar">
+      <ul class="nav-list">
+        <li class="nav-item active" data-tab="tab-map">
+          <span class="nav-icon">🗺️</span>
+          <span>Tactical Map</span>
+        </li>
+        <li class="nav-item" data-tab="tab-player">
+          <span class="nav-icon">📖</span>
+          <span>Player Rulebook</span>
+        </li>
+        <li class="nav-item" data-tab="tab-traits">
+          <span class="nav-icon">🧬</span>
+          <span>Traits & Specializations</span>
+        </li>
+        <li class="nav-item" data-tab="tab-glossary">
+          <span class="nav-icon">📑</span>
+          <span>Master Rules Glossary</span>
+        </li>
+      </ul>
+    </aside>
 
-      <div class="mt-auto pt-4 border-t border-zinc-800 text-[11px] font-mono-hud text-zinc-500 space-y-1">
-        <div>COORDINATES: A-N // 1-16</div>
-        <div>VBG-Z ENGINE v2.0</div>
+    <!-- Main Content Tabs -->
+    <main class="content-area">
+      <!-- MAP TAB -->
+      <div id="tab-map" class="tab-pane active">
+        <div class="map-hint">📍 RACCOON CITY TACTICAL MAP — DRAG TO PAN / PINCH OR SCROLL TO ZOOM</div>
+        
+        <div id="map-wrapper">
+          <img id="map-image" src="assets/raccoon_city_map.jpg" alt="Raccoon City Map" />
+          <svg id="grid-svg" viewBox="0 0 3085 3858" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:15;">
+<line x1="129.00" y1="159.00" x2="129.00" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="329.43" y1="159.00" x2="329.43" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="529.86" y1="159.00" x2="529.86" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="730.29" y1="159.00" x2="730.29" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="930.71" y1="159.00" x2="930.71" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="1131.14" y1="159.00" x2="1131.14" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="1331.57" y1="159.00" x2="1331.57" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="1532.00" y1="159.00" x2="1532.00" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="1732.43" y1="159.00" x2="1732.43" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="1932.86" y1="159.00" x2="1932.86" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="2133.29" y1="159.00" x2="2133.29" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="2333.71" y1="159.00" x2="2333.71" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="2534.14" y1="159.00" x2="2534.14" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="2734.57" y1="159.00" x2="2734.57" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="2935.00" y1="159.00" x2="2935.00" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="159.00" x2="2935.00" y2="159.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="380.38" x2="2935.00" y2="380.38" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="601.75" x2="2935.00" y2="601.75" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="823.12" x2="2935.00" y2="823.12" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="1044.50" x2="2935.00" y2="1044.50" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="1265.88" x2="2935.00" y2="1265.88" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="1487.25" x2="2935.00" y2="1487.25" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="1708.62" x2="2935.00" y2="1708.62" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="1930.00" x2="2935.00" y2="1930.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="2151.38" x2="2935.00" y2="2151.38" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="2372.75" x2="2935.00" y2="2372.75" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="2594.12" x2="2935.00" y2="2594.12" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="2815.50" x2="2935.00" y2="2815.50" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="3036.88" x2="2935.00" y2="3036.88" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="3258.25" x2="2935.00" y2="3258.25" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="3479.62" x2="2935.00" y2="3479.62" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><line x1="129.00" y1="3701.00" x2="2935.00" y2="3701.00" stroke="rgba(255,107,0,0.55)" stroke-width="2.5" stroke-dasharray="8,6" /><text x="143.0" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-1</text><text x="343.4" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-1</text><text x="543.9" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-1</text><text x="744.3" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-1</text><text x="944.7" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-1</text><text x="1145.1" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-1</text><text x="1345.6" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-1</text><text x="1546.0" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-1</text><text x="1746.4" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-1</text><text x="1946.9" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-1</text><text x="2147.3" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-1</text><text x="2347.7" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-1</text><text x="2548.1" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-1</text><text x="2748.6" y="183.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-1</text><text x="143.0" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-2</text><text x="343.4" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-2</text><text x="543.9" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-2</text><text x="744.3" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-2</text><text x="944.7" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-2</text><text x="1145.1" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-2</text><text x="1345.6" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-2</text><text x="1546.0" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-2</text><text x="1746.4" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-2</text><text x="1946.9" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-2</text><text x="2147.3" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-2</text><text x="2347.7" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-2</text><text x="2548.1" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-2</text><text x="2748.6" y="404.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-2</text><text x="143.0" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-3</text><text x="343.4" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-3</text><text x="543.9" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-3</text><text x="744.3" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-3</text><text x="944.7" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-3</text><text x="1145.1" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-3</text><text x="1345.6" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-3</text><text x="1546.0" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-3</text><text x="1746.4" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-3</text><text x="1946.9" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-3</text><text x="2147.3" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-3</text><text x="2347.7" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-3</text><text x="2548.1" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-3</text><text x="2748.6" y="625.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-3</text><text x="143.0" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-4</text><text x="343.4" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-4</text><text x="543.9" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-4</text><text x="744.3" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-4</text><text x="944.7" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-4</text><text x="1145.1" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-4</text><text x="1345.6" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-4</text><text x="1546.0" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-4</text><text x="1746.4" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-4</text><text x="1946.9" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-4</text><text x="2147.3" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-4</text><text x="2347.7" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-4</text><text x="2548.1" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-4</text><text x="2748.6" y="847.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-4</text><text x="143.0" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-5</text><text x="343.4" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-5</text><text x="543.9" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-5</text><text x="744.3" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-5</text><text x="944.7" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-5</text><text x="1145.1" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-5</text><text x="1345.6" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-5</text><text x="1546.0" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-5</text><text x="1746.4" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-5</text><text x="1946.9" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-5</text><text x="2147.3" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-5</text><text x="2347.7" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-5</text><text x="2548.1" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-5</text><text x="2748.6" y="1068.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-5</text><text x="143.0" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-6</text><text x="343.4" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-6</text><text x="543.9" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-6</text><text x="744.3" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-6</text><text x="944.7" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-6</text><text x="1145.1" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-6</text><text x="1345.6" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-6</text><text x="1546.0" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-6</text><text x="1746.4" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-6</text><text x="1946.9" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-6</text><text x="2147.3" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-6</text><text x="2347.7" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-6</text><text x="2548.1" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-6</text><text x="2748.6" y="1289.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-6</text><text x="143.0" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-7</text><text x="343.4" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-7</text><text x="543.9" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-7</text><text x="744.3" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-7</text><text x="944.7" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-7</text><text x="1145.1" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-7</text><text x="1345.6" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-7</text><text x="1546.0" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-7</text><text x="1746.4" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-7</text><text x="1946.9" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-7</text><text x="2147.3" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-7</text><text x="2347.7" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-7</text><text x="2548.1" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-7</text><text x="2748.6" y="1511.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-7</text><text x="143.0" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-8</text><text x="343.4" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-8</text><text x="543.9" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-8</text><text x="744.3" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-8</text><text x="944.7" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-8</text><text x="1145.1" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-8</text><text x="1345.6" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-8</text><text x="1546.0" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-8</text><text x="1746.4" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-8</text><text x="1946.9" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-8</text><text x="2147.3" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-8</text><text x="2347.7" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-8</text><text x="2548.1" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-8</text><text x="2748.6" y="1732.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-8</text><text x="143.0" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-9</text><text x="343.4" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-9</text><text x="543.9" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-9</text><text x="744.3" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-9</text><text x="944.7" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-9</text><text x="1145.1" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-9</text><text x="1345.6" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-9</text><text x="1546.0" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-9</text><text x="1746.4" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-9</text><text x="1946.9" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-9</text><text x="2147.3" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-9</text><text x="2347.7" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-9</text><text x="2548.1" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-9</text><text x="2748.6" y="1954.0" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-9</text><text x="143.0" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-10</text><text x="343.4" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-10</text><text x="543.9" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-10</text><text x="744.3" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-10</text><text x="944.7" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-10</text><text x="1145.1" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-10</text><text x="1345.6" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-10</text><text x="1546.0" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-10</text><text x="1746.4" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-10</text><text x="1946.9" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-10</text><text x="2147.3" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-10</text><text x="2347.7" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-10</text><text x="2548.1" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-10</text><text x="2748.6" y="2175.4" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-10</text><text x="143.0" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-11</text><text x="343.4" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-11</text><text x="543.9" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-11</text><text x="744.3" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-11</text><text x="944.7" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-11</text><text x="1145.1" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-11</text><text x="1345.6" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-11</text><text x="1546.0" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-11</text><text x="1746.4" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-11</text><text x="1946.9" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-11</text><text x="2147.3" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-11</text><text x="2347.7" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-11</text><text x="2548.1" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-11</text><text x="2748.6" y="2396.8" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-11</text><text x="143.0" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-12</text><text x="343.4" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-12</text><text x="543.9" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-12</text><text x="744.3" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-12</text><text x="944.7" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-12</text><text x="1145.1" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-12</text><text x="1345.6" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-12</text><text x="1546.0" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-12</text><text x="1746.4" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-12</text><text x="1946.9" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-12</text><text x="2147.3" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-12</text><text x="2347.7" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-12</text><text x="2548.1" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-12</text><text x="2748.6" y="2618.1" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-12</text><text x="143.0" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-13</text><text x="343.4" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-13</text><text x="543.9" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-13</text><text x="744.3" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-13</text><text x="944.7" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-13</text><text x="1145.1" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-13</text><text x="1345.6" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-13</text><text x="1546.0" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-13</text><text x="1746.4" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-13</text><text x="1946.9" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-13</text><text x="2147.3" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-13</text><text x="2347.7" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-13</text><text x="2548.1" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-13</text><text x="2748.6" y="2839.5" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-13</text><text x="143.0" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-14</text><text x="343.4" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-14</text><text x="543.9" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-14</text><text x="744.3" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-14</text><text x="944.7" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-14</text><text x="1145.1" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-14</text><text x="1345.6" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-14</text><text x="1546.0" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-14</text><text x="1746.4" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-14</text><text x="1946.9" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-14</text><text x="2147.3" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-14</text><text x="2347.7" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-14</text><text x="2548.1" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-14</text><text x="2748.6" y="3060.9" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-14</text><text x="143.0" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-15</text><text x="343.4" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-15</text><text x="543.9" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-15</text><text x="744.3" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-15</text><text x="944.7" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-15</text><text x="1145.1" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-15</text><text x="1345.6" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-15</text><text x="1546.0" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-15</text><text x="1746.4" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-15</text><text x="1946.9" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-15</text><text x="2147.3" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-15</text><text x="2347.7" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-15</text><text x="2548.1" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-15</text><text x="2748.6" y="3282.2" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-15</text><text x="143.0" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">A-16</text><text x="343.4" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">B-16</text><text x="543.9" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">C-16</text><text x="744.3" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">D-16</text><text x="944.7" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">E-16</text><text x="1145.1" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">F-16</text><text x="1345.6" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">G-16</text><text x="1546.0" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">H-16</text><text x="1746.4" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">I-16</text><text x="1946.9" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">J-16</text><text x="2147.3" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">K-16</text><text x="2347.7" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">L-16</text><text x="2548.1" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">M-16</text><text x="2748.6" y="3503.6" fill="rgba(255,107,0,0.85)" font-family="Courier New, monospace" font-size="20" font-weight="bold">N-16</text>
+</svg>
+        </div>
+
+        <div class="map-controls">
+          <button id="btn-zoom-in" class="map-btn" title="Zoom In">➕</button>
+          <button id="btn-zoom-out" class="map-btn" title="Zoom Out">➖</button>
+          <button id="btn-zoom-reset" class="map-btn" title="Reset View">🔄</button>
+        </div>
       </div>
-    </nav>
 
-    <!-- Content Workspace -->
-    <main class="flex-1 relative flex flex-col overflow-hidden bg-zinc-950">
-      
-      <!-- Interactive Tactical Map Screen -->
-      <section id="panel-map" class="flex-1 w-full h-full relative overflow-hidden flex items-center justify-center bg-black">
-        <div id="map-viewport" class="w-full h-full relative overflow-hidden cursor-grab active:cursor-grabbing flex items-center justify-center">
-          <div id="map-container" class="relative origin-top-left will-change-transform inline-block">
-            <img id="map-image" src="assets/raccoon_city_map.jpg" alt="Raccoon City High-Resolution Tactical Map" class="max-w-none block select-none pointer-events-none" />
-            
-  <div id="grid-matrix" class="absolute pointer-events-none grid grid-cols-14 grid-rows-16" style="top: 4.121%; left: 4.182%; width: 90.956%; height: 91.809%;">
-    <div class="grid-cell" data-coord="A-1"><span class="cell-label">A-1</span></div><div class="grid-cell" data-coord="B-1"><span class="cell-label">B-1</span></div><div class="grid-cell" data-coord="C-1"><span class="cell-label">C-1</span></div><div class="grid-cell" data-coord="D-1"><span class="cell-label">D-1</span></div><div class="grid-cell" data-coord="E-1"><span class="cell-label">E-1</span></div><div class="grid-cell" data-coord="F-1"><span class="cell-label">F-1</span></div><div class="grid-cell" data-coord="G-1"><span class="cell-label">G-1</span></div><div class="grid-cell" data-coord="H-1"><span class="cell-label">H-1</span></div><div class="grid-cell" data-coord="I-1"><span class="cell-label">I-1</span></div><div class="grid-cell" data-coord="J-1"><span class="cell-label">J-1</span></div><div class="grid-cell" data-coord="K-1"><span class="cell-label">K-1</span></div><div class="grid-cell" data-coord="L-1"><span class="cell-label">L-1</span></div><div class="grid-cell" data-coord="M-1"><span class="cell-label">M-1</span></div><div class="grid-cell" data-coord="N-1"><span class="cell-label">N-1</span></div><div class="grid-cell" data-coord="A-2"><span class="cell-label">A-2</span></div><div class="grid-cell" data-coord="B-2"><span class="cell-label">B-2</span></div><div class="grid-cell" data-coord="C-2"><span class="cell-label">C-2</span></div><div class="grid-cell" data-coord="D-2"><span class="cell-label">D-2</span></div><div class="grid-cell" data-coord="E-2"><span class="cell-label">E-2</span></div><div class="grid-cell" data-coord="F-2"><span class="cell-label">F-2</span></div><div class="grid-cell" data-coord="G-2"><span class="cell-label">G-2</span></div><div class="grid-cell" data-coord="H-2"><span class="cell-label">H-2</span></div><div class="grid-cell" data-coord="I-2"><span class="cell-label">I-2</span></div><div class="grid-cell" data-coord="J-2"><span class="cell-label">J-2</span></div><div class="grid-cell" data-coord="K-2"><span class="cell-label">K-2</span></div><div class="grid-cell" data-coord="L-2"><span class="cell-label">L-2</span></div><div class="grid-cell" data-coord="M-2"><span class="cell-label">M-2</span></div><div class="grid-cell" data-coord="N-2"><span class="cell-label">N-2</span></div><div class="grid-cell" data-coord="A-3"><span class="cell-label">A-3</span></div><div class="grid-cell" data-coord="B-3"><span class="cell-label">B-3</span></div><div class="grid-cell" data-coord="C-3"><span class="cell-label">C-3</span></div><div class="grid-cell" data-coord="D-3"><span class="cell-label">D-3</span></div><div class="grid-cell" data-coord="E-3"><span class="cell-label">E-3</span></div><div class="grid-cell" data-coord="F-3"><span class="cell-label">F-3</span></div><div class="grid-cell" data-coord="G-3"><span class="cell-label">G-3</span></div><div class="grid-cell" data-coord="H-3"><span class="cell-label">H-3</span></div><div class="grid-cell" data-coord="I-3"><span class="cell-label">I-3</span></div><div class="grid-cell" data-coord="J-3"><span class="cell-label">J-3</span></div><div class="grid-cell" data-coord="K-3"><span class="cell-label">K-3</span></div><div class="grid-cell" data-coord="L-3"><span class="cell-label">L-3</span></div><div class="grid-cell" data-coord="M-3"><span class="cell-label">M-3</span></div><div class="grid-cell" data-coord="N-3"><span class="cell-label">N-3</span></div><div class="grid-cell" data-coord="A-4"><span class="cell-label">A-4</span></div><div class="grid-cell" data-coord="B-4"><span class="cell-label">B-4</span></div><div class="grid-cell" data-coord="C-4"><span class="cell-label">C-4</span></div><div class="grid-cell" data-coord="D-4"><span class="cell-label">D-4</span></div><div class="grid-cell" data-coord="E-4"><span class="cell-label">E-4</span></div><div class="grid-cell" data-coord="F-4"><span class="cell-label">F-4</span></div><div class="grid-cell" data-coord="G-4"><span class="cell-label">G-4</span></div><div class="grid-cell" data-coord="H-4"><span class="cell-label">H-4</span></div><div class="grid-cell" data-coord="I-4"><span class="cell-label">I-4</span></div><div class="grid-cell" data-coord="J-4"><span class="cell-label">J-4</span></div><div class="grid-cell" data-coord="K-4"><span class="cell-label">K-4</span></div><div class="grid-cell" data-coord="L-4"><span class="cell-label">L-4</span></div><div class="grid-cell" data-coord="M-4"><span class="cell-label">M-4</span></div><div class="grid-cell" data-coord="N-4"><span class="cell-label">N-4</span></div><div class="grid-cell" data-coord="A-5"><span class="cell-label">A-5</span></div><div class="grid-cell" data-coord="B-5"><span class="cell-label">B-5</span></div><div class="grid-cell" data-coord="C-5"><span class="cell-label">C-5</span></div><div class="grid-cell" data-coord="D-5"><span class="cell-label">D-5</span></div><div class="grid-cell" data-coord="E-5"><span class="cell-label">E-5</span></div><div class="grid-cell" data-coord="F-5"><span class="cell-label">F-5</span></div><div class="grid-cell" data-coord="G-5"><span class="cell-label">G-5</span></div><div class="grid-cell" data-coord="H-5"><span class="cell-label">H-5</span></div><div class="grid-cell" data-coord="I-5"><span class="cell-label">I-5</span></div><div class="grid-cell" data-coord="J-5"><span class="cell-label">J-5</span></div><div class="grid-cell" data-coord="K-5"><span class="cell-label">K-5</span></div><div class="grid-cell" data-coord="L-5"><span class="cell-label">L-5</span></div><div class="grid-cell" data-coord="M-5"><span class="cell-label">M-5</span></div><div class="grid-cell" data-coord="N-5"><span class="cell-label">N-5</span></div><div class="grid-cell" data-coord="A-6"><span class="cell-label">A-6</span></div><div class="grid-cell" data-coord="B-6"><span class="cell-label">B-6</span></div><div class="grid-cell" data-coord="C-6"><span class="cell-label">C-6</span></div><div class="grid-cell" data-coord="D-6"><span class="cell-label">D-6</span></div><div class="grid-cell" data-coord="E-6"><span class="cell-label">E-6</span></div><div class="grid-cell" data-coord="F-6"><span class="cell-label">F-6</span></div><div class="grid-cell" data-coord="G-6"><span class="cell-label">G-6</span></div><div class="grid-cell" data-coord="H-6"><span class="cell-label">H-6</span></div><div class="grid-cell" data-coord="I-6"><span class="cell-label">I-6</span></div><div class="grid-cell" data-coord="J-6"><span class="cell-label">J-6</span></div><div class="grid-cell" data-coord="K-6"><span class="cell-label">K-6</span></div><div class="grid-cell" data-coord="L-6"><span class="cell-label">L-6</span></div><div class="grid-cell" data-coord="M-6"><span class="cell-label">M-6</span></div><div class="grid-cell" data-coord="N-6"><span class="cell-label">N-6</span></div><div class="grid-cell" data-coord="A-7"><span class="cell-label">A-7</span></div><div class="grid-cell" data-coord="B-7"><span class="cell-label">B-7</span></div><div class="grid-cell" data-coord="C-7"><span class="cell-label">C-7</span></div><div class="grid-cell" data-coord="D-7"><span class="cell-label">D-7</span></div><div class="grid-cell" data-coord="E-7"><span class="cell-label">E-7</span></div><div class="grid-cell" data-coord="F-7"><span class="cell-label">F-7</span></div><div class="grid-cell" data-coord="G-7"><span class="cell-label">G-7</span></div><div class="grid-cell" data-coord="H-7"><span class="cell-label">H-7</span></div><div class="grid-cell" data-coord="I-7"><span class="cell-label">I-7</span></div><div class="grid-cell" data-coord="J-7"><span class="cell-label">J-7</span></div><div class="grid-cell" data-coord="K-7"><span class="cell-label">K-7</span></div><div class="grid-cell" data-coord="L-7"><span class="cell-label">L-7</span></div><div class="grid-cell" data-coord="M-7"><span class="cell-label">M-7</span></div><div class="grid-cell" data-coord="N-7"><span class="cell-label">N-7</span></div><div class="grid-cell" data-coord="A-8"><span class="cell-label">A-8</span></div><div class="grid-cell" data-coord="B-8"><span class="cell-label">B-8</span></div><div class="grid-cell" data-coord="C-8"><span class="cell-label">C-8</span></div><div class="grid-cell" data-coord="D-8"><span class="cell-label">D-8</span></div><div class="grid-cell" data-coord="E-8"><span class="cell-label">E-8</span></div><div class="grid-cell" data-coord="F-8"><span class="cell-label">F-8</span></div><div class="grid-cell" data-coord="G-8"><span class="cell-label">G-8</span></div><div class="grid-cell" data-coord="H-8"><span class="cell-label">H-8</span></div><div class="grid-cell" data-coord="I-8"><span class="cell-label">I-8</span></div><div class="grid-cell" data-coord="J-8"><span class="cell-label">J-8</span></div><div class="grid-cell" data-coord="K-8"><span class="cell-label">K-8</span></div><div class="grid-cell" data-coord="L-8"><span class="cell-label">L-8</span></div><div class="grid-cell" data-coord="M-8"><span class="cell-label">M-8</span></div><div class="grid-cell" data-coord="N-8"><span class="cell-label">N-8</span></div><div class="grid-cell" data-coord="A-9"><span class="cell-label">A-9</span></div><div class="grid-cell" data-coord="B-9"><span class="cell-label">B-9</span></div><div class="grid-cell" data-coord="C-9"><span class="cell-label">C-9</span></div><div class="grid-cell" data-coord="D-9"><span class="cell-label">D-9</span></div><div class="grid-cell" data-coord="E-9"><span class="cell-label">E-9</span></div><div class="grid-cell" data-coord="F-9"><span class="cell-label">F-9</span></div><div class="grid-cell" data-coord="G-9"><span class="cell-label">G-9</span></div><div class="grid-cell" data-coord="H-9"><span class="cell-label">H-9</span></div><div class="grid-cell" data-coord="I-9"><span class="cell-label">I-9</span></div><div class="grid-cell" data-coord="J-9"><span class="cell-label">J-9</span></div><div class="grid-cell" data-coord="K-9"><span class="cell-label">K-9</span></div><div class="grid-cell" data-coord="L-9"><span class="cell-label">L-9</span></div><div class="grid-cell" data-coord="M-9"><span class="cell-label">M-9</span></div><div class="grid-cell" data-coord="N-9"><span class="cell-label">N-9</span></div><div class="grid-cell" data-coord="A-10"><span class="cell-label">A-10</span></div><div class="grid-cell" data-coord="B-10"><span class="cell-label">B-10</span></div><div class="grid-cell" data-coord="C-10"><span class="cell-label">C-10</span></div><div class="grid-cell" data-coord="D-10"><span class="cell-label">D-10</span></div><div class="grid-cell" data-coord="E-10"><span class="cell-label">E-10</span></div><div class="grid-cell" data-coord="F-10"><span class="cell-label">F-10</span></div><div class="grid-cell" data-coord="G-10"><span class="cell-label">G-10</span></div><div class="grid-cell" data-coord="H-10"><span class="cell-label">H-10</span></div><div class="grid-cell" data-coord="I-10"><span class="cell-label">I-10</span></div><div class="grid-cell" data-coord="J-10"><span class="cell-label">J-10</span></div><div class="grid-cell" data-coord="K-10"><span class="cell-label">K-10</span></div><div class="grid-cell" data-coord="L-10"><span class="cell-label">L-10</span></div><div class="grid-cell" data-coord="M-10"><span class="cell-label">M-10</span></div><div class="grid-cell" data-coord="N-10"><span class="cell-label">N-10</span></div><div class="grid-cell" data-coord="A-11"><span class="cell-label">A-11</span></div><div class="grid-cell" data-coord="B-11"><span class="cell-label">B-11</span></div><div class="grid-cell" data-coord="C-11"><span class="cell-label">C-11</span></div><div class="grid-cell" data-coord="D-11"><span class="cell-label">D-11</span></div><div class="grid-cell" data-coord="E-11"><span class="cell-label">E-11</span></div><div class="grid-cell" data-coord="F-11"><span class="cell-label">F-11</span></div><div class="grid-cell" data-coord="G-11"><span class="cell-label">G-11</span></div><div class="grid-cell" data-coord="H-11"><span class="cell-label">H-11</span></div><div class="grid-cell" data-coord="I-11"><span class="cell-label">I-11</span></div><div class="grid-cell" data-coord="J-11"><span class="cell-label">J-11</span></div><div class="grid-cell" data-coord="K-11"><span class="cell-label">K-11</span></div><div class="grid-cell" data-coord="L-11"><span class="cell-label">L-11</span></div><div class="grid-cell" data-coord="M-11"><span class="cell-label">M-11</span></div><div class="grid-cell" data-coord="N-11"><span class="cell-label">N-11</span></div><div class="grid-cell" data-coord="A-12"><span class="cell-label">A-12</span></div><div class="grid-cell" data-coord="B-12"><span class="cell-label">B-12</span></div><div class="grid-cell" data-coord="C-12"><span class="cell-label">C-12</span></div><div class="grid-cell" data-coord="D-12"><span class="cell-label">D-12</span></div><div class="grid-cell" data-coord="E-12"><span class="cell-label">E-12</span></div><div class="grid-cell" data-coord="F-12"><span class="cell-label">F-12</span></div><div class="grid-cell" data-coord="G-12"><span class="cell-label">G-12</span></div><div class="grid-cell" data-coord="H-12"><span class="cell-label">H-12</span></div><div class="grid-cell" data-coord="I-12"><span class="cell-label">I-12</span></div><div class="grid-cell" data-coord="J-12"><span class="cell-label">J-12</span></div><div class="grid-cell" data-coord="K-12"><span class="cell-label">K-12</span></div><div class="grid-cell" data-coord="L-12"><span class="cell-label">L-12</span></div><div class="grid-cell" data-coord="M-12"><span class="cell-label">M-12</span></div><div class="grid-cell" data-coord="N-12"><span class="cell-label">N-12</span></div><div class="grid-cell" data-coord="A-13"><span class="cell-label">A-13</span></div><div class="grid-cell" data-coord="B-13"><span class="cell-label">B-13</span></div><div class="grid-cell" data-coord="C-13"><span class="cell-label">C-13</span></div><div class="grid-cell" data-coord="D-13"><span class="cell-label">D-13</span></div><div class="grid-cell" data-coord="E-13"><span class="cell-label">E-13</span></div><div class="grid-cell" data-coord="F-13"><span class="cell-label">F-13</span></div><div class="grid-cell" data-coord="G-13"><span class="cell-label">G-13</span></div><div class="grid-cell" data-coord="H-13"><span class="cell-label">H-13</span></div><div class="grid-cell" data-coord="I-13"><span class="cell-label">I-13</span></div><div class="grid-cell" data-coord="J-13"><span class="cell-label">J-13</span></div><div class="grid-cell" data-coord="K-13"><span class="cell-label">K-13</span></div><div class="grid-cell" data-coord="L-13"><span class="cell-label">L-13</span></div><div class="grid-cell" data-coord="M-13"><span class="cell-label">M-13</span></div><div class="grid-cell" data-coord="N-13"><span class="cell-label">N-13</span></div><div class="grid-cell" data-coord="A-14"><span class="cell-label">A-14</span></div><div class="grid-cell" data-coord="B-14"><span class="cell-label">B-14</span></div><div class="grid-cell" data-coord="C-14"><span class="cell-label">C-14</span></div><div class="grid-cell" data-coord="D-14"><span class="cell-label">D-14</span></div><div class="grid-cell" data-coord="E-14"><span class="cell-label">E-14</span></div><div class="grid-cell" data-coord="F-14"><span class="cell-label">F-14</span></div><div class="grid-cell" data-coord="G-14"><span class="cell-label">G-14</span></div><div class="grid-cell" data-coord="H-14"><span class="cell-label">H-14</span></div><div class="grid-cell" data-coord="I-14"><span class="cell-label">I-14</span></div><div class="grid-cell" data-coord="J-14"><span class="cell-label">J-14</span></div><div class="grid-cell" data-coord="K-14"><span class="cell-label">K-14</span></div><div class="grid-cell" data-coord="L-14"><span class="cell-label">L-14</span></div><div class="grid-cell" data-coord="M-14"><span class="cell-label">M-14</span></div><div class="grid-cell" data-coord="N-14"><span class="cell-label">N-14</span></div><div class="grid-cell" data-coord="A-15"><span class="cell-label">A-15</span></div><div class="grid-cell" data-coord="B-15"><span class="cell-label">B-15</span></div><div class="grid-cell" data-coord="C-15"><span class="cell-label">C-15</span></div><div class="grid-cell" data-coord="D-15"><span class="cell-label">D-15</span></div><div class="grid-cell" data-coord="E-15"><span class="cell-label">E-15</span></div><div class="grid-cell" data-coord="F-15"><span class="cell-label">F-15</span></div><div class="grid-cell" data-coord="G-15"><span class="cell-label">G-15</span></div><div class="grid-cell" data-coord="H-15"><span class="cell-label">H-15</span></div><div class="grid-cell" data-coord="I-15"><span class="cell-label">I-15</span></div><div class="grid-cell" data-coord="J-15"><span class="cell-label">J-15</span></div><div class="grid-cell" data-coord="K-15"><span class="cell-label">K-15</span></div><div class="grid-cell" data-coord="L-15"><span class="cell-label">L-15</span></div><div class="grid-cell" data-coord="M-15"><span class="cell-label">M-15</span></div><div class="grid-cell" data-coord="N-15"><span class="cell-label">N-15</span></div><div class="grid-cell" data-coord="A-16"><span class="cell-label">A-16</span></div><div class="grid-cell" data-coord="B-16"><span class="cell-label">B-16</span></div><div class="grid-cell" data-coord="C-16"><span class="cell-label">C-16</span></div><div class="grid-cell" data-coord="D-16"><span class="cell-label">D-16</span></div><div class="grid-cell" data-coord="E-16"><span class="cell-label">E-16</span></div><div class="grid-cell" data-coord="F-16"><span class="cell-label">F-16</span></div><div class="grid-cell" data-coord="G-16"><span class="cell-label">G-16</span></div><div class="grid-cell" data-coord="H-16"><span class="cell-label">H-16</span></div><div class="grid-cell" data-coord="I-16"><span class="cell-label">I-16</span></div><div class="grid-cell" data-coord="J-16"><span class="cell-label">J-16</span></div><div class="grid-cell" data-coord="K-16"><span class="cell-label">K-16</span></div><div class="grid-cell" data-coord="L-16"><span class="cell-label">L-16</span></div><div class="grid-cell" data-coord="M-16"><span class="cell-label">M-16</span></div><div class="grid-cell" data-coord="N-16"><span class="cell-label">N-16</span></div>
-  </div>
+      <!-- PLAYER RULES TAB -->
+      <div id="tab-player" class="tab-pane">
+        <div class="reader-container">
+          # VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0
+*A lightweight d20 ruleset for asynchronous Play-by-Post survival horror.*
 
-          </div>
-        </div>
+---
 
-        <!-- Floating Tactical Map Controls -->
-        <div class="absolute bottom-20 md:bottom-6 right-6 flex flex-col gap-2 z-30 select-none">
-          <button id="btn-zoom-in" class="w-10 h-10 bg-zinc-900/90 hover:bg-zinc-800 active:bg-amber-600 text-zinc-200 hover:text-amber-400 rounded-lg border border-zinc-700 shadow-xl flex items-center justify-center font-mono-hud text-lg backdrop-blur transition-all" title="Zoom In">+</button>
-          <button id="btn-zoom-out" class="w-10 h-10 bg-zinc-900/90 hover:bg-zinc-800 active:bg-amber-600 text-zinc-200 hover:text-amber-400 rounded-lg border border-zinc-700 shadow-xl flex items-center justify-center font-mono-hud text-lg backdrop-blur transition-all" title="Zoom Out">-</button>
-          <button id="btn-reset" class="w-10 h-10 bg-zinc-900/90 hover:bg-zinc-800 active:bg-amber-600 text-zinc-200 hover:text-amber-400 rounded-lg border border-zinc-700 shadow-xl flex items-center justify-center font-mono-hud text-xs backdrop-blur transition-all" title="Reset View">RESET</button>
-        </div>
+## 1. THE CORE ENGINE
 
-        <!-- Mini Info Overlay -->
-        <div class="absolute top-4 left-4 z-20 pointer-events-none bg-zinc-950/80 border border-zinc-800 px-3 py-1.5 rounded text-xs font-mono-hud text-zinc-400 backdrop-blur">
-          <span id="zoom-indicator" class="text-amber-400">100%</span> | <span class="hidden sm:inline">PINCH / SCROLL TO ZOOM</span>
-        </div>
-      </section>
+### The Resolution Roll
+When your survivor takes a risky, uncertain, or contested action under pressure:
 
-      <!-- Document Panels -->
-      
-    <section id="doc-player" class="doc-panel hidden flex-1 overflow-y-auto p-4 md:p-8 max-w-4xl mx-auto w-full pb-28 md:pb-8">
-      <div class="bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-lg shadow-2xl backdrop-blur-sm">
-        <h1 class="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wider mb-6 pb-2 border-b border-amber-900/50 uppercase">VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0
-*A lightweight d20 ruleset for asynchronous Play-by-Post survival horror.*</h1><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>1. THE CORE ENGINE</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">The Resolution Roll
-When your survivor takes a risky, uncertain, or contested action under pressure:</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4"><strong class="text-amber-400 font-semibold">Roll:</strong> <code class="bg-zinc-800 text-emerald-400 px-1.5 py-0.5 rounded text-xs font-mono">1d20 + relevant Stat bonus + applicable Trait bonus</code></p><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">1. <strong class="text-amber-400 font-semibold">Stat Bonus:</strong> Add Force, Finesse, or Focus (-1 to +2).
-2. <strong class="text-amber-400 font-semibold">Trait Bonus:</strong> Add <strong class="text-amber-400 font-semibold">+2</strong> for a relevant <strong class="text-amber-400 font-semibold">Major Trait</strong>, and <strong class="text-amber-400 font-semibold">+1</strong> for a relevant <strong class="text-amber-400 font-semibold">Minor Trait</strong> (max one of each per roll).
-3. <strong class="text-amber-400 font-semibold">Compare to Target TN:</strong>
-   * <strong class="text-amber-400 font-semibold">TN 10 (Routine):</strong> Low-stress action, basic survival task.
-   * <strong class="text-amber-400 font-semibold">TN 15 (Risky):</strong> Standard combat shot, evasion, prying a door under threat.
-   * <strong class="text-amber-400 font-semibold">TN 20 (Desperate):</strong> Life-or-death shot, jumping across a collapsed fire escape.
-   * <strong class="text-amber-400 font-semibold">TN 25+ (Extreme):</strong> Staggering a massive B.O.W., escaping a closing hydraulic blast door.</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Result Tiers & Outcomes
+**Roll:** `1d20 + relevant Stat bonus + applicable Trait bonus`
+
+1. **Stat Bonus:** Add Force, Finesse, or Focus (-1 to +2).
+2. **Trait Bonus:** Add **+2** for a relevant **Major Trait**, and **+1** for a relevant **Minor Trait** (max one of each per roll).
+3. **Compare to Target TN:**
+   * **TN 10 (Routine):** Low-stress action, basic survival task.
+   * **TN 15 (Risky):** Standard combat shot, evasion, prying a door under threat.
+   * **TN 20 (Desperate):** Life-or-death shot, jumping across a collapsed fire escape.
+   * **TN 25+ (Extreme):** Staggering a massive B.O.W., escaping a closing hydraulic blast door.
+
+### Result Tiers & Outcomes
 * **Failure (Miss by 5+):** You fail and suffer serious consequences (take 1 Strain or lose 1 Armor box, gain a Condition, alert enemies, or advance the Noise Clock).
 * **Success with Cost (Miss by 1–4):** You achieve your objective, but pay a price: mark 1 Strain or Armor box, lose 1 weapon Durability box, consume ammunition, or gain a Condition.
 * **Clean Success (Beat by 0–5):** You achieve your goal cleanly without penalty.
-* **Critical Success (Beat by 6+):** Perfect execution. You achieve your goal and gain an extra advantage: bonus damage, stagger an enemy, or lower the local Noise Clock by -1.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>2. CHARACTER CREATION</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">A. Stats (Distribute 3 Points)
+* **Critical Success (Beat by 6+):** Perfect execution. You achieve your goal and gain an extra advantage: bonus damage, stagger an enemy, or lower the local Noise Clock by -1.
+
+---
+
+## 2. CHARACTER CREATION
+
+### A. Stats (Distribute 3 Points)
 Allocate 3 points across the three core stats (Max +2 at creation):
 * **FORCE:** Physical power, melee strikes, shoving, lifting debris, enduring trauma.
 * **FINESSE:** Agility, precision marksmanship, sprinting, lockpicking, silent movement.
-* **FOCUS:** Awareness, diagnosing infection, searching rooms, mental composure under horror.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">B. Survivor Traits
+* **FOCUS:** Awareness, diagnosing infection, searching rooms, mental composure under horror.
+
+### B. Survivor Traits
 * **1 Major Trait (+2 Bonus):** Your pre-collapse profession or primary archetype (e.g., S.T.A.R.S. Operative, Beat Cop, Trauma Surgeon, Combat Engineer, Wasteland Hunter).
-* **1 Minor Trait (+1 Bonus):** A specific habit, combat reflex, or survival perk (e.g., Steady Aim, Quick Draw, Silent Step, Tourniquet Specialist, Pack Optimizer).</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">C. Vitals & Starting Capacity
+* **1 Minor Trait (+1 Bonus):** A specific habit, combat reflex, or survival perk (e.g., Steady Aim, Quick Draw, Silent Step, Tourniquet Specialist, Pack Optimizer).
+
+### C. Vitals & Starting Capacity
 * **Strain (Max 10):** Begins at **4 Strain**. Strain represents shock, stamina, blood loss, and will to survive.
 * **Armor Boxes:** Begins at **0 Armor Boxes**. Armor is gained only by finding and equipping protective gear.
-* **Inventory Capacity:** Strictly **4 Inventory Slots**.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>3. SURVIVAL ACTION ECONOMY & SCENES</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Action Economy (Per Post Turn)
+* **Inventory Capacity:** Strictly **4 Inventory Slots**.
+
+---
+
+## 3. SURVIVAL ACTION ECONOMY & SCENES
+
+### Action Economy (Per Post Turn)
 Each survivor post during an active scene allows:
 * **1 Major Action:** Attack/Shoot, Sprint/Zone Move, Apply Full Medical Treatment (G+R, Spray), Breach/Force a door, Reload an empty firearm, or Clear a jammed weapon.
 * **1 Minor Action:** Ingest a single herb (G or B), Draw/Holster a weapon, Trade an item with an adjacent ally, Latch/Unlock a door, or Brace/Take Cover (+1 to next shot/defense).
-* **Free Actions:** Dropping carried items, brief radio/tactical speech, or defensive knife grab counters.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Scene Framework
+* **Free Actions:** Dropping carried items, brief radio/tactical speech, or defensive knife grab counters.
+
+### Scene Framework
 * **Exploration Scene:** Searching rooms, investigating lore, and solving environmental puzzles. The Noise Clock only advances on loud actions.
 * **Combat Scene (Side-Initiative):** GM declares incoming enemy threats $\rightarrow$ all players post Major + Minor actions within the 24h window $\rightarrow$ GM resolves all outcomes simultaneously.
 * **Safe Room (Rest Scene):** Fortified sanctuary. Immune to the Noise Clock. Free 4-slot inventory & Item Box management, medical treatments, and Typewriter checkpoint logs.
-* **Sector Transition:** Moving to a new zone without active pursuit reduces the Noise Clock by -1.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>4. DAMAGE, INJURIES & INFECTION</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Taking Harm
+* **Sector Transition:** Moving to a new zone without active pursuit reduces the Noise Clock by -1.
+
+---
+
+## 4. DAMAGE, INJURIES & INFECTION
+
+### Taking Harm
 1. **Armor Soaks First:** If you wear armor, mark 1 Armor Box (⬜) to negate 1 instance of physical damage. When all boxes are marked, the armor is ruined.
 2. **Strain Loss:** Unmitigated hits mark 1 Strain.
-3. **Downed / Bleeding Out:** When you reach **0 Strain & 0 Armor**, you collapse. Allies have 1 full 24-hour round to apply a medical item. If hit again or left untreated, your survivor dies.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Standard Conditions
+3. **Downed / Bleeding Out:** When you reach **0 Strain & 0 Armor**, you collapse. Allies have 1 full 24-hour round to apply a medical item. If hit again or left untreated, your survivor dies.
+
+### Standard Conditions
 * **Bleeding:** Lose 1 Strain at the end of each combat scene until treated. Cured by Green Herb mixtures or First Aid Spray.
 * **Poisoned:** Lose 1 Strain whenever you take a physical action. Cured by Blue Herb mixtures or First Aid Spray.
 * **Limb Damaged:** Leg (-2 Finesse, cannot sprint) or Arm (-2 Force, cannot wield 2-handed weapons). Cured by Full-Heal (G+R) or First Aid Spray.
-* **Panicked:** Cannot spend Strain on Specializations. Cured by reaching a Safe Room or an ally passing a Focus TN 10 check.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Virus Infection Track (0 to 5)
+* **Panicked:** Cannot spend Strain on Specializations. Cured by reaching a Safe Room or an ally passing a Focus TN 10 check.
+
+### Virus Infection Track (0 to 5)
 Zombie bites and biological critical failures advance the track by +1 Stage:
 * **Stage 0 (Clean):** Healthy.
 * **Stage 1 (Exposed):** Low fever.
@@ -198,65 +481,105 @@ Zombie bites and biological critical failures advance the track by +1 Stage:
 * **Stage 3 (Cellular Breakdown):** Max Strain capped at 6; -1 to all rolls.
 * **Stage 4 (Terminal Agony):** Max Strain capped at 3; cannot sprint.
 * **Stage 5 (Transformation):** Death. The survivor turns into a hostile B.O.W.
-*(Infection can be reduced by -1 Stage using Blue Herb combinations, or stalled for 24h with Antiviral Serums).*</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>5. GEAR & NOISE</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Weapons & Durability
+*(Infection can be reduced by -1 Stage using Blue Herb combinations, or stalled for 24h with Antiviral Serums).*
+
+---
+
+## 5. GEAR & NOISE
+
+### Weapons & Durability
 * **Handgun (1 Slot):** 15-round mag. +1 Noise per shot. Nat 1 jams the gun (1 Major Action to clear).
 * **Shotgun (2 Slots):** 6 shells. +2 Noise per shot. Close-range stagger / spread.
 * **Tactical Rifle (2 Slots):** 5 rounds. +2 Noise per shot. Extreme range armor penetration.
 * **Combat Knife (1 Slot, ⬜⬜⬜ 3 Durability):** Close defense & grab counters. Breaks permanently when all 3 boxes are marked (no repairs).
-* **Heavy Tools (2 Slots, ⬜⬜⬜ 3 Durability):** Fireaxe, Crowbar. +1 to Force breaching rolls.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Medical Items
+* **Heavy Tools (2 Slots, ⬜⬜⬜ 3 Durability):** Fireaxe, Crowbar. +1 to Force breaching rolls.
+
+### Medical Items
 * **Green Herb (G, 1/4 Slot):** Restores 1 Strain, cures Bleeding.
 * **Green + Green (G+G, 1/4 Slot):** Restores 3 Strain, cures Bleeding.
 * **Green + Blue (G+B, 1/4 Slot):** Restores 1 Strain, cures Bleeding & Poisoned, reduces Infection by -1 Stage.
 * **Green + Red (G+R, 1/4 Slot):** Full Strain recovery, cures Bleeding & Limb Damaged.
 * **Green + Red + Blue (G+R+B, 1/4 Slot):** Full Strain recovery, cures all conditions, reduces Infection by -1 Stage.
-* **First Aid Spray (1 Slot):** Full Strain recovery, cures all physical conditions.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>6. SURVIVOR DOSSIER TEMPLATE</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Identity
-Name: ____________    Callsign / Profession: ____________</p><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Stats (3 Points Allocated)
-Force: +__    Finesse: +__    Focus: +__</p><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Traits & Abilities
+* **First Aid Spray (1 Slot):** Full Strain recovery, cures all physical conditions.
+
+---
+
+## 6. SURVIVOR DOSSIER TEMPLATE
+
+Identity
+Name: ____________    Callsign / Profession: ____________
+
+Stats (3 Points Allocated)
+Force: +__    Finesse: +__    Focus: +__
+
+Traits & Abilities
 Major Trait (+2): ________________________
 Minor Trait (+1): ________________________
-Tactical Specialization: __________________</p><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Vitals & Status
+Tactical Specialization: __________________
+
+Vitals & Status
 Strain: [ ][ ][ ][ ] /4 (Max 10)
 Armor: ⬜ / 0 Boxes
 Infection Track: [0] Clean (0/5)
-Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Inventory (Strict 4 Slots)
+Active Conditions: None
+
+Inventory (Strict 4 Slots)
 1. [Handgun - 15/15 rds (1 Slot)]
 2. [Combat Knife - ⬜⬜⬜ (1 Slot)]
 3. [9mm Ammo Box - 15 rds (1/4 Slot) / Empty]
-4. [Empty Slot]</p>
+4. [Empty Slot]
+
+        </div>
       </div>
-    </section>
-    
-    <section id="doc-traits" class="doc-panel hidden flex-1 overflow-y-auto p-4 md:p-8 max-w-4xl mx-auto w-full pb-28 md:pb-8">
-      <div class="bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-lg shadow-2xl backdrop-blur-sm">
-        <h1 class="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wider mb-6 pb-2 border-b border-amber-900/50 uppercase">VBG-Z: SURVIVOR TRAITS & SPECIALIZATIONS COMPENDIUM</h1><div class="bg-amber-950/20 border-l-4 border-amber-500 p-4 my-4 rounded-r text-amber-200 text-sm leading-relaxed">**Note on Customization:** These lists are samples and baselines to inspire character creation. They are **not** strictly limited to what is written here. You are encouraged to collaborate with the GM to create your own personalized Major Traits, Minor Traits, or Tactical Specializations that fit your survivor concept.</div><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>1. MAJOR TRAITS (+2 BONUS)
-*Choose 1 at character creation. Represents your pre-collapse profession, military role, or primary archetype.*</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Tactical & Law Enforcement
+
+      <!-- TRAITS TAB -->
+      <div id="tab-traits" class="tab-pane">
+        <div class="reader-container">
+          # VBG-Z: SURVIVOR TRAITS & SPECIALIZATIONS COMPENDIUM
+
+> **Note on Customization:** These lists are samples and baselines to inspire character creation. They are **not** strictly limited to what is written here. You are encouraged to collaborate with the GM to create your own personalized Major Traits, Minor Traits, or Tactical Specializations that fit your survivor concept.
+
+---
+
+## 1. MAJOR TRAITS (+2 BONUS)
+*Choose 1 at character creation. Represents your pre-collapse profession, military role, or primary archetype.*
+
+### Tactical & Law Enforcement
 1. **S.T.A.R.S. / Special Forces Operative:** Room clearing, target acquisition, tactical firearm discipline, and weapon handling under pressure.
 2. **Beat Cop / Law Enforcement:** Street smarts, standard police issue firearms, crowd control, and assessing suspicious behavior.
 3. **Umbrella Security Service (U.S.S.) Cleaner:** Cold efficiency in bio-containment zones, hazard handling, hazmat protocols, and tactical maneuvering.
 4. **Private Military Contractor (PMC):** Heavy weaponry, suppressive fire, defensive positioning, and combat communications.
 5. **Close Protection Bodyguard:** Defensive reactions, intercepting incoming strikes meant for allies, and escort movement.
 6. **SWAT Breacher:** Shotgun breaching, clearing tight doorways, riot shield tactics, and heavy threshold control.
-7. **Sniper / Recon Scout:** Long-range rifle marksmanship, overwatch spotting, range estimation, and silent camouflage.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Medical & Science
+7. **Sniper / Recon Scout:** Long-range rifle marksmanship, overwatch spotting, range estimation, and silent camouflage.
+
+### Medical & Science
 8. **Trauma Surgeon / ER Doctor:** Precision surgical procedures, stabilizing arterial bleeds, setting compound fractures, and managing medical tools.
 9. **Paramedic / First Responder:** Rapid triage under chaos, CPR, field dressing, and carrying incapacitated casualties.
 10. **Virologist / Bio-Researcher:** Identifying B.O.W. behavioral traits, understanding viral transmission vectors, and lab chemical synthesis.
 11. **Pharmaceutical Chemist:** Formulating chemical reagents, synthesizing herbal compounds, and identifying toxins/antidotes.
 12. **Forensic Pathologist:** Autopsy assessment, diagnosing infection cause/stage, and identifying anatomical weak points on mutated corpses.
 13. **Combat Medic / Corpsman:** Patching bullet and bite wounds under live hostile fire, dragging wounded allies, and conserving medical supplies.
-14. **Toxicologist:** Analyzing venom/spit compounds (Licker/Drain Deimos), synthesizing custom antidotes, and hazardous fluid handling.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Engineering & Technical
+14. **Toxicologist:** Analyzing venom/spit compounds (Licker/Drain Deimos), synthesizing custom antidotes, and hazardous fluid handling.
+
+### Engineering & Technical
 15. **Combat Engineer / Sapper:** Fortifying structures, setting defensive barricades, door breaching, and structural integrity assessment.
 16. **Master Mechanic:** Hotwiring vehicles, repairing combustion engines, generator maintenance, and jury-rigging mechanical parts.
 17. **Industrial Electrician:** Rewiring substation panels, bypassing electronic keycard locks, and handling high-voltage hazards.
 18. **Demolitions Specialist:** Safe handling of explosive ordnance, creating pipe bombs, and controlled structural demolition.
 19. **Locksmith / Security Technician:** Bypassing mechanical locks, vault doors, security tumblers, and alarm systems quietly.
 20. **Civil / Structural Engineer:** Reading facility architectural blueprints, identifying load-bearing weak points, and flood/ventilation routing.
-21. **Radio Operator / Comms Technician:** Repairing military radio transmitters, intercepting broadcast frequencies, and signal triangulation.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Survivalist & Wilderness
+21. **Radio Operator / Comms Technician:** Repairing military radio transmitters, intercepting broadcast frequencies, and signal triangulation.
+
+### Survivalist & Wilderness
 22. **Wasteland Hunter / Tracker:** Stalking prey silently, tracking infected spoor, setting snare traps, and long-range marksmanship.
 23. **Wilderness Survival Guide:** Foraging medicinal herbs, navigating unmapped terrain, fire starting, and shelter construction.
 24. **Park Ranger / Forester:** Broad wilderness survival, heavy terrain traversal, axe/machete handling, and weather assessment.
 25. **Deep Woods Outfitter:** Resource budgeting, pack optimization, and heavy load carrying over long distances.
 26. **Extreme Outdoorsman / Mountaineer:** Rappelling, climbing broken facades, cold-weather endurance, and navigating jagged debris.
-27. **Archery Instructor / Bowhunter:** Silent projectile retrieval, bow handling, silent target elimination, and crafting improvised arrows.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Urban & Underworld
+27. **Archery Instructor / Bowhunter:** Silent projectile retrieval, bow handling, silent target elimination, and crafting improvised arrows.
+
+### Urban & Underworld
 28. **Urban Scavenger:** Spotting hidden supply caches, navigating ruined building crawlspaces, and assessing structural collapse risks.
 29. **Burglar / Second-Story Thief:** Silent rooftop traversal, climbing drainage pipes, breaking and entering, and moving undetected.
 30. **Black Market Fixer:** Bartering, assessing item value, finding contraband caches, and reading human intentions.
@@ -264,8 +587,14 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 32. **Stunt Driver / Courier:** High-speed vehicle handling, navigating road blockades, and defensive vehicular maneuvering.
 33. **Underground Boxer / Martial Artist:** Unarmed defensive parries, kinetic infighting, footwork, and close-quarters striking.
 34. **Investigative Journalist:** Uncovering corporate paper trails, finding hidden audio logs/diaries, and piecing together facility lore.
-35. **City Transit Conductor / Rail Worker:** Navigating subterranean subway tunnels, switching rail tracks, and operating heavy train engines.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>2. MINOR TRAITS (+1 BONUS)
-*Choose 1 at character creation. Represents specific habits, tactical techniques, or secondary background perks.*</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Combat & Physical
+35. **City Transit Conductor / Rail Worker:** Navigating subterranean subway tunnels, switching rail tracks, and operating heavy train engines.
+
+---
+
+## 2. MINOR TRAITS (+1 BONUS)
+*Choose 1 at character creation. Represents specific habits, tactical techniques, or secondary background perks.*
+
+### Combat & Physical
 1. **Steady Aim:** +1 to firearm accuracy when bracing against cover or spending a Minor Action to aim.
 2. **Quick Draw:** +1 when reacting to sudden ambushes or drawing weapons in close quarters.
 3. **Double Tap:** +1 to follow-up handgun shots on a target that was just hit.
@@ -279,7 +608,9 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 11. **Gunslinger Rhythm:** +1 to reloading firearms under direct combat pressure.
 12. **Center-Mass Focus:** +1 to handgun stopping power against exposed zombie chests.
 13. **Pivot Footwork:** +1 to Finesse evasion rolls when cornered against a dead end.
-14. **Crowbar Leverage:** +1 to Force rolls when using crowbars as bludgeons or prying tools.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Stealth & Awareness
+14. **Crowbar Leverage:** +1 to Force rolls when using crowbars as bludgeons or prying tools.
+
+### Stealth & Awareness
 15. **Silent Step:** +1 to stealth rolls moving through glass, debris, or cluttered hallways.
 16. **Light Sleeper:** +1 to passive awareness while resting; impossible to catch completely unprepared.
 17. **Sixth Sense:** +1 to spotting hidden ambushers (Lickers on ceilings, corpses playing dead).
@@ -288,7 +619,9 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 20. **Echo Locator:** +1 to tracking sounds through walls, ventilation ducts, and floorboards.
 21. **Vigilant Sentry:** +1 to Focus checks when holding an overwatch angle during team rests.
 22. **Bloodhound Instinct:** +1 to tracking blood trails or detecting chemical leakage scents.
-23. **Peripheral Vision:** +1 to avoiding surprise flanks by crawling infected or K-9s.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Medical & Resilience
+23. **Peripheral Vision:** +1 to avoiding surprise flanks by crawling infected or K-9s.
+
+### Medical & Resilience
 24. **Field Chemist:** +1 when synthesizing herbal sprays or chemical mixtures.
 25. **Tourniquet Specialist:** +1 when rapidly treating the Bleeding condition.
 26. **Iron Stomach:** +1 to resisting illness from stale rations and unpurified water.
@@ -297,7 +630,9 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 29. **Adrenaline Spike:** +1 to your next action roll immediately after soaking a hit.
 30. **Steady Hands:** +1 to Focus rolls when performing delicate medical surgery or bomb defusal under fire.
 31. **Second Wind:** +1 to Force checks when at 1 Strain remaining to avoid collapsing.
-32. **Biological Resistance:** +1 to resisting viral advancement on initial exposure rolls.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Technical & Scavenging
+32. **Biological Resistance:** +1 to resisting viral advancement on initial exposure rolls.
+
+### Technical & Scavenging
 33. **Scrap Gunsmith:** +1 to clearing firearm jams and inspecting weapon quality.
 34. **Hoarder's Eye:** +1 to finding concealed ammo boxes or hidden key items in ransacked rooms.
 35. **Jury-Rigger:** +1 to making temporary field repairs on broken tools or barricades.
@@ -307,94 +642,212 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 39. **Blueprint Reader:** +1 to navigating unfamiliar facilities using discovered building maps.
 40. **Electronic Bypass:** +1 to rerouting circuit breaker panels and security consoles.
 41. **Keyring Intuition:** +1 to identifying which door a discovered key or crest belongs to.
-42. **Resource Scrimper:** +1 to Focus checks when rationing supplies during extended sieges.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>3. TACTICAL SPECIALIZATIONS (DOMAINS)
-*Choose 1 Specialization Domain. Abilities cost Strain to perform exceptional tactical feats (Capped at 0–2 Strain).*</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">1. Close-Quarters Defense (CQC)
+42. **Resource Scrimper:** +1 to Focus checks when rationing supplies during extended sieges.
+
+---
+
+## 3. TACTICAL SPECIALIZATIONS (DOMAINS)
+*Choose 1 Specialization Domain. Abilities cost Strain to perform exceptional tactical feats (Capped at 0–2 Strain).*
+
+### 1. Close-Quarters Defense (CQC)
 * **Minor (0 Strain):** *Defensive Shove* — A swift physical push or kick that staggers 1 basic shambler back into Close range.
 * **Standard (1 Strain):** *Knife Counter* — Instantly parry an incoming grab with a combat blade, negating the hit without marking a knife durability box.
-* **Major (2 Strain):** *Crowd Cleave / Sweep* — A sweeping heavy strike or tackle that knocks down 2–3 clustered enemies, creating an immediate escape path.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">2. Precision Marksmanship
+* **Major (2 Strain):** *Crowd Cleave / Sweep* — A sweeping heavy strike or tackle that knocks down 2–3 clustered enemies, creating an immediate escape path.
+
+### 2. Precision Marksmanship
 * **Minor (0 Strain):** *Aimed Double-Tap* — Spend a Minor action to brace; your next handgun shot deals maximum stopping power.
 * **Standard (1 Strain):** *Called Shot (Weak Point)* — Target a designated anatomical weak spot (exposed brain, knee joint), bypassing 1 enemy Armor box on success.
-* **Major (2 Strain):** *Deadeye Penetration* — Fire a piercing high-caliber shot that lines up and hits two enemies in a row or severs an environmental support cable.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">3. Field Medicine & Triage
+* **Major (2 Strain):** *Deadeye Penetration* — Fire a piercing high-caliber shot that lines up and hits two enemies in a row or severs an environmental support cable.
+
+### 3. Field Medicine & Triage
 * **Minor (0 Strain):** *Rapid Diagnostic* — Instantly identify an ally’s exact Infection Stage, internal fractures, or wound severity with a glance.
 * **Standard (1 Strain):** *Combat Suture* — Clear the **Bleeding** condition from yourself or an adjacent ally in a single action without consuming an herb.
-* **Major (2 Strain):** *Emergency Adrenaline* — Administer an emergency adrenaline jolt to a Downed ally, stabilizing them to 1 Strain immediately.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">4. Structural Fortification & Traps
+* **Major (2 Strain):** *Emergency Adrenaline* — Administer an emergency adrenaline jolt to a Downed ally, stabilizing them to 1 Strain immediately.
+
+### 4. Structural Fortification & Traps
 * **Minor (0 Strain):** *Door Wedge* — Jam a wooden door shut or identify the weakest reinforcement point in a room.
 * **Standard (1 Strain):** *Reinforced Barricade* — Fasten boards and heavy furniture across a threshold; the barricade soaks 2 enemy hits before breaking.
-* **Major (2 Strain):** *Environmental Deadfall* — Trigger a pre-rigged heavy deadfall, electrical wire puddle, or gas cylinder trap to engulf a doorway.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">5. Infiltration & Evasion
+* **Major (2 Strain):** *Environmental Deadfall* — Trigger a pre-rigged heavy deadfall, electrical wire puddle, or gas cylinder trap to engulf a doorway.
+
+### 5. Infiltration & Evasion
 * **Minor (0 Strain):** *Ghost Step* — Cross an open corridor or doorway without alerting wandering shamblers.
 * **Standard (1 Strain):** *Combat Roll / Dive* — Execute an evasive dive to completely dodge an incoming lunging strike, Licker tongue, or pounce.
-* **Major (2 Strain):** *Smoke / Flash Escape* — Deploy an improvised flare, fire extinguisher fog, or flash to break line of sight, allowing the entire party to disengage.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">6. Bio-Chemical Warfare
+* **Major (2 Strain):** *Smoke / Flash Escape* — Deploy an improvised flare, fire extinguisher fog, or flash to break line of sight, allowing the entire party to disengage.
+
+### 6. Bio-Chemical Warfare
 * **Minor (0 Strain):** *Strain Identification* — Identify the specific viral strain, mutation trigger, and behavioral flaw of a novel B.O.W.
 * **Standard (1 Strain):** *Volatile Mixture* — Synthesize a caustic acid vial or incendiary chemical flask from lab supplies in 1 action.
-* **Major (2 Strain):** *Viral Suppressant* — Synthesize an emergency chemical suppressant that halts an infected survivor’s virus progression for 24 hours.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">7. Heavy Weapon Demolitions
+* **Major (2 Strain):** *Viral Suppressant* — Synthesize an emergency chemical suppressant that halts an infected survivor’s virus progression for 24 hours.
+
+### 7. Heavy Weapon Demolitions
 * **Minor (0 Strain):** *Blast Calculation* — Gauge the exact blast radius and structural impact of an explosive before detonation.
 * **Standard (1 Strain):** *Breaching Blast* — Direct a shotgun blast or explosive charge to instantly clear a barricaded doorway or staggered mob choke point.
-* **Major (2 Strain):** *Shockwave Stagger* — Detonate a heavy explosive or point-blank kinetic blast that forces a Boss-tier Stalker/Tyrant into a 1-Scene Stunned Stasis.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">8. Tactical Leadership & Overwatch
+* **Major (2 Strain):** *Shockwave Stagger* — Detonate a heavy explosive or point-blank kinetic blast that forces a Boss-tier Stalker/Tyrant into a 1-Scene Stunned Stasis.
+
+### 8. Tactical Leadership & Overwatch
 * **Minor (0 Strain):** *Coordinated Callout* — Call out an enemy’s flanking vector, granting an ally +1 to their next reaction roll.
 * **Standard (1 Strain):** *Rallying Composure* — Shout tactical commands to instantly clear the **Panicked** condition from an ally within room reach.
-* **Major (2 Strain):** *Covering Fire Protocol* — Lay down continuous suppressive fire that lets all allies move between zones without taking opportunity attacks.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">9. Pointman & Shield Bearer
+* **Major (2 Strain):** *Covering Fire Protocol* — Lay down continuous suppressive fire that lets all allies move between zones without taking opportunity attacks.
+
+### 9. Pointman & Shield Bearer
 * **Minor (0 Strain):** *Shield Brace* — Raise a riot shield or heavy door; grants +1 Armor box against frontal attacks for the turn.
 * **Standard (1 Strain):** *Bodyguard Intercept* — Dive in front of an ally to take an incoming strike onto your own worn armor instead of them.
-* **Major (2 Strain):** *Bulldozer Charge* — Charge forward with a shield/heavy object, slamming through a zombie cluster and knocking enemies to the floor.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">10. Underground Logistics & Scrounging
+* **Major (2 Strain):** *Bulldozer Charge* — Charge forward with a shield/heavy object, slamming through a zombie cluster and knocking enemies to the floor.
+
+### 10. Underground Logistics & Scrounging
 * **Minor (0 Strain):** *Cache Scent* — Sense hidden compartments behind loose brickwork, floorboards, or vending machines.
 * **Standard (1 Strain):** *Ammo Optimization* — Combine loose ammunition boxes to recover +3 extra rounds from spent casings and scrap.
-* **Major (2 Strain):** *Secret Passage Routing* — Locate a maintenance shaft, dumbwaiter, or drainage conduit that completely bypasses a locked or guarded corridor.</h3>
+* **Major (2 Strain):** *Secret Passage Routing* — Locate a maintenance shaft, dumbwaiter, or drainage conduit that completely bypasses a locked or guarded corridor.
+
+        </div>
       </div>
-    </section>
-    
-    <section id="doc-glossary" class="doc-panel hidden flex-1 overflow-y-auto p-4 md:p-8 max-w-4xl mx-auto w-full pb-28 md:pb-8">
-      <div class="bg-zinc-900/90 border border-zinc-800 p-6 md:p-10 rounded-lg shadow-2xl backdrop-blur-sm">
-        <h1 class="text-2xl md:text-3xl font-extrabold text-amber-500 tracking-wider mb-6 pb-2 border-b border-amber-900/50 uppercase">VBG-Z: MASTER RULES GLOSSARY & KEYWORD SPECIFICATION
-*Comprehensive mechanical reference defining all core terms, conditions, equipment rules, and environment systems for VBG-Z (Very Basic RPG: Zombie Survival Edition).*</h1><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>1. CORE ENGINE & RESOLUTION</h2><ul class="my-3 space-y-1 pl-1"><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Resolution Roll:</strong> <code class="bg-zinc-800 text-emerald-400 px-1.5 py-0.5 rounded text-xs font-mono">1d20 + Stat + Trait Bonus</code>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span>Players roll a single 20-sided die, add their relevant Stat (-1 to +2), and add an applicable Trait (+2 for Major, +1 for Minor).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Stats:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Force:</strong> Physical power, melee strikes, breaking barriers, lifting/carrying, brute endurance.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Finesse:</strong> Agility, precision marksmanship, stealth, lockpicking, speed, evasive dodging.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Focus:</strong> Perception, medical triage, mental composure under horror, searching rooms, technical repair.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Traits:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Major Trait (+2):</strong> Core pre-collapse profession/archetype (e.g., <em class="text-zinc-400">Beat Cop</em>, <em class="text-zinc-400">Trauma Surgeon</em>, <em class="text-zinc-400">Combat Engineer</em>).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Minor Trait (+1):</strong> Specific survival perk or technique (e.g., <em class="text-zinc-400">Steady Aim</em>, <em class="text-zinc-400">Silent Step</em>, <em class="text-zinc-400">Field Chemist</em>).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Target Difficulty (TN):</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">TN 10 (Routine):</strong> Low-stress actions with adequate time.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">TN 15 (Risky):</strong> Standard combat or actions under active hostile pressure.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">TN 20 (Desperate):</strong> Life-or-death survival maneuvers or escaping dangerous ambushes.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">TN 25+ (Extreme):</strong> Extraordinary feats against boss-tier B.O.W.s.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Outcome Margins:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Failure (Miss by 5+):</strong> Action fails; suffer direct damage, advance Noise Clock, or trigger hazards.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Success with Cost (Miss by 1–4):</strong> Goal achieved, but pay a price (take 1 Strain, lose weapon durability, or drop an item).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Clean Success (Beat by 0–5):</strong> Goal achieved smoothly with no negative side effects.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Critical (Beat by 6+):</strong> Perfect success; deal bonus stopping power, bypass armor, or regain 1 Strain.</span></li></ul><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>2. ACTION ECONOMY & TURN STRUCTURE</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">In asynchronous Play-by-Post, each player turn consists of <strong class="text-amber-400 font-semibold">1 Major Action</strong> and <strong class="text-amber-400 font-semibold">1 Minor Action</strong> per post:</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Major Actions (1 per turn)
+
+      <!-- GLOSSARY TAB -->
+      <div id="tab-glossary" class="tab-pane">
+        <div class="reader-container">
+          # VBG-Z: MASTER RULES GLOSSARY & KEYWORD SPECIFICATION
+*Comprehensive mechanical reference defining all core terms, conditions, equipment rules, and environment systems for VBG-Z (Very Basic RPG: Zombie Survival Edition).*
+
+---
+
+## 1. CORE ENGINE & RESOLUTION
+
+* **Resolution Roll:** `1d20 + Stat + Trait Bonus`.
+  * Players roll a single 20-sided die, add their relevant Stat (-1 to +2), and add an applicable Trait (+2 for Major, +1 for Minor).
+* **Stats:**
+  * **Force:** Physical power, melee strikes, breaking barriers, lifting/carrying, brute endurance.
+  * **Finesse:** Agility, precision marksmanship, stealth, lockpicking, speed, evasive dodging.
+  * **Focus:** Perception, medical triage, mental composure under horror, searching rooms, technical repair.
+* **Traits:**
+  * **Major Trait (+2):** Core pre-collapse profession/archetype (e.g., *Beat Cop*, *Trauma Surgeon*, *Combat Engineer*).
+  * **Minor Trait (+1):** Specific survival perk or technique (e.g., *Steady Aim*, *Silent Step*, *Field Chemist*).
+* **Target Difficulty (TN):**
+  * **TN 10 (Routine):** Low-stress actions with adequate time.
+  * **TN 15 (Risky):** Standard combat or actions under active hostile pressure.
+  * **TN 20 (Desperate):** Life-or-death survival maneuvers or escaping dangerous ambushes.
+  * **TN 25+ (Extreme):** Extraordinary feats against boss-tier B.O.W.s.
+* **Outcome Margins:**
+  * **Failure (Miss by 5+):** Action fails; suffer direct damage, advance Noise Clock, or trigger hazards.
+  * **Success with Cost (Miss by 1–4):** Goal achieved, but pay a price (take 1 Strain, lose weapon durability, or drop an item).
+  * **Clean Success (Beat by 0–5):** Goal achieved smoothly with no negative side effects.
+  * **Critical (Beat by 6+):** Perfect success; deal bonus stopping power, bypass armor, or regain 1 Strain.
+
+---
+
+## 2. ACTION ECONOMY & TURN STRUCTURE
+
+In asynchronous Play-by-Post, each player turn consists of **1 Major Action** and **1 Minor Action** per post:
+
+### Major Actions (1 per turn)
 * **Attack / Shoot:** Fire a weapon or make a melee strike.
 * **Sprint / Reposition:** Move between zones (e.g., Near to Far, or dashing through a doorway).
 * **Full Medical Treatment:** Apply a First Aid Spray or Green+Red full-heal mix to yourself or an ally.
 * **Interact / Breach:** Force open a jammed door, hotwire a panel, or push a heavy obstacle.
 * **Reload Weapon:** Load an ammo box/magazine into an empty firearm.
-* **Clear Malfunction:** Rack the slide and clear a jammed firearm.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Minor Actions (1 per turn)
+* **Clear Malfunction:** Rack the slide and clear a jammed firearm.
+
+### Minor Actions (1 per turn)
 * **Quick Ingest:** Consume a single Green or Blue herb mix.
 * **Draw / Holster Weapon:** Switch carried weapons.
 * **Trade Item:** Hand a carried item to an adjacent ally (within Close range).
 * **Interact / Latch:** Turn a doorknob, flip a light switch, or grab a loose keycard from a table.
-* **Take Cover / Brace:** Gain +1 to next ranged shot or defensive roll.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Free Actions (Anytime / 0 cost)
+* **Take Cover / Brace:** Gain +1 to next ranged shot or defensive roll.
+
+### Free Actions (Anytime / 0 cost)
 * **Drop Carried Item:** Immediately drop gear to the floor to free up hands/slots.
 * **Speak / Signal:** Short tactical shout or radio call to allies.
-* **Defensive Grab Counter:** Expending 1 knife durability box or 1 handgun shot when grabbed to instantly break free.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>3. SCENE FRAMEWORK & PACING</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Play is structured into distinct <strong class="text-amber-400 font-semibold">Scenes</strong> rather than rigid rounds:</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Exploration Scene
+* **Defensive Grab Counter:** Expending 1 knife durability box or 1 handgun shot when grabbed to instantly break free.
+
+---
+
+## 3. SCENE FRAMEWORK & PACING
+
+Play is structured into distinct **Scenes** rather than rigid rounds:
+
+### Exploration Scene
 * Low-intensity investigation, searching rooms, solving environmental puzzles, and navigating hallways.
-* Actions are relaxed; players can search, converse, and take time. The Noise Clock only advances on loud triggers.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Combat & Threat Scene
+* Actions are relaxed; players can search, converse, and take time. The Noise Clock only advances on loud triggers.
+
+### Combat & Threat Scene
 * High-intensity encounters where the GM presents active hostile threats.
-* Runs on asynchronous **Side-Initiative**: The GM posts the environmental threat, all players post their Major + Minor actions within the 24-hour window, and the GM resolves all outcomes simultaneously.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Safe Room (Rest Scene)
+* Runs on asynchronous **Side-Initiative**: The GM posts the environmental threat, all players post their Major + Minor actions within the 24-hour window, and the GM resolves all outcomes simultaneously.
+
+### Safe Room (Rest Scene)
 * A fortified sanctuary with zero hostile presence and absolute Noise Clock immunity.
-* Players can freely organize their 4-slot inventory and Item Box, apply medical treatments, calm the **Panicked** condition, and write Typewriter logbook entries for progression milestones.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Transition Scene
-* Moving between sectors, city districts, or facility floors. Successfully clearing a transition without pursuit reduces the Area Noise Clock by **-1 Tick**.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>4. HEALTH & CONDITIONS</h2><ul class="my-3 space-y-1 pl-1"><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Strain (0 to 10):</strong> Base health and shock threshold (Survivors start at <strong class="text-amber-400 font-semibold">4 Strain</strong>).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Downed / Bleeding Out:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span>Reaching <strong class="text-amber-400 font-semibold">0 Strain & 0 Armor</strong> causes immediate collapse/incapacitation.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">24-Hour Post Window:</strong> Allies have 1 post round to reach and stabilize the survivor with an herb or spray.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Lethality:</strong> Taking any further hit or ending the scene unstabilized results in permanent death.</span></li></ul><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Standardized Active Conditions
+* Players can freely organize their 4-slot inventory and Item Box, apply medical treatments, calm the **Panicked** condition, and write Typewriter logbook entries for progression milestones.
+
+### Transition Scene
+* Moving between sectors, city districts, or facility floors. Successfully clearing a transition without pursuit reduces the Area Noise Clock by **-1 Tick**.
+
+---
+
+## 4. HEALTH & CONDITIONS
+
+* **Strain (0 to 10):** Base health and shock threshold (Survivors start at **4 Strain**).
+* **Downed / Bleeding Out:**
+  * Reaching **0 Strain & 0 Armor** causes immediate collapse/incapacitation.
+  * **24-Hour Post Window:** Allies have 1 post round to reach and stabilize the survivor with an herb or spray.
+  * **Lethality:** Taking any further hit or ending the scene unstabilized results in permanent death.
+
+### Standardized Active Conditions
 * **Bleeding:** Suffer 1 Strain at the end of each combat scene until treated. *Cured by:* Any Green Herb mix or First Aid Spray.
 * **Poisoned (Toxin):** Lose 1 Strain whenever you make a Force or Finesse roll. *Cured by:* Blue Herb mix or First Aid Spray.
 * **Limb Damaged (Leg or Arm):** 
   * *Leg:* -2 to Finesse movement; cannot sprint or flee.
   * *Arm:* -2 to Force/attack rolls; cannot wield 2-handed weapons.
   * *Cured by:* Full-Heal Mix (G+R) or First Aid Spray.
-* **Panicked:** Cannot spend Strain on Tactical Specializations. *Cured by:* Entering a Safe Room or ally Focus TN 10 check.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>5. COMBAT ADJUDICATION & DISTANCE BANDS</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Combat is player-facing and structured around four intuitive <strong class="text-amber-400 font-semibold">Distance & Reach Bands</strong> to keep asynchronous posting fluid without requiring grid maps:</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Distance & Reach Bands
+* **Panicked:** Cannot spend Strain on Tactical Specializations. *Cured by:* Entering a Safe Room or ally Focus TN 10 check.
+
+---
+
+## 5. COMBAT ADJUDICATION & DISTANCE BANDS
+
+Combat is player-facing and structured around four intuitive **Distance & Reach Bands** to keep asynchronous posting fluid without requiring grid maps:
+
+### Distance & Reach Bands
 * **Melee / Reach (0–5 ft):** Within arm's reach or blade contact. Hand-to-hand combat, knife strikes, grab threats, and shotgun point-blank blasts occur here.
   * *Disengaging:* Moving away from an actively engaged enemy in Melee reach requires a Major Action (Sprint) or an evasive stunt to avoid an immediate swipe or grab.
 * **Close / Room (5–20 ft):** Across an average room, small office, or narrow corridor. Moving into Melee reach or taking cover takes a Minor Action.
   * *Firearms:* Optimal operating range for Handguns and Shotguns.
 * **Far / Hallway (20–60 ft):** Down a long hospital corridor, across a street block, or through a warehouse. Closing the distance requires a Major Action (Sprint).
   * *Firearms:* Handguns suffer a **-2 penalty** unless the shooter spends a Minor Action to Brace/Aim. Tactical Rifles operate at peak accuracy.
-* **Distant / Line-of-Sight (60+ ft):** Across a city plaza, down a highway, or from a rooftop. Only Tactical Rifles and Scoped weapons can effectively engage targets at Distant range.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Combat Mechanics & Tactics
+* **Distant / Line-of-Sight (60+ ft):** Across a city plaza, down a highway, or from a rooftop. Only Tactical Rifles and Scoped weapons can effectively engage targets at Distant range.
+
+### Combat Mechanics & Tactics
 * **Player-Facing Side-Initiative:** The GM describes incoming hostile actions. Players post their reactions (Major + Minor action) within the 24-hour window. Monsters never make attack rolls; players roll to avoid harm or disrupt enemy actions.
 * **Grab & Counter-Attack:** When grabbed by a zombie, a survivor can spend a Free Action to sacrifice **1 Knife Durability Box** or fire **1 Handgun shot** to instantly break the grab without taking damage.
 * **Called Shots & Weak Points:** Targeting a creature's specific anatomical weak point (exposed brain, knee joint) requires a **Called Shot (TN 20)**. Clean success bypasses 1 Armor Box or dismembers the limb.
-* **V-ACT Mutation (Crimson Heads):** Any intact zombie corpse left unburned or undecapitated will revive after 2 scenes as a fast, high-damage Crimson Head mutant.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>6. VIRUS INFECTION ENGINE</h2><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Infection Track (Stage 0 to Stage 5)
+* **V-ACT Mutation (Crimson Heads):** Any intact zombie corpse left unburned or undecapitated will revive after 2 scenes as a fast, high-damage Crimson Head mutant.
+
+---
+
+## 6. VIRUS INFECTION ENGINE
+
+### Infection Track (Stage 0 to Stage 5)
 * **Stage 0 (Clean):** Healthy. No symptoms.
 * **Stage 1 (Exposed):** Minor fever, pale skin. Narrative tension only.
 * **Stage 2 (Incubation):** Sweats and tremors. **-1 to all Focus rolls**.
 * **Stage 3 (Cellular Breakdown):** Tissue necrosis, extreme thirst. Maximum Strain capped at **6**; **-1 to all rolls**.
 * **Stage 4 (Terminal Agony):** Heavy delirium, skin sloughing. Maximum Strain capped at **3**; cannot sprint.
-* **Stage 5 (Transformation):** Character dies and rises as an aggressive hostile B.O.W.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Infection Advancement Triggers
+* **Stage 5 (Transformation):** Character dies and rises as an aggressive hostile B.O.W.
+
+### Infection Advancement Triggers
 * Suffering a bite attack from an infected enemy: **+1 Stage**.
-* Critical failure against biological bile/fluid hazards: **+1 Stage**.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Treatment & Stalling
+* Critical failure against biological bile/fluid hazards: **+1 Stage**.
+
+### Treatment & Stalling
 * **Blue Herb Mixtures (G+B, G+R+B):** Lower current infection by **-1 Stage** (can reduce all the way back to Stage 0 if caught early).
-* **Antiviral Serum:** Halts infection progression completely for 24 hours.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>6. COMPLETE ITEMS & EQUIPMENT CATALOG</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Every character begins with a strict base capacity of <strong class="text-amber-400 font-semibold">4 Inventory Slots</strong>.</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">A. WEAPONS CATALOG</h3><h4 class="text-base font-bold text-amber-500/90 mt-4 mb-2">Firearms & Ranged Weapons
+* **Antiviral Serum:** Halts infection progression completely for 24 hours.
+
+---
+
+## 6. COMPLETE ITEMS & EQUIPMENT CATALOG
+
+Every character begins with a strict base capacity of **4 Inventory Slots**.
+
+### A. WEAPONS CATALOG
+
+#### Firearms & Ranged Weapons
 * **Handgun / Pistol (1 Slot):**
   * *Ammo Type & Storage:* 9mm Ammo Box (15 rounds = 1/4 Slot).
   * *Noise Generated:* **+1 Tick** per shot.
@@ -410,12 +863,47 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
 * **Magnum Revolver (1 Slot):**
   * *Ammo Type & Storage:* Magnum Ammo Box (6 rounds = 1/4 Slot). Rare.
   * *Noise Generated:* **+3 Ticks** per shot.
-  * *Special Rule (Lethal Kinetic):* Bypasses mundane armor; inflicts critical damage on B.O.W. weak points.</h4><h4 class="text-base font-bold text-amber-500/90 mt-4 mb-2">Firearm Malfunction & Reload Mechanics
+  * *Special Rule (Lethal Kinetic):* Bypasses mundane armor; inflicts critical damage on B.O.W. weak points.
+
+#### Firearm Malfunction & Reload Mechanics
 * **Firearm Jamming:** Rolling a **Natural 1** on a firearm attack causes a mechanical jam. The shot does not fire. Clearing the jam requires **1 Major Action** (or passing a Focus TN 10 check as a Minor Action).
-* **Reload Action Economy:** Firearms hold 1 internal magazine/cylinder. Loading fresh ammunition from a carried ammo box requires **1 Major Action**.</h4><h4 class="text-base font-bold text-amber-500/90 mt-4 mb-2">Melee Weapons & Durability (⬜⬜⬜)
+* **Reload Action Economy:** Firearms hold 1 internal magazine/cylinder. Loading fresh ammunition from a carried ammo box requires **1 Major Action**.
+
+#### Melee Weapons & Durability (⬜⬜⬜)
 * **Combat Knife / Tactical Blade (1 Slot):** 3 Durability Boxes. Used for close-quarters fighting and instant grab counter-attacks.
 * **Fireaxe / Crowbar / Sledgehammer (2 Slots):** 3 Durability Boxes. Adds **+1 to Force rolls** when breaching reinforced doors or crushing armored skulls.
-* **Durability Loss:** 1 Durability Box is checked on an attack **Failure** or when chosen as the cost on a **Success with Cost**. When all 3 boxes are checked, the weapon breaks permanently and is discarded. Durability cannot be repaired; survivors must scavenge new weapons.</h4><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">B. ARMOR & PROTECTIVE GEAR</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">Armor provides external protection boxes (⬜). When taking damage, players check off 1 Armor box instead of losing Strain.</p><ul class="my-3 space-y-1 pl-1"><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Leather / Reinforced Jacket (1 Slot):</strong> Grants <strong class="text-amber-400 font-semibold">⬜ (1 Armor Box)</strong>. Light protection against scratches and minor shrapnel.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Ballistic / Kevlar Vest (1 Slot):</strong> Grants <strong class="text-amber-400 font-semibold">⬜⬜ (2 Armor Boxes)</strong>. Standard police/security vest designed to stop handgun fire and blunt impacts.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Tactical Riot Armor (2 Slots):</strong> Grants <strong class="text-amber-400 font-semibold">⬜⬜⬜ (3 Armor Boxes)</strong>. Heavy military/SWAT protective suit. <em class="text-zinc-400">Drawback:</em> Applies <strong class="text-amber-400 font-semibold">-1 to Finesse sprint/flee rolls</strong>.</span></li></ul><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">C. HEALING & MEDICAL ITEMS</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">All medicinal herbs are compact items taking <strong class="text-amber-400 font-semibold">1/4 Inventory Slot</strong> (up to 4 herbs or mixes can stack in 1 slot). First Aid Sprays occupy <strong class="text-amber-400 font-semibold">1 Full Slot</strong>.</p><ul class="my-3 space-y-1 pl-1"><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Green Herb (G) [1/4 Slot]:</strong> Restores <strong class="text-amber-400 font-semibold">1 Strain</strong>; cures <strong class="text-amber-400 font-semibold">Bleeding</strong>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Green + Green (G+G) [1/4 Slot]:</strong> Restores <strong class="text-amber-400 font-semibold">3 Strain</strong>; cures <strong class="text-amber-400 font-semibold">Bleeding</strong>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Green + Blue (G+B) [1/4 Slot]:</strong> Restores <strong class="text-amber-400 font-semibold">1 Strain</strong>, cures <strong class="text-amber-400 font-semibold">Bleeding & Poisoned</strong>, and lowers Virus Infection by <strong class="text-amber-400 font-semibold">-1 Stage</strong>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Green + Red (G+R) [Full-Heal, 1/4 Slot]:</strong> Fully restores Strain to maximum (10); cures <strong class="text-amber-400 font-semibold">Bleeding & Limb Damaged</strong>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Green + Red + Blue (G+R+B) [Miracle Mix, 1/4 Slot]:</strong> Fully restores Strain to maximum, cures <strong class="text-amber-400 font-semibold">all conditions</strong>, and lowers Virus Infection by <strong class="text-amber-400 font-semibold">-1 Stage</strong>.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">First Aid Spray [1 Full Slot]:</strong> Fully restores Strain to maximum and cures <strong class="text-amber-400 font-semibold">all physical conditions</strong> (Bleeding, Poisoned, Limb Damaged).</span></li></ul><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>7. THE AREA NOISE CLOCK ENGINE</h2><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">The <strong class="text-amber-400 font-semibold">Area Noise Clock (1 to 6 Ticks)</strong> tracks ambient disturbance, gunfire echoes, and the heightened awareness of roaming infected and stalkers within the current sector.</p><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Noise Increase Rules (How the Clock Ticks Up)
+* **Durability Loss:** 1 Durability Box is checked on an attack **Failure** or when chosen as the cost on a **Success with Cost**. When all 3 boxes are checked, the weapon breaks permanently and is discarded. Durability cannot be repaired; survivors must scavenge new weapons.
+
+---
+
+### B. ARMOR & PROTECTIVE GEAR
+
+Armor provides external protection boxes (⬜). When taking damage, players check off 1 Armor box instead of losing Strain.
+
+* **Leather / Reinforced Jacket (1 Slot):** Grants **⬜ (1 Armor Box)**. Light protection against scratches and minor shrapnel.
+* **Ballistic / Kevlar Vest (1 Slot):** Grants **⬜⬜ (2 Armor Boxes)**. Standard police/security vest designed to stop handgun fire and blunt impacts.
+* **Tactical Riot Armor (2 Slots):** Grants **⬜⬜⬜ (3 Armor Boxes)**. Heavy military/SWAT protective suit. *Drawback:* Applies **-1 to Finesse sprint/flee rolls**.
+
+---
+
+### C. HEALING & MEDICAL ITEMS
+
+All medicinal herbs are compact items taking **1/4 Inventory Slot** (up to 4 herbs or mixes can stack in 1 slot). First Aid Sprays occupy **1 Full Slot**.
+
+* **Green Herb (G) [1/4 Slot]:** Restores **1 Strain**; cures **Bleeding**.
+* **Green + Green (G+G) [1/4 Slot]:** Restores **3 Strain**; cures **Bleeding**.
+* **Green + Blue (G+B) [1/4 Slot]:** Restores **1 Strain**, cures **Bleeding & Poisoned**, and lowers Virus Infection by **-1 Stage**.
+* **Green + Red (G+R) [Full-Heal, 1/4 Slot]:** Fully restores Strain to maximum (10); cures **Bleeding & Limb Damaged**.
+* **Green + Red + Blue (G+R+B) [Miracle Mix, 1/4 Slot]:** Fully restores Strain to maximum, cures **all conditions**, and lowers Virus Infection by **-1 Stage**.
+* **First Aid Spray [1 Full Slot]:** Fully restores Strain to maximum and cures **all physical conditions** (Bleeding, Poisoned, Limb Damaged).
+
+---
+
+## 7. THE AREA NOISE CLOCK ENGINE
+
+The **Area Noise Clock (1 to 6 Ticks)** tracks ambient disturbance, gunfire echoes, and the heightened awareness of roaming infected and stalkers within the current sector.
+
+### Noise Increase Rules (How the Clock Ticks Up)
 * **+1 Tick:**
   * Firing a **Handgun / Pistol** (9mm unsuppressed).
   * Loud environmental actions (smashing open a wooden door, kicking over heavy metal shelving, setting off a car alarm).
@@ -425,284 +913,231 @@ Active Conditions: None</p><p class="text-zinc-300 text-sm md:text-base leading-
   * Structural breaching (battering down a security gate or heavy metal door).
 * **+3 Ticks:**
   * Firing a **Magnum Revolver**.
-  * Detonating a **Grenade**, fuel barrel, or explosive device.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Clock Escalation Milestones
+  * Detonating a **Grenade**, fuel barrel, or explosive device.
+
+### Clock Escalation Milestones
 * **1–2 Ticks (Quiet / Dormant):** Ambient groans in the distance. Roaming hostiles remain dormant in their starting positions.
 * **3–4 Ticks (Suspicious / Stirring):** Infected begin shuffling toward the source of the sound; stealth checks suffer **-1**.
 * **5 Ticks (Alert / Encircling):** Hostiles actively bang on exterior windows, doors rattle, and retreat routes become contested.
-* **6 Ticks (BREACH EVENT):** The clock resets to 0, and an immediate high-threat encounter is triggered: a roaming horde floods the room, or the sector's **Stalker / Boss B.O.W.** breaches the entry point.</h3><h3 class="text-lg md:text-xl font-semibold text-zinc-200 mt-6 mb-3 text-zinc-100">Noise Decay Rules (How the Clock Ticks Down)
+* **6 Ticks (BREACH EVENT):** The clock resets to 0, and an immediate high-threat encounter is triggered: a roaming horde floods the room, or the sector's **Stalker / Boss B.O.W.** breaches the entry point.
+
+### Noise Decay Rules (How the Clock Ticks Down)
 * **-1 Tick (Quiet Scene):** Completing **1 full Exploration Scene** without any unsuppressed gunfire, combat rolls, or loud physical actions reduces the clock by **-1 Tick**.
 * **-1 Tick (Sector Transition):** Successfully traversing from one major sector/building to another without active pursuit reduces the local clock by **-1 Tick**.
 * **Total Clock Reset (Safe Room Entry):** Entering and securing a certified **Safe Room** completely isolates the party; while inside, the Noise Clock does not advance.
-* **Post-Breach Reset:** Following the conclusion or escape from a **6/6 Breach Event**, the clock resets to **1 Tick (Quiet)** as the immediate local horde disperses.</h3><p class="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">---</p><h2 class="text-xl md:text-2xl font-bold text-amber-400 mt-8 mb-4 flex items-center gap-2"><span class="w-2 h-2 bg-amber-500 rounded-none inline-block"></span>8. ENVIRONMENT & PROGRESSION</h2><ul class="my-3 space-y-1 pl-1"><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Item Box (Communal Cache):</strong> Located inside Safe Rooms. Provides shared storage space. Depositing, withdrawing, or organizing items in an Item Box is a free action during a Rest Scene.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Typewriter (Checkpoint Log):</strong> Survivors record in-character log entries; marks the official save checkpoint and awards milestone PP.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">Progression Points (PP) Awards:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">+1 PP:</strong> Surviving an intense combat or hazard scene.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">+2 PP:</strong> Recovering a vital story file, key sample, or solving an environmental puzzle.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">+3 PP:</strong> Securing a new Safe Room or concluding a major narrative chapter.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">PP Shop Upgrades:</strong></span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">10 PP:</strong> Increase one Stat by +1 (Cap: +2 max).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">15 PP:</strong> Acquire a new Minor Trait (+1).</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">20 PP:</strong> Unlock a new Tactical Specialization domain.</span></li><li class="text-zinc-300 text-sm leading-relaxed mb-2 flex items-start gap-2"><span class="text-amber-500 select-none mt-1 text-xs">▪</span><span><strong class="text-amber-400 font-semibold">25 PP:</strong> Expand Inventory by +1 Slot (Pouches/Rig, Cap: 6 slots max).</span></li></ul>
-      </div>
-    </section>
-    
+* **Post-Breach Reset:** Following the conclusion or escape from a **6/6 Breach Event**, the clock resets to **1 Tick (Quiet)** as the immediate local horde disperses.
 
+---
+
+## 8. ENVIRONMENT & PROGRESSION
+
+* **Item Box (Communal Cache):** Located inside Safe Rooms. Provides shared storage space. Depositing, withdrawing, or organizing items in an Item Box is a free action during a Rest Scene.
+* **Typewriter (Checkpoint Log):** Survivors record in-character log entries; marks the official save checkpoint and awards milestone PP.
+* **Progression Points (PP) Awards:**
+  * **+1 PP:** Surviving an intense combat or hazard scene.
+  * **+2 PP:** Recovering a vital story file, key sample, or solving an environmental puzzle.
+  * **+3 PP:** Securing a new Safe Room or concluding a major narrative chapter.
+* **PP Shop Upgrades:**
+  * **10 PP:** Increase one Stat by +1 (Cap: +2 max).
+  * **15 PP:** Acquire a new Minor Trait (+1).
+  * **20 PP:** Unlock a new Tactical Specialization domain.
+  * **25 PP:** Expand Inventory by +1 Slot (Pouches/Rig, Cap: 6 slots max).
+
+        </div>
+      </div>
     </main>
   </div>
 
-  <!-- Mobile Bottom Navigation Bar -->
-  <nav class="md:hidden h-16 bg-zinc-900/95 border-t border-zinc-800 flex items-center justify-around px-2 z-40 shrink-0 backdrop-blur select-none pb-[env(safe-area-inset-bottom)]">
-    <button data-target="map" class="nav-btn active flex flex-col items-center justify-center w-full py-1 text-amber-400">
-      <span class="text-lg">🗺️</span>
-      <span class="text-[10px] font-mono-hud mt-0.5">MAP</span>
-    </button>
-    <button data-target="doc-player" class="nav-btn flex flex-col items-center justify-center w-full py-1 text-zinc-400">
-      <span class="text-lg">📖</span>
-      <span class="text-[10px] font-mono-hud mt-0.5">RULES</span>
-    </button>
-    <button data-target="doc-traits" class="nav-btn flex flex-col items-center justify-center w-full py-1 text-zinc-400">
-      <span class="text-lg">🧬</span>
-      <span class="text-[10px] font-mono-hud mt-0.5">TRAITS</span>
-    </button>
-    <button data-target="doc-glossary" class="nav-btn flex flex-col items-center justify-center w-full py-1 text-zinc-400">
-      <span class="text-lg">📑</span>
-      <span class="text-[10px] font-mono-hud mt-0.5">GLOSSARY</span>
-    </button>
+  <!-- Mobile Bottom Nav -->
+  <nav class="bottom-nav">
+    <div class="b-nav-item active" data-tab="tab-map">
+      <span class="b-nav-icon">🗺️</span>
+      <span>Map</span>
+    </div>
+    <div class="b-nav-item" data-tab="tab-player">
+      <span class="b-nav-icon">📖</span>
+      <span>Rules</span>
+    </div>
+    <div class="b-nav-item" data-tab="tab-traits">
+      <span class="b-nav-icon">🧬</span>
+      <span>Traits</span>
+    </div>
+    <div class="b-nav-item" data-tab="tab-glossary">
+      <span class="b-nav-icon">📑</span>
+      <span>Glossary</span>
+    </div>
   </nav>
 
-  <!-- Interactive Script -->
   <script>
-    // Navigation Tab Controller
-    const navButtons = document.querySelectorAll('.nav-btn');
-    const docPanels = document.querySelectorAll('.doc-panel');
-    const mapPanel = document.getElementById('panel-map');
+    // Tab Switching
+    const allNavItems = document.querySelectorAll('.nav-item, .b-nav-item');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    const gridToggleBtn = document.getElementById('btn-grid-toggle');
+    const gridSvg = document.getElementById('grid-svg');
 
-    function setActiveTab(target) {
-      navButtons.forEach(btn => {
-        const isMatch = btn.getAttribute('data-target') === target;
-        if (isMatch) {
-          btn.classList.add('active');
-          if (btn.closest('nav').classList.contains('md:hidden')) {
-            btn.classList.remove('text-zinc-400');
-            btn.classList.add('text-amber-400');
-          } else {
-            btn.classList.remove('text-zinc-400', 'border-transparent');
-            btn.classList.add('bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
-          }
-        } else {
-          btn.classList.remove('active');
-          if (btn.closest('nav').classList.contains('md:hidden')) {
-            btn.classList.remove('text-amber-400');
-            btn.classList.add('text-zinc-400');
-          } else {
-            btn.classList.remove('bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
-            btn.classList.add('text-zinc-400', 'border-transparent');
-          }
-        }
-      });
-
-      if (target === 'map') {
-        mapPanel.classList.remove('hidden');
-        docPanels.forEach(p => p.classList.add('hidden'));
-      } else {
-        mapPanel.classList.add('hidden');
-        docPanels.forEach(p => {
-          if (p.id === target) {
-            p.classList.remove('hidden');
-          } else {
-            p.classList.add('hidden');
-          }
+    allNavItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetTab = item.getAttribute('data-tab');
+        allNavItems.forEach(n => {
+          if (n.getAttribute('data-tab') === targetTab) n.classList.add('active');
+          else n.classList.remove('active');
         });
-      }
-    }
-
-    navButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-target');
-        setActiveTab(target);
+        tabPanes.forEach(pane => {
+          if (pane.id === targetTab) pane.classList.add('active');
+          else pane.classList.remove('active');
+        });
+        if (targetTab === 'tab-map') {
+          gridToggleBtn.style.display = 'flex';
+        } else {
+          gridToggleBtn.style.display = 'none';
+        }
       });
     });
 
     // Grid Toggle
-    const btnToggleGrid = document.getElementById('btn-toggle-grid');
-    const gridMatrix = document.getElementById('grid-matrix');
-    const gridStatusDot = document.getElementById('grid-status-dot');
-    let isGridVisible = true;
-
-    btnToggleGrid.addEventListener('click', () => {
-      isGridVisible = !isGridVisible;
-      if (isGridVisible) {
-        gridMatrix.classList.remove('hidden');
-        btnToggleGrid.querySelector('span:last-child').textContent = 'GRID: ON';
-        gridStatusDot.classList.remove('bg-zinc-600');
-        gridStatusDot.classList.add('bg-amber-400');
-      } else {
-        gridMatrix.classList.add('hidden');
-        btnToggleGrid.querySelector('span:last-child').textContent = 'GRID: OFF';
-        gridStatusDot.classList.remove('bg-amber-400');
-        gridStatusDot.classList.add('bg-zinc-600');
-      }
+    let gridVisible = true;
+    gridToggleBtn.addEventListener('click', () => {
+      gridVisible = !gridVisible;
+      gridSvg.style.display = gridVisible ? 'block' : 'none';
+      gridToggleBtn.innerText = gridVisible ? 'GRID: ON' : 'GRID: OFF';
+      gridToggleBtn.style.borderColor = gridVisible ? 'var(--accent-orange)' : 'var(--text-muted)';
+      gridToggleBtn.style.color = gridVisible ? 'var(--accent-orange)' : 'var(--text-muted)';
     });
 
-    // Tactical Pan & Zoom Engine
-    const viewport = document.getElementById('map-viewport');
-    const mapContainer = document.getElementById('map-container');
-    const mapImg = document.getElementById('map-image');
-    const zoomIndicator = document.getElementById('zoom-indicator');
+    // Robust Map Zoom & Pan Engine (Focal point cursor zoom + Pinch-to-zoom)
+    const viewport = document.getElementById('tab-map');
+    const wrapper = document.getElementById('map-wrapper');
+    const imgW = 3085;
+    const imgH = 3858;
 
-    let scale = 1.0;
-    let pointX = 0;
-    let pointY = 0;
-    let startX = 0;
-    let startY = 0;
-    let isPanning = false;
+    let scale = 1;
+    let posX = 0;
+    let posY = 0;
 
-    function updateTransform() {
-      mapContainer.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-      zoomIndicator.textContent = `${Math.round(scale * 100)}%`;
+    function applyTransform() {
+      wrapper.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(${scale})`;
     }
 
-    function resetView() {
-      const vpRect = viewport.getBoundingClientRect();
-      const imgW = mapImg.naturalWidth || 3085;
-      const imgH = mapImg.naturalHeight || 3858;
+    function fitToScreen() {
+      const vW = viewport.clientWidth;
+      const vH = viewport.clientHeight;
+      scale = Math.min(vW / imgW, vH / imgH) * 0.98;
+      posX = (vW - imgW * scale) / 2;
+      posY = (vH - imgH * scale) / 2;
+      applyTransform();
+    }
+
+    // Zoom at specific screen focal point (cursor/midpoint)
+    function zoomAt(focalX, focalY, factor) {
+      const minScale = 0.05;
+      const maxScale = 5.0;
+      const newScale = Math.min(Math.max(minScale, scale * factor), maxScale);
       
-      const scaleX = vpRect.width / imgW;
-      const scaleY = vpRect.height / imgH;
-      scale = Math.min(scaleX, scaleY) * 0.95;
-      
-      pointX = (vpRect.width - imgW * scale) / 2;
-      pointY = (vpRect.height - imgH * scale) / 2;
-      updateTransform();
+      // Keep focal point stationary relative to screen:
+      // (focalX - newPosX) / newScale = (focalX - posX) / scale
+      posX = focalX - (focalX - posX) * (newScale / scale);
+      posY = focalY - (focalY - posY) * (newScale / scale);
+      scale = newScale;
+      applyTransform();
     }
 
-    mapImg.onload = () => {
-      resetView();
-    };
+    // Mouse Drag Pan
+    let isDragging = false;
+    let startX = 0, startY = 0;
 
-    if (mapImg.complete) {
-      resetView();
-    }
-
-    // Mouse Events
     viewport.addEventListener('mousedown', (e) => {
-      if (e.button !== 0) return;
-      isPanning = true;
-      startX = e.clientX - pointX;
-      startY = e.clientY - pointY;
+      if (e.target.closest('.map-controls') || e.target.closest('.map-hint')) return;
+      isDragging = true;
+      startX = e.clientX - posX;
+      startY = e.clientY - posY;
     });
 
     window.addEventListener('mousemove', (e) => {
-      if (!isPanning) return;
-      pointX = e.clientX - startX;
-      pointY = e.clientY - startY;
-      updateTransform();
+      if (!isDragging) return;
+      posX = e.clientX - startX;
+      posY = e.clientY - startY;
+      applyTransform();
     });
 
     window.addEventListener('mouseup', () => {
-      isPanning = false;
+      isDragging = false;
     });
 
-    // Wheel Zoom toward cursor
+    // Mouse Wheel Zoom
     viewport.addEventListener('wheel', (e) => {
       e.preventDefault();
       const rect = viewport.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const xs = (mouseX - pointX) / scale;
-      const ys = (mouseY - pointY) / scale;
-      const delta = -e.deltaY;
-
-      const newScale = delta > 0 ? scale * 1.15 : scale / 1.15;
-      scale = Math.min(Math.max(0.15, newScale), 5.0);
-
-      pointX = mouseX - xs * scale;
-      pointY = mouseY - ys * scale;
-      updateTransform();
+      const focalX = e.clientX - rect.left;
+      const focalY = e.clientY - rect.top;
+      const factor = e.deltaY < 0 ? 1.18 : (1 / 1.18);
+      zoomAt(focalX, focalY, factor);
     }, { passive: false });
 
-    // Touch Pinch & Pan Gestures
-    let initialDistance = 0;
-    let initialScale = 1;
-    let touchStartX = 0;
-    let touchStartY = 0;
-
-    function getDistance(t1, t2) {
-      const dx = t1.clientX - t2.clientX;
-      const dy = t1.clientY - t2.clientY;
-      return Math.sqrt(dx * dx + dy * dy);
-    }
+    // Touch Pinch & Pan (Mobile)
+    let initialPinchDist = null;
+    let lastTouchX = 0, lastTouchY = 0;
 
     viewport.addEventListener('touchstart', (e) => {
       if (e.touches.length === 1) {
-        isPanning = true;
-        touchStartX = e.touches[0].clientX - pointX;
-        touchStartY = e.touches[0].clientY - pointY;
+        isDragging = true;
+        startX = e.touches[0].clientX - posX;
+        startY = e.touches[0].clientY - posY;
       } else if (e.touches.length === 2) {
-        isPanning = false;
-        initialDistance = getDistance(e.touches[0], e.touches[1]);
-        initialScale = scale;
+        isDragging = false;
+        initialPinchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
       }
     }, { passive: true });
 
     viewport.addEventListener('touchmove', (e) => {
-      if (e.touches.length === 1 && isPanning) {
-        pointX = e.touches[0].clientX - touchStartX;
-        pointY = e.touches[0].clientY - touchStartY;
-        updateTransform();
-      } else if (e.touches.length === 2) {
-        const currentDist = getDistance(e.touches[0], e.touches[1]);
-        if (initialDistance > 0) {
-          const factor = currentDist / initialDistance;
-          const newScale = Math.min(Math.max(0.15, initialScale * factor), 5.0);
-          
-          const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-          const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
-          const rect = viewport.getBoundingClientRect();
-          const touchX = midX - rect.left;
-          const touchY = midY - rect.top;
-
-          const xs = (touchX - pointX) / scale;
-          const ys = (touchY - pointY) / scale;
-
-          scale = newScale;
-          pointX = touchX - xs * scale;
-          pointY = touchY - ys * scale;
-          updateTransform();
-        }
+      if (e.touches.length === 1 && isDragging) {
+        posX = e.touches[0].clientX - startX;
+        posY = e.touches[0].clientY - startY;
+        applyTransform();
+      } else if (e.touches.length === 2 && initialPinchDist) {
+        const currentDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const factor = currentDist / initialPinchDist;
+        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        const rect = viewport.getBoundingClientRect();
+        
+        zoomAt(midX - rect.left, midY - rect.top, factor);
+        initialPinchDist = currentDist;
       }
     }, { passive: true });
 
     viewport.addEventListener('touchend', (e) => {
-      if (e.touches.length === 0) {
-        isPanning = false;
-      } else if (e.touches.length === 1) {
-        isPanning = true;
-        touchStartX = e.touches[0].clientX - pointX;
-        touchStartY = e.touches[0].clientY - pointY;
+      if (e.touches.length < 2) {
+        initialPinchDist = null;
       }
-    }, { passive: true });
+      if (e.touches.length === 0) {
+        isDragging = false;
+      }
+    });
 
     // Control Buttons
     document.getElementById('btn-zoom-in').addEventListener('click', () => {
-      const vpRect = viewport.getBoundingClientRect();
-      const midX = vpRect.width / 2;
-      const midY = vpRect.height / 2;
-      const xs = (midX - pointX) / scale;
-      const ys = (midY - pointY) / scale;
-
-      scale = Math.min(scale * 1.3, 5.0);
-      pointX = midX - xs * scale;
-      pointY = midY - ys * scale;
-      updateTransform();
+      zoomAt(viewport.clientWidth / 2, viewport.clientHeight / 2, 1.3);
     });
-
     document.getElementById('btn-zoom-out').addEventListener('click', () => {
-      const vpRect = viewport.getBoundingClientRect();
-      const midX = vpRect.width / 2;
-      const midY = vpRect.height / 2;
-      const xs = (midX - pointX) / scale;
-      const ys = (midY - pointY) / scale;
-
-      scale = Math.max(scale / 1.3, 0.15);
-      pointX = midX - xs * scale;
-      pointY = midY - ys * scale;
-      updateTransform();
+      zoomAt(viewport.clientWidth / 2, viewport.clientHeight / 2, 1 / 1.3);
+    });
+    document.getElementById('btn-zoom-reset').addEventListener('click', () => {
+      fitToScreen();
     });
 
-    document.getElementById('btn-reset').addEventListener('click', resetView);
+    // Initialize Map on load & resize
+    window.addEventListener('load', fitToScreen);
+    window.addEventListener('resize', () => {
+      if (document.getElementById('tab-map').classList.contains('active')) {
+        // maintain relative center
+      }
+    });
   </script>
 </body>
 </html>
