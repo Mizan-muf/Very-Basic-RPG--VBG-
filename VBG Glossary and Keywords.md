@@ -93,7 +93,28 @@ Play is structured into distinct **Scenes** rather than rigid rounds:
 
 ---
 
-## 5. VIRUS INFECTION ENGINE
+## 5. COMBAT ADJUDICATION & DISTANCE BANDS
+
+Combat is player-facing and structured around four intuitive **Distance & Reach Bands** to keep asynchronous posting fluid without requiring grid maps:
+
+### Distance & Reach Bands
+* **Melee / Reach (0–5 ft):** Within arm's reach or blade contact. Hand-to-hand combat, knife strikes, grab threats, and shotgun point-blank blasts occur here.
+  * *Disengaging:* Moving away from an actively engaged enemy in Melee reach requires a Major Action (Sprint) or an evasive stunt to avoid an immediate swipe or grab.
+* **Close / Room (5–20 ft):** Across an average room, small office, or narrow corridor. Moving into Melee reach or taking cover takes a Minor Action.
+  * *Firearms:* Optimal operating range for Handguns and Shotguns.
+* **Far / Hallway (20–60 ft):** Down a long hospital corridor, across a street block, or through a warehouse. Closing the distance requires a Major Action (Sprint).
+  * *Firearms:* Handguns suffer a **-2 penalty** unless the shooter spends a Minor Action to Brace/Aim. Tactical Rifles operate at peak accuracy.
+* **Distant / Line-of-Sight (60+ ft):** Across a city plaza, down a highway, or from a rooftop. Only Tactical Rifles and Scoped weapons can effectively engage targets at Distant range.
+
+### Combat Mechanics & Tactics
+* **Player-Facing Side-Initiative:** The GM describes incoming hostile actions. Players post their reactions (Major + Minor action) within the 24-hour window. Monsters never make attack rolls; players roll to avoid harm or disrupt enemy actions.
+* **Grab & Counter-Attack:** When grabbed by a zombie, a survivor can spend a Free Action to sacrifice **1 Knife Durability Box** or fire **1 Handgun shot** to instantly break the grab without taking damage.
+* **Called Shots & Weak Points:** Targeting a creature's specific anatomical weak point (exposed brain, knee joint) requires a **Called Shot (TN 20)**. Clean success bypasses 1 Armor Box or dismembers the limb.
+* **V-ACT Mutation (Crimson Heads):** Any intact zombie corpse left unburned or undecapitated will revive after 2 scenes as a fast, high-damage Crimson Head mutant.
+
+---
+
+## 6. VIRUS INFECTION ENGINE
 
 ### Infection Track (Stage 0 to Stage 5)
 * **Stage 0 (Clean):** Healthy. No symptoms.
