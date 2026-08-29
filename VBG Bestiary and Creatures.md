@@ -117,18 +117,18 @@ WEAKNESSES & EXPLOITS:
 
 ---
 
-### D. BOSS-TIER THREAT (The Roaming Nemesis)
+### D. BOSS-TIER THREAT (The Roaming Stalker)
 
-#### 7. The Pursuer / Nemesis-Type Tyrant
+#### 7. T-103 Tyrant ("Mr. X")
 * **Threat Tier:** Boss
 * **Armor:** ⬜⬜⬜⬜⬜ (5 Boxes; regenerates 1 Armor Box at the start of each scene if not burning).
-* **Noise Sensitivity:** **Spawns on 6/6 Breach Events.** Smashes through walls directly toward the party's location.
-* **Description:** A 9-foot bio-engineered super-soldier encased in black heavy restraint leather. Audible heavy combat boot thuds precede its entrance. Cold, intelligent, and relentless.
+* **Noise Sensitivity:** **Spawns on 6/6 Breach Events.** Smashes through walls or reinforced doors directly toward the party's location.
+* **Description:** A 7-foot-tall, pale-skinned bio-engineered humanoid encased in a heavy bulletproof trench coat and fedora. Slow, deliberate, heavy combat boot footsteps echo before he enters a room. Unflinching, silent, and single-mindedly focused on terminating witnesses.
 * **Incoming Threats:**
-  * *Choke Lift & Wall Slam:* Forces Force TN 20. Failure: 2 Strain, **Panicked** condition, and smashes the survivor through a wooden door/furniture.
-  * *Tentacle Pierce:* Ranged strike. Forces Finesse TN 18. Failure: 1 Strain, **Bleeding**, and **+1 Infection Stage**.
-  * *Unstoppable Advance:* Smashes environmental barricades as a free action; cannot be locked out of rooms.
-* **Strengths:** Cannot be permanently killed with small arms. Regenerates armor.
+  * *Haymaker / Kinetic Punch:* Forces Force or Finesse TN 20. Failure: 2 Strain, **Panicked** condition, and smashes the survivor across the room through wooden furniture/doors.
+  * *One-Handed Choke Lift & Crush:* Forces Force TN 18 to break grip. Failure: 1 Strain, **Limb Damaged** condition, and sets up a lethal head crush next turn unless staggered by allies.
+  * *Unstoppable Advance:* Smashes environmental doors and barricades as a free action; cannot be locked inside standard rooms.
+* **Strengths:** Immune to small-arms stun; bulletproof coat negates handgun damage unless shot in the exposed head/face (Called Shot TN 18). Regenerates armor.
 * **Weaknesses:**
-  * Concentrated heavy fire (Magnum / Shotgun / Explosives) can break its 5 Armor boxes, forcing it to drop to one knee and enter **Stunned Stasis for 1 Scene**, allowing the party to escape.
-  * Environmental Traps (dropping electrical cranes, fuel tanker explosions) instantly bypass its armor.
+  * Concentrated heavy fire (Magnum / Shotgun / High Explosives) can break his 5 Armor boxes, forcing him to drop to one knee and enter **Stunned Stasis for 1 Scene**, allowing the party a window to flee.
+  * Environmental Traps (dropping heavy storage containers, electrocution, collapsing stairwells) bypass his armor and force immediate stasis.
