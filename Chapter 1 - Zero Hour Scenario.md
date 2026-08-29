@@ -3,16 +3,16 @@
 
 ---
 
-## 1. CANONICAL MAP PLACEMENT (UPTOWN DISTRICT)
+## 1. CANONICAL MAP PLACEMENT (EAST DOWNTOWN / COMMERCIAL DISTRICT)
 * **Primary Facility:** **Raccoon Prime Galleria / Shopping Mall**
-  * **Map Coordinates:** **Grid E-12 / E-13 (Uptown Commercial Zone)**.
-  * **Street Borders:** Facing **Central Street** on the West, bordering the **Central Park / City Hall Plaza** on the East, with rear service alleys backing onto the **North Raccoon Rail Line spur**.
+  * **Map Coordinates:** **Grid J-13 (East Downtown Commercial Sector)**.
+  * **Street Borders:** Sits along the eastern commercial arterial road, directly north of the **Subway Line / Subway Yard (Grid I-14 / J-14)**, bordering the eastern industrial perimeter and rail spurs.
 * **Key Surrounding Landmarks & Distances (Referenced from Map):**
-  * *South (1 block down Central St):* **Raccoon City Police Department (R.P.D.)** on **Ennerdale Street** (Grid E-13).
-  * *East (directly across Central St):* **Raccoon City Hall**, the **Post Office**, and the **R.C. Power Substation** (Grid F-12 / F-13).
-  * *West (2 blocks across Ennerdale):* **Kendo Gun Shop**, **Bar Jack**, and **Ander's Bar** (Grid D-13 / E-14).
-  * *North (along Central Ave / Main St):* **Raccoon General Hospital** and **Raccoon Central Station** (Grid E-8 / E-9).
-  * *East River Perimeter:* **Circular River** and **Raccoon City Waste Disposal / Disposal Plant** (Grid G-7 / G-12).
+  * *South (1–2 blocks):* **Raccoon City Subway Station / Rail Yard** (Grid I-14 / J-14).
+  * *West (inland toward Downtown):* **Raccoon City General Hospital**, **Kendo Gun Shop**, and **Bar Jack** (Grid D-13 / E-14).
+  * *Northwest (across the river bridge):* **Raccoon City Police Department (R.P.D.)** and **City Hall** (Grid E-12 / E-13).
+  * *East / Northeast (across the perimeter):* **Circular River**, **R.C. Waste Disposal Plant / P-12A Incinerator Facility** (Grid G-7 / G-12), and the **Raccoon Forest / Arklay Outskirts**.
+  * *North (along Main St arterial):* **Central Station** and the Northern Highway Overpass.
 
 ---
 
@@ -109,24 +109,24 @@
 
 ### BRANCH A: THE NORTH ALLEY EVACUATION BUS (Street-to-Street Survival)
 * **The Route:**
-  * Party boards **Transit Bus #14**, heading South down **Central Street**, intending to turn West onto **Ennerdale Street** toward the **R.P.D. Precinct (Grid E-13)**.
+  * Party boards **Transit Bus #14**, departing the mall heading West along the main commercial artery, attempting to cut through the bridge toward the **R.P.D. Precinct (Grid E-12 / E-13)** or South toward the **Subway Station (Grid I-14 / J-14)**.
 * **The Complication (The Gridlock Collapse):**
-  * Just past **City Hall** near the intersection of **Central & Ennerdale**, the convoy slams into a burning multi-car pileup blocked by an overturned gasoline tanker.
-  * Squad car escorts are overwhelmed by a surging horde emerging from **Central Park (Grid E-11)**; the bus driver is pulled through the side window.
+  * Near the arterial junction leading toward downtown, the convoy slams into a burning multi-car pileup blocked by an overturned fuel truck and abandoned police cruisers.
+  * Squad car escorts are overwhelmed by infected surging from the neighboring industrial alleys; the bus driver is pulled through the side glass.
 * **Immediate Escape Routes:**
-  * *Option 1 (South):* Cut through the alleyways behind **Ander's Bar / Jack's Bar** on Ennerdale toward the rear gated entrance of the **R.P.D. Precinct (Grid E-13)**.
-  * *Option 2 (West):* Retreat toward the **Raccoon City Hospital (Grid E-8)** or **Kendo Gun Shop (Grid D-13)** perimeter to regroup.
+  * *Option 1 (South toward Subway):* Push down the commercial alleyways toward the **Subway Yard / Station (Grid J-14)** to escape underground.
+  * *Option 2 (West toward Downtown):* Cut through the side streets toward **Bar Jack / Kendo Gun Shop (Grid D-13 / E-14)** to regroup in a fortified commercial building.
 
 ### BRANCH B: FORTIFYING THE GALLERIA (Mall Survival & Sub-Level Escape)
 * **The Route:**
   * Players decide the streets are a slaughterhouse and resolve to fortify the Mall with security.
   * Establish a **Safe Room** in the 3rd Floor Security Operations Suite (Item Box & Typewriter location).
 * **The Complication (The Inside Collapse):**
-  * The main substation grid from **R.C. Power Substation (Grid F-13)** fails, plunging the mall into pitch darkness.
-  * Several shoppers who were secretly scratched or bleeding during the initial parking garage panic succumb to the T-Virus and revive as **Shamblers / Crimson Heads** inside the sealed mall.
+  * The regional grid fails, plunging the mall into pitch darkness.
+  * Several shoppers who were scratched or bleeding during the initial parking garage panic succumb to the T-Virus and revive as **Shamblers / Crimson Heads** inside the sealed mall.
 * **Immediate Escape Routes:**
   * *Option 1 (Sub-Basement):* Descend into the Mall HVAC & Maintenance tunnels to restore the backup diesel generator.
-  * *Option 2 (Underground Conduit):* Crack the heavy drainage sluice gate in the sub-basement to escape through the subterranean runoff conduit into the **Circular River / Sewer Network (Grid G-12)**.
+  * *Option 2 (Underground Conduit):* Crack the heavy drainage sluice gate in the sub-basement to escape through the subterranean runoff conduit into the **Circular River / Sewer Network (Grid G-12)** or the **East Rail Spurs**.
 
 ---
 
