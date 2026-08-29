@@ -40,6 +40,7 @@
   * [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]
   * [[Zone 3.2 - Central Cinema Projection Booth & Auditoriums]]
   * [[Zone 3.3 - Central Cinema Rear Freight Bay (South Entry)]]
+  * [[Zone 3.4 - Subterranean Ancient Ruins Descent]]
 
 ---
 
@@ -68,6 +69,7 @@
 * 🗺️ **[[Sector I-11 - Gas Station & St. Michael Motel]]** (`I-11`)
 * 🗺️ **[[Sector H-12 - Central Station]]** (`H-12`)
 * 🗺️ **[[Sector H-11 - Central Cinema & Rail Junction]]** (`H-11`)
+* 🗺️ **[[Sector J-10 - Raccoon City Museum]]** (`J-10`)
 
 ---
 

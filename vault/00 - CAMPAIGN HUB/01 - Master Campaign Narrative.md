@@ -143,9 +143,10 @@ Survivors from both routes enter **Central Cinema** (`Sector H-11`):
 * **East Entry (from Motel):** [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]
 * **South Entry (from Train Crash):** [[Zone 3.3 - Central Cinema Rear Freight Bay (South Entry)]]
 * **Interior Safe Haven & Projection Hall:** [[Zone 3.2 - Central Cinema Projection Booth & Auditoriums]]
+* **The Descent Vector:** Unlocking the proscenium optical relay opens **[[Zone 3.4 - Subterranean Ancient Ruins Descent]]**, bypassing all surface grid blockades to reach **[[Sector J-10 - Raccoon City Museum]]**.
 
 ---
 
-## 🎬 FUTURE ACTS (R.P.D. APPROACH)
-* **Stage 4:** The Ennerdale Alleys & Kendo Gun Shop (`Sector D-13 / E-14`) — *Saturday, September 26, 1998 (01:00 EST)*.
-* **Stage 5:** The R.P.D. Rear Perimeter (`Sector E-13`) — *Saturday, September 26, 1998 (03:30 EST)*.
+## 🎬 ACT IV: THE ANTIQUITIES RECON (UPCOMING)
+* **Date:** Saturday, September 26, 1998 (00:00 – 02:00 EST)
+* **Target:** **[[Sector J-10 - Raccoon City Museum]]** — Pre-war artifacts, underground clocktower approaches, and R.P.D. precinct access.
