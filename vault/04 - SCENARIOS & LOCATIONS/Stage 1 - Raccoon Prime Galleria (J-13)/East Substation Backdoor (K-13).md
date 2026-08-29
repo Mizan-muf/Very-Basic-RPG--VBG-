@@ -1,15 +1,19 @@
 # 🚪 EAST SUBSTATION BACKDOOR (K-13)
 
 * **Parent Stage:** [[Stage 1 - Raccoon Prime Galleria Overview]]
-* **Sector:** `K-13` (East Power Substation & Theater Alley)
-* **Linked Vector:** [[Node 2.2 - Branch B (The East River Run)]]
+* **Sector:** `Sector K-13` (East Power Substation & Theater Alley)
+* **Date & Timestamp:** Friday, September 25, 1998 (20:30 EST)
+* **Ingress Vector:** [[Zone 1.4 - Basement & East Loading Bay]]
+* **Next Node:** [[Node 2.2 - Branch B (The East River Run)]]
 
 ---
 
-## Tactical Summary
-The heavy steel emergency egress door at the rear of [[Zone 1.4 - Basement & East Loading Bay]] exits into a recessed service alcove directly adjacent to the high-voltage transformers of Sector K-13.
+## 📢 GM Read-Aloud Box
+> *Kicking open the heavy steel fire door throws you out into the freezing September downpour. A narrow, brick-paved service alley stretches into darkness between the back wall of the Raccoon Theater and the high security fencing of the East Power Substation. Massive electrical transformers hum with a deep, vibrating drone, and rain sizzles against exposed power conduits.*
 
-### Environmental Hazards & Checks
-* **Transformer Arcs:** Severed power cables arc across standing water (Finesse TN 13 to navigate without shock).
-* **Narrow Chokepoint:** Alleyway allows only single-file movement; zombie dogs ([[B.O.W. & Creature Bestiary#2-infected-k-9--cerberus-zombie-dog|Cerberus]]) patrol the dumpster fence line.
-* **Loot:** Electrician's Rubber Gloves (Insulated), Industrial Wire Cutters, Yellow Herb (Herb Bundle).
+---
+
+## 🧭 Tactical Situation
+* **Option B Vector:** The alternative escape route for parties avoiding the bus convoy.
+* **Transformer Hazard:** High-voltage arc flashes across wet puddles. Crossing requires **Finesse TN 12** or taking 1 Shock Strain.
+* **Exit Vector:** Leads directly into the rain-swept alleys of [[Node 2.2 - Branch B (The East River Run)]].

@@ -1,19 +1,29 @@
-# 🧟 COMMUTER SHAMBLER (SUBURBAN COMMUTE CASUALTIES)
+# 🧟 COMMUTER SHAMBLER (STATION PLATFORM CASUALTY)
 
 * **Parent Bestiary:** [[B.O.W. & Creature Bestiary]]
-* **Threat Tier:** Minor / Roamer
+* **Threat Tier:** Minor (Swarm / Ambient Roamer)
 * **Armor:** ⬜ (1 Box)
-* **Noise Sensitivity:** Slow drift toward sounds within 40ft.
+* **Noise Sensitivity:** Drifts toward metallic train sounds, footsteps, and gunshots (+1 Noise per roamer entering zone).
 
 ---
 
-## 🎯 Description & Tactics
-Freshly infected office workers, transit operators, and commuters trapped on the above-ground platforms of [[Zone 2.2A - Central Station Elevated Platform & Commuter Concourse]]. Still clutching briefcases, umbrellas, or transit passes.
+## 📢 Sensory Profile & Appearance
+> *A commuter dressed in a soaked business suit or rain jacket, clutching a mangled leather briefcase or broken umbrella. Their movements are jerky and uncoordinated, mouth slack and foaming with dark coagulated blood. A low, wet rattle wheezes from their throat.*
 
-* **Incoming Grab:** Forces **Finesse TN 11** or **Force TN 12**. Failure: Pinned and sets up bite.
-* **Bite:** Forces **Force TN 14**. Failure: Inflicts **1 Strain**, **Bleeding**, and **+1 Infection Stage**.
-* **Loot Potential:** Searching a defeated commuter yields a 1d6 roll:
-  * 1–3: Broken commuter pass / wet newspaper
-  * 4: Handgun Ammo (1d4 rounds)
-  * 5: Pocket Knife (⬜ Durability)
-  * 6: Green Herb leaf (+1 Strain recovery)
+---
+
+## ⚔️ Combat Stats & Attacks
+* **Incoming Threat — Desperate Lunge:** Forces **Finesse TN 12** or **Force TN 12**.
+  * *Failure:* 1 Strain damage and victim is grappled into Melee band.
+* **Incoming Threat — Feeding Bite:** If starting turn grappled, forces **Force TN 14** to break free.
+  * *Failure:* 1 Strain, inflicts the **Bleeding** condition, and advances **Infection Track +1 Stage**.
+
+---
+
+## 🔍 Randomized Corpse Loot (1d6 Table)
+When a Commuter Shambler is defeated and searched (1 action):
+1. **1–2:** Wet Metro Rail Pass & Family Photo (No value).
+2. **3:** **Metal Pen / Keyring** (Improvised lock tool: +1 on Finesse lockpicking).
+3. **4:** **Prescription Painkillers** (Heals 1 Strain, 1 use).
+4. **5:** **Green Herb Bundle** (Tucked inside a commuter grocery tote).
+5. **6:** **Small Caliber Handgun Ammo** (1d6 9mm rounds in a briefcase).

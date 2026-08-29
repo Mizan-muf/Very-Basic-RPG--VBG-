@@ -2,25 +2,20 @@
 
 * **Date & Timeline:** Friday, September 25, 1998 (20:45 – 21:45 EST)
 * **Parent Hub:** [[00 - Biohazard Campaign Index]]
-* **Coordinates on Map:** Grid `I-12 / I-13 / K-13`
+* **Coordinates on Map:** Grid `Sector I-12 / I-13 / K-13`
 * **Preceding Stage:** [[Stage 1 - Raccoon Prime Galleria Overview]]
-* **Subsequent Stage:** [[Stage 3 - Central Station Concourse (H-12)]]
+* **Subsequent Pathways:** [[Stage 2.1 - Municipal Sector Overview]], [[Stage 2.2 - Railway Corridor Overview]]
 
 ---
 
-## 🗺️ Narrative Branches & Scene Milestones
+## 📢 GM Read-Aloud Box
+> *The central transit corridor of Raccoon City has collapsed into total gridlock. Rain sheets across abandoned sedans and flashing emergency beacons on Mission Street. Whether arriving via the careening municipal bus or the pitch-black riverbank service alleys, all roads lead to the fiery wreckage of the Mission & Lombard intersection—the gateway to both City Hall and the elevated railways.*
 
-### 1. [[Node 2.1 - Branch A (The Bus Convoy Route)]]
-* **Time:** Friday, Sept 25, 1998 — 20:45 EST
-* **Vector:** Option A Staging from Galleria North Loading Bay via Transit Bus #14.
-* **Key Event:** Mid-transit outbreak and crash at Mission St intersection.
+---
 
-### 2. [[Node 2.2 - Branch B (The East River Run)]]
-* **Time:** Friday, Sept 25, 1998 — 20:50 EST
-* **Vector:** Option B Rear fire door exit through [[East Substation Backdoor (K-13)]].
-* **Key Event:** Substation power grid failure and storm drain bypass.
-
-### 3. [[Node 2.3 - The Intersection Crash Site]]
-* **Time:** Friday, Sept 25, 1998 — 21:15 EST
-* **Vector:** Convergence of Branch A and B at Mission & Lombard.
-* **Key Event:** Burning wreckage, 5/6 Noise Clock, and entry toward [[Raccoon City Hall Plaza (I-12)]] or [[Stage 3 - Central Station Concourse (H-12)]].
+## 🗺️ Stage Flow & Transition Nodes
+1. **[[Node 2.1 - Branch A (The Bus Convoy Route)]]** (`Sector J-13` $\rightarrow$ `Sector I-12`): High-speed evacuation bus under [[Security Chief Raymond Miller]]. In-cabin outbreak and driver panic check.
+2. **[[Node 2.2 - Branch B (The East River Run)]]** (`Sector K-13`): Rainstorm riverbank stealth crawl. High-voltage transformer hazards and Cerberus dog pack ambush.
+3. **[[Node 2.3 - The Intersection Crash Site]]** (`Sector I-12 / I-13`): Burning crossroads inferno. 5/6 Noise Clock pressure forcing the critical choice between:
+   * **East Vector:** [[Raccoon City Hall Plaza (I-12)]] $\rightarrow$ [[Stage 2.1 - Municipal Sector Overview]]
+   * **West Vector:** [[Zone 2.2A - Central Station Elevated Platform & Commuter Concourse]] $\rightarrow$ [[Stage 2.2 - Railway Corridor Overview]]

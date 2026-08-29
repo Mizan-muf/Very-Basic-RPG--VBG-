@@ -1,24 +1,28 @@
-# 🚛 ZONE 3.3: CENTRAL CINEMA REAR FREIGHT BAY & MANAGER'S OFFICE
+# 📦 ZONE 3.3: CENTRAL CINEMA REAR FREIGHT BAY & MANAGER'S OFFICE
 
 * **Parent Stage:** [[Stage 3 - Central Cinema Overview]]
-* **Sector:** `Sector H-11` (Rear Loading Dock & Alley)
-* **Date & Timestamp:** Friday, September 25, 1998 (22:45 EST)
-* **Ingress From:** [[Zone 2.2C - Scripted Event (Runaway Freight Train)]]
-* **Internal Vectors:** [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]], [[Zone 3.2 - Central Cinema Projection Booth & Auditoriums]]
+* **Sector:** `Sector H-11` (Cinema Sub-Level & Freight Bay)
+* **Date & Timestamp:** Friday, September 25, 1998 (22:45 – 23:45 EST)
+* **Ingress Vector:** [[Zone 2.2C - Scripted Event (Runaway Freight Train)]]
+* **Connected Zones:** [[Zone 3.2 - Central Cinema Projection Booth & Auditoriums]]
 
 ---
 
-## 🧭 Environment
-The loading dock roll-up door is warped open from the freight train collision. Survivors can chain the gate shut using an industrial hoist chain (Requires **Force TN 12**) to prevent straggling shamblers from entering.
+## 📢 GM Read-Aloud Box
+> *Entering through the warped freight doors, the smell of burnt electrical wiring and vintage celluloid film fills the air. Stacks of wooden film shipping crates, stage props, and velvet theater curtains line the high-ceilinged bay. Up a short flight of metal stairs sits the Cinema Manager's Office, its frosted glass door intact.*
 
 ---
 
-## 🏢 THE MANAGER'S OFFICE
+## 🔐 The Manager's Wall Safe Puzzle
+* **Clue Source:** The vintage gala movie poster in the lobby ([[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]): *"Premiere: July 24, 1934"*.
+* **Safe Code (`MM-DD`):** **`07 - 24`**.
+* **Safe Contents:**
+  * **Silver Film Canister ("The Alchemist of Arklay 1934")** (Crucial Item for the Proscenium Optical Puzzle).
+  * **Box of 9mm Handgun Ammo** (15 rounds).
+  * *Manager's Journal:* Documents 19th-century municipal catacombs beneath the proscenium stage connecting to the town museum.
 
-* **Access:** Unlocked with **Brass Manager's Key** from the ticket booth, or pried open with a Railway Crowbar (Force TN 15).
-* **The Wall Safe:** Located behind an oil painting of Raccoon City's founding mayor.
-  * **Dial Combination:** **`07 - 24`** (Deduced from the lobby premiere poster).
-  * **Safe Contents:**
-    * **Silver Film Canister ("The Alchemist of Arklay 1934")** (Key Puzzle Item).
-    * **Handgun Ammo Box (9mm, 15 rounds).**
-    * **Manager's Diary (Sept 24, 1998):** Notes describing ancient limestone foundations discovered under the cinema during the 1932 renovation, linking directly to the old town museum.
+---
+
+## 🔍 Freight Bay Search Points
+* **Maintenance Workbench:** **Hydraulic Jack** (⬜⬜ Durability), **Electrical Splicer Tape**.
+* **Tool Rack:** **Heavy Iron Crowbar** (⬜⬜⬜ Durability / +2 on Force checks).

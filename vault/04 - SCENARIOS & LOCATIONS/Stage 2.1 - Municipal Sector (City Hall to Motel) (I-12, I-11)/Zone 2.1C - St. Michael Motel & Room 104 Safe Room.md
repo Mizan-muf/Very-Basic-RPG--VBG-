@@ -1,23 +1,27 @@
 # 🏨 ZONE 2.1C: ST. MICHAEL MOTEL & ROOM 104 SAFE ROOM
 
 * **Parent Stage:** [[Stage 2.1 - Municipal Sector Overview]]
-* **Sector:** `Sector I-11` (St. Michael Motel & Parking Lot)
-* **Date & Timestamp:** Friday, September 25, 1998 (22:25 – 22:40 EST)
+* **Sector:** `Sector I-11 / I-10` (Highway Commercial Strip)
+* **Date & Timestamp:** Friday, September 25, 1998 (22:15 – 22:45 EST)
 * **Preceding Zone:** [[Zone 2.1B - City Hall North Gas Station & Explosion]]
-* **Exit Vector:** [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]
+* **Subsequent Reconvergence:** [[Stage 3 - Central Cinema Overview]] via [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]
 
 ---
 
-## 🛡️ THE SAFE ROOM (ROOM #104)
-Room #104 has a deadbolted reinforced door, covered windows, and a working desk lamp powered by a localized battery generator. 
-* **Safe Room Ambience:** Calming synth music plays on a battery-operated cassette deck. Noise Clock is suppressed while doors remain locked.
-* **Storage & Recovery:**
-  * **Red Herb (Fresh Stem):** Allows synthesis with Green Herb to form `G+R` (Full Strain heal + 1 temporary Armor Box).
-  * **First Aid Spray (1 Canister):** Full restore.
-  * **Handgun Ammo Box (9mm, 15 rounds).**
-  * **Typewriter / Field Terminal:** Session save point and dossier inspection.
+## 📢 GM Read-Aloud Box
+> *The two-story horseshoe courtyard of the St. Michael Motel stands shrouded in dense mountain pine mist. A buzzing neon sign casts a bloody crimson wash over rain-slicked tarmac and parked sedans with shattered windshields. Room 104 on the ground floor has its curtains drawn shut, a battery-powered lantern glowing softly behind the blinds. A hand-painted sign taped to the reinforced oak door reads: 'SURVIVORS WELCOME — BAR THE DOOR BEHIND YOU'.*
 
 ---
 
-## 🚪 EXIT TO CENTRAL CINEMA
-Exiting through the rear motel breezeway leads directly West into the rainy neon-lit alley facing the [[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]] (`Sector H-11`).
+## 🛡️ ROOM 104 SAFE ROOM SANCTUARY
+* **Total Acoustic Isolation:** Deadbolting the reinforced door drops the **Area Noise Clock to 0/6**.
+* **Typewriter Save Terminal:** Vintage Smith-Corona typewriter and ink ribbon cache.
+* **Botanical Rations:** 1 **Red Herb** stem (essential for mixing with Green Herbs to form `G+R` or `G+R+B`).
+* **Medical Supplies:** 1 **First Aid Spray**, 2 **Sterile Pressure Bandages**.
+* **Ammunition Cache:** **9mm Handgun Box** (15 rounds), **12-Gauge Shotgun Shells** (4 shells).
+
+---
+
+## 🧭 Exit Vector to Central Cinema
+* The rear motel breezeway exits directly West through a covered pedestrian walkway.
+* Crossing the four-lane highway leads straight to the grand entrance of **[[Zone 3.1 - Central Cinema Lobby & Marquee (East Entry)]]** in `Sector H-11`.

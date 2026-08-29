@@ -3,8 +3,13 @@
 * **Parent Stage:** [[Stage 2.2 - Railway Corridor Overview]]
 * **Sector:** `Sector H-12` (Central Railway Terminal)
 * **Date & Timestamp:** Friday, September 25, 1998 (21:30 – 22:00 EST)
-* **Preceding Node:** [[Stage 3 - Central Station Concourse (H-12)]]
+* **Preceding Convergence:** [[Node 2.3 - The Intersection Crash Site]]
 * **Subsequent Zone:** [[Zone 2.2B - Rail Switching Yard & Licker Trusses]]
+
+---
+
+## 📢 GM Read-Aloud Box
+> *Climbing the rain-slicked iron stairs from Mission Street brings you onto the soaring elevated platform of Central Station. Victorian cast-iron canopies shudder under the mountain downpour. Stalled commuter express #412 sits dead on the tracks, headlights cutting through dense billowing steam. Dozens of commuter corpses in soaked raincoats and business suits wander the turnstiles, clutching briefcases and umbrellas with lifeless fingers.*
 
 ---
 

@@ -1,20 +1,25 @@
-# 🗺️ SECTOR I-12: CITY HALL & CENTRAL TRANSIT CONCOURSE
+# 🗺️ SECTOR I-12: CITY HALL & CENTRAL MUNICIPAL COMPLEX
 
 * **District:** Central Downtown Municipal Sector
-* **Coordinates on Map:** Grid `I-12 / H-12`
+* **Grid Coordinates:** Grid `I-12 / I-13`
 * **Live Map Link:** [Open Tactical Map](https://docs-pearl-mu.vercel.app)
-* **Parent Hub:** [[00 - Biohazard Campaign Index]]
+* **Active Scenarios:** [[Stage 2.1 - Municipal Sector Overview]], [[Raccoon City Hall Plaza (I-12)]]
 
 ---
 
-## Sector Overview
-The administrative heart of Raccoon City, featuring the grand neoclassical City Hall plaza and the elevated rail connection leading into the Central Station train sheds. Heavily fortified by early RPD barricades, now largely overrun.
+## 📢 GM Read-Aloud Box
+> *The civic epicenter of Raccoon City is characterized by broad neoclassical plazas, administrative buildings, and heavy iron security gates. City Hall's marble cupola rises majestically over Mission Street, while the subterranean entrance to Central Station descends beneath a grand stone archway. Tonight, burning vehicle wreckage at the intersection of Mission and Lombard casts dancing orange shadows across the marble columns.*
 
 ---
 
-## Connected Nodes & Adjacencies
-* **East:** [[Sector J-13 - Raccoon Prime Galleria]] and [[Sector J-12 - District Post Office]]
-* **West:** [[Stage 3 - Central Station Concourse (H-12)]]
-* **Scenario Points:**
-  * [[Raccoon City Hall Plaza (I-12)]]
-  * [[Node 2.3 - The Intersection Crash Site]]
+## 🧭 Tactical Key Features & Landmarks
+* **Raccoon City Hall:** Civic headquarters and mayoral vault ([[Zone 2.1A - Raccoon City Hall & Mayoral Vault]]).
+* **Mission & Lombard Intersection:** The major collision site ([[Node 2.3 - The Intersection Crash Site]]).
+* **Central Station East Portico:** Pedestrian archway leading into the rail transit corridor.
+
+---
+
+## 🗺️ Neighboring Sector Connections
+* **North (`I-11`):** [[Sector I-11 - Gas Station & St. Michael Motel]]
+* **West (`H-12`):** [[Sector H-12 - Central Station]]
+* **East (`J-13`):** [[Sector J-13 - Raccoon Prime Galleria]]

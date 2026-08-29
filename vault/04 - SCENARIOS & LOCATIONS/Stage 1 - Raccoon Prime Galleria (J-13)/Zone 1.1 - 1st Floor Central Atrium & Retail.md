@@ -1,33 +1,36 @@
-# 🏛️ ZONE 1.1: 1ST FLOOR CENTRAL ATRIUM & RETAIL
+# 🏬 ZONE 1.1: 1ST FLOOR CENTRAL ATRIUM & RETAIL
 
-* **Location:** Raccoon Prime Galleria Ground Level (`Sector J-13`)
-* **Parent Hub:** [[Stage 1 - Raccoon Prime Galleria Overview]]
+* **Parent Stage:** [[Stage 1 - Raccoon Prime Galleria Overview]]
+* **Sector:** `Sector J-13` (Galleria Ground Level)
+* **Date & Timestamp:** Friday, September 25, 1998 (19:45 – 20:25 EST)
+* **Connected Zones:** [[Zone 1.2 - 2nd Floor Mezzanine & Outfitters]], [[Zone 1.4 - Basement & East Loading Bay]]
 
 ---
 
-## Key Establishments & Search Points
+## 📢 GM Read-Aloud Box
+> *The central atrium of Raccoon Prime Galleria is vast, echoing with the splash of an ornamental tiered fountain and the dull murmur of Friday evening shoppers. Polished marble tiles reflect the neon signage of storefronts—a pharmacy, a bookstore, high-end boutiques. But outside the soaring glass skylights, mountain lightning illuminates a continuous convoy of military transport trucks speeding down the Arklay highway. Inside Pharm-Plus, glass bottles rattle on the shelves, and distant sirens wail without pause.*
 
-### 1. Pharm-Plus Express
-* **NPC Present:** [[Pharmacist Arthur Pendelton]]
-* **Search Targets:**
-  * *Botanical Counter:* Potted Green Herbs (G).
-  * *Locked Prescription Cage (Finesse TN 14 or Force TN 16):* 1x First Aid Spray Bottle.
-* **Loot Table (1d6 / Focus TN 12):**
-  * `1–2:` 1x Green Herb (G) (Cures Bleeding / 1 Strain).
-  * `3–4:` Antiseptic Gauze Pack.
-  * `5:` Pharmaceutical Syringe & Saline.
-  * `6 (Locked):` First Aid Spray Bottle.
+---
 
-### 2. King’s Cutlery & Kitchenware
-* **Search Targets:** Glass display cases, camping stove accessories.
-* **Loot Table:**
-  * `1–3:` Heavy Chef Knife / Meat Cleaver (⬜⬜⬜ Durability).
-  * `4–5:` Butane Torch & Fuel Canister.
-  * `6:` Reinforced Leather Cooking Apron (Grants ⬜ Armor box).
+## 🧭 Environment & Layout
+* **Dimensions:** 120ft $\times$ 80ft grand atrium with central escalators leading to Zone 1.2 and a locked freight elevator down to Zone 1.4.
+* **Key Landmarks:**
+  * **Pharm-Plus Retail Branch:** [[Pharmacist Arthur Pendelton]]'s consultation desk and herbal synthesis counter.
+  * **Grand Tiered Fountain:** Ornamental brass fountain surrounded by decorative Arklay cedar planters.
+  * **Promenade Escalators:** Two central escalator banks (power cuts during Scene 4).
 
-### 3. Food Court & Kitchen Service Alley
-* **Search Targets:** Walk-in cooler, natural gas brass cutoff valve, janitor closet.
-* **Loot Table:**
-  * `1–2:` Heavy Cast-Iron Skillet (⬜⬜ Durability).
-  * `3–4:` Cooking Oil Jug & Matches.
-  * `5–6:` Janitor's Service Ring (Key A).
+---
+
+## 🔍 Search Points & Loot (1d6 Roll Table)
+Searching retail counters requires 1 exploration action:
+1. **1–2:** Discarded shopping bags / Broken cosmetics (Nothing).
+2. **3:** **Pocket Penlight** (Illuminates Close distance band, ⬜⬜ Durability).
+3. **4:** **First Aid Bandages** (Restores 1 Strain; cures Bleeding).
+4. **5:** **Green Herb Planter** (Yields 1 Green Herb stem from the fountain planter).
+5. **6:** **Box of 9mm Handgun Ammo** (1d6+4 rounds behind the pharmacy checkout).
+
+---
+
+## 🎲 Mechanical Checks & Hazards
+* **Shattered Display Glass:** Rushing across the promenade during combat requires **Finesse TN 11** to avoid taking 1 Strain from glass shards.
+* **Freight Elevator Lock:** Requires **Keycard Level B** (held by [[Officer Kevin Vance]]) or **Force TN 16** to pry the doors.

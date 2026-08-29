@@ -1,21 +1,22 @@
 # 🛡️ SECURITY CHIEF RAYMOND MILLER
 
-* **Role:** Senior Head of Mall Operations & Facility Security
+* **Role:** Senior Head of Mall Operations & Facility Security (Former R.P.D. Sergeant)
 * **Location:** [[Zone 1.4 - Basement & East Loading Bay]] (North Loading Bay Staging Area)
-* **Status:** Operational, heavily stressed, coordinating civilian evacuation buses.
-* **Affiliation:** Raccoon Prime Commercial Group / Raccoon Police Department Liaison
+* **Status:** Combat Ready, armed, coordinating the bus convoy evacuation.
+* **Inventory (4 Slots):**
+  * Slot 1: **12-Gauge Riot Shotgun** (⬜⬜⬜ Durability / 4 Shells loaded)
+  * Slot 2: **Master Security Keychain** (Unlocks all Galleria staff gates and roof exits)
+  * Slot 3: **Heavy Kevlar Vest** (Absorbs 2 Armor boxes)
+  * Slot 4: **Tactical Two-Way Radio** (Tuned to Civic Emergency Channel 4)
 
 ---
 
-## Equipment & Assets
-* **Weapon:** Mossberg 500 Tactical Shotgun (⬜⬜⬜, 4 shells remaining).
-* **Gear:** Master Keycard (Galleria All-Access), Heavy Security Vest (Armor: ⬜⬜), Two-Way Tactical Radio.
-* **Transport:** 3 idling Municipal Transit Buses prepared for the convoy route.
+## 🎭 Persona & Voice
+A gruff, battle-hardened veteran in his early 50s. Pragmatic and commanding, refuses to leave any civilian behind while the buses have diesel.
+> *"Listen up! We've got three municipal buses idling in Bay 1. Once the steel hurricane shutters drop at 20:25, this entire mall becomes a tomb. Get the wounded loaded, grab whatever gear isn't bolted down, and prepare for a combat breakout."*
 
 ---
 
-## Personality & Directives
-Miller is an uncompromising ex-military professional who prioritizes structural quarantine and mass civilian extraction. He will not open the north bay shutters until the generator breaker is synchronized and the immediate perimeter is clear of hostiles.
-
-* **Interaction Hook:** In [[Zone 1.4 - Basement & East Loading Bay]], Miller commands the bus staging area. Convincing him to depart requires securing the perimeter or restoring power to the exterior gate.
-* **Connected Vector:** Leads directly into [[Node 2.1 - Branch A (The Bus Convoy Route)]].
+## 🚌 Convoy Commander Mechanics
+* **Option A Staging:** Miller commands the bus convoy in [[Node 2.1 - Branch A (The Bus Convoy Route)]].
+* **Defensive Line:** In combat, Miller automatically fires at the nearest threat within Close range (Attack: 1d20+2 Force, Damage: 2 Boxes).
