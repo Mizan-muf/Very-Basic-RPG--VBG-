@@ -77,7 +77,7 @@
 ### Technical & Scavenging
 23. **Scrap Gunsmith:** +1 to maintaining weapon durability and clearing firearm jams.
 24. **Hoarder's Eye:** +1 to finding concealed ammo boxes or hidden key items in ransacked rooms.
-25. **Jury-Rigger:** +1 to making temporary repairs on broken tools using scrap metal and duct tape.
+25. **Jury-Rigger:** +1 to making temporary field repairs on broken tools or barricades.
 26. **Lockpick Finesse:** +1 when picking mechanical tumbler locks with hairpin tools.
 27. **Hotwire Touch:** +1 when starting vehicles or powering generators without the original keys.
 28. **Pack Optimizer:** +1 when organizing gear (allows stacking 1 extra small item per slot).
