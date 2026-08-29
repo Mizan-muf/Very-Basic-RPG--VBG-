@@ -1,113 +1,131 @@
 # VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0
-*A Lightweight, Low-Latency System for Asynchronous Play-by-Post Survival Horror*
+*A lightweight d20 ruleset for asynchronous Play-by-Post survival horror.*
 
 ---
 
 ## 1. THE CORE ENGINE
 
-### **The Resolution Roll**
-Whenever you attempt a risky or dangerous action, roll:
+### The Resolution Roll
+When your survivor takes a risky, uncertain, or contested action under pressure:
 
 **Roll:** `1d20 + relevant Stat bonus + applicable Trait bonus`
 
-1. **Stat Bonus:** Add Force, Finesse, or Focus.
-2. **Trait Bonus:** Add **+2** for a relevant **Major Trait**, and **+1** for a relevant **Minor Trait** (Max +3 from traits).
-3. **Compare to Target TN:** Roll 1d20 + bonuses against the Target Difficulty set by the GM.
+1. **Stat Bonus:** Add Force, Finesse, or Focus (-1 to +2).
+2. **Trait Bonus:** Add **+2** for a relevant **Major Trait**, and **+1** for a relevant **Minor Trait** (max one of each per roll).
+3. **Compare to Target TN:**
+   * **TN 10 (Routine):** Low-stress action, basic survival task.
+   * **TN 15 (Risky):** Standard combat shot, evasion, prying a door under threat.
+   * **TN 20 (Desperate):** Life-or-death shot, jumping across a collapsed fire escape.
+   * **TN 25+ (Extreme):** Staggering a massive B.O.W., escaping a closing hydraulic blast door.
 
----
-
-### **Target Difficulty & Outcomes**
-
-| Target | Tier | Example |
-| :--- | :--- | :--- |
-| **TN 10** | **Routine** | Searching a quiet closet, forcing a wooden latch, basic field dressing. |
-| **TN 15** | **Risky** | Shooting a runner, picking a lock under pressure, jumping a gap. |
-| **TN 20** | **Desperate** | Shoving a Licker off an ally, blind-firing in pitch dark, emergency surgery. |
-| **TN 25+** | **Extreme** | Grappling a Tyrant solo, executing an impossible trick shot on a B.O.W. core. |
-
-| Margin vs. TN | Outcome | Narrative & Mechanical Result |
-| :--- | :--- | :--- |
-| **Miss by 5+** | **FAILURE** | Goal fails. GM inflicts damage, advances threat, or breaks gear. |
-| **Miss by 1–4** | **COST** | Goal succeeds, but pay a price: 1 Strain, 1 ammo/durability box, or noise. |
-| **Beat by 0–5** | **CLEAN** | Goal succeeds cleanly with no penalty. |
-| **Beat by 6+** | **CRITICAL** | Perfect success. Regain 1 Strain OR gain a major tactical advantage. |
+### Result Tiers & Outcomes
+* **Failure (Miss by 5+):** You fail and suffer serious consequences (take 1 Strain or lose 1 Armor box, gain a Condition, alert enemies, or advance the Noise Clock).
+* **Success with Cost (Miss by 1–4):** You achieve your objective, but pay a price: mark 1 Strain or Armor box, lose 1 weapon Durability box, consume ammunition, or gain a Condition.
+* **Clean Success (Beat by 0–5):** You achieve your goal cleanly without penalty.
+* **Critical Success (Beat by 6+):** Perfect execution. You achieve your goal and gain an extra advantage: bonus damage, stagger an enemy, or lower the local Noise Clock by -1.
 
 ---
 
 ## 2. CHARACTER CREATION
 
-### **A. Stats (Distribute 3 Points)**
-- **FORCE:** Melee strikes, shoving, dragging casualties, enduring trauma (Max +2 at creation).
-- **FINESSE:** Firearm accuracy, stealth traversal, lockpicking, dodging (Max +2 at creation).
-- **FOCUS:** Senses, diagnosing infection, scavenging, repair, resisting panic (Max +2 at creation).
+### A. Stats (Distribute 3 Points)
+Allocate 3 points across the three core stats (Max +2 at creation):
+* **FORCE:** Physical power, melee strikes, shoving, lifting debris, enduring trauma.
+* **FINESSE:** Agility, precision marksmanship, sprinting, lockpicking, silent movement.
+* **FOCUS:** Awareness, diagnosing infection, searching rooms, mental composure under horror.
 
-### **B. Survivor Traits**
-- **1 Major Trait (+2 Bonus):** Pre-collapse archetype (e.g., *S.T.A.R.S. Operative, Trauma Surgeon, Combat Engineer, Urban Scavenger*).
-- **1 Minor Trait (+1 Bonus):** Secondary skill or perk (e.g., *Steady Aim, Cold-Blooded, Field Chemist, Silent Step*).
+### B. Survivor Traits
+* **1 Major Trait (+2 Bonus):** Your pre-collapse profession or primary archetype (e.g., S.T.A.R.S. Operative, Beat Cop, Trauma Surgeon, Combat Engineer, Wasteland Hunter).
+* **1 Minor Trait (+1 Bonus):** A specific habit, combat reflex, or survival perk (e.g., Steady Aim, Quick Draw, Silent Step, Tourniquet Specialist, Pack Optimizer).
 
-### **C. Vitals & Capacity**
-- **Starting Strain:** 4 (Hard Cap: 10). Represents health, stamina, and composure.
-- **Starting Armor:** 0 Boxes. Armor is granted only by equipped protective gear.
-- **Inventory Capacity:** 4 Base Slots (Small items stack 4 per slot; Medium items 1 slot; Large items 2 slots).
-
----
-
-## 3. SPECIALIZATIONS & DAMAGE
-
-### **Tactical Specialization (Abilities)**
-Pick 1 Specialization Domain (e.g., *Close-Quarters Defense, Precision Marksmanship, Field Triage*):
-- **MINOR (0 Strain):** Basic tactical utility or minor maneuvers. *Just Roll.*
-- **STANDARD (1 Strain):** Focused tactical feats (knife counter during a grab, combat suture). *Spend 1 Strain + Roll.*
-- **MAJOR (2 Strain):** Desperate emergency maneuvers (dragging an ally out of a swarm under fire). *Spend 2 Strain + Roll.*
-
-### **Encountering Enemies**
-- **Read the scene:** The GM states enemy numbers, distance, exits, cover, and hazards. Include an intent and a fallback in your post.
-- **Distance matters:** Melee is quiet but risks grabs; firearms work at range but create Noise.
-- **Survive first:** Retreat, block routes, and use cover when safer than fighting.
-- **Aim for the stop:** Headshots, fire, or identified weak points end infected; body shots may only buy time.
-- **Treat grabs as urgent:** Break free or get help before a bite. Never leave a Downed survivor beside a hostile.
-- **Track your shots:** Unsuppressed gunfire raises Noise; declare reloads and track ammo.
-
-### **Taking Damage & Incapacitation**
-1. **Soaking Harm:** When taking a hit, mark **1 Strain** or mark **1 Armor Box** from equipped gear.
-2. **Incapacitation (0 Strain & 0 Armor):** You collapse. You are **Downed** and **Bleeding Out**.
-3. **Bleeding Out Clock:** Allies have **1 Round / 24-Hour Post Window** to stabilize you with first aid or medical supplies. If untreated, your character dies or is executed by hostiles.
+### C. Vitals & Starting Capacity
+* **Strain (Max 10):** Begins at **4 Strain**. Strain represents shock, stamina, blood loss, and will to survive.
+* **Armor Boxes:** Begins at **0 Armor Boxes**. Armor is gained only by finding and equipping protective gear.
+* **Inventory Capacity:** Strictly **4 Inventory Slots**.
 
 ---
 
-## 4. SURVIVAL CHARACTER DOSSIER
+## 3. SURVIVAL ACTION ECONOMY & SCENES
 
-```text
-==================================================
-RESIDENT EVIL VBG-Z: SURVIVOR DOSSIER
-==================================================
-Name:
-Callsign / Profession:
+### Action Economy (Per Post Turn)
+Each survivor post during an active scene allows:
+* **1 Major Action:** Attack/Shoot, Sprint/Zone Move, Apply Full Medical Treatment (G+R, Spray), Breach/Force a door, Reload an empty firearm, or Clear a jammed weapon.
+* **1 Minor Action:** Ingest a single herb (G or B), Draw/Holster a weapon, Trade an item with an adjacent ally, Latch/Unlock a door, or Brace/Take Cover (+1 to next shot/defense).
+* **Free Actions:** Dropping carried items, brief radio/tactical speech, or defensive knife grab counters.
 
-STATS (3 Points. Max +2 at creation.)
-Force:   +0
-Finesse: +0
-Focus:   +0
+### Scene Framework
+* **Exploration Scene:** Searching rooms, investigating lore, and solving environmental puzzles. The Noise Clock only advances on loud actions.
+* **Combat Scene (Side-Initiative):** GM declares incoming enemy threats $\rightarrow$ all players post Major + Minor actions within the 24h window $\rightarrow$ GM resolves all outcomes simultaneously.
+* **Safe Room (Rest Scene):** Fortified sanctuary. Immune to the Noise Clock. Free 4-slot inventory & Item Box management, medical treatments, and Typewriter checkpoint logs.
+* **Sector Transition:** Moving to a new zone without active pursuit reduces the Noise Clock by -1.
 
-TRAITS (Flat bonuses to 1d20 rolls)
-[Major Trait] (+2 Bonus): 
-[Minor Trait] (+1 Bonus): 
+---
 
-SPECIALIZATION
-Domain Name: 
-Description: 
+## 4. DAMAGE, INJURIES & INFECTION
 
-VITALS & PROTECTION
-Strain:    [X][X][X][X] (4/4)
-Armor:     [ ][ ] (0/0 - Granted by equipped gear)
-Infection: [0/5] Stage 0 (Clean)
+### Taking Harm
+1. **Armor Soaks First:** If you wear armor, mark 1 Armor Box (⬜) to negate 1 instance of physical damage. When all boxes are marked, the armor is ruined.
+2. **Strain Loss:** Unmitigated hits mark 1 Strain.
+3. **Downed / Bleeding Out:** When you reach **0 Strain & 0 Armor**, you collapse. Allies have 1 full 24-hour round to apply a medical item. If hit again or left untreated, your survivor dies.
 
-ACTIVE CONDITIONS: None
+### Standard Conditions
+* **Bleeding:** Lose 1 Strain at the end of each combat scene until treated. Cured by Green Herb mixtures or First Aid Spray.
+* **Poisoned:** Lose 1 Strain whenever you take a physical action. Cured by Blue Herb mixtures or First Aid Spray.
+* **Limb Damaged:** Leg (-2 Finesse, cannot sprint) or Arm (-2 Force, cannot wield 2-handed weapons). Cured by Full-Heal (G+R) or First Aid Spray.
+* **Panicked:** Cannot spend Strain on Specializations. Cured by reaching a Safe Room or an ally passing a Focus TN 10 check.
 
-INVENTORY (4 Base Slots)
-[Slot 1]: 
-[Slot 2]: 
-[Slot 3]: 
-[Slot 4]: 
-==================================================
-```
+### Virus Infection Track (0 to 5)
+Zombie bites and biological critical failures advance the track by +1 Stage:
+* **Stage 0 (Clean):** Healthy.
+* **Stage 1 (Exposed):** Low fever.
+* **Stage 2 (Tremors):** -1 to Focus rolls.
+* **Stage 3 (Cellular Breakdown):** Max Strain capped at 6; -1 to all rolls.
+* **Stage 4 (Terminal Agony):** Max Strain capped at 3; cannot sprint.
+* **Stage 5 (Transformation):** Death. The survivor turns into a hostile B.O.W.
+*(Infection can be reduced by -1 Stage using Blue Herb combinations, or stalled for 24h with Antiviral Serums).*
+
+---
+
+## 5. GEAR & NOISE
+
+### Weapons & Durability
+* **Handgun (1 Slot):** 15-round mag. +1 Noise per shot. Nat 1 jams the gun (1 Major Action to clear).
+* **Shotgun (2 Slots):** 6 shells. +2 Noise per shot. Close-range stagger / spread.
+* **Tactical Rifle (2 Slots):** 5 rounds. +2 Noise per shot. Extreme range armor penetration.
+* **Combat Knife (1 Slot, ⬜⬜⬜ 3 Durability):** Close defense & grab counters. Breaks permanently when all 3 boxes are marked (no repairs).
+* **Heavy Tools (2 Slots, ⬜⬜⬜ 3 Durability):** Fireaxe, Crowbar. +1 to Force breaching rolls.
+
+### Medical Items
+* **Green Herb (G, 1/4 Slot):** Restores 1 Strain, cures Bleeding.
+* **Green + Green (G+G, 1/4 Slot):** Restores 3 Strain, cures Bleeding.
+* **Green + Blue (G+B, 1/4 Slot):** Restores 1 Strain, cures Bleeding & Poisoned, reduces Infection by -1 Stage.
+* **Green + Red (G+R, 1/4 Slot):** Full Strain recovery, cures Bleeding & Limb Damaged.
+* **Green + Red + Blue (G+R+B, 1/4 Slot):** Full Strain recovery, cures all conditions, reduces Infection by -1 Stage.
+* **First Aid Spray (1 Slot):** Full Strain recovery, cures all physical conditions.
+
+---
+
+## 6. SURVIVOR DOSSIER TEMPLATE
+
+Identity
+Name: ____________    Callsign / Profession: ____________
+
+Stats (3 Points Allocated)
+Force: +__    Finesse: +__    Focus: +__
+
+Traits & Abilities
+Major Trait (+2): ________________________
+Minor Trait (+1): ________________________
+Tactical Specialization: __________________
+
+Vitals & Status
+Strain: [ ][ ][ ][ ] /4 (Max 10)
+Armor: ⬜ / 0 Boxes
+Infection Track: [0] Clean (0/5)
+Active Conditions: None
+
+Inventory (Strict 4 Slots)
+1. [Handgun - 15/15 rds (1 Slot)]
+2. [Combat Knife - ⬜⬜⬜ (1 Slot)]
+3. [9mm Ammo Box - 15 rds (1/4 Slot) / Empty]
+4. [Empty Slot]
