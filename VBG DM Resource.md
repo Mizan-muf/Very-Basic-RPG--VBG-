@@ -62,7 +62,7 @@ Every melee weapon and tool has **Durability Boxes**:
 
 ### **Protective Armor Types**
 - **Leather / Padding (⬜ 1 Box):** Takes 1 slot if not worn; single-use shred on hit.
-- **Ballistic / Kevlar Vest (⬜⬜ 2 Boxes):** No encumbrance; soaks bullet/blade hits; repair with Kevlar kit.
+- **Ballistic / Kevlar Vest (⬜⬜ 2 Boxes):** No encumbrance; soaks bullet/blade hits. When both boxes are marked, the vest is ruined.
 - **Heavy Riot Gear (⬜⬜⬜ 3 Boxes):** -2 penalty to Finesse stealth rolls; high bite defense.
 
 ---

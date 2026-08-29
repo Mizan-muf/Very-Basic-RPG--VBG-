@@ -75,7 +75,7 @@
 22. **Adrenaline Spike:** +1 to your next action roll immediately after soaking a hit.
 
 ### Technical & Scavenging
-23. **Scrap Gunsmith:** +1 to maintaining weapon durability and clearing firearm jams.
+23. **Scrap Gunsmith:** +1 to clearing firearm jams and inspecting weapon quality.
 24. **Hoarder's Eye:** +1 to finding concealed ammo boxes or hidden key items in ransacked rooms.
 25. **Jury-Rigger:** +1 to making temporary field repairs on broken tools or barricades.
 26. **Lockpick Finesse:** +1 when picking mechanical tumbler locks with hairpin tools.

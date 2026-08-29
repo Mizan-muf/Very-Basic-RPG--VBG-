@@ -144,7 +144,7 @@ Every character begins with a strict base capacity of **4 Inventory Slots**.
 #### Melee Weapons & Durability (⬜⬜⬜)
 * **Combat Knife / Tactical Blade (1 Slot):** 3 Durability Boxes. Used for close-quarters fighting and instant grab counter-attacks.
 * **Fireaxe / Crowbar / Sledgehammer (2 Slots):** 3 Durability Boxes. Adds **+1 to Force rolls** when breaching reinforced doors or crushing armored skulls.
-* **Durability Loss:** 1 Durability Box is checked on an attack **Failure** or when chosen as the cost on a **Success with Cost**. When all 3 boxes are checked, the weapon breaks permanently.
+* **Durability Loss:** 1 Durability Box is checked on an attack **Failure** or when chosen as the cost on a **Success with Cost**. When all 3 boxes are checked, the weapon breaks permanently and is discarded. Durability cannot be repaired; survivors must scavenge new weapons.
 
 ---
 
