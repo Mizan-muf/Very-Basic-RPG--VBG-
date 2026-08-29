@@ -1,103 +1,55 @@
-# **VBG MONSTER / CREATURE BLUEPRINT (v1.4)**
+# **VBG-Z B.O.W. / CREATURE BLUEPRINT (v2.0)**
 
 ## **CREATURE NAME**
-
-*(Common name, legend name, or classification)*
+*(Classification / Code Name / Mutation Strain)*
 
 ---
 
 ## **THREAT TIER**
-
-* **Minor** — Dangerous alone, deadly in numbers
-
-* **Standard** — Intended party-level threat
-
-* **Major** — Set-piece enemy, changes the scene
-
-* **Boss** — Campaign-defining threat; requires tactics, weaknesses, or preparation
+* **Minor** — Wandering infected, zombie dogs (swarms / nuisance threats)
+* **Standard** — Basic Shambler, Cerberus, Infested Worker (party-level combat threat)
+* **Major** — Licker, Chimera, Hunter, Crimson Head cluster (deadly set-piece threat)
+* **Boss** — Tyrant, Pursuer/Nemesis-type Stalker, G-Adult (campaign-defining monstrosity)
 
 ---
 
-## **DESCRIPTION (Appearance & Presence)**
-
-Brief but vivid physical description:
-
-* Size, shape, materials
-
-* Movement style
-
-* Overall impression (terrifying, majestic, wrong, mechanical, etc.)
+## **DESCRIPTION (Visuals, Sound & Biological Markers)**
+* Size, necrosis/mutation level, speed profile, audio cues (screeches, dragging footsteps, wet clicks).
 
 ---
 
-## **ARMOR**
-
-* **Armor:** ⬜⬜⬜ (typically 1–5)
-
-* Each Armor box negates one instance of incoming harm
-
-* Armor refreshes only if the fiction allows (regeneration, repair, magic)
+## **ARMOR & HIT POOL**
+* **Armor:** ⬜⬜⬜ (typically 1–5 boxes)
+* Each successful hit marks 1 Armor box. When all boxes are marked, the creature is eliminated or forced into a phase transition.
 
 ---
 
-## **ACTIONS (What it can do)**
-
-Monsters **do not roll**.  
- Each action should:
-
-* Force a player roll
-
-* Inflict harm, strain, or narrative wounds on failure or cost
-
-* Change positioning, environment, or stakes
-
-List **3–6 signature actions**.
+## **ACTIONS (Player-Facing Threat Declarations)**
+Monsters **do not roll**. Each action declares an incoming threat forcing a player roll:
+* **Grab / Bite:** Forces Finesse/Force roll; inflicts Strain, Bleeding, or advances the Infection Track (+1 Stage) on Failure.
+* **Lunge / Pounce:** Closes distance instantly; forces evasive check or inflicts knockdown/disarm.
+* **Rend / Cleave:** Heavy kinetic strike; breaks 1 Armor box or inflicts *Limb Damaged*.
 
 ---
 
 ## **STRENGTHS**
-
-Why the creature is dangerous.  
- Examples:
-
-* Immunities
-
-* Regeneration
-
-* Environmental control
-
-* Superior senses
-
-* Action advantages
+* Blind / Sound-hunting (reacts to Noise Clock)
+* Wall/ceiling climbing
+* Armor plating or bullet resistance
 
 ---
 
 ## **WEAKNESSES**
-
-Clear exploitable flaws.  
- Examples:
-
-* Specific damage types
-
-* Environmental conditions
-
-* Required tools or rituals
-
-* Behavioral flaws
+* Fire / Incendiary damage (prevents V-ACT resurrection)
+* Exposed weak points (eyeballs, pustules, heart cores)
+* Extreme sonic sensitivity
 
 ---
 
-## **BEHAVIOR & TACTICS**
-
-How it thinks and fights:
-
-* Ambush, siege, hunt, duel, overwhelm
-
-* Preferred targets
-
-* Retreat or escalation behavior
-
----
+## **BEHAVIOR & ESCALATION**
+* **Dormant:** Lies motionless until players make Noise or step within Reach.
+* **Aggressive:** Stalks and flanks players.
+* **Enraged:** Accelerates attacks when damaged or when the Noise Clock reaches 5+.
 
 ## **SPECIAL DEFEAT CONDITION (ONLY IF APPLICABLE)**
 
