@@ -2,482 +2,584 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIOHAZARD — Tactical Terminal & System Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>BIOHAZARD — Raccoon City Tactical Operations</title>
+  <meta name="theme-color" content="#0a0c10">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-main: #0a0c0e;
-      --bg-panel: #111418;
-      --bg-sidebar: #07090b;
-      --border-color: #232a32;
-      --accent-green: #00ff66;
-      --accent-amber: #ffaa00;
-      --accent-red: #ff3333;
-      --text-main: #d0d7de;
-      --text-muted: #7d8590;
-      --text-bright: #ffffff;
-      --font-mono: 'Share Tech Mono', monospace;
-      --font-sans: 'Inter', sans-serif;
+      --bg-dark: #07090e;
+      --bg-card: #0d1117;
+      --bg-sidebar: #0a0d14;
+      --border-color: #1b2230;
+      --accent-red: #ff3344;
+      --accent-red-dim: rgba(255, 51, 68, 0.15);
+      --accent-gold: #e5a93c;
+      --accent-cyan: #00d2ff;
+      --text-main: #d1d7e0;
+      --text-dim: #6c7689;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-title: 'Chakra Petch', sans-serif;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      background: var(--bg-main);
+      background: var(--bg-dark);
       color: var(--text-main);
-      font-family: var(--font-sans);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.6;
       height: 100vh;
+      height: 100dvh;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
-    
-    /* CRT Scanline effect */
-    body::after {
-      content: " ";
-      display: block;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-      z-index: 999;
-      background-size: 100% 3px, 6px 100%;
-      pointer-events: none;
-    }
-    
+
+    /* Top Bar Header */
     header {
       background: var(--bg-sidebar);
       border-bottom: 1px solid var(--border-color);
-      padding: 10px 20px;
+      padding: 10px 16px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-mono);
-      z-index: 10;
+      flex-shrink: 0;
+      z-index: 50;
     }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--accent-green);
-      letter-spacing: 2px;
-    }
-    
-    .status-badge {
+
+    .brand {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
-      color: var(--accent-amber);
-      background: rgba(255, 170, 0, 0.1);
-      padding: 4px 12px;
-      border-radius: 4px;
-      border: 1px solid rgba(255, 170, 0, 0.3);
     }
-    
-    .status-dot {
-      width: 8px; height: 8px;
-      background: var(--accent-amber);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent-amber);
-      animation: pulse 2s infinite;
+
+    .brand-icon {
+      color: var(--accent-red);
+      font-size: 1.3rem;
+      animation: pulse 2s infinite ease-in-out;
     }
+
     @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.95); }
     }
-    
-    .main-container {
-      flex: 1;
+
+    .brand-text {
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    .brand-sub {
+      font-size: 0.65rem;
+      color: var(--accent-red);
+      letter-spacing: 1px;
+      margin-left: 4px;
+      border: 1px solid var(--accent-red);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    .status-badge {
       display: flex;
-      height: calc(100vh - 53px);
-      overflow: hidden;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: var(--accent-gold);
+      background: rgba(229, 169, 60, 0.1);
+      border: 1px solid rgba(229, 169, 60, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
     }
-    
-    /* Sidebar */
-    aside {
-      width: 280px;
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-gold);
+    }
+
+    /* Main Container Layout */
+    .app-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Desktop / Tablet Sidebar */
+    .sidebar {
+      width: 260px;
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
-      user-select: none;
-      z-index: 5;
+      flex-shrink: 0;
+      z-index: 40;
     }
-    
-    .nav-group-title {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      letter-spacing: 1.5px;
-      padding: 18px 20px 8px;
+
+    .nav-label {
+      padding: 12px 16px 6px;
+      font-size: 0.7rem;
+      color: var(--text-dim);
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    
+
+    .nav-list {
+      list-style: none;
+      padding: 0 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     .nav-btn {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 12px 20px;
-      color: var(--text-main);
-      background: transparent;
-      border: none;
-      border-left: 3px solid transparent;
+      gap: 10px;
       width: 100%;
-      text-align: left;
-      font-family: var(--font-sans);
-      font-size: 0.9rem;
-      font-weight: 500;
+      padding: 10px 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
       cursor: pointer;
+      text-align: left;
       transition: all 0.15s ease;
     }
-    
+
     .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-bright);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
     }
-    
+
     .nav-btn.active {
-      background: rgba(0, 255, 102, 0.07);
-      color: var(--accent-green);
-      border-left-color: var(--accent-green);
+      background: var(--accent-red-dim);
+      border-color: rgba(255, 51, 68, 0.4);
+      color: #fff;
       font-weight: 600;
     }
-    
-    .nav-icon {
+
+    .nav-btn .icon {
       font-size: 1.1rem;
     }
-    
-    /* Content viewport */
-    main {
+
+    /* Content Area */
+    .viewport {
       flex: 1;
-      position: relative;
-      background: var(--bg-main);
-      overflow: hidden;
-    }
-    
-    .view-pane {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      display: none;
-    }
-    .view-pane.active {
       display: flex;
-    }
-    
-    /* Map Viewer */
-    #view-map {
-      background: #050608;
-      position: relative;
+      flex-direction: column;
       overflow: hidden;
-      cursor: grab;
+      position: relative;
+      background: var(--bg-dark);
     }
+
+    .view-pane {
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 24px;
+    }
+
+    .view-pane.active {
+      display: block;
+    }
+
+    /* Interactive Map Viewport */
+    #view-map {
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      background: #05070a;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+    }
+
     #view-map:active {
       cursor: grabbing;
     }
-    
-    #map-viewport {
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transform-origin: center center;
+
+    #map-transform {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
     }
-    
-    #map-img {
+
+    #map-image {
+      display: block;
       max-width: none;
-      user-select: none;
       pointer-events: none;
-      box-shadow: 0 0 30px rgba(0,0,0,0.8);
-      border: 1px solid var(--border-color);
     }
-    
+
+    /* Map HUD Controls */
     .map-controls {
       position: absolute;
-      bottom: 24px;
-      right: 24px;
+      bottom: 20px;
+      right: 20px;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      background: rgba(17, 20, 24, 0.9);
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-      backdrop-filter: blur(8px);
-      z-index: 20;
+      z-index: 30;
     }
-    
+
     .map-btn {
-      background: var(--bg-sidebar);
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
-      width: 38px; height: 38px;
-      border-radius: 4px;
+      width: 44px;
+      height: 44px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 1.2rem;
       cursor: pointer;
-      transition: all 0.15s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      touch-action: manipulation;
     }
-    .map-btn:hover {
-      background: var(--accent-green);
-      color: #000;
-      border-color: var(--accent-green);
+
+    .map-btn:active {
+      transform: scale(0.92);
+      background: rgba(255, 51, 68, 0.3);
     }
-    
+
     .map-legend {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      background: rgba(7, 9, 11, 0.85);
-      border: 1px solid var(--border-color);
+      top: 16px;
+      left: 16px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 14px;
       border-radius: 6px;
-      padding: 12px 16px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      backdrop-filter: blur(6px);
-      color: var(--text-muted);
-      z-index: 20;
+      z-index: 30;
+      max-width: 280px;
       pointer-events: none;
     }
-    .map-legend strong { color: var(--accent-green); }
 
-    /* Docs Reader Pane */
-    .doc-container {
-      flex: 1;
-      height: 100%;
-      overflow-y: auto;
-      padding: 40px 60px;
-    }
-    
-    .doc-content {
-      max-width: 860px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-    
-    .doc-content h1 {
-      font-family: var(--font-mono);
-      font-size: 1.8rem;
-      color: var(--accent-green);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 12px;
-      margin-bottom: 24px;
+    .map-legend h4 {
+      color: var(--accent-red);
+      font-family: var(--font-title);
+      font-size: 0.85rem;
       letter-spacing: 1px;
+      margin-bottom: 4px;
     }
-    
-    .doc-content h2 {
-      font-family: var(--font-mono);
-      font-size: 1.3rem;
-      color: var(--text-bright);
-      margin-top: 32px;
-      margin-bottom: 16px;
-      border-left: 3px solid var(--accent-green);
-      padding-left: 12px;
+
+    .map-legend p {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.4;
     }
-    
-    .doc-content h3 {
-      font-size: 1.1rem;
-      color: var(--accent-amber);
+
+    /* Document Reader Styling */
+    .doc-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding-bottom: 60px;
+    }
+
+    .doc-container h1 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--accent-red);
+      padding-bottom: 8px;
+    }
+
+    .doc-container h2 {
+      font-family: var(--font-title);
+      font-size: 1.25rem;
+      color: var(--accent-gold);
       margin-top: 24px;
       margin-bottom: 10px;
     }
-    
-    .doc-content p {
+
+    .doc-container h3 {
+      font-size: 1rem;
+      color: #fff;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    .doc-container p {
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .doc-container strong {
+      color: #fff;
+    }
+
+    .doc-list {
+      margin-left: 20px;
       margin-bottom: 14px;
-      font-size: 0.95rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
-    
-    .doc-content ul {
-      margin-bottom: 16px;
-      padding-left: 24px;
+
+    .doc-list li {
+      color: var(--text-main);
     }
-    
-    .doc-content li {
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-    
-    .doc-content code {
-      font-family: var(--font-mono);
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--accent-green);
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 0.9em;
-    }
-    
-    .doc-content hr {
-      border: 0;
-      border-top: 1px solid var(--border-color);
-      margin: 30px 0;
-    }
-    
+
     .callout {
-      background: rgba(0, 255, 102, 0.05);
-      border-left: 3px solid var(--accent-green);
-      padding: 14px 18px;
-      margin: 20px 0;
+      background: var(--accent-red-dim);
+      border-left: 3px solid var(--accent-red);
+      padding: 10px 14px;
+      margin: 14px 0;
       border-radius: 0 4px 4px 0;
-      font-style: italic;
-      color: #e0e0e0;
+      font-size: 0.85rem;
+      color: #fff;
     }
-    
-    .num-item {
-      margin-bottom: 10px;
-      padding-left: 8px;
+
+    .rule {
+      border: 0;
+      height: 1px;
+      background: var(--border-color);
+      margin: 20px 0;
     }
-    .num-bullet {
-      color: var(--accent-green);
+
+    /* Mobile Bottom Navigation Bar */
+    .bottom-nav {
+      display: none;
+      background: var(--bg-sidebar);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 4px calc(6px + var(--safe-bottom));
+      justify-content: space-around;
+      align-items: center;
+      flex-shrink: 0;
+      z-index: 50;
+    }
+
+    .bnav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      background: transparent;
+      border: 0;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    .bnav-item .b-icon {
+      font-size: 1.3rem;
+    }
+
+    .bnav-item.active {
+      color: var(--accent-red);
       font-weight: bold;
     }
-    
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; height: 8px; }
-    ::-webkit-scrollbar-track { background: var(--bg-sidebar); }
-    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #3a4552; }
+
+    /* Responsive Mobile Queries */
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .bottom-nav {
+        display: flex;
+      }
+      .view-pane {
+        padding: 16px 14px;
+      }
+      .doc-container h1 {
+        font-size: 1.3rem;
+      }
+      .doc-container h2 {
+        font-size: 1.1rem;
+      }
+      .map-controls {
+        bottom: 16px;
+        right: 14px;
+      }
+      .map-legend {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        max-width: none;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Top Header -->
   <header>
-    <div class="logo">
-      <span>☣</span>
-      <span>BIOHAZARD — TACTICAL TERMINAL</span>
+    <div class="brand">
+      <span class="brand-icon">☣</span>
+      <span class="brand-text">BIOHAZARD</span>
+      <span class="brand-sub">VBG-Z v2.0</span>
     </div>
     <div class="status-badge">
       <div class="status-dot"></div>
-      <span>SYSTEM ENGINE: VBG-Z v2.0</span>
+      <span>RACCOON CITY — HOUR ZERO</span>
     </div>
   </header>
 
-  <div class="main-container">
-    <aside>
-      <div class="nav-group-title">Tactical Cartography</div>
-      <button class="nav-btn active" data-view="map">
-        <span class="nav-icon">🗺️</span>
-        <span>Raccoon City Map</span>
-      </button>
+  <!-- Main Container -->
+  <div class="app-container">
+    
+    <!-- Desktop Sidebar -->
+    <nav class="sidebar">
+      <div class="nav-label">Navigation</div>
+      <ul class="nav-list">
+        <li>
+          <button class="nav-btn active" data-target="view-map">
+            <span class="icon">🗺️</span>
+            <span>Raccoon City Map</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-target="view-player">
+            <span class="icon">📖</span>
+            <span>Player Rulebook</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-target="view-traits">
+            <span class="icon">🧬</span>
+            <span>Traits & Specs</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-btn" data-target="view-glossary">
+            <span class="icon">📑</span>
+            <span>Master Glossary</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
 
-      <div class="nav-group-title">Public System Core</div>
-      <button class="nav-btn" data-view="player">
-        <span class="nav-icon">📖</span>
-        <span>Player Rulebook</span>
-      </button>
-      <button class="nav-btn" data-view="traits">
-        <span class="nav-icon">🧬</span>
-        <span>Traits & Specs</span>
-      </button>
-      <button class="nav-btn" data-view="glossary">
-        <span class="nav-icon">📑</span>
-        <span>Master Glossary</span>
-      </button>
-    </aside>
-
-    <main>
-      <!-- Map View -->
+    <!-- Viewport Area -->
+    <main class="viewport">
+      
+      <!-- 1. Interactive Map View -->
       <div id="view-map" class="view-pane active">
         <div class="map-legend">
-          <div><strong>NAV:</strong> CLICK & DRAG TO PAN | SCROLL TO ZOOM</div>
-          <div style="margin-top:4px;"><strong>GRID REFERENCE:</strong> J-13 MALL • E-13 R.P.D. • J-14 SUBWAY</div>
+          <h4>TACTICAL CARTOGRAPHY (RACCOON CITY)</h4>
+          <p>Pinch or scroll to zoom • Drag to pan across grid sectors. (Mall at <strong>J-13</strong>, R.P.D. at <strong>E-13</strong>)</p>
         </div>
-        <div id="map-viewport">
-          <img id="map-img" src="assets/raccoon_city_map.jpg" alt="Raccoon City High Resolution Map" />
+
+        <div id="map-transform">
+          <img id="map-image" src="assets/raccoon_city_map.jpg" alt="Raccoon City High-Resolution Tactical Map" />
         </div>
+
         <div class="map-controls">
-          <button class="map-btn" id="btn-zoom-in" title="Zoom In">+</button>
-          <button class="map-btn" id="btn-zoom-out" title="Zoom Out">-</button>
-          <button class="map-btn" id="btn-zoom-reset" title="Reset View">↺</button>
+          <button class="map-btn" id="btn-zoom-in" title="Zoom In">➕</button>
+          <button class="map-btn" id="btn-zoom-out" title="Zoom Out">➖</button>
+          <button class="map-btn" id="btn-zoom-reset" title="Reset View">🔄</button>
         </div>
       </div>
 
-      <!-- Docs View Panes -->
+      <!-- 2. Player Rulebook -->
       <div id="view-player" class="view-pane">
         <div class="doc-container">
-          <div class="doc-content">
-            <h1>VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0</h1>
-<p><em>A lightweight d20 ruleset for asynchronous Play-by-Post survival horror.</em></p>
-<hr/>
+          <h1>VERY BASIC RPG: ZOMBIE SURVIVAL EDITION (VBG-Z) v2.0</h1>
+<em>A lightweight d20 ruleset for asynchronous Play-by-Post survival horror.</em>
+<hr class="rule">
 <h2>1. THE CORE ENGINE</h2>
 <h3>The Resolution Roll</h3>
-<p>When your survivor takes a risky, uncertain, or contested action under pressure:</p>
-<p><strong>Roll:</strong> <code>1d20 + relevant Stat bonus + applicable Trait bonus</code></p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Stat Bonus:</strong> Add Force, Finesse, or Focus (-1 to +2).</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Trait Bonus:</strong> Add <strong>+2</strong> for a relevant <strong>Major Trait</strong>, and <strong>+1</strong> for a relevant <strong>Minor Trait</strong> (max one of each per roll).</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Compare to Target TN:</strong></p>
-<ul>
-<li><strong>TN 10 (Routine):</strong> Low-stress action, basic survival task.</li>
-<li><strong>TN 15 (Risky):</strong> Standard combat shot, evasion, prying a door under threat.</li>
-<li><strong>TN 20 (Desperate):</strong> Life-or-death shot, jumping across a collapsed fire escape.</li>
-<li><strong>TN 25+ (Extreme):</strong> Staggering a massive B.O.W., escaping a closing hydraulic blast door.</li>
-</ul>
-<h3>Result Tiers & Outcomes</h3>
-<ul>
+When your survivor takes a risky, uncertain, or contested action under pressure:
+<p><strong>Roll:</strong> `1d20 + relevant Stat bonus + applicable Trait bonus`</p>
+<p>1. <strong>Stat Bonus:</strong> Add Force, Finesse, or Focus (-1 to +2).
+2. <strong>Trait Bonus:</strong> Add <strong>+2</strong> for a relevant <strong>Major Trait</strong>, and <strong>+1</strong> for a relevant <strong>Minor Trait</strong> (max one of each per roll).
+3. <strong>Compare to Target TN:</strong>
+   * <strong>TN 10 (Routine):</strong> Low-stress action, basic survival task.
+   * <strong>TN 15 (Risky):</strong> Standard combat shot, evasion, prying a door under threat.
+   * <strong>TN 20 (Desperate):</strong> Life-or-death shot, jumping across a collapsed fire escape.
+   * <strong>TN 25+ (Extreme):</strong> Staggering a massive B.O.W., escaping a closing hydraulic blast door.</p>
+<h3>Result Tiers &amp; Outcomes</h3>
+<ul class="doc-list">
 <li><strong>Failure (Miss by 5+):</strong> You fail and suffer serious consequences (take 1 Strain or lose 1 Armor box, gain a Condition, alert enemies, or advance the Noise Clock).</li>
 <li><strong>Success with Cost (Miss by 1–4):</strong> You achieve your objective, but pay a price: mark 1 Strain or Armor box, lose 1 weapon Durability box, consume ammunition, or gain a Condition.</li>
 <li><strong>Clean Success (Beat by 0–5):</strong> You achieve your goal cleanly without penalty.</li>
 <li><strong>Critical Success (Beat by 6+):</strong> Perfect execution. You achieve your goal and gain an extra advantage: bonus damage, stagger an enemy, or lower the local Noise Clock by -1.</li>
 </ul>
-<hr/>
+<hr class="rule">
 <h2>2. CHARACTER CREATION</h2>
 <h3>A. Stats (Distribute 3 Points)</h3>
-<p>Allocate 3 points across the three core stats (Max +2 at creation):</p>
-<ul>
+Allocate 3 points across the three core stats (Max +2 at creation):
+<ul class="doc-list">
 <li><strong>FORCE:</strong> Physical power, melee strikes, shoving, lifting debris, enduring trauma.</li>
 <li><strong>FINESSE:</strong> Agility, precision marksmanship, sprinting, lockpicking, silent movement.</li>
 <li><strong>FOCUS:</strong> Awareness, diagnosing infection, searching rooms, mental composure under horror.</li>
 </ul>
 <h3>B. Survivor Traits</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>1 Major Trait (+2 Bonus):</strong> Your pre-collapse profession or primary archetype (e.g., S.T.A.R.S. Operative, Beat Cop, Trauma Surgeon, Combat Engineer, Wasteland Hunter).</li>
 <li><strong>1 Minor Trait (+1 Bonus):</strong> A specific habit, combat reflex, or survival perk (e.g., Steady Aim, Quick Draw, Silent Step, Tourniquet Specialist, Pack Optimizer).</li>
 </ul>
-<h3>C. Vitals & Starting Capacity</h3>
-<ul>
+<h3>C. Vitals &amp; Starting Capacity</h3>
+<ul class="doc-list">
 <li><strong>Strain (Max 10):</strong> Begins at <strong>4 Strain</strong>. Strain represents shock, stamina, blood loss, and will to survive.</li>
 <li><strong>Armor Boxes:</strong> Begins at <strong>0 Armor Boxes</strong>. Armor is gained only by finding and equipping protective gear.</li>
 <li><strong>Inventory Capacity:</strong> Strictly <strong>4 Inventory Slots</strong>.</li>
 </ul>
-<hr/>
-<h2>3. SURVIVAL ACTION ECONOMY & SCENES</h2>
+<hr class="rule">
+<h2>3. SURVIVAL ACTION ECONOMY &amp; SCENES</h2>
 <h3>Action Economy (Per Post Turn)</h3>
-<p>Each survivor post during an active scene allows:</p>
-<ul>
+Each survivor post during an active scene allows:
+<ul class="doc-list">
 <li><strong>1 Major Action:</strong> Attack/Shoot, Sprint/Zone Move, Apply Full Medical Treatment (G+R, Spray), Breach/Force a door, Reload an empty firearm, or Clear a jammed weapon.</li>
 <li><strong>1 Minor Action:</strong> Ingest a single herb (G or B), Draw/Holster a weapon, Trade an item with an adjacent ally, Latch/Unlock a door, or Brace/Take Cover (+1 to next shot/defense).</li>
 <li><strong>Free Actions:</strong> Dropping carried items, brief radio/tactical speech, or defensive knife grab counters.</li>
 </ul>
 <h3>Scene Framework</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Exploration Scene:</strong> Searching rooms, investigating lore, and solving environmental puzzles. The Noise Clock only advances on loud actions.</li>
 <li><strong>Combat Scene (Side-Initiative):</strong> GM declares incoming enemy threats $\rightarrow$ all players post Major + Minor actions within the 24h window $\rightarrow$ GM resolves all outcomes simultaneously.</li>
-<li><strong>Safe Room (Rest Scene):</strong> Fortified sanctuary. Immune to the Noise Clock. Free 4-slot inventory & Item Box management, medical treatments, and Typewriter checkpoint logs.</li>
+<li><strong>Safe Room (Rest Scene):</strong> Fortified sanctuary. Immune to the Noise Clock. Free 4-slot inventory &amp; Item Box management, medical treatments, and Typewriter checkpoint logs.</li>
 <li><strong>Sector Transition:</strong> Moving to a new zone without active pursuit reduces the Noise Clock by -1.</li>
 </ul>
-<hr/>
-<h2>4. DAMAGE, INJURIES & INFECTION</h2>
+<hr class="rule">
+<h2>4. DAMAGE, INJURIES &amp; INFECTION</h2>
 <h3>Taking Harm</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Armor Soaks First:</strong> If you wear armor, mark 1 Armor Box (⬜) to negate 1 instance of physical damage. When all boxes are marked, the armor is ruined.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Strain Loss:</strong> Unmitigated hits mark 1 Strain.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Downed / Bleeding Out:</strong> When you reach <strong>0 Strain & 0 Armor</strong>, you collapse. Allies have 1 full 24-hour round to apply a medical item. If hit again or left untreated, your survivor dies.</p>
+1. <strong>Armor Soaks First:</strong> If you wear armor, mark 1 Armor Box (⬜) to negate 1 instance of physical damage. When all boxes are marked, the armor is ruined.
+2. <strong>Strain Loss:</strong> Unmitigated hits mark 1 Strain.
+3. <strong>Downed / Bleeding Out:</strong> When you reach <strong>0 Strain &amp; 0 Armor</strong>, you collapse. Allies have 1 full 24-hour round to apply a medical item. If hit again or left untreated, your survivor dies.
 <h3>Standard Conditions</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Bleeding:</strong> Lose 1 Strain at the end of each combat scene until treated. Cured by Green Herb mixtures or First Aid Spray.</li>
 <li><strong>Poisoned:</strong> Lose 1 Strain whenever you take a physical action. Cured by Blue Herb mixtures or First Aid Spray.</li>
 <li><strong>Limb Damaged:</strong> Leg (-2 Finesse, cannot sprint) or Arm (-2 Force, cannot wield 2-handed weapons). Cured by Full-Heal (G+R) or First Aid Spray.</li>
 <li><strong>Panicked:</strong> Cannot spend Strain on Specializations. Cured by reaching a Safe Room or an ally passing a Focus TN 10 check.</li>
 </ul>
 <h3>Virus Infection Track (0 to 5)</h3>
-<p>Zombie bites and biological critical failures advance the track by +1 Stage:</p>
-<ul>
+Zombie bites and biological critical failures advance the track by +1 Stage:
+<ul class="doc-list">
 <li><strong>Stage 0 (Clean):</strong> Healthy.</li>
 <li><strong>Stage 1 (Exposed):</strong> Low fever.</li>
 <li><strong>Stage 2 (Tremors):</strong> -1 to Focus rolls.</li>
@@ -485,247 +587,233 @@
 <li><strong>Stage 4 (Terminal Agony):</strong> Max Strain capped at 3; cannot sprint.</li>
 <li><strong>Stage 5 (Transformation):</strong> Death. The survivor turns into a hostile B.O.W.</li>
 </ul>
-<p><em>(Infection can be reduced by -1 Stage using Blue Herb combinations, or stalled for 24h with Antiviral Serums).</em></p>
-<hr/>
-<h2>5. GEAR & NOISE</h2>
-<h3>Weapons & Durability</h3>
-<ul>
+<em>(Infection can be reduced by -1 Stage using Blue Herb combinations, or stalled for 24h with Antiviral Serums).</em>
+<hr class="rule">
+<h2>5. GEAR &amp; NOISE</h2>
+<h3>Weapons &amp; Durability</h3>
+<ul class="doc-list">
 <li><strong>Handgun (1 Slot):</strong> 15-round mag. +1 Noise per shot. Nat 1 jams the gun (1 Major Action to clear).</li>
 <li><strong>Shotgun (2 Slots):</strong> 6 shells. +2 Noise per shot. Close-range stagger / spread.</li>
 <li><strong>Tactical Rifle (2 Slots):</strong> 5 rounds. +2 Noise per shot. Extreme range armor penetration.</li>
-<li><strong>Combat Knife (1 Slot, ⬜⬜⬜ 3 Durability):</strong> Close defense & grab counters. Breaks permanently when all 3 boxes are marked (no repairs).</li>
+<li><strong>Combat Knife (1 Slot, ⬜⬜⬜ 3 Durability):</strong> Close defense &amp; grab counters. Breaks permanently when all 3 boxes are marked (no repairs).</li>
 <li><strong>Heavy Tools (2 Slots, ⬜⬜⬜ 3 Durability):</strong> Fireaxe, Crowbar. +1 to Force breaching rolls.</li>
 </ul>
 <h3>Medical Items</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Green Herb (G, 1/4 Slot):</strong> Restores 1 Strain, cures Bleeding.</li>
 <li><strong>Green + Green (G+G, 1/4 Slot):</strong> Restores 3 Strain, cures Bleeding.</li>
-<li><strong>Green + Blue (G+B, 1/4 Slot):</strong> Restores 1 Strain, cures Bleeding & Poisoned, reduces Infection by -1 Stage.</li>
-<li><strong>Green + Red (G+R, 1/4 Slot):</strong> Full Strain recovery, cures Bleeding & Limb Damaged.</li>
+<li><strong>Green + Blue (G+B, 1/4 Slot):</strong> Restores 1 Strain, cures Bleeding &amp; Poisoned, reduces Infection by -1 Stage.</li>
+<li><strong>Green + Red (G+R, 1/4 Slot):</strong> Full Strain recovery, cures Bleeding &amp; Limb Damaged.</li>
 <li><strong>Green + Red + Blue (G+R+B, 1/4 Slot):</strong> Full Strain recovery, cures all conditions, reduces Infection by -1 Stage.</li>
 <li><strong>First Aid Spray (1 Slot):</strong> Full Strain recovery, cures all physical conditions.</li>
 </ul>
-<hr/>
+<hr class="rule">
 <h2>6. SURVIVOR DOSSIER TEMPLATE</h2>
-<p>Identity</p>
-<p>Name: ____________    Callsign / Profession: ____________</p>
-<p>Stats (3 Points Allocated)</p>
-<p>Force: +__    Finesse: +__    Focus: +__</p>
-<p>Traits & Abilities</p>
-<p>Major Trait (+2): ________________________</p>
-<p>Minor Trait (+1): ________________________</p>
-<p>Tactical Specialization: __________________</p>
-<p>Vitals & Status</p>
-<p>Strain: [ ][ ][ ][ ] /4 (Max 10)</p>
-<p>Armor: ⬜ / 0 Boxes</p>
-<p>Infection Track: [0] Clean (0/5)</p>
-<p>Active Conditions: None</p>
-<p>Inventory (Strict 4 Slots)</p>
-<p class='num-item'><span class='num-bullet'>•</span> [Handgun - 15/15 rds (1 Slot)]</p>
-<p class='num-item'><span class='num-bullet'>•</span> [Combat Knife - ⬜⬜⬜ (1 Slot)]</p>
-<p class='num-item'><span class='num-bullet'>•</span> [9mm Ammo Box - 15 rds (1/4 Slot) / Empty]</p>
-<p class='num-item'><span class='num-bullet'>•</span> [Empty Slot]</p>
-          </div>
+<p>Identity
+Name: ____________    Callsign / Profession: ____________</p>
+<p>Stats (3 Points Allocated)
+Force: +__    Finesse: +__    Focus: +__</p>
+<p>Traits &amp; Abilities
+Major Trait (+2): ________________________
+Minor Trait (+1): ________________________
+Tactical Specialization: __________________</p>
+<p>Vitals &amp; Status
+Strain: [ ][ ][ ][ ] /4 (Max 10)
+Armor: ⬜ / 0 Boxes
+Infection Track: [0] Clean (0/5)
+Active Conditions: None</p>
+<p>Inventory (Strict 4 Slots)
+1. [Handgun - 15/15 rds (1 Slot)]
+2. [Combat Knife - ⬜⬜⬜ (1 Slot)]
+3. [9mm Ammo Box - 15 rds (1/4 Slot) / Empty]
+4. [Empty Slot]</p>
         </div>
       </div>
 
+      <!-- 3. Traits & Specializations -->
       <div id="view-traits" class="view-pane">
         <div class="doc-container">
-          <div class="doc-content">
-            <h1>VBG-Z: SURVIVOR TRAITS & SPECIALIZATIONS COMPENDIUM</h1>
-<blockquote class='callout'>**Note on Customization:** These lists are samples and baselines to inspire character creation. They are **not** strictly limited to what is written here. You are encouraged to collaborate with the GM to create your own personalized Major Traits, Minor Traits, or Tactical Specializations that fit your survivor concept.</blockquote>
-<hr/>
+          <h1>VBG-Z: SURVIVOR TRAITS &amp; SPECIALIZATIONS COMPENDIUM</h1>
+<div class="callout"><strong>Note on Customization:</strong> These lists are samples and baselines to inspire character creation. They are <strong>not</strong> strictly limited to what is written here. You are encouraged to collaborate with the GM to create your own personalized Major Traits, Minor Traits, or Tactical Specializations that fit your survivor concept.</div>
+<hr class="rule">
 <h2>1. MAJOR TRAITS (+2 BONUS)</h2>
-<p><em>Choose 1 at character creation. Represents your pre-collapse profession, military role, or primary archetype.</em></p>
-<h3>Tactical & Law Enforcement</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>S.T.A.R.S. / Special Forces Operative:</strong> Room clearing, target acquisition, tactical firearm discipline, and weapon handling under pressure.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Beat Cop / Law Enforcement:</strong> Street smarts, standard police issue firearms, crowd control, and assessing suspicious behavior.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Umbrella Security Service (U.S.S.) Cleaner:</strong> Cold efficiency in bio-containment zones, hazard handling, hazmat protocols, and tactical maneuvering.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Private Military Contractor (PMC):</strong> Heavy weaponry, suppressive fire, defensive positioning, and combat communications.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Close Protection Bodyguard:</strong> Defensive reactions, intercepting incoming strikes meant for allies, and escort movement.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>SWAT Breacher:</strong> Shotgun breaching, clearing tight doorways, riot shield tactics, and heavy threshold control.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Sniper / Recon Scout:</strong> Long-range rifle marksmanship, overwatch spotting, range estimation, and silent camouflage.</p>
-<h3>Medical & Science</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Trauma Surgeon / ER Doctor:</strong> Precision surgical procedures, stabilizing arterial bleeds, setting compound fractures, and managing medical tools.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Paramedic / First Responder:</strong> Rapid triage under chaos, CPR, field dressing, and carrying incapacitated casualties.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Virologist / Bio-Researcher:</strong> Identifying B.O.W. behavioral traits, understanding viral transmission vectors, and lab chemical synthesis.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Pharmaceutical Chemist:</strong> Formulating chemical reagents, synthesizing herbal compounds, and identifying toxins/antidotes.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Forensic Pathologist:</strong> Autopsy assessment, diagnosing infection cause/stage, and identifying anatomical weak points on mutated corpses.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Combat Medic / Corpsman:</strong> Patching bullet and bite wounds under live hostile fire, dragging wounded allies, and conserving medical supplies.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Toxicologist:</strong> Analyzing venom/spit compounds (Licker/Drain Deimos), synthesizing custom antidotes, and hazardous fluid handling.</p>
-<h3>Engineering & Technical</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Combat Engineer / Sapper:</strong> Fortifying structures, setting defensive barricades, door breaching, and structural integrity assessment.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Master Mechanic:</strong> Hotwiring vehicles, repairing combustion engines, generator maintenance, and jury-rigging mechanical parts.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Industrial Electrician:</strong> Rewiring substation panels, bypassing electronic keycard locks, and handling high-voltage hazards.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Demolitions Specialist:</strong> Safe handling of explosive ordnance, creating pipe bombs, and controlled structural demolition.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Locksmith / Security Technician:</strong> Bypassing mechanical locks, vault doors, security tumblers, and alarm systems quietly.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Civil / Structural Engineer:</strong> Reading facility architectural blueprints, identifying load-bearing weak points, and flood/ventilation routing.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Radio Operator / Comms Technician:</strong> Repairing military radio transmitters, intercepting broadcast frequencies, and signal triangulation.</p>
-<h3>Survivalist & Wilderness</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Wasteland Hunter / Tracker:</strong> Stalking prey silently, tracking infected spoor, setting snare traps, and long-range marksmanship.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Wilderness Survival Guide:</strong> Foraging medicinal herbs, navigating unmapped terrain, fire starting, and shelter construction.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Park Ranger / Forester:</strong> Broad wilderness survival, heavy terrain traversal, axe/machete handling, and weather assessment.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Deep Woods Outfitter:</strong> Resource budgeting, pack optimization, and heavy load carrying over long distances.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Extreme Outdoorsman / Mountaineer:</strong> Rappelling, climbing broken facades, cold-weather endurance, and navigating jagged debris.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Archery Instructor / Bowhunter:</strong> Silent projectile retrieval, bow handling, silent target elimination, and crafting improvised arrows.</p>
-<h3>Urban & Underworld</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Urban Scavenger:</strong> Spotting hidden supply caches, navigating ruined building crawlspaces, and assessing structural collapse risks.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Burglar / Second-Story Thief:</strong> Silent rooftop traversal, climbing drainage pipes, breaking and entering, and moving undetected.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Black Market Fixer:</strong> Bartering, assessing item value, finding contraband caches, and reading human intentions.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Street Brawler / Enforcer:</strong> Brutal blunt force melee, using heavy improvised weapons, shoving through crowds, and street toughness.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Stunt Driver / Courier:</strong> High-speed vehicle handling, navigating road blockades, and defensive vehicular maneuvering.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Underground Boxer / Martial Artist:</strong> Unarmed defensive parries, kinetic infighting, footwork, and close-quarters striking.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Investigative Journalist:</strong> Uncovering corporate paper trails, finding hidden audio logs/diaries, and piecing together facility lore.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>City Transit Conductor / Rail Worker:</strong> Navigating subterranean subway tunnels, switching rail tracks, and operating heavy train engines.</p>
-<hr/>
+<em>Choose 1 at character creation. Represents your pre-collapse profession, military role, or primary archetype.</em>
+<h3>Tactical &amp; Law Enforcement</h3>
+1. <strong>S.T.A.R.S. / Special Forces Operative:</strong> Room clearing, target acquisition, tactical firearm discipline, and weapon handling under pressure.
+2. <strong>Beat Cop / Law Enforcement:</strong> Street smarts, standard police issue firearms, crowd control, and assessing suspicious behavior.
+3. <strong>Umbrella Security Service (U.S.S.) Cleaner:</strong> Cold efficiency in bio-containment zones, hazard handling, hazmat protocols, and tactical maneuvering.
+4. <strong>Private Military Contractor (PMC):</strong> Heavy weaponry, suppressive fire, defensive positioning, and combat communications.
+5. <strong>Close Protection Bodyguard:</strong> Defensive reactions, intercepting incoming strikes meant for allies, and escort movement.
+6. <strong>SWAT Breacher:</strong> Shotgun breaching, clearing tight doorways, riot shield tactics, and heavy threshold control.
+7. <strong>Sniper / Recon Scout:</strong> Long-range rifle marksmanship, overwatch spotting, range estimation, and silent camouflage.
+<h3>Medical &amp; Science</h3>
+8. <strong>Trauma Surgeon / ER Doctor:</strong> Precision surgical procedures, stabilizing arterial bleeds, setting compound fractures, and managing medical tools.
+9. <strong>Paramedic / First Responder:</strong> Rapid triage under chaos, CPR, field dressing, and carrying incapacitated casualties.
+10. <strong>Virologist / Bio-Researcher:</strong> Identifying B.O.W. behavioral traits, understanding viral transmission vectors, and lab chemical synthesis.
+11. <strong>Pharmaceutical Chemist:</strong> Formulating chemical reagents, synthesizing herbal compounds, and identifying toxins/antidotes.
+12. <strong>Forensic Pathologist:</strong> Autopsy assessment, diagnosing infection cause/stage, and identifying anatomical weak points on mutated corpses.
+13. <strong>Combat Medic / Corpsman:</strong> Patching bullet and bite wounds under live hostile fire, dragging wounded allies, and conserving medical supplies.
+14. <strong>Toxicologist:</strong> Analyzing venom/spit compounds (Licker/Drain Deimos), synthesizing custom antidotes, and hazardous fluid handling.
+<h3>Engineering &amp; Technical</h3>
+15. <strong>Combat Engineer / Sapper:</strong> Fortifying structures, setting defensive barricades, door breaching, and structural integrity assessment.
+16. <strong>Master Mechanic:</strong> Hotwiring vehicles, repairing combustion engines, generator maintenance, and jury-rigging mechanical parts.
+17. <strong>Industrial Electrician:</strong> Rewiring substation panels, bypassing electronic keycard locks, and handling high-voltage hazards.
+18. <strong>Demolitions Specialist:</strong> Safe handling of explosive ordnance, creating pipe bombs, and controlled structural demolition.
+19. <strong>Locksmith / Security Technician:</strong> Bypassing mechanical locks, vault doors, security tumblers, and alarm systems quietly.
+20. <strong>Civil / Structural Engineer:</strong> Reading facility architectural blueprints, identifying load-bearing weak points, and flood/ventilation routing.
+21. <strong>Radio Operator / Comms Technician:</strong> Repairing military radio transmitters, intercepting broadcast frequencies, and signal triangulation.
+<h3>Survivalist &amp; Wilderness</h3>
+22. <strong>Wasteland Hunter / Tracker:</strong> Stalking prey silently, tracking infected spoor, setting snare traps, and long-range marksmanship.
+23. <strong>Wilderness Survival Guide:</strong> Foraging medicinal herbs, navigating unmapped terrain, fire starting, and shelter construction.
+24. <strong>Park Ranger / Forester:</strong> Broad wilderness survival, heavy terrain traversal, axe/machete handling, and weather assessment.
+25. <strong>Deep Woods Outfitter:</strong> Resource budgeting, pack optimization, and heavy load carrying over long distances.
+26. <strong>Extreme Outdoorsman / Mountaineer:</strong> Rappelling, climbing broken facades, cold-weather endurance, and navigating jagged debris.
+27. <strong>Archery Instructor / Bowhunter:</strong> Silent projectile retrieval, bow handling, silent target elimination, and crafting improvised arrows.
+<h3>Urban &amp; Underworld</h3>
+28. <strong>Urban Scavenger:</strong> Spotting hidden supply caches, navigating ruined building crawlspaces, and assessing structural collapse risks.
+29. <strong>Burglar / Second-Story Thief:</strong> Silent rooftop traversal, climbing drainage pipes, breaking and entering, and moving undetected.
+30. <strong>Black Market Fixer:</strong> Bartering, assessing item value, finding contraband caches, and reading human intentions.
+31. <strong>Street Brawler / Enforcer:</strong> Brutal blunt force melee, using heavy improvised weapons, shoving through crowds, and street toughness.
+32. <strong>Stunt Driver / Courier:</strong> High-speed vehicle handling, navigating road blockades, and defensive vehicular maneuvering.
+33. <strong>Underground Boxer / Martial Artist:</strong> Unarmed defensive parries, kinetic infighting, footwork, and close-quarters striking.
+34. <strong>Investigative Journalist:</strong> Uncovering corporate paper trails, finding hidden audio logs/diaries, and piecing together facility lore.
+35. <strong>City Transit Conductor / Rail Worker:</strong> Navigating subterranean subway tunnels, switching rail tracks, and operating heavy train engines.
+<hr class="rule">
 <h2>2. MINOR TRAITS (+1 BONUS)</h2>
-<p><em>Choose 1 at character creation. Represents specific habits, tactical techniques, or secondary background perks.</em></p>
-<h3>Combat & Physical</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Steady Aim:</strong> +1 to firearm accuracy when bracing against cover or spending a Minor Action to aim.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Quick Draw:</strong> +1 when reacting to sudden ambushes or drawing weapons in close quarters.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Double Tap:</strong> +1 to follow-up handgun shots on a target that was just hit.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Heavy Swinger:</strong> +1 to Force rolls when using two-handed blunt weapons (fireaxe, sledgehammer).</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Knife Fighter:</strong> +1 when using combat knives or blades in close-quarters defense.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Point Blank Reflex:</strong> +1 to shotgun blasts against targets within Melee reach.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Iron Grip:</strong> +1 when resisting being disarmed or holding a barricade shut against a mob.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Fleet Footed:</strong> +1 to sprint speed and leaping across rooftops or broken stairwells.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Hard Hitter:</strong> +1 to unarmed shoves and kicks against charging shamblers.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Suppressive Instinct:</strong> +1 to suppressive rifle fire keeping hostiles pinned.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Gunslinger Rhythm:</strong> +1 to reloading firearms under direct combat pressure.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Center-Mass Focus:</strong> +1 to handgun stopping power against exposed zombie chests.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Pivot Footwork:</strong> +1 to Finesse evasion rolls when cornered against a dead end.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Crowbar Leverage:</strong> +1 to Force rolls when using crowbars as bludgeons or prying tools.</p>
-<h3>Stealth & Awareness</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Silent Step:</strong> +1 to stealth rolls moving through glass, debris, or cluttered hallways.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Light Sleeper:</strong> +1 to passive awareness while resting; impossible to catch completely unprepared.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Sixth Sense:</strong> +1 to spotting hidden ambushers (Lickers on ceilings, corpses playing dead).</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Shadow Walker:</strong> +1 when using darkness and visual cover to bypass infected lines of sight.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Threat Recognition:</strong> +1 to assessing how dangerous an unfamiliar mutation is before engaging.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Echo Locator:</strong> +1 to tracking sounds through walls, ventilation ducts, and floorboards.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Vigilant Sentry:</strong> +1 to Focus checks when holding an overwatch angle during team rests.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Bloodhound Instinct:</strong> +1 to tracking blood trails or detecting chemical leakage scents.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Peripheral Vision:</strong> +1 to avoiding surprise flanks by crawling infected or K-9s.</p>
-<h3>Medical & Resilience</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Field Chemist:</strong> +1 when synthesizing herbal sprays or chemical mixtures.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Tourniquet Specialist:</strong> +1 when rapidly treating the Bleeding condition.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Iron Stomach:</strong> +1 to resisting illness from stale rations and unpurified water.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Cold-Blooded:</strong> +1 to Focus checks when resisting horror jump-scares, gore shock, and panic.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Pain Tolerance:</strong> +1 to remaining functional while carrying traumatic conditions.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Adrenaline Spike:</strong> +1 to your next action roll immediately after soaking a hit.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Steady Hands:</strong> +1 to Focus rolls when performing delicate medical surgery or bomb defusal under fire.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Second Wind:</strong> +1 to Force checks when at 1 Strain remaining to avoid collapsing.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Biological Resistance:</strong> +1 to resisting viral advancement on initial exposure rolls.</p>
-<h3>Technical & Scavenging</h3>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Scrap Gunsmith:</strong> +1 to clearing firearm jams and inspecting weapon quality.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Hoarder's Eye:</strong> +1 to finding concealed ammo boxes or hidden key items in ransacked rooms.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Jury-Rigger:</strong> +1 to making temporary field repairs on broken tools or barricades.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Lockpick Finesse:</strong> +1 when picking mechanical tumbler locks with hairpin tools.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Hotwire Touch:</strong> +1 when starting vehicles or powering generators without the original keys.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Pack Optimizer:</strong> +1 when organizing gear (allows stacking 1 extra small item per slot).</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Blueprint Reader:</strong> +1 to navigating unfamiliar facilities using discovered building maps.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Electronic Bypass:</strong> +1 to rerouting circuit breaker panels and security consoles.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Keyring Intuition:</strong> +1 to identifying which door a discovered key or crest belongs to.</p>
-<p class='num-item'><span class='num-bullet'>•</span> <strong>Resource Scrimper:</strong> +1 to Focus checks when rationing supplies during extended sieges.</p>
-<hr/>
+<em>Choose 1 at character creation. Represents specific habits, tactical techniques, or secondary background perks.</em>
+<h3>Combat &amp; Physical</h3>
+1. <strong>Steady Aim:</strong> +1 to firearm accuracy when bracing against cover or spending a Minor Action to aim.
+2. <strong>Quick Draw:</strong> +1 when reacting to sudden ambushes or drawing weapons in close quarters.
+3. <strong>Double Tap:</strong> +1 to follow-up handgun shots on a target that was just hit.
+4. <strong>Heavy Swinger:</strong> +1 to Force rolls when using two-handed blunt weapons (fireaxe, sledgehammer).
+5. <strong>Knife Fighter:</strong> +1 when using combat knives or blades in close-quarters defense.
+6. <strong>Point Blank Reflex:</strong> +1 to shotgun blasts against targets within Melee reach.
+7. <strong>Iron Grip:</strong> +1 when resisting being disarmed or holding a barricade shut against a mob.
+8. <strong>Fleet Footed:</strong> +1 to sprint speed and leaping across rooftops or broken stairwells.
+9. <strong>Hard Hitter:</strong> +1 to unarmed shoves and kicks against charging shamblers.
+10. <strong>Suppressive Instinct:</strong> +1 to suppressive rifle fire keeping hostiles pinned.
+11. <strong>Gunslinger Rhythm:</strong> +1 to reloading firearms under direct combat pressure.
+12. <strong>Center-Mass Focus:</strong> +1 to handgun stopping power against exposed zombie chests.
+13. <strong>Pivot Footwork:</strong> +1 to Finesse evasion rolls when cornered against a dead end.
+14. <strong>Crowbar Leverage:</strong> +1 to Force rolls when using crowbars as bludgeons or prying tools.
+<h3>Stealth &amp; Awareness</h3>
+15. <strong>Silent Step:</strong> +1 to stealth rolls moving through glass, debris, or cluttered hallways.
+16. <strong>Light Sleeper:</strong> +1 to passive awareness while resting; impossible to catch completely unprepared.
+17. <strong>Sixth Sense:</strong> +1 to spotting hidden ambushers (Lickers on ceilings, corpses playing dead).
+18. <strong>Shadow Walker:</strong> +1 when using darkness and visual cover to bypass infected lines of sight.
+19. <strong>Threat Recognition:</strong> +1 to assessing how dangerous an unfamiliar mutation is before engaging.
+20. <strong>Echo Locator:</strong> +1 to tracking sounds through walls, ventilation ducts, and floorboards.
+21. <strong>Vigilant Sentry:</strong> +1 to Focus checks when holding an overwatch angle during team rests.
+22. <strong>Bloodhound Instinct:</strong> +1 to tracking blood trails or detecting chemical leakage scents.
+23. <strong>Peripheral Vision:</strong> +1 to avoiding surprise flanks by crawling infected or K-9s.
+<h3>Medical &amp; Resilience</h3>
+24. <strong>Field Chemist:</strong> +1 when synthesizing herbal sprays or chemical mixtures.
+25. <strong>Tourniquet Specialist:</strong> +1 when rapidly treating the Bleeding condition.
+26. <strong>Iron Stomach:</strong> +1 to resisting illness from stale rations and unpurified water.
+27. <strong>Cold-Blooded:</strong> +1 to Focus checks when resisting horror jump-scares, gore shock, and panic.
+28. <strong>Pain Tolerance:</strong> +1 to remaining functional while carrying traumatic conditions.
+29. <strong>Adrenaline Spike:</strong> +1 to your next action roll immediately after soaking a hit.
+30. <strong>Steady Hands:</strong> +1 to Focus rolls when performing delicate medical surgery or bomb defusal under fire.
+31. <strong>Second Wind:</strong> +1 to Force checks when at 1 Strain remaining to avoid collapsing.
+32. <strong>Biological Resistance:</strong> +1 to resisting viral advancement on initial exposure rolls.
+<h3>Technical &amp; Scavenging</h3>
+33. <strong>Scrap Gunsmith:</strong> +1 to clearing firearm jams and inspecting weapon quality.
+34. <strong>Hoarder's Eye:</strong> +1 to finding concealed ammo boxes or hidden key items in ransacked rooms.
+35. <strong>Jury-Rigger:</strong> +1 to making temporary field repairs on broken tools or barricades.
+36. <strong>Lockpick Finesse:</strong> +1 when picking mechanical tumbler locks with hairpin tools.
+37. <strong>Hotwire Touch:</strong> +1 when starting vehicles or powering generators without the original keys.
+38. <strong>Pack Optimizer:</strong> +1 when organizing gear (allows stacking 1 extra small item per slot).
+39. <strong>Blueprint Reader:</strong> +1 to navigating unfamiliar facilities using discovered building maps.
+40. <strong>Electronic Bypass:</strong> +1 to rerouting circuit breaker panels and security consoles.
+41. <strong>Keyring Intuition:</strong> +1 to identifying which door a discovered key or crest belongs to.
+42. <strong>Resource Scrimper:</strong> +1 to Focus checks when rationing supplies during extended sieges.
+<hr class="rule">
 <h2>3. TACTICAL SPECIALIZATIONS (DOMAINS)</h2>
-<p><em>Choose 1 Specialization Domain. Abilities cost Strain to perform exceptional tactical feats (Capped at 0–2 Strain).</em></p>
+<em>Choose 1 Specialization Domain. Abilities cost Strain to perform exceptional tactical feats (Capped at 0–2 Strain).</em>
 <h3>1. Close-Quarters Defense (CQC)</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Defensive Shove</em> — A swift physical push or kick that staggers 1 basic shambler back into Close range.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Knife Counter</em> — Instantly parry an incoming grab with a combat blade, negating the hit without marking a knife durability box.</li>
-<li><strong>Major (2 Strain):</strong> <em>Crowd Cleave / Sweep</em> — A sweeping heavy strike or tackle that knocks down 2–3 clustered enemies, creating an immediate escape path.</li>
-</ul>
+<em> <strong>Minor (0 Strain):</strong> </em>Defensive Shove* — A swift physical push or kick that staggers 1 basic shambler back into Close range.
+<em> <strong>Standard (1 Strain):</strong> </em>Knife Counter* — Instantly parry an incoming grab with a combat blade, negating the hit without marking a knife durability box.
+<em> <strong>Major (2 Strain):</strong> </em>Crowd Cleave / Sweep* — A sweeping heavy strike or tackle that knocks down 2–3 clustered enemies, creating an immediate escape path.
 <h3>2. Precision Marksmanship</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Aimed Double-Tap</em> — Spend a Minor action to brace; your next handgun shot deals maximum stopping power.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Called Shot (Weak Point)</em> — Target a designated anatomical weak spot (exposed brain, knee joint), bypassing 1 enemy Armor box on success.</li>
-<li><strong>Major (2 Strain):</strong> <em>Deadeye Penetration</em> — Fire a piercing high-caliber shot that lines up and hits two enemies in a row or severs an environmental support cable.</li>
-</ul>
-<h3>3. Field Medicine & Triage</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Rapid Diagnostic</em> — Instantly identify an ally’s exact Infection Stage, internal fractures, or wound severity with a glance.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Combat Suture</em> — Clear the <strong>Bleeding</strong> condition from yourself or an adjacent ally in a single action without consuming an herb.</li>
-<li><strong>Major (2 Strain):</strong> <em>Emergency Adrenaline</em> — Administer an emergency adrenaline jolt to a Downed ally, stabilizing them to 1 Strain immediately.</li>
-</ul>
-<h3>4. Structural Fortification & Traps</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Door Wedge</em> — Jam a wooden door shut or identify the weakest reinforcement point in a room.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Reinforced Barricade</em> — Fasten boards and heavy furniture across a threshold; the barricade soaks 2 enemy hits before breaking.</li>
-<li><strong>Major (2 Strain):</strong> <em>Environmental Deadfall</em> — Trigger a pre-rigged heavy deadfall, electrical wire puddle, or gas cylinder trap to engulf a doorway.</li>
-</ul>
-<h3>5. Infiltration & Evasion</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Ghost Step</em> — Cross an open corridor or doorway without alerting wandering shamblers.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Combat Roll / Dive</em> — Execute an evasive dive to completely dodge an incoming lunging strike, Licker tongue, or pounce.</li>
-<li><strong>Major (2 Strain):</strong> <em>Smoke / Flash Escape</em> — Deploy an improvised flare, fire extinguisher fog, or flash to break line of sight, allowing the entire party to disengage.</li>
-</ul>
+<em> <strong>Minor (0 Strain):</strong> </em>Aimed Double-Tap* — Spend a Minor action to brace; your next handgun shot deals maximum stopping power.
+<em> <strong>Standard (1 Strain):</strong> </em>Called Shot (Weak Point)* — Target a designated anatomical weak spot (exposed brain, knee joint), bypassing 1 enemy Armor box on success.
+<em> <strong>Major (2 Strain):</strong> </em>Deadeye Penetration* — Fire a piercing high-caliber shot that lines up and hits two enemies in a row or severs an environmental support cable.
+<h3>3. Field Medicine &amp; Triage</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Rapid Diagnostic* — Instantly identify an ally’s exact Infection Stage, internal fractures, or wound severity with a glance.
+<em> <strong>Standard (1 Strain):</strong> </em>Combat Suture* — Clear the <strong>Bleeding</strong> condition from yourself or an adjacent ally in a single action without consuming an herb.
+<em> <strong>Major (2 Strain):</strong> </em>Emergency Adrenaline* — Administer an emergency adrenaline jolt to a Downed ally, stabilizing them to 1 Strain immediately.
+<h3>4. Structural Fortification &amp; Traps</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Door Wedge* — Jam a wooden door shut or identify the weakest reinforcement point in a room.
+<em> <strong>Standard (1 Strain):</strong> </em>Reinforced Barricade* — Fasten boards and heavy furniture across a threshold; the barricade soaks 2 enemy hits before breaking.
+<em> <strong>Major (2 Strain):</strong> </em>Environmental Deadfall* — Trigger a pre-rigged heavy deadfall, electrical wire puddle, or gas cylinder trap to engulf a doorway.
+<h3>5. Infiltration &amp; Evasion</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Ghost Step* — Cross an open corridor or doorway without alerting wandering shamblers.
+<em> <strong>Standard (1 Strain):</strong> </em>Combat Roll / Dive* — Execute an evasive dive to completely dodge an incoming lunging strike, Licker tongue, or pounce.
+<em> <strong>Major (2 Strain):</strong> </em>Smoke / Flash Escape* — Deploy an improvised flare, fire extinguisher fog, or flash to break line of sight, allowing the entire party to disengage.
 <h3>6. Bio-Chemical Warfare</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Strain Identification</em> — Identify the specific viral strain, mutation trigger, and behavioral flaw of a novel B.O.W.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Volatile Mixture</em> — Synthesize a caustic acid vial or incendiary chemical flask from lab supplies in 1 action.</li>
-<li><strong>Major (2 Strain):</strong> <em>Viral Suppressant</em> — Synthesize an emergency chemical suppressant that halts an infected survivor’s virus progression for 24 hours.</li>
-</ul>
+<em> <strong>Minor (0 Strain):</strong> </em>Strain Identification* — Identify the specific viral strain, mutation trigger, and behavioral flaw of a novel B.O.W.
+<em> <strong>Standard (1 Strain):</strong> </em>Volatile Mixture* — Synthesize a caustic acid vial or incendiary chemical flask from lab supplies in 1 action.
+<em> <strong>Major (2 Strain):</strong> </em>Viral Suppressant* — Synthesize an emergency chemical suppressant that halts an infected survivor’s virus progression for 24 hours.
 <h3>7. Heavy Weapon Demolitions</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Blast Calculation</em> — Gauge the exact blast radius and structural impact of an explosive before detonation.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Breaching Blast</em> — Direct a shotgun blast or explosive charge to instantly clear a barricaded doorway or staggered mob choke point.</li>
-<li><strong>Major (2 Strain):</strong> <em>Shockwave Stagger</em> — Detonate a heavy explosive or point-blank kinetic blast that forces a Boss-tier Stalker/Tyrant into a 1-Scene Stunned Stasis.</li>
-</ul>
-<h3>8. Tactical Leadership & Overwatch</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Coordinated Callout</em> — Call out an enemy’s flanking vector, granting an ally +1 to their next reaction roll.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Rallying Composure</em> — Shout tactical commands to instantly clear the <strong>Panicked</strong> condition from an ally within room reach.</li>
-<li><strong>Major (2 Strain):</strong> <em>Covering Fire Protocol</em> — Lay down continuous suppressive fire that lets all allies move between zones without taking opportunity attacks.</li>
-</ul>
-<h3>9. Pointman & Shield Bearer</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Shield Brace</em> — Raise a riot shield or heavy door; grants +1 Armor box against frontal attacks for the turn.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Bodyguard Intercept</em> — Dive in front of an ally to take an incoming strike onto your own worn armor instead of them.</li>
-<li><strong>Major (2 Strain):</strong> <em>Bulldozer Charge</em> — Charge forward with a shield/heavy object, slamming through a zombie cluster and knocking enemies to the floor.</li>
-</ul>
-<h3>10. Underground Logistics & Scrounging</h3>
-<ul>
-<li><strong>Minor (0 Strain):</strong> <em>Cache Scent</em> — Sense hidden compartments behind loose brickwork, floorboards, or vending machines.</li>
-<li><strong>Standard (1 Strain):</strong> <em>Ammo Optimization</em> — Combine loose ammunition boxes to recover +3 extra rounds from spent casings and scrap.</li>
-<li><strong>Major (2 Strain):</strong> <em>Secret Passage Routing</em> — Locate a maintenance shaft, dumbwaiter, or drainage conduit that completely bypasses a locked or guarded corridor.</li>
-</ul>
-          </div>
+<em> <strong>Minor (0 Strain):</strong> </em>Blast Calculation* — Gauge the exact blast radius and structural impact of an explosive before detonation.
+<em> <strong>Standard (1 Strain):</strong> </em>Breaching Blast* — Direct a shotgun blast or explosive charge to instantly clear a barricaded doorway or staggered mob choke point.
+<em> <strong>Major (2 Strain):</strong> </em>Shockwave Stagger* — Detonate a heavy explosive or point-blank kinetic blast that forces a Boss-tier Stalker/Tyrant into a 1-Scene Stunned Stasis.
+<h3>8. Tactical Leadership &amp; Overwatch</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Coordinated Callout* — Call out an enemy’s flanking vector, granting an ally +1 to their next reaction roll.
+<em> <strong>Standard (1 Strain):</strong> </em>Rallying Composure* — Shout tactical commands to instantly clear the <strong>Panicked</strong> condition from an ally within room reach.
+<em> <strong>Major (2 Strain):</strong> </em>Covering Fire Protocol* — Lay down continuous suppressive fire that lets all allies move between zones without taking opportunity attacks.
+<h3>9. Pointman &amp; Shield Bearer</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Shield Brace* — Raise a riot shield or heavy door; grants +1 Armor box against frontal attacks for the turn.
+<em> <strong>Standard (1 Strain):</strong> </em>Bodyguard Intercept* — Dive in front of an ally to take an incoming strike onto your own worn armor instead of them.
+<em> <strong>Major (2 Strain):</strong> </em>Bulldozer Charge* — Charge forward with a shield/heavy object, slamming through a zombie cluster and knocking enemies to the floor.
+<h3>10. Underground Logistics &amp; Scrounging</h3>
+<em> <strong>Minor (0 Strain):</strong> </em>Cache Scent* — Sense hidden compartments behind loose brickwork, floorboards, or vending machines.
+<em> <strong>Standard (1 Strain):</strong> </em>Ammo Optimization* — Combine loose ammunition boxes to recover +3 extra rounds from spent casings and scrap.
+<em> <strong>Major (2 Strain):</strong> </em>Secret Passage Routing* — Locate a maintenance shaft, dumbwaiter, or drainage conduit that completely bypasses a locked or guarded corridor.
         </div>
       </div>
 
+      <!-- 4. Master Glossary -->
       <div id="view-glossary" class="view-pane">
         <div class="doc-container">
-          <div class="doc-content">
-            <h1>VBG-Z: MASTER RULES GLOSSARY & KEYWORD SPECIFICATION</h1>
-<p><em>Comprehensive mechanical reference defining all core terms, conditions, equipment rules, and environment systems for VBG-Z (Very Basic RPG: Zombie Survival Edition).</em></p>
-<hr/>
-<h2>1. CORE ENGINE & RESOLUTION</h2>
-<ul>
-<li><strong>Resolution Roll:</strong> <code>1d20 + Stat + Trait Bonus</code>.</li>
-<li>Players roll a single 20-sided die, add their relevant Stat (-1 to +2), and add an applicable Trait (+2 for Major, +1 for Minor).</li>
-<li><strong>Stats:</strong></li>
-<li><strong>Force:</strong> Physical power, melee strikes, breaking barriers, lifting/carrying, brute endurance.</li>
-<li><strong>Finesse:</strong> Agility, precision marksmanship, stealth, lockpicking, speed, evasive dodging.</li>
-<li><strong>Focus:</strong> Perception, medical triage, mental composure under horror, searching rooms, technical repair.</li>
-<li><strong>Traits:</strong></li>
-<li><strong>Major Trait (+2):</strong> Core pre-collapse profession/archetype (e.g., <em>Beat Cop</em>, <em>Trauma Surgeon</em>, <em>Combat Engineer</em>).</li>
-<li><strong>Minor Trait (+1):</strong> Specific survival perk or technique (e.g., <em>Steady Aim</em>, <em>Silent Step</em>, <em>Field Chemist</em>).</li>
-<li><strong>Target Difficulty (TN):</strong></li>
-<li><strong>TN 10 (Routine):</strong> Low-stress actions with adequate time.</li>
-<li><strong>TN 15 (Risky):</strong> Standard combat or actions under active hostile pressure.</li>
-<li><strong>TN 20 (Desperate):</strong> Life-or-death survival maneuvers or escaping dangerous ambushes.</li>
-<li><strong>TN 25+ (Extreme):</strong> Extraordinary feats against boss-tier B.O.W.s.</li>
-<li><strong>Outcome Margins:</strong></li>
-<li><strong>Failure (Miss by 5+):</strong> Action fails; suffer direct damage, advance Noise Clock, or trigger hazards.</li>
-<li><strong>Success with Cost (Miss by 1–4):</strong> Goal achieved, but pay a price (take 1 Strain, lose weapon durability, or drop an item).</li>
-<li><strong>Clean Success (Beat by 0–5):</strong> Goal achieved smoothly with no negative side effects.</li>
-<li><strong>Critical (Beat by 6+):</strong> Perfect success; deal bonus stopping power, bypass armor, or regain 1 Strain.</li>
+          <h1>VBG-Z: MASTER RULES GLOSSARY &amp; KEYWORD SPECIFICATION</h1>
+<em>Comprehensive mechanical reference defining all core terms, conditions, equipment rules, and environment systems for VBG-Z (Very Basic RPG: Zombie Survival Edition).</em>
+<hr class="rule">
+<h2>1. CORE ENGINE &amp; RESOLUTION</h2>
+<ul class="doc-list">
+<li><strong>Resolution Roll:</strong> `1d20 + Stat + Trait Bonus`.</li>
 </ul>
-<hr/>
-<h2>2. ACTION ECONOMY & TURN STRUCTURE</h2>
+  * Players roll a single 20-sided die, add their relevant Stat (-1 to +2), and add an applicable Trait (+2 for Major, +1 for Minor).
+<ul class="doc-list">
+<li><strong>Stats:</strong></li>
+</ul>
+  * <strong>Force:</strong> Physical power, melee strikes, breaking barriers, lifting/carrying, brute endurance.
+  * <strong>Finesse:</strong> Agility, precision marksmanship, stealth, lockpicking, speed, evasive dodging.
+  * <strong>Focus:</strong> Perception, medical triage, mental composure under horror, searching rooms, technical repair.
+<ul class="doc-list">
+<li><strong>Traits:</strong></li>
+</ul>
+  <em> <strong>Major Trait (+2):</strong> Core pre-collapse profession/archetype (e.g., </em>Beat Cop<em>, </em>Trauma Surgeon<em>, </em>Combat Engineer*).
+  <em> <strong>Minor Trait (+1):</strong> Specific survival perk or technique (e.g., </em>Steady Aim<em>, </em>Silent Step<em>, </em>Field Chemist*).
+<ul class="doc-list">
+<li><strong>Target Difficulty (TN):</strong></li>
+</ul>
+  * <strong>TN 10 (Routine):</strong> Low-stress actions with adequate time.
+  * <strong>TN 15 (Risky):</strong> Standard combat or actions under active hostile pressure.
+  * <strong>TN 20 (Desperate):</strong> Life-or-death survival maneuvers or escaping dangerous ambushes.
+  * <strong>TN 25+ (Extreme):</strong> Extraordinary feats against boss-tier B.O.W.s.
+<ul class="doc-list">
+<li><strong>Outcome Margins:</strong></li>
+</ul>
+  * <strong>Failure (Miss by 5+):</strong> Action fails; suffer direct damage, advance Noise Clock, or trigger hazards.
+  * <strong>Success with Cost (Miss by 1–4):</strong> Goal achieved, but pay a price (take 1 Strain, lose weapon durability, or drop an item).
+  * <strong>Clean Success (Beat by 0–5):</strong> Goal achieved smoothly with no negative side effects.
+  * <strong>Critical (Beat by 6+):</strong> Perfect success; deal bonus stopping power, bypass armor, or regain 1 Strain.
+<hr class="rule">
+<h2>2. ACTION ECONOMY &amp; TURN STRUCTURE</h2>
 <p>In asynchronous Play-by-Post, each player turn consists of <strong>1 Major Action</strong> and <strong>1 Minor Action</strong> per post:</p>
 <h3>Major Actions (1 per turn)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Attack / Shoot:</strong> Fire a weapon or make a melee strike.</li>
 <li><strong>Sprint / Reposition:</strong> Move between zones (e.g., Near to Far, or dashing through a doorway).</li>
 <li><strong>Full Medical Treatment:</strong> Apply a First Aid Spray or Green+Red full-heal mix to yourself or an ally.</li>
@@ -734,7 +822,7 @@
 <li><strong>Clear Malfunction:</strong> Rack the slide and clear a jammed firearm.</li>
 </ul>
 <h3>Minor Actions (1 per turn)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Quick Ingest:</strong> Consume a single Green or Blue herb mix.</li>
 <li><strong>Draw / Holster Weapon:</strong> Switch carried weapons.</li>
 <li><strong>Trade Item:</strong> Hand a carried item to an adjacent ally (within Close range).</li>
@@ -742,76 +830,82 @@
 <li><strong>Take Cover / Brace:</strong> Gain +1 to next ranged shot or defensive roll.</li>
 </ul>
 <h3>Free Actions (Anytime / 0 cost)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Drop Carried Item:</strong> Immediately drop gear to the floor to free up hands/slots.</li>
 <li><strong>Speak / Signal:</strong> Short tactical shout or radio call to allies.</li>
 <li><strong>Defensive Grab Counter:</strong> Expending 1 knife durability box or 1 handgun shot when grabbed to instantly break free.</li>
 </ul>
-<hr/>
-<h2>3. SCENE FRAMEWORK & PACING</h2>
+<hr class="rule">
+<h2>3. SCENE FRAMEWORK &amp; PACING</h2>
 <p>Play is structured into distinct <strong>Scenes</strong> rather than rigid rounds:</p>
 <h3>Exploration Scene</h3>
-<ul>
+<ul class="doc-list">
 <li>Low-intensity investigation, searching rooms, solving environmental puzzles, and navigating hallways.</li>
 <li>Actions are relaxed; players can search, converse, and take time. The Noise Clock only advances on loud triggers.</li>
 </ul>
-<h3>Combat & Threat Scene</h3>
-<ul>
+<h3>Combat &amp; Threat Scene</h3>
+<ul class="doc-list">
 <li>High-intensity encounters where the GM presents active hostile threats.</li>
 <li>Runs on asynchronous <strong>Side-Initiative</strong>: The GM posts the environmental threat, all players post their Major + Minor actions within the 24-hour window, and the GM resolves all outcomes simultaneously.</li>
 </ul>
 <h3>Safe Room (Rest Scene)</h3>
-<ul>
+<ul class="doc-list">
 <li>A fortified sanctuary with zero hostile presence and absolute Noise Clock immunity.</li>
 <li>Players can freely organize their 4-slot inventory and Item Box, apply medical treatments, calm the <strong>Panicked</strong> condition, and write Typewriter logbook entries for progression milestones.</li>
 </ul>
 <h3>Transition Scene</h3>
-<ul>
+<ul class="doc-list">
 <li>Moving between sectors, city districts, or facility floors. Successfully clearing a transition without pursuit reduces the Area Noise Clock by <strong>-1 Tick</strong>.</li>
 </ul>
-<hr/>
-<h2>4. HEALTH & CONDITIONS</h2>
-<ul>
+<hr class="rule">
+<h2>4. HEALTH &amp; CONDITIONS</h2>
+<ul class="doc-list">
 <li><strong>Strain (0 to 10):</strong> Base health and shock threshold (Survivors start at <strong>4 Strain</strong>).</li>
 <li><strong>Downed / Bleeding Out:</strong></li>
-<li>Reaching <strong>0 Strain & 0 Armor</strong> causes immediate collapse/incapacitation.</li>
-<li><strong>24-Hour Post Window:</strong> Allies have 1 post round to reach and stabilize the survivor with an herb or spray.</li>
-<li><strong>Lethality:</strong> Taking any further hit or ending the scene unstabilized results in permanent death.</li>
 </ul>
+  * Reaching <strong>0 Strain &amp; 0 Armor</strong> causes immediate collapse/incapacitation.
+  * <strong>24-Hour Post Window:</strong> Allies have 1 post round to reach and stabilize the survivor with an herb or spray.
+  * <strong>Lethality:</strong> Taking any further hit or ending the scene unstabilized results in permanent death.
 <h3>Standardized Active Conditions</h3>
-<ul>
-<li><strong>Bleeding:</strong> Suffer 1 Strain at the end of each combat scene until treated. <em>Cured by:</em> Any Green Herb mix or First Aid Spray.</li>
-<li><strong>Poisoned (Toxin):</strong> Lose 1 Strain whenever you make a Force or Finesse roll. <em>Cured by:</em> Blue Herb mix or First Aid Spray.</li>
-<li><strong>Limb Damaged (Leg or Arm):</strong></li>
-<li><em>Leg:</em> -2 to Finesse movement; cannot sprint or flee.</li>
-<li><em>Arm:</em> -2 to Force/attack rolls; cannot wield 2-handed weapons.</li>
-<li><em>Cured by:</em> Full-Heal Mix (G+R) or First Aid Spray.</li>
-<li><strong>Panicked:</strong> Cannot spend Strain on Tactical Specializations. <em>Cured by:</em> Entering a Safe Room or ally Focus TN 10 check.</li>
+<em> <strong>Bleeding:</strong> Suffer 1 Strain at the end of each combat scene until treated. </em>Cured by:* Any Green Herb mix or First Aid Spray.
+<em> <strong>Poisoned (Toxin):</strong> Lose 1 Strain whenever you make a Force or Finesse roll. </em>Cured by:* Blue Herb mix or First Aid Spray.
+<ul class="doc-list">
+<li><strong>Limb Damaged (Leg or Arm):</strong> </li>
 </ul>
-<hr/>
-<h2>5. COMBAT ADJUDICATION & DISTANCE BANDS</h2>
-<p>Combat is player-facing and structured around four intuitive <strong>Distance & Reach Bands</strong> to keep asynchronous posting fluid without requiring grid maps:</p>
-<h3>Distance & Reach Bands</h3>
-<ul>
+  <em> </em>Leg:* -2 to Finesse movement; cannot sprint or flee.
+  <em> </em>Arm:* -2 to Force/attack rolls; cannot wield 2-handed weapons.
+  <em> </em>Cured by:* Full-Heal Mix (G+R) or First Aid Spray.
+<em> <strong>Panicked:</strong> Cannot spend Strain on Tactical Specializations. </em>Cured by:* Entering a Safe Room or ally Focus TN 10 check.
+<hr class="rule">
+<h2>5. COMBAT ADJUDICATION &amp; DISTANCE BANDS</h2>
+<p>Combat is player-facing and structured around four intuitive <strong>Distance &amp; Reach Bands</strong> to keep asynchronous posting fluid without requiring grid maps:</p>
+<h3>Distance &amp; Reach Bands</h3>
+<ul class="doc-list">
 <li><strong>Melee / Reach (0–5 ft):</strong> Within arm's reach or blade contact. Hand-to-hand combat, knife strikes, grab threats, and shotgun point-blank blasts occur here.</li>
-<li><em>Disengaging:</em> Moving away from an actively engaged enemy in Melee reach requires a Major Action (Sprint) or an evasive stunt to avoid an immediate swipe or grab.</li>
+</ul>
+  <em> </em>Disengaging:* Moving away from an actively engaged enemy in Melee reach requires a Major Action (Sprint) or an evasive stunt to avoid an immediate swipe or grab.
+<ul class="doc-list">
 <li><strong>Close / Room (5–20 ft):</strong> Across an average room, small office, or narrow corridor. Moving into Melee reach or taking cover takes a Minor Action.</li>
-<li><em>Firearms:</em> Optimal operating range for Handguns and Shotguns.</li>
+</ul>
+  <em> </em>Firearms:* Optimal operating range for Handguns and Shotguns.
+<ul class="doc-list">
 <li><strong>Far / Hallway (20–60 ft):</strong> Down a long hospital corridor, across a street block, or through a warehouse. Closing the distance requires a Major Action (Sprint).</li>
-<li><em>Firearms:</em> Handguns suffer a <strong>-2 penalty</strong> unless the shooter spends a Minor Action to Brace/Aim. Tactical Rifles operate at peak accuracy.</li>
+</ul>
+  <em> </em>Firearms:* Handguns suffer a <strong>-2 penalty</strong> unless the shooter spends a Minor Action to Brace/Aim. Tactical Rifles operate at peak accuracy.
+<ul class="doc-list">
 <li><strong>Distant / Line-of-Sight (60+ ft):</strong> Across a city plaza, down a highway, or from a rooftop. Only Tactical Rifles and Scoped weapons can effectively engage targets at Distant range.</li>
 </ul>
-<h3>Combat Mechanics & Tactics</h3>
-<ul>
+<h3>Combat Mechanics &amp; Tactics</h3>
+<ul class="doc-list">
 <li><strong>Player-Facing Side-Initiative:</strong> The GM describes incoming hostile actions. Players post their reactions (Major + Minor action) within the 24-hour window. Monsters never make attack rolls; players roll to avoid harm or disrupt enemy actions.</li>
-<li><strong>Grab & Counter-Attack:</strong> When grabbed by a zombie, a survivor can spend a Free Action to sacrifice <strong>1 Knife Durability Box</strong> or fire <strong>1 Handgun shot</strong> to instantly break the grab without taking damage.</li>
-<li><strong>Called Shots & Weak Points:</strong> Targeting a creature's specific anatomical weak point (exposed brain, knee joint) requires a <strong>Called Shot (TN 20)</strong>. Clean success bypasses 1 Armor Box or dismembers the limb.</li>
+<li><strong>Grab &amp; Counter-Attack:</strong> When grabbed by a zombie, a survivor can spend a Free Action to sacrifice <strong>1 Knife Durability Box</strong> or fire <strong>1 Handgun shot</strong> to instantly break the grab without taking damage.</li>
+<li><strong>Called Shots &amp; Weak Points:</strong> Targeting a creature's specific anatomical weak point (exposed brain, knee joint) requires a <strong>Called Shot (TN 20)</strong>. Clean success bypasses 1 Armor Box or dismembers the limb.</li>
 <li><strong>V-ACT Mutation (Crimson Heads):</strong> Any intact zombie corpse left unburned or undecapitated will revive after 2 scenes as a fast, high-damage Crimson Head mutant.</li>
 </ul>
-<hr/>
+<hr class="rule">
 <h2>6. VIRUS INFECTION ENGINE</h2>
 <h3>Infection Track (Stage 0 to Stage 5)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>Stage 0 (Clean):</strong> Healthy. No symptoms.</li>
 <li><strong>Stage 1 (Exposed):</strong> Minor fever, pale skin. Narrative tension only.</li>
 <li><strong>Stage 2 (Incubation):</strong> Sweats and tremors. <strong>-1 to all Focus rolls</strong>.</li>
@@ -820,141 +914,187 @@
 <li><strong>Stage 5 (Transformation):</strong> Character dies and rises as an aggressive hostile B.O.W.</li>
 </ul>
 <h3>Infection Advancement Triggers</h3>
-<ul>
+<ul class="doc-list">
 <li>Suffering a bite attack from an infected enemy: <strong>+1 Stage</strong>.</li>
 <li>Critical failure against biological bile/fluid hazards: <strong>+1 Stage</strong>.</li>
 </ul>
-<h3>Treatment & Stalling</h3>
-<ul>
+<h3>Treatment &amp; Stalling</h3>
+<ul class="doc-list">
 <li><strong>Blue Herb Mixtures (G+B, G+R+B):</strong> Lower current infection by <strong>-1 Stage</strong> (can reduce all the way back to Stage 0 if caught early).</li>
 <li><strong>Antiviral Serum:</strong> Halts infection progression completely for 24 hours.</li>
 </ul>
-<hr/>
-<h2>6. COMPLETE ITEMS & EQUIPMENT CATALOG</h2>
+<hr class="rule">
+<h2>6. COMPLETE ITEMS &amp; EQUIPMENT CATALOG</h2>
 <p>Every character begins with a strict base capacity of <strong>4 Inventory Slots</strong>.</p>
 <h3>A. WEAPONS CATALOG</h3>
-<p>#### Firearms & Ranged Weapons</p>
-<ul>
+<p>#### Firearms &amp; Ranged Weapons
+<ul class="doc-list">
 <li><strong>Handgun / Pistol (1 Slot):</strong></li>
-<li><em>Ammo Type & Storage:</em> 9mm Ammo Box (15 rounds = 1/4 Slot).</li>
-<li><em>Noise Generated:</em> <strong>+1 Tick</strong> per shot.</li>
-<li><em>Reliability:</em> Standard sidearm; effective at Close and Near ranges.</li>
-<li><strong>Shotgun (2 Slots):</strong></li>
-<li><em>Ammo Type & Storage:</em> 12-Gauge Shells Box (6 shells = 1/4 Slot).</li>
-<li><em>Noise Generated:</em> <strong>+2 Ticks</strong> per shot.</li>
-<li><em>Special Rule (Stopping Power):</em> Staggers charging enemies on Clean Success; hits up to 2 adjacent targets at Close range.</li>
-<li><strong>Hunting / Tactical Rifle (2 Slots):</strong></li>
-<li><em>Ammo Type & Storage:</em> Rifle Ammo Box (5 rounds = 1/4 Slot).</li>
-<li><em>Noise Generated:</em> <strong>+2 Ticks</strong> per shot.</li>
-<li><em>Special Rule (Penetration):</em> Extreme range marksmanship; bypasses 1 Armor box on Clean Success.</li>
-<li><strong>Magnum Revolver (1 Slot):</strong></li>
-<li><em>Ammo Type & Storage:</em> Magnum Ammo Box (6 rounds = 1/4 Slot). Rare.</li>
-<li><em>Noise Generated:</em> <strong>+3 Ticks</strong> per shot.</li>
-<li><em>Special Rule (Lethal Kinetic):</em> Bypasses mundane armor; inflicts critical damage on B.O.W. weak points.</li>
 </ul>
-<p>#### Firearm Malfunction & Reload Mechanics</p>
-<ul>
+  <em> </em>Ammo Type &amp; Storage:* 9mm Ammo Box (15 rounds = 1/4 Slot).
+  <em> </em>Noise Generated:* <strong>+1 Tick</strong> per shot.
+  <em> </em>Reliability:* Standard sidearm; effective at Close and Near ranges.
+<ul class="doc-list">
+<li><strong>Shotgun (2 Slots):</strong></li>
+</ul>
+  <em> </em>Ammo Type &amp; Storage:* 12-Gauge Shells Box (6 shells = 1/4 Slot).
+  <em> </em>Noise Generated:* <strong>+2 Ticks</strong> per shot.
+  <em> </em>Special Rule (Stopping Power):* Staggers charging enemies on Clean Success; hits up to 2 adjacent targets at Close range.
+<ul class="doc-list">
+<li><strong>Hunting / Tactical Rifle (2 Slots):</strong></li>
+</ul>
+  <em> </em>Ammo Type &amp; Storage:* Rifle Ammo Box (5 rounds = 1/4 Slot).
+  <em> </em>Noise Generated:* <strong>+2 Ticks</strong> per shot.
+  <em> </em>Special Rule (Penetration):* Extreme range marksmanship; bypasses 1 Armor box on Clean Success.
+<ul class="doc-list">
+<li><strong>Magnum Revolver (1 Slot):</strong></li>
+</ul>
+  <em> </em>Ammo Type &amp; Storage:* Magnum Ammo Box (6 rounds = 1/4 Slot). Rare.
+  <em> </em>Noise Generated:* <strong>+3 Ticks</strong> per shot.
+  <em> </em>Special Rule (Lethal Kinetic):* Bypasses mundane armor; inflicts critical damage on B.O.W. weak points.</p>
+<p>#### Firearm Malfunction &amp; Reload Mechanics
+<ul class="doc-list">
 <li><strong>Firearm Jamming:</strong> Rolling a <strong>Natural 1</strong> on a firearm attack causes a mechanical jam. The shot does not fire. Clearing the jam requires <strong>1 Major Action</strong> (or passing a Focus TN 10 check as a Minor Action).</li>
 <li><strong>Reload Action Economy:</strong> Firearms hold 1 internal magazine/cylinder. Loading fresh ammunition from a carried ammo box requires <strong>1 Major Action</strong>.</li>
-</ul>
-<p>#### Melee Weapons & Durability (⬜⬜⬜)</p>
-<ul>
+</ul></p>
+<p>#### Melee Weapons &amp; Durability (⬜⬜⬜)
+<ul class="doc-list">
 <li><strong>Combat Knife / Tactical Blade (1 Slot):</strong> 3 Durability Boxes. Used for close-quarters fighting and instant grab counter-attacks.</li>
 <li><strong>Fireaxe / Crowbar / Sledgehammer (2 Slots):</strong> 3 Durability Boxes. Adds <strong>+1 to Force rolls</strong> when breaching reinforced doors or crushing armored skulls.</li>
 <li><strong>Durability Loss:</strong> 1 Durability Box is checked on an attack <strong>Failure</strong> or when chosen as the cost on a <strong>Success with Cost</strong>. When all 3 boxes are checked, the weapon breaks permanently and is discarded. Durability cannot be repaired; survivors must scavenge new weapons.</li>
-</ul>
-<hr/>
-<h3>B. ARMOR & PROTECTIVE GEAR</h3>
+</ul></p>
+<hr class="rule">
+<h3>B. ARMOR &amp; PROTECTIVE GEAR</h3>
 <p>Armor provides external protection boxes (⬜). When taking damage, players check off 1 Armor box instead of losing Strain.</p>
-<ul>
+<ul class="doc-list">
 <li><strong>Leather / Reinforced Jacket (1 Slot):</strong> Grants <strong>⬜ (1 Armor Box)</strong>. Light protection against scratches and minor shrapnel.</li>
 <li><strong>Ballistic / Kevlar Vest (1 Slot):</strong> Grants <strong>⬜⬜ (2 Armor Boxes)</strong>. Standard police/security vest designed to stop handgun fire and blunt impacts.</li>
-<li><strong>Tactical Riot Armor (2 Slots):</strong> Grants <strong>⬜⬜⬜ (3 Armor Boxes)</strong>. Heavy military/SWAT protective suit. <em>Drawback:</em> Applies <strong>-1 to Finesse sprint/flee rolls</strong>.</li>
 </ul>
-<hr/>
-<h3>C. HEALING & MEDICAL ITEMS</h3>
+<em> <strong>Tactical Riot Armor (2 Slots):</strong> Grants <strong>⬜⬜⬜ (3 Armor Boxes)</strong>. Heavy military/SWAT protective suit. </em>Drawback:* Applies <strong>-1 to Finesse sprint/flee rolls</strong>.
+<hr class="rule">
+<h3>C. HEALING &amp; MEDICAL ITEMS</h3>
 <p>All medicinal herbs are compact items taking <strong>1/4 Inventory Slot</strong> (up to 4 herbs or mixes can stack in 1 slot). First Aid Sprays occupy <strong>1 Full Slot</strong>.</p>
-<ul>
+<ul class="doc-list">
 <li><strong>Green Herb (G) [1/4 Slot]:</strong> Restores <strong>1 Strain</strong>; cures <strong>Bleeding</strong>.</li>
 <li><strong>Green + Green (G+G) [1/4 Slot]:</strong> Restores <strong>3 Strain</strong>; cures <strong>Bleeding</strong>.</li>
-<li><strong>Green + Blue (G+B) [1/4 Slot]:</strong> Restores <strong>1 Strain</strong>, cures <strong>Bleeding & Poisoned</strong>, and lowers Virus Infection by <strong>-1 Stage</strong>.</li>
-<li><strong>Green + Red (G+R) [Full-Heal, 1/4 Slot]:</strong> Fully restores Strain to maximum (10); cures <strong>Bleeding & Limb Damaged</strong>.</li>
+<li><strong>Green + Blue (G+B) [1/4 Slot]:</strong> Restores <strong>1 Strain</strong>, cures <strong>Bleeding &amp; Poisoned</strong>, and lowers Virus Infection by <strong>-1 Stage</strong>.</li>
+<li><strong>Green + Red (G+R) [Full-Heal, 1/4 Slot]:</strong> Fully restores Strain to maximum (10); cures <strong>Bleeding &amp; Limb Damaged</strong>.</li>
 <li><strong>Green + Red + Blue (G+R+B) [Miracle Mix, 1/4 Slot]:</strong> Fully restores Strain to maximum, cures <strong>all conditions</strong>, and lowers Virus Infection by <strong>-1 Stage</strong>.</li>
 <li><strong>First Aid Spray [1 Full Slot]:</strong> Fully restores Strain to maximum and cures <strong>all physical conditions</strong> (Bleeding, Poisoned, Limb Damaged).</li>
 </ul>
-<hr/>
+<hr class="rule">
 <h2>7. THE AREA NOISE CLOCK ENGINE</h2>
 <p>The <strong>Area Noise Clock (1 to 6 Ticks)</strong> tracks ambient disturbance, gunfire echoes, and the heightened awareness of roaming infected and stalkers within the current sector.</p>
 <h3>Noise Increase Rules (How the Clock Ticks Up)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>+1 Tick:</strong></li>
-<li>Firing a <strong>Handgun / Pistol</strong> (9mm unsuppressed).</li>
-<li>Loud environmental actions (smashing open a wooden door, kicking over heavy metal shelving, setting off a car alarm).</li>
-<li>Suffering a <strong>Failure</strong> on a physical or stealth roll in an echoey area.</li>
-<li><strong>+2 Ticks:</strong></li>
-<li>Firing a <strong>Shotgun</strong> (12-Gauge blast) or <strong>Tactical Rifle</strong>.</li>
-<li>Structural breaching (battering down a security gate or heavy metal door).</li>
-<li><strong>+3 Ticks:</strong></li>
-<li>Firing a <strong>Magnum Revolver</strong>.</li>
-<li>Detonating a <strong>Grenade</strong>, fuel barrel, or explosive device.</li>
 </ul>
+  * Firing a <strong>Handgun / Pistol</strong> (9mm unsuppressed).
+  * Loud environmental actions (smashing open a wooden door, kicking over heavy metal shelving, setting off a car alarm).
+  * Suffering a <strong>Failure</strong> on a physical or stealth roll in an echoey area.
+<ul class="doc-list">
+<li><strong>+2 Ticks:</strong></li>
+</ul>
+  * Firing a <strong>Shotgun</strong> (12-Gauge blast) or <strong>Tactical Rifle</strong>.
+  * Structural breaching (battering down a security gate or heavy metal door).
+<ul class="doc-list">
+<li><strong>+3 Ticks:</strong></li>
+</ul>
+  * Firing a <strong>Magnum Revolver</strong>.
+  * Detonating a <strong>Grenade</strong>, fuel barrel, or explosive device.
 <h3>Clock Escalation Milestones</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>1–2 Ticks (Quiet / Dormant):</strong> Ambient groans in the distance. Roaming hostiles remain dormant in their starting positions.</li>
 <li><strong>3–4 Ticks (Suspicious / Stirring):</strong> Infected begin shuffling toward the source of the sound; stealth checks suffer <strong>-1</strong>.</li>
 <li><strong>5 Ticks (Alert / Encircling):</strong> Hostiles actively bang on exterior windows, doors rattle, and retreat routes become contested.</li>
 <li><strong>6 Ticks (BREACH EVENT):</strong> The clock resets to 0, and an immediate high-threat encounter is triggered: a roaming horde floods the room, or the sector's <strong>Stalker / Boss B.O.W.</strong> breaches the entry point.</li>
 </ul>
 <h3>Noise Decay Rules (How the Clock Ticks Down)</h3>
-<ul>
+<ul class="doc-list">
 <li><strong>-1 Tick (Quiet Scene):</strong> Completing <strong>1 full Exploration Scene</strong> without any unsuppressed gunfire, combat rolls, or loud physical actions reduces the clock by <strong>-1 Tick</strong>.</li>
 <li><strong>-1 Tick (Sector Transition):</strong> Successfully traversing from one major sector/building to another without active pursuit reduces the local clock by <strong>-1 Tick</strong>.</li>
 <li><strong>Total Clock Reset (Safe Room Entry):</strong> Entering and securing a certified <strong>Safe Room</strong> completely isolates the party; while inside, the Noise Clock does not advance.</li>
 <li><strong>Post-Breach Reset:</strong> Following the conclusion or escape from a <strong>6/6 Breach Event</strong>, the clock resets to <strong>1 Tick (Quiet)</strong> as the immediate local horde disperses.</li>
 </ul>
-<hr/>
-<h2>8. ENVIRONMENT & PROGRESSION</h2>
-<ul>
+<hr class="rule">
+<h2>8. ENVIRONMENT &amp; PROGRESSION</h2>
+<ul class="doc-list">
 <li><strong>Item Box (Communal Cache):</strong> Located inside Safe Rooms. Provides shared storage space. Depositing, withdrawing, or organizing items in an Item Box is a free action during a Rest Scene.</li>
 <li><strong>Typewriter (Checkpoint Log):</strong> Survivors record in-character log entries; marks the official save checkpoint and awards milestone PP.</li>
 <li><strong>Progression Points (PP) Awards:</strong></li>
-<li><strong>+1 PP:</strong> Surviving an intense combat or hazard scene.</li>
-<li><strong>+2 PP:</strong> Recovering a vital story file, key sample, or solving an environmental puzzle.</li>
-<li><strong>+3 PP:</strong> Securing a new Safe Room or concluding a major narrative chapter.</li>
-<li><strong>PP Shop Upgrades:</strong></li>
-<li><strong>10 PP:</strong> Increase one Stat by +1 (Cap: +2 max).</li>
-<li><strong>15 PP:</strong> Acquire a new Minor Trait (+1).</li>
-<li><strong>20 PP:</strong> Unlock a new Tactical Specialization domain.</li>
-<li><strong>25 PP:</strong> Expand Inventory by +1 Slot (Pouches/Rig, Cap: 6 slots max).</li>
 </ul>
-          </div>
+  * <strong>+1 PP:</strong> Surviving an intense combat or hazard scene.
+  * <strong>+2 PP:</strong> Recovering a vital story file, key sample, or solving an environmental puzzle.
+  * <strong>+3 PP:</strong> Securing a new Safe Room or concluding a major narrative chapter.
+<ul class="doc-list">
+<li><strong>PP Shop Upgrades:</strong></li>
+</ul>
+  * <strong>10 PP:</strong> Increase one Stat by +1 (Cap: +2 max).
+  * <strong>15 PP:</strong> Acquire a new Minor Trait (+1).
+  * <strong>20 PP:</strong> Unlock a new Tactical Specialization domain.
+  * <strong>25 PP:</strong> Expand Inventory by +1 Slot (Pouches/Rig, Cap: 6 slots max).
         </div>
       </div>
+
     </main>
   </div>
 
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <button class="bnav-item active" data-target="view-map">
+      <span class="b-icon">🗺️</span>
+      <span>Map</span>
+    </button>
+    <button class="bnav-item" data-target="view-player">
+      <span class="b-icon">📖</span>
+      <span>Rules</span>
+    </button>
+    <button class="bnav-item" data-target="view-traits">
+      <span class="b-icon">🧬</span>
+      <span>Traits</span>
+    </button>
+    <button class="bnav-item" data-target="view-glossary">
+      <span class="b-icon">📑</span>
+      <span>Glossary</span>
+    </button>
+  </nav>
+
   <script>
-    // Navigation Switching
-    const navButtons = document.querySelectorAll('.nav-btn');
+    // Tab Navigation Logic
+    const navButtons = document.querySelectorAll('.nav-btn, .bnav-item');
     const viewPanes = document.querySelectorAll('.view-pane');
 
     navButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        const targetView = btn.getAttribute('data-view');
+        const targetId = btn.getAttribute('data-target');
         
-        navButtons.forEach(b => b.classList.remove('active'));
-        viewPanes.forEach(p => p.classList.remove('active'));
-        
-        btn.classList.add('active');
-        const activePane = document.getElementById('view-' + targetView);
-        if (activePane) activePane.classList.add('active');
+        // Update active buttons
+        navButtons.forEach(b => {
+          if (b.getAttribute('data-target') === targetId) {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+
+        // Switch active view pane
+        viewPanes.forEach(pane => {
+          if (pane.id === targetId) {
+            pane.classList.add('active');
+            if (targetId === 'view-map') {
+              centerMapOnFirstLoad();
+            }
+          } else {
+            pane.classList.remove('active');
+          }
+        });
       });
     });
 
-    // Interactive Map Pan and Zoom Engine
+    // Touch & Mouse Map Pan/Zoom Engine
     const mapContainer = document.getElementById('view-map');
-    const mapViewport = document.getElementById('map-viewport');
-    const mapImg = document.getElementById('map-img');
+    const mapTransform = document.getElementById('map-transform');
+    const mapImg = document.getElementById('map-image');
 
     let scale = 1;
     let pointX = 0;
@@ -963,62 +1103,142 @@
     let startY = 0;
     let isPanning = false;
 
-    function setTransform() {
-      mapViewport.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+    // Multi-touch pinch zoom state
+    let initialPinchDistance = null;
+    let initialPinchScale = 1;
+
+    function updateTransform() {
+      mapTransform.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
     }
 
+    function centerMapOnFirstLoad() {
+      if (!mapImg.naturalWidth) return;
+      const cWidth = mapContainer.clientWidth;
+      const cHeight = mapContainer.clientHeight;
+      scale = Math.max(cWidth / mapImg.naturalWidth, cHeight / mapImg.naturalHeight);
+      pointX = (cWidth - mapImg.naturalWidth * scale) / 2;
+      pointY = (cHeight - mapImg.naturalHeight * scale) / 2;
+      updateTransform();
+    }
+
+    mapImg.onload = () => {
+      centerMapOnFirstLoad();
+    };
+
+    // Mouse Drag
     mapContainer.addEventListener('mousedown', (e) => {
-      if (e.target.closest('.map-controls')) return;
-      e.preventDefault();
+      if (e.target.closest('.map-controls') || e.target.closest('.map-legend')) return;
+      isPanning = true;
       startX = e.clientX - pointX;
       startY = e.clientY - pointY;
-      isPanning = true;
     });
 
     window.addEventListener('mousemove', (e) => {
       if (!isPanning) return;
-      e.preventDefault();
       pointX = e.clientX - startX;
       pointY = e.clientY - startY;
-      setTransform();
+      updateTransform();
     });
 
     window.addEventListener('mouseup', () => {
       isPanning = false;
     });
 
+    // Mouse Wheel Zoom (towards cursor)
     mapContainer.addEventListener('wheel', (e) => {
       e.preventDefault();
-      const xs = (e.clientX - mapContainer.offsetLeft - pointX) / scale;
-      const ys = (e.clientY - mapContainer.offsetTop - pointY) / scale;
-      
+      const rect = mapContainer.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const xs = (mouseX - pointX) / scale;
+      const ys = (mouseY - pointY) / scale;
       const delta = -e.deltaY;
-      if (delta > 0) {
-        scale = Math.min(scale * 1.2, 5.0);
-      } else {
-        scale = Math.max(scale / 1.2, 0.4);
+
+      const newScale = delta > 0 ? scale * 1.15 : scale / 1.15;
+      scale = Math.min(Math.max(0.15, newScale), 5.0);
+
+      pointX = mouseX - xs * scale;
+      pointY = mouseY - ys * scale;
+      updateTransform();
+    }, { passive: false });
+
+    // Touch Event Handling (Pinch-to-zoom + 1-finger pan)
+    mapContainer.addEventListener('touchstart', (e) => {
+      if (e.target.closest('.map-controls') || e.target.closest('.map-legend')) return;
+      if (e.touches.length === 1) {
+        isPanning = true;
+        startX = e.touches[0].clientX - pointX;
+        startY = e.touches[0].clientY - pointY;
+      } else if (e.touches.length === 2) {
+        isPanning = false;
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        initialPinchDistance = Math.hypot(dx, dy);
+        initialPinchScale = scale;
       }
-      
-      pointX = e.clientX - mapContainer.offsetLeft - xs * scale;
-      pointY = e.clientY - mapContainer.offsetTop - ys * scale;
-      setTransform();
+    }, { passive: false });
+
+    mapContainer.addEventListener('touchmove', (e) => {
+      if (e.target.closest('.map-controls') || e.target.closest('.map-legend')) return;
+      e.preventDefault();
+
+      if (e.touches.length === 1 && isPanning) {
+        pointX = e.touches[0].clientX - startX;
+        pointY = e.touches[0].clientY - startY;
+        updateTransform();
+      } else if (e.touches.length === 2 && initialPinchDistance) {
+        const dx = e.touches[0].clientX - e.touches[1].clientX;
+        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        const currentDistance = Math.hypot(dx, dy);
+        const factor = currentDistance / initialPinchDistance;
+
+        const newScale = Math.min(Math.max(0.15, initialPinchScale * factor), 5.0);
+        
+        // Midpoint zoom
+        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        const rect = mapContainer.getBoundingClientRect();
+        const touchX = midX - rect.left;
+        const touchY = midY - rect.top;
+
+        const xs = (touchX - pointX) / scale;
+        const ys = (touchY - pointY) / scale;
+
+        scale = newScale;
+        pointX = touchX - xs * scale;
+        pointY = touchY - ys * scale;
+
+        updateTransform();
+      }
+    }, { passive: false });
+
+    mapContainer.addEventListener('touchend', (e) => {
+      if (e.touches.length < 2) {
+        initialPinchDistance = null;
+      }
+      if (e.touches.length === 1) {
+        isPanning = true;
+        startX = e.touches[0].clientX - pointX;
+        startY = e.touches[0].clientY - pointY;
+      } else if (e.touches.length === 0) {
+        isPanning = false;
+      }
     });
 
+    // Control Buttons
     document.getElementById('btn-zoom-in').addEventListener('click', () => {
       scale = Math.min(scale * 1.3, 5.0);
-      setTransform();
+      updateTransform();
     });
 
     document.getElementById('btn-zoom-out').addEventListener('click', () => {
-      scale = Math.max(scale / 1.3, 0.4);
-      setTransform();
+      scale = Math.max(scale / 1.3, 0.15);
+      updateTransform();
     });
 
     document.getElementById('btn-zoom-reset').addEventListener('click', () => {
-      scale = 1;
-      pointX = 0;
-      pointY = 0;
-      setTransform();
+      centerMapOnFirstLoad();
     });
   </script>
 </body>
