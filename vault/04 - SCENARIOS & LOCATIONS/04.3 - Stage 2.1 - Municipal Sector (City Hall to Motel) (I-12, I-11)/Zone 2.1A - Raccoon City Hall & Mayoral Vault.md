@@ -8,6 +8,11 @@
 
 ---
 
+## 📢 GM Read-Aloud Box
+> *The heavy bronze-reinforced doors slam shut behind you, cutting off the deafening roar of the burning bus intersection. Inside Raccoon City Hall, the air is cold and smells of polished marble, ozone, and old paper. Crimson emergency beacons pulse along the vaulted limestone rotunda, casting long swaying shadows across the mayoral portraits. Only a handful of zombified city clerks in torn business suits shuffle between the marble pillars, their footsteps echoing through the dead quiet.*
+
+---
+
 ## 🧭 Environment & Layout
 Neoclassical marble halls, vaulted ceilings, and walnut council desks. Emergency red emergency lights bathe the foyer. Zombie density is low (3 wandering city clerks), but all northern exits are sealed by high-voltage magnetic security shutters.
 
@@ -34,3 +39,13 @@ Neoclassical marble halls, vaulted ceilings, and walnut council desks. Emergency
   * **Mayoral Keycard (Level C)**
   * **Shotgun Ammo Box** (⬜⬜⬜⬜⬜⬜ / 6 Shells)
   * Collectible Memo: *Mayor Warren's Emergency Directive*
+
+---
+
+## 🔍 Search Points & Scavenge Table (1d6)
+1. **Security Guard Station:** Suture Kit & Bandages (2 Uses).
+2. **City Clerk Desks:** 1 Box of 9mm Handgun Ammo (15 rounds).
+3. **Council Chamber Podium:** Heavy Ceramic Gavel / Blunt Weapon (⬜⬜).
+4. **Mayor's Private Restroom:** 1 First Aid Spray (1/2 Slot).
+5. **Archive Filing Cabinet:** Lockpick Set (⬜⬜⬜) & 15A Ceramic Fuse.
+6. **Janitor's Closet:** 1 Canister of WD-40 Lubricant Spray.

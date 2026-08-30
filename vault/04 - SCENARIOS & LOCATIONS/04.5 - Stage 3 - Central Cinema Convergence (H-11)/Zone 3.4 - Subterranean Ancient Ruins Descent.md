@@ -19,3 +19,19 @@
   * **Area Noise Clock** resets to **0/6** in the underground stone tunnels.
 * **Transit Outcome:**
   * A 15-minute underground walk leads directly into the lower antique vaults and open courtyard of **[[Sector J-10 - Raccoon City Museum]]**.
+
+---
+
+## 🎲 Environmental Skill Checks
+* **Slick Limestone Stairs:** Navigating the dark, algae-slicked steps down into the aqueduct requires **Finesse TN 11** or a hand-held light source (Failure: Slip and mark 1 Strain from blunt impact).
+* **Rusted Iron Aqueduct Grate:** A heavy drainage gate blocks the exit leading up into the museum basement. Requires **Force TN 12** or an Industrial Crowbar to pry open.
+
+---
+
+## 🔍 Search Points & Scavenge Table (1d6)
+1. **Pre-War Stone Alcove:** Ancient Bronze Dagger (⬜⬜⬜ Durability / Deals 1 damage).
+2. **Maintenance Cache:** 1 Box of 9mm Handgun Ammo (15 rounds) & Zippo Lighter.
+3. **Subterranean Water Sump:** 1 Botanical Blue Herb (B) potted cluster.
+4. **Surveyor's Skeleton:** Heavy Flashlight (⬜⬜⬜) & Typewriter Ink Ribbon (2 Uses).
+5. **Masonry Nook:** 1 First Aid Spray (1/2 Slot).
+6. **Drainage Silt Basin:** 1 Frag Grenade (M67) & Suture Kit.

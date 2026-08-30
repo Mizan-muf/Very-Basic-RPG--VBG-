@@ -32,3 +32,13 @@
 
 ## 🧟 Enemy Encounters
 * **Scene 3 Event:** 2 [[Urban Shambler]]s emerge from the restrooms at the east end of the mezzanine.
+
+---
+
+## 🔍 Search Points & Scavenge Table (1d6)
+1. **Camping Display:** 1 Box of Matches (⬜⬜⬜) & Compact Flashlight (⬜⬜).
+2. **Cash Wrap Counter:** 1 Box of 9mm Handgun Ammo (15 rounds).
+3. **Apparel Rack:** Heavy Leather Biker Jacket (⬜ Armor vs bites).
+4. **Staff Storage:** 1 Botanical Green Herb pot.
+5. **Display Case:** Hunting Crossbow with 5 carbon bolts.
+6. **Maintenance Closet:** 1 Roll of Heavy Duct Tape & Wire Cutters.

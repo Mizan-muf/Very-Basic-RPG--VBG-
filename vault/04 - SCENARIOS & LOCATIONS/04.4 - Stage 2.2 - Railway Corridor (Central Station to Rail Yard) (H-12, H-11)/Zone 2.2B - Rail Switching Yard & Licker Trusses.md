@@ -26,3 +26,13 @@
 ## 🧩 Track Switching Lever Puzzle
 * **Objective:** Align Track Switch #3 to unlock the siding gate leading to Central Cinema.
 * **Mechanics:** Requires **Force TN 13** to throw the rusted iron lever or lubricating the pivot with aerosol oil (**Focus TN 10**).
+
+---
+
+## 🔍 Search Points & Scavenge Table (1d6)
+1. **Maintenance Shed Tool Chest:** Industrial Crowbar (⬜⬜⬜) & Heavy Pipe Wrench (⬜⬜).
+2. **Signal Operator Locker:** 3 High-Intensity Magnesium Road Flares.
+3. **Empty Hopper Wagon:** 1 Box of 9mm Handgun Ammo (15 rounds) & Zippo Lighter.
+4. **Freight Pallet:** 1 Botanical Blue Herb (B) potted container.
+5. **Derailed Handcar:** 1 Canister of WD-40 Aerosol Lubricant & Heavy Duct Tape.
+6. **Trackside Tool Bin:** 1 Frag Grenade (M67) & Suture Bandage Kit.
