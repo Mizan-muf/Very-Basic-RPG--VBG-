@@ -17,7 +17,7 @@
 * **Total Acoustic Isolation:** Deadbolting the reinforced door drops the **Area Noise Clock to 0/6**.
 * **Typewriter Save Terminal:** Vintage Smith-Corona typewriter and ink ribbon cache.
 * **Botanical Rations:** 1 **Red Herb** stem (essential for mixing with Green Herbs to form `G+R` or `G+R+B`).
-* **Medical Supplies:** 1 **First Aid Spray**, 2 **Sterile Pressure Bandages**.
+* **Medical Supplies:** 1 **First Aid Spray**, 1 **Green Herb (G)**.
 * **Ammunition Cache:** **9mm Handgun Box** (15 rounds), **12-Gauge Shotgun Shells** (4 shells).
 
 ---
@@ -30,7 +30,7 @@
 
 ## 🔍 Search Points & Scavenge Table (1d6)
 1. **Bedside Nightstand:** Typewriter Ink Ribbon (3 Uses) & Zippo lighter fluid.
-2. **Bathroom Medicine Cabinet:** 1 Adrenaline Auto-Injector & Sterile Gauze.
+2. **Bathroom Medicine Cabinet:** 1 First Aid Spray (1/2 Slot).
 3. **Motel Office Key Rack:** Master Motel Key (Unlocks adjacent rooms for supply searches).
 4. **Kitchenette Cupboard:** Canned rations (Relieves Hunger / Flavor) & 1 Green Herb planter.
 5. **Underbed Storage:** Steel Gun Box (Locked — .44 Magnum Revolver).

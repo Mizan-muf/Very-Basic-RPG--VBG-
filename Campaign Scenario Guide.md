@@ -61,7 +61,7 @@ Flickering halogen fixtures reflect off a marble fountain. Shoppers carry shoppi
      * *Locked Prescription Cage:* Heavy steel rolling gate requiring a **Lockpicking (Finesse TN 14)** check or **Crowbar (Force TN 16)**.
    * *Scavenge & Loot Table (1d6 or Search Focus TN 12):*
      * `1–2:` **1x Green Herb (G)** (Consumable, recovers 1 Strain / cures Bleeding).
-     * `3–4:` **Antiseptic Gauze Pack** (Recovers 1 Strain, 1 use).
+     * `3–4:` **Green Herb (G)** (Restores 2 Strain, cures Bleeding).
      * `5:` **Pharmaceutical Syringe & Saline** (Can be combined with herbs to create injectable doses).
      * `6 (Locked Cage):` **1x First Aid Spray Bottle** (Restores all Strain, removes Bleeding & Limb Damaged).
 
@@ -169,7 +169,7 @@ Cold concrete walls, exposed overhead water pipes dripping with condensation, an
 
 1. **Parking Structure B Exit Gate (Scene 2 Narrative Event):**
    * *The Incident:* Senior security officers are chaining the industrial roll-up shutter as an aggressive crowd batters the glass.
-   * *NPCs:* Officer Kevin Vance (wounded shoulder) and Arthur Pendelton (applying bandages).
+   * *NPCs:* Officer Kevin Vance (wounded shoulder) and Arthur Pendelton (administering crushed green herbs).
    * *Interactable:* Emergency gate manual winch crank, fire extinguisher cabinet.
    * *Loot:* **Wall-Mounted Fire Axe** (Melee, ⬜⬜⬜ Durability, +1 Force to chopping obstacles).
 
@@ -184,7 +184,7 @@ Cold concrete walls, exposed overhead water pipes dripping with condensation, an
 3. **North Loading Bay (Branch A Staging Ground):**
    * *Environment:* Large open garage with three idling **Blue Municipal Transit Buses (#12, #14, #18)** surrounded by exhaust fumes. Security Chief Raymond Miller is directing civilians aboard.
    * *Interactable:* Bus engine bays, spare tire racks, driver log clipboards.
-   * *Loot:* **Tire Iron** (Blunt weapon), **First Aid Box on Bus #14** (Contains 1x Bandage and 1x Antiseptic).
+   * *Loot:* **Tire Iron** (Blunt weapon), **First Aid Box on Bus #14** (Contains 1x Green Herb).
 
 4. **East Service Backdoor (`K-13` Backdoor to Option B):**
    * *Environment:* Heavy steel fire door leading into the dark alleyway between the **Raccoon Theater** and the **East Power Substation**.

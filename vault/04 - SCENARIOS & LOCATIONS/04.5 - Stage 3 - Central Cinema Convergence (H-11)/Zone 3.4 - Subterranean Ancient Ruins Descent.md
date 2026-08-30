@@ -34,4 +34,4 @@
 3. **Subterranean Water Sump:** 1 Botanical Blue Herb (B) potted cluster.
 4. **Surveyor's Skeleton:** Heavy Flashlight (⬜⬜⬜) & Typewriter Ink Ribbon (2 Uses).
 5. **Masonry Nook:** 1 First Aid Spray (1/2 Slot).
-6. **Drainage Silt Basin:** 1 Frag Grenade (M67) & Suture Kit.
+6. **Drainage Silt Basin:** 1 Frag Grenade (M67) & 1 Blue Herb (B).

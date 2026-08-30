@@ -97,7 +97,7 @@ Zombie bites and biological critical failures advance the track by +1 Stage:
 
 ### Medical Items & Healing Economy
 > [!danger] **STRICT SURVIVAL HORROR HEALING RULE**
-> **Strain restoration is strictly limited to First Aid Sprays and Green Herb mixtures.** Bandages, suture kits, hemostatic gauze, morphine, food rations, and resting do **NOT** restore Strain boxes (they only treat conditions such as Bleeding or Poison).
+> **Medical healing is strictly limited to First Aid Sprays and Medicinal Herbs (Green, Red, Blue, and their compounds).** There are **no bandages, suture kits, or medical dressings** in VBG-Z.
 
 * **Green Herb (G, 1/4 Slot):** Restores 2 Strain, cures Bleeding.
 * **Green + Green (G+G, 1/4 Slot):** Fully restores all 4 Strain, cures Bleeding.

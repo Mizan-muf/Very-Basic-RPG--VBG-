@@ -19,7 +19,7 @@ A fresh 22-year-old recruit on his second month on the job. Terrified, pale from
 
 ## 💉 Triage & Escort Mechanics
 * **Field Triage Check:**
-  * Requires a **Focus TN 12 (Medicine)** check using a **Green Herb** or clean bandage.
+  * Requires a **Focus TN 12 (Medicine)** check using a **Green Herb (G)** or **First Aid Spray**.
   * *Success:* Halts the Bleeding condition; Vance can walk with support.
   * *Failure:* Vance gains +1 Infection Stage every 30 minutes unless administered a `G+B` herb mixture.
 * **Escort Benefit:**

@@ -44,4 +44,4 @@ A 400-seat theater flanked by gold-leaf relief pillars.
 3. **Auditorium Aisle 4:** Dead patron holding 1 Box of .44 Magnum Ammo (6 rounds).
 4. **Under-Stage Trapdoor:** 1 Heavy Fire Axe (⬜⬜⬜).
 5. **Balcony Storage:** 1 First Aid Spray (1/2 Slot).
-6. **Sound Equipment Rack:** Suture Bandage Kit & 20A Ceramic Fuse.
+6. **Sound Equipment Rack:** 1 Botanical Green Herb (G) & 20A Ceramic Fuse.

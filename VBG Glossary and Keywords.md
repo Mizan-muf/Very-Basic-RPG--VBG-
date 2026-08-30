@@ -229,13 +229,11 @@ All medicinal herbs are compact botanical items taking **1/4 Inventory Slot** (u
 * **Green + Red (G+R) [1/4 Slot]:** Fully restores **all 4 Strain boxes** and grants **+1 temporary Armor box** until damaged.
 * **Green + Red + Blue (G+R+B) [1/4 Slot — Master Panacea]:** Fully restores all Strain, cures **all active conditions**, lowers Infection by **-1 Stage**, and grants **+1 temporary Armor box**.
 * **First Aid Spray (FAS) [1/2 Slot]:** Aerosol medical canister. Instantly and fully heals all 4 Strain boxes and cures all physical conditions.
-* **Suture Kit & Sterile Bandages [1/4 Slot — 2 Uses]:** Field trauma supplies used with a Focus (First Aid) TN 12 check to stop Bleeding and patch severe wounds.
 
 #### Clinical Pharmaceuticals & Auto-Injectors
 * **Epinephrine / Adrenaline Auto-Injector [1/4 Slot — 1 Use]:** Instantly clears **Stunned** or **Exhausted** conditions; grants **+2 to physical rolls for 1 round** (1 Strain backlash when it wears off).
 * **Morphine Syrette [1/4 Slot — 1 Use]:** Battlefield analgesic that allows a survivor to ignore all negative dice penalties from injury or missing Strain for 1 scene.
 * **Atropine Antidote Auto-Pen [1/4 Slot — 1 Use]:** Clinical nerve agent and venom antidote. Instantly cleanses **Poisoned** status.
-* **Hemostatic Gauze / QuickClot [1/4 Slot — 2 Uses]:** Kaolin clotting agent that instantly stops **Bleeding** in 1 action without a medical roll.
 * **T-Virus Suppressant (UMB-7 Antiviral) [1/4 Slot — 1 Use]:** Monoclonal antibody serum. Halts the Infection Track for 24 hours or rolls back Infection Stage by -1.
 
 ---
@@ -319,7 +317,6 @@ All medicinal herbs are compact botanical items taking **1/4 Inventory Slot** (u
 | **Adrenaline Syrette** | Pharma | 1/4 Slot | — | 1 Use | Clears Stun; +2 physical rolls 1 rnd |
 | **Morphine Syrette** | Pharma | 1/4 Slot | — | 1 Use | Ignores injury penalties for 1 scene |
 | **Atropine Auto-Pen** | Pharma | 1/4 Slot | — | 1 Use | Instantly neutralizes poison toxins |
-| **QuickClot Gauze** | Pharma | 1/4 Slot | — | 2 Uses | Stops Bleeding without check |
 | **T-Virus Suppressant** | Pharma | 1/4 Slot | — | 1 Use | Halts Infection Track for 24h |
 | **Chemical Fluid (Std)** | Reagent | 1/4 Slot | — | 1 Bottle | Base for First Aid Spray / Acid |
 | **Chemical Fluid (High)**| Reagent | 1/4 Slot | — | 1 Bottle | Base for 40mm grenades / Antiviral |

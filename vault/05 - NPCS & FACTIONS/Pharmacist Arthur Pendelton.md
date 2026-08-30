@@ -6,7 +6,7 @@
 * **Inventory (4 Slots):**
   * Slot 1: **Botanical Herb Mortar & Pestle** (Grants +2 on Herb Synthesis checks)
   * Slot 2: **Green Herb Bundle** (Pure mountain Arklay herb, 2 uses)
-  * Slot 3: **Prescription Meds Case** (Sutures, antiseptic spray, sterile gauze)
+  * Slot 3: **Botanical Herb Case** (2 Green Herbs, 1 Blue Herb, Mortar & Pestle)
   * Slot 4: **Heavy Ceramic Mortar** (Improvised Melee weapon: ⬜⬜ Durability)
 
 ---

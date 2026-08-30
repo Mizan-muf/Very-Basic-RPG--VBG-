@@ -41,7 +41,6 @@ Survivors with basic tools or the **Field Chemist / Reloading** traits can compo
 * **Epinephrine / Adrenaline Auto-Injector (1/4 Slot — 1 Use):** High-dose adrenaline syrette. Consumed to instantly clear the **Stunned** or **Exhausted** condition and grant +2 to Finesse/Force rolls for 1 round. (Causes 1 Strain backlash when it wears off).
 * **Morphine Syrette (1/4 Slot — 1 Use):** Tactical battlefield analgesic. Suppresses physical pain, allowing a survivor to ignore all negative dice penalties from injury or missing Strain boxes for 1 scene.
 * **Atropine Antidote Auto-Pen (1/4 Slot — 1 Use):** Clinical nerve agent and bio-toxin antidote. Instantly cures the **Poisoned** condition and cleanses bloodstream toxins.
-* **Hemostatic Gauze / QuickClot Powder (1/4 Slot — 2 Uses):** Mineral kaolin powder that causes instant blood clotting. Stops the **Bleeding** condition in 1 action without requiring a medical check.
 * **T-Virus Suppressant Injection (UMB-7 Antiviral) (1/4 Slot — 1 Use):** Experimental monoclonal antibody serum developed by Umbrella Pharmaceuticals. Halts the Infection Track for 24 hours or rolls back Infection Stage by -1.
 
 ---

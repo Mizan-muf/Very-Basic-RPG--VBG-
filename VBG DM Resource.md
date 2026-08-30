@@ -104,4 +104,4 @@ Every active sector or building floor operates on a **0 to 6 Tick Noise Clock**:
 
 ### Strict Healing Economy (Herbs & FAS Only)
 * **No Natural HP Regeneration:** Safe room rests and downtime scenes do NOT restore Strain boxes.
-* **Only Herbs & First Aid Spray Heal Strain:** Field dressings, bandages, and suture kits only cure the **Bleeding** condition. Food and rations only satisfy hunger or narrative needs. Strain can ONLY be recovered by consuming Green Herbs (or Green Herb compounds) or First Aid Sprays.
+* **Strict Medical Items (Herbs & First Aid Spray Only):** In VBG-Z survival horror, all medical recovery, Strain healing, and condition treatment is strictly limited to **First Aid Sprays** and **Medicinal Herbs** (Green, Red, Blue, and their compounds). There are NO bandages, suture kits, or medical dressings in the game.

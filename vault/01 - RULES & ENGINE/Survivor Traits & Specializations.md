@@ -124,7 +124,7 @@
 
 ### 3. Field Medicine & Triage
 * **Minor (0 Strain):** *Rapid Diagnostic* — Instantly identify an ally’s exact Infection Stage, internal fractures, or wound severity with a glance.
-* **Standard (1 Strain):** *Combat Suture* — Clear the **Bleeding** condition from yourself or an adjacent ally in a single action without consuming an herb.
+* **Standard (1 Strain):** *Field Tourniquet* — Clear the **Bleeding** condition from yourself or an adjacent ally in a single action without consuming an herb.
 * **Major (2 Strain):** *Emergency Adrenaline* — Administer an emergency adrenaline jolt to a Downed ally, stabilizing them to 1 Strain immediately.
 
 ### 4. Structural Fortification & Traps

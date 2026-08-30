@@ -43,7 +43,7 @@ Neoclassical marble halls, vaulted ceilings, and walnut council desks. Emergency
 ---
 
 ## 🔍 Search Points & Scavenge Table (1d6)
-1. **Security Guard Station:** Suture Kit & Bandages (2 Uses).
+1. **Security Guard Station:** 1 Botanical Green Herb (G) potted cluster.
 2. **City Clerk Desks:** 1 Box of 9mm Handgun Ammo (15 rounds).
 3. **Council Chamber Podium:** Heavy Ceramic Gavel / Blunt Weapon (⬜⬜).
 4. **Mayor's Private Restroom:** 1 First Aid Spray (1/2 Slot).

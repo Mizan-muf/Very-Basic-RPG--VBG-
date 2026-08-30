@@ -35,4 +35,4 @@
 3. **Empty Hopper Wagon:** 1 Box of 9mm Handgun Ammo (15 rounds) & Zippo Lighter.
 4. **Freight Pallet:** 1 Botanical Blue Herb (B) potted container.
 5. **Derailed Handcar:** 1 Canister of WD-40 Aerosol Lubricant & Heavy Duct Tape.
-6. **Trackside Tool Bin:** 1 Frag Grenade (M67) & Suture Bandage Kit.
+6. **Trackside Tool Bin:** 1 Frag Grenade (M67) & 1 Green Herb (G).

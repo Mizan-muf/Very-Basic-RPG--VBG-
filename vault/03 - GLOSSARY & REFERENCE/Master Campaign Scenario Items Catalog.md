@@ -81,7 +81,6 @@ A comprehensive tactical database and index of all scenario items, search table 
 * **Green Herb / Planter / Bundle** (*Multi-Zone*) — Base healing herb stem (Cures Bleeding; does not restore Strain).
 * **Red Herb** (*Stage 1 Zone 1.3, Stage 2.1 Zone 2.1C*) — Potent botanical synthesizer (Combines with Green Herb for G+R Full-Heal).
 * **Blue Herb / Pot** (*Stage 2 Plaza, Stage 2.2 Zone 2.2A, Stage 3 Zone 3.2*) — Toxin neutralizing herb (Cures Poison, reduces Infection).
-* **First Aid Bandages / Sterile Pressure Bandages** (*Multi-Zone*) — Field medical dressings (Cures Bleeding; does not restore Strain).
 * **First Aid Spray Canister** (*Multi-Zone*) — Full medical spray canister (Full Strain restoration, cures all physical conditions).
 * **Emergency Flare / Flare Box** (*Stage 2 Node 2.3, Stage 2.2 Zone 2.2A*) — Magnesium heat flare (Blinds/distracts Lickers for 2 turns).
 * **Food Rations** (*Stage 3, Zone 3.1*) — Packaged food rations (Emergency Food Rations).
@@ -96,8 +95,7 @@ A comprehensive tactical database and index of all scenario items, search table 
 * **Search Table Loot (1d6 Roll Table):**
   - **Roll 1–2:** Discarded shopping bags / Broken cosmetics (Nothing).
   - **Roll 3:** **Pocket Penlight** (Illuminates Close band, ⬜⬜ Durability).
-  - **Roll 4:** **First Aid Bandages** (Cures Bleeding; does not restore Strain).
-  - **Roll 5:** **Green Herb Planter** (1 Green Herb stem from fountain planter).
+  - **Roll 4:*  - **Roll 5:** **Green Herb Planter** (1 Green Herb stem from fountain planter).
   - **Roll 6:** **Box of 9mm Handgun Ammo** (1d6+4 rounds behind Pharm-Plus checkout).
 * **Access Control:** **Keycard Level B** (Freight Elevator lock bypass).
 * **NPC Gear (Pharmacist Pendelton):** Botanical Mortar & Pestle (+2 Synthesis), Green Herb Bundle (2 uses), Prescription Meds Case, Heavy Ceramic Mortar (⬜⬜ Durability).
@@ -129,8 +127,7 @@ A comprehensive tactical database and index of all scenario items, search table 
 
 #### [[Node 2.1 - Branch A (The Bus Convoy Route)]]
 * **Passenger Scavenge (Under Seat 4):** **Tire Iron** (⬜⬜ Durability / Deals 1 damage, +1 Force).
-* **Overhead Rack Cache:** **First Aid Bandages** (Cures Bleeding; does not restore Strain).
-
+* **Overhead Rack Cache:*
 #### [[Node 2.2 - Branch B (The East River Run)]]
 * **Maintenance Skiff Search:**
   - **Industrial Flashlight** (Illuminates Far band, ⬜⬜⬜ Durability).
@@ -166,7 +163,7 @@ A comprehensive tactical database and index of all scenario items, search table 
 #### [[Zone 2.1C - St. Michael Motel & Room 104 Safe Room]]
 * **Safe Room Amenities:** Typewriter Save Terminal & Ink Ribbon Cache, Hand-Painted Motel Sign.
 * **Botanical Rations:** 1 **Red Herb** stem.
-* **Medical Supplies:** 1 **First Aid Spray**, 2 **Sterile Pressure Bandages**.
+* **Medical Supplies:** 1 **First Aid Spray**, 1 **Green Herb (G)**.
 * **Ammunition Cache:** **9mm Handgun Box** (15 rounds), **12-Gauge Shotgun Shells** (4 shells).
 
 ---
@@ -280,5 +277,4 @@ A comprehensive tactical database and index of all scenario items, search table 
 | **Red Herb** | Consumable | Zone 1.3 / 2.1C | 1/4 Slot | Mixes with Green Herb for G+R Full-Heal |
 | **Blue Herb** | Consumable | Plaza / 2.2A / 3.2 | 1/4 Slot | Cures Poisoning; lowers Virus Infection |
 | **First Aid Spray Canister** | Consumable | Multi-Zone | 1 Full Slot | Restores full Strain; cures all physical conditions |
-| **First Aid / Sterile Bandages** | Consumable | Multi-Zone | 1/4 Slot | Cures Bleeding; does not restore Strain |
 | **Food Rations** | Consumable | Zone 3.1 Counter | 2 Rations | Emergency Food Supplies |
