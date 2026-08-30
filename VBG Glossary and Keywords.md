@@ -136,61 +136,205 @@ Combat is player-facing and structured around four intuitive **Distance & Reach 
 
 ## 6. COMPLETE ITEMS & EQUIPMENT CATALOG
 
-Every character begins with a strict base capacity of **4 Inventory Slots**.
+Every character begins with a strict base capacity of **4 Inventory Slots**. Larger items occupy 1 to 2 full slots; compact consumables stack up to 4 per slot (1/4 Slot each).
+
+---
 
 ### A. WEAPONS CATALOG
 
-#### Firearms & Ranged Weapons
-* **Handgun / Pistol (1 Slot):**
-  * *Ammo Type & Storage:* 9mm Ammo Box (15 rounds = 1/4 Slot).
+#### 1. Firearms & Ranged Weapons
+* **Handgun / Standard 9mm Pistol (1 Slot):**
+  * *Ammo & Storage:* 9mm Ammo Box (15 rounds = 1/4 Slot). Scavenged sidearms start with 6–8 rounds loaded.
   * *Noise Generated:* **+1 Tick** per shot.
-  * *Reliability:* Standard sidearm; effective at Close and Near ranges.
-* **Shotgun (2 Slots):**
-  * *Ammo Type & Storage:* 12-Gauge Shells Box (6 shells = 1/4 Slot).
+  * *Range & Tactical Use:* Effective at Close and Near ranges. Expending 1 shot allows an immediate defensive grab counter against standard shamblers.
+  * *Malfunction Rule:* Rolling a Natural 1 causes a mechanical jam (cleared with 1 Major Action or Focus TN 10 check).
+* **12-Gauge Pump-Action Shotgun / Riot Shotgun (2 Slots):**
+  * *Ammo & Storage:* 12-Gauge Shells Box (6 shells = 1/4 Slot). Internal tube capacity: 4 shells.
   * *Noise Generated:* **+2 Ticks** per shot.
-  * *Special Rule (Stopping Power):* Staggers charging enemies on Clean Success; hits up to 2 adjacent targets at Close range.
-* **Hunting / Tactical Rifle (2 Slots):**
-  * *Ammo Type & Storage:* Rifle Ammo Box (5 rounds = 1/4 Slot).
+  * *Stopping Power:* Deals 2 damage at Close range; hits up to 2 adjacent clustered enemies in a forward cone. Double damage on point-blank called shots against B.O.W. weakpoints.
+* **Custom Shotgun Barrel Extension (1/2 Slot / Mod):**
+  * *Weapon Upgrade:* Attaches to 12-Gauge Shotguns. Tightens pellet spread, granting **+1 to attack rolls at Far range**.
+* **Hunting / Tactical Bolt-Action Rifle (2 Slots):**
+  * *Ammo & Storage:* Rifle Ammo Box (5 rounds = 1/4 Slot). Internal magazine: 5 rounds.
   * *Noise Generated:* **+2 Ticks** per shot.
-  * *Special Rule (Penetration):* Extreme range marksmanship; bypasses 1 Armor box on Clean Success.
-* **Magnum Revolver (1 Slot):**
-  * *Ammo Type & Storage:* Magnum Ammo Box (6 rounds = 1/4 Slot). Rare.
+  * *Penetrating Kinetic:* Extreme range marksmanship. Bypasses 1 Armor box on clean success.
+* **Assault Rifle (5.56mm) (2 Slots):**
+  * *Ammo & Storage:* 5.56mm Magazine (30 rounds = 1/2 Slot).
+  * *Noise Generated:* **+2 Ticks** (semi-auto) / **+3 Ticks** (burst/suppressive fire).
+  * *Fire Modes:* 1 shot single-fire, 3-round burst (+1 damage), or full-auto spray (attacks all enemies in a Close cone).
+* **Magnum Revolver (.44 / .50 AE) (1 Slot):**
+  * *Ammo & Storage:* Magnum Ammo Box (6 rounds = 1/4 Slot). Cylinder capacity: 6 rounds. Very Rare.
   * *Noise Generated:* **+3 Ticks** per shot.
-  * *Special Rule (Lethal Kinetic):* Bypasses mundane armor; inflicts critical damage on B.O.W. weak points.
+  * *Lethal Kinetic:* Bypasses all mundane armor; instantly severs limbs or neutralizes tier-2 B.O.W. threats on clean hits.
+* **Grenade Launcher (40mm Break-Action) (2 Slots):**
+  * *Ammo & Storage:* 40mm Rounds (2 rounds = 1/4 Slot). Holds 1 round in breech.
+  * *Noise Generated:* **+3 Ticks** on detonation.
+  * *Ordnance Varieties:* Compatible with Explosive Rounds (area blast), Flame Rounds (inflicts Burning), and Acid Rounds (melts armored carapaces).
+* **Flare Gun / Signal Launcher (1 Slot):**
+  * *Ammo & Storage:* Magnesium Flares (3 flares = 1/4 Slot). Holds 1 flare loaded.
+  * *Noise Generated:* **+1 Tick**.
+  * *Decoy & Illumination:* Burns for 60 seconds with intense 2,000-lumen light and heat. Distracts blind acoustic predators (Lickers) and ignites volatile fuel spills.
+* **Hunting Crossbow / Compound Bow (2 Slots):**
+  * *Ammo & Storage:* Carbon Bolts (5 bolts = 1/4 Slot).
+  * *Noise Generated:* **0 Ticks (Silent)**.
+  * *Recovery:* Unbroken bolts can be retrieved from defeated corpses after combat.
 
-#### Firearm Malfunction & Reload Mechanics
-* **Firearm Jamming:** Rolling a **Natural 1** on a firearm attack causes a mechanical jam. The shot does not fire. Clearing the jam requires **1 Major Action** (or passing a Focus TN 10 check as a Minor Action).
-* **Reload Action Economy:** Firearms hold 1 internal magazine/cylinder. Loading fresh ammunition from a carried ammo box requires **1 Major Action**.
+#### 2. Melee Weapons & Durability (⬜⬜⬜)
+* **Combat Knife / Tactical Dagger (1/2 Slot — ⬜⬜⬜ Durability):**
+  * *Silent Defense:* 0 Noise. Can be expended (costs 1 Durability box) to auto-counter an incoming bite grab.
+* **Pocket Knife / Switchblade (1/2 Slot — ⬜⬜ Durability):**
+  * *Concealed Blade:* Light utility tool for cutting cords, fabric, and emergency defense.
+* **Wall-Mounted Fire Axe (1 Slot — ⬜⬜⬜ Durability):**
+  * *Heavy Chopper:* Grants **+2 on Force rolls** when prying barricades, hacking wooden doors, or executing called headshots.
+* **Industrial Crowbar (1 Slot — ⬜⬜⬜ Durability):**
+  * *Breaching Tool:* Grants **+2 on Force rolls** to pry open elevator doors, rusted security gates, or train compartments.
+* **Heavy Pipe Wrench (1 Slot — ⬜⬜ Durability):**
+  * *Industrial Blunt:* Heavy bludgeon and plumbing tool used to turn frozen steam valves or break padlocks.
+* **Machete (1 Slot — ⬜⬜⬜ Durability):**
+  * *Clearing Blade:* Effective against thick vines, debris, and roamer hordes.
+* **Brass Fire Extinguisher (1 Slot — ⬜⬜ Durability):**
+  * *Improvised Blunt & Smokescreen:* Heavy brass canister. Can be discharged to create a chemical cloud granting total visual concealment for 1 round.
+* **Durability Mechanics:** 1 Durability box is marked on an attack Failure or Success with Cost. When all boxes are marked, the item breaks permanently. Durability cannot be repaired.
 
-#### Melee Weapons & Durability (⬜⬜⬜)
-* **Combat Knife / Tactical Blade (1 Slot):** 3 Durability Boxes. Used for close-quarters fighting and instant grab counter-attacks.
-* **Fireaxe / Crowbar / Sledgehammer (2 Slots):** 3 Durability Boxes. Adds **+1 to Force rolls** when breaching reinforced doors or crushing armored skulls.
-* **Durability Loss:** 1 Durability Box is checked on an attack **Failure** or when chosen as the cost on a **Success with Cost**. When all 3 boxes are checked, the weapon breaks permanently and is discarded. Durability cannot be repaired; survivors must scavenge new weapons.
+#### 3. Explosives & Incendiaries
+* **Molotov Cocktail (1/2 Slot):** Improvised gasoline/alcohol bottle with rag wick. Covers a 10ft radius in flames, inflicts the **Burning** condition, and permanently prevents V-ACT Crimson Head resurrection.
+* **M67 Fragmentation Grenade (1/2 Slot):** High-explosive military grenade. Deals 3 damage to all enemies within Close radius. Generates +3 Noise.
+* **Flashbang / Tactical Stun Grenade (1/2 Slot):** Disorients sighted enemies for 1 round; completely scrambles Licker auditory echolocation.
+* **High-Intensity Magnesium Road Flares (1/4 Slot — Pack of 3):** 60-second pyrotechnic burn. Used to cauterize corpses or mark extraction landing zones.
 
 ---
 
-### B. ARMOR & PROTECTIVE GEAR
+### B. ARMOR & TACTICAL PROTECTIVE GEAR
 
 Armor provides external protection boxes (⬜). When taking damage, players check off 1 Armor box instead of losing Strain.
 
-* **Leather / Reinforced Jacket (1 Slot):** Grants **⬜ (1 Armor Box)**. Light protection against scratches and minor shrapnel.
-* **Ballistic / Kevlar Vest (1 Slot):** Grants **⬜⬜ (2 Armor Boxes)**. Standard police/security vest designed to stop handgun fire and blunt impacts.
-* **Tactical Riot Armor (2 Slots):** Grants **⬜⬜⬜ (3 Armor Boxes)**. Heavy military/SWAT protective suit. *Drawback:* Applies **-1 to Finesse sprint/flee rolls**.
+* **Heavy Leather / Biker Jacket (1 Slot):** Grants **⬜ (1 Armor Box)**. Light protection against bites, claw scratches, and minor shrapnel.
+* **R.P.D. Ballistic Kevlar Vest (1 Slot):** Grants **⬜⬜ (2 Armor Boxes)**. Standard police vest designed to absorb handgun fire and blunt trauma.
+* **Tactical SWAT / Riot Armor (2 Slots):** Grants **⬜⬜⬜ (3 Armor Boxes)**. Full-body composite tactical suit. *Drawback:* Applies **-1 to Finesse sprint/flee rolls**.
+* **Firefighter Bunker Coat & Helmet (1 Slot — ⬜ Armor):** Heavy thermal gear. Grants total immunity to ambient smoke and reduces fire/steam damage by half.
+* **Gas Mask / Chemical Respirator (1/2 Slot):** Protects wearer against airborne spores, biological mists, and toxic nerve gas.
 
 ---
 
-### C. HEALING & MEDICAL ITEMS
+### C. HEALING, PHARMACEUTICALS & BOTANICAL SUPPLIES
 
-All medicinal herbs are compact items taking **1/4 Inventory Slot** (up to 4 herbs or mixes can stack in 1 slot). First Aid Sprays occupy **1 Full Slot**.
+All medicinal herbs are compact botanical items taking **1/4 Inventory Slot** (up to 4 herbs or mixes stack in 1 slot). First Aid Sprays occupy **1/2 to 1 Slot**.
 
-* **Green Herb (G) [1/4 Slot]:** Restores **1 Strain**; cures **Bleeding**.
-* **Green + Green (G+G) [1/4 Slot]:** Restores **3 Strain**; cures **Bleeding**.
-* **Green + Blue (G+B) [1/4 Slot]:** Restores **1 Strain**, cures **Bleeding & Poisoned**, and lowers Virus Infection by **-1 Stage**.
-* **Green + Red (G+R) [Full-Heal, 1/4 Slot]:** Fully restores Strain to maximum (10); cures **Bleeding & Limb Damaged**.
-* **Green + Red + Blue (G+R+B) [Miracle Mix, 1/4 Slot]:** Fully restores Strain to maximum, cures **all conditions**, and lowers Virus Infection by **-1 Stage**.
-* **First Aid Spray [1 Full Slot]:** Fully restores Strain to maximum and cures **all physical conditions** (Bleeding, Poisoned, Limb Damaged).
+#### Botanical Herbs & Formulations
+* **Green Herb (G) [1/4 Slot]:** Native Arklay medicinal leaf. Restores **2 Strain boxes**; cures **Bleeding**.
+* **Red Herb (R) [1/4 Slot]:** Multiplier catalyst plant. Inactive on its own; triples the biological potency of Green Herb mixes.
+* **Blue Herb (B) [1/4 Slot]:** Antidote herb. Cures **Poisoned** condition and lowers current Infection Track by **-1 Stage**.
+* **Green + Green (G+G) [1/4 Slot]:** Restores **all 4 Strain boxes**; cures **Bleeding**.
+* **Green + Blue (G+B) [1/4 Slot]:** Restores **2 Strain boxes**, cures **Bleeding & Poisoned**, and lowers Infection by **-1 Stage**.
+* **Green + Red (G+R) [1/4 Slot]:** Fully restores **all 4 Strain boxes** and grants **+1 temporary Armor box** until damaged.
+* **Green + Red + Blue (G+R+B) [1/4 Slot — Master Panacea]:** Fully restores all Strain, cures **all active conditions**, lowers Infection by **-1 Stage**, and grants **+1 temporary Armor box**.
+* **First Aid Spray (FAS) [1/2 Slot]:** Aerosol medical canister. Instantly and fully heals all 4 Strain boxes and cures all physical conditions.
+* **Suture Kit & Sterile Bandages [1/4 Slot — 2 Uses]:** Field trauma supplies used with a Focus (First Aid) TN 12 check to stop Bleeding and patch severe wounds.
+
+#### Clinical Pharmaceuticals & Auto-Injectors
+* **Epinephrine / Adrenaline Auto-Injector [1/4 Slot — 1 Use]:** Instantly clears **Stunned** or **Exhausted** conditions; grants **+2 to physical rolls for 1 round** (1 Strain backlash when it wears off).
+* **Morphine Syrette [1/4 Slot — 1 Use]:** Battlefield analgesic that allows a survivor to ignore all negative dice penalties from injury or missing Strain for 1 scene.
+* **Atropine Antidote Auto-Pen [1/4 Slot — 1 Use]:** Clinical nerve agent and venom antidote. Instantly cleanses **Poisoned** status.
+* **Hemostatic Gauze / QuickClot [1/4 Slot — 2 Uses]:** Kaolin clotting agent that instantly stops **Bleeding** in 1 action without a medical roll.
+* **T-Virus Suppressant (UMB-7 Antiviral) [1/4 Slot — 1 Use]:** Monoclonal antibody serum. Halts the Infection Track for 24 hours or rolls back Infection Stage by -1.
 
 ---
+
+### D. CHEMICAL SUPPLIES, GUNPOWDER & COMPOUNDING REAGENTS
+*See complete crafting tables and recipes in **[[Chemical Supplies and Compounding Catalog]]**.*
+
+* **Standard Chemical Fluid [1/4 Slot]:** Distilled alcohol, mineral oil, and propellant base. Combined with Green Herbs for First Aid Sprays or Gunpowder A for Acid Vials.
+* **High-Grade Chemical Fluid [1/4 Slot]:** Industrial nitric acid solvent used to synthesize 40mm Grenade rounds and Antiviral serums.
+* **Gunpowder Type A (Coarse Nitrocellulose) [1/4 Slot]:** Fast-burning pistol powder (Black container).
+* **Gunpowder Type B (Fine Double-Base) [1/4 Slot]:** Dense shotgun propellant (Yellow container).
+* **High-Grade Gunpowder [1/4 Slot]:** Pure military smokeless propellant (White container).
+* **Sulfuric & Battery Acid Vials [1/4 Slot]:** Corrosive electrolyte fluid used to craft Acid Rounds or dissolve mechanical locks.
+* **Liquid Nitrogen Canister [1 Slot]:** Pressurized cryogenic refrigerant that flash-freezes obstacles and B.O.W. tissue.
+* **Umbrella Bio-Chemicals (UMB No.3, NP-003, VP-017, V-JOLT) [1 Slot]:** Proprietary viral catalysts and biological herbicides.
+
+---
+
+### E. SURVIVAL TOOLS, HARDWARE & EXPLORATION GEAR
+
+* **Handheld Heavy Flashlight [1/2 Slot — ⬜⬜⬜ Durability]:** Battery-powered beam for dark corridors. (Can attract visual-based shamblers if toggled carelessly).
+* **Zippo Lighter / Waterproof Matches [1/4 Slot — ⬜⬜⬜ Durability]:** Lights torches, magnesium fuses, candles, and Molotov cocktails.
+* **Lockpick Set [1/4 Slot]:** Precision tension wrenches and picks. Used with **Finesse (Lockpicking) TN 12–16** checks to open display cases, desk drawers, and security padlocks.
+* **Bolt Cutters [1 Slot — ⬜⬜⬜ Durability]:** Heavy steel cutters used to snip chain-link fences, padlocked chains, and steel security cables.
+* **Typewriter Ink Ribbon [1/4 Slot — 2–3 Uses]:** Classic save token used at manual typewriters in designated Safe Rooms.
+* **Emergency Square Crank [1 Slot]:** Mechanical cast-iron hand tool used to manually lower steel fire shutters, operate floodgates, or raise stage elevators.
+* **15A / 20A Industrial Ceramic Fuses [1/4 Slot]:** Electrical fuses required to restore power to dead breaker panels and maglock security doors.
+* **Botanical Mortar & Pestle [1/4 Slot — ⬜⬜⬜ Durability]:** Ceramic/marble grinder required for dual and triple herb synthesis.
+* **Aerosol Lubricant / WD-40 [1/4 Slot]:** Spray lubricant that unfreezes rusted valves, hinges, and padlocks (+2 on mechanical checks).
+* **Graduated Glass Pipette & Beaker Set [1/4 Slot]:** Precision glassware for chemical titration and solvent dilution.
+
+---
+
+### F. KEYCARDS & ACCESS CONTROL KEYS
+
+* **Level 1 / Level B Security Keycard (Blue):** Accesses Galleria parking gates, staff maintenance sub-levels, and mall security breakrooms.
+* **Level 2 / Level C Mayoral Keycard (Red):** Accesses City Hall executive wings, CCTV server vaults, and mayoral inner archives.
+* **Stationmaster's Brass Master Key:** Unlocks elevated rail control booths, track switching terminals, and luggage storage lockers.
+* **Cinema Ticket Booth Key:** Unlocks Central Cinema manager's office, projection suites, and staff green rooms.
+* **Bronze Eagle Seal / Mayoral Relief:** Ornate metallic crest inserted into City Hall clockwork mechanisms.
+
+---
+
+### G. QUEST ITEMS & PUZZLE RELICS
+
+* **Silver Film Canister ("The Alchemist of Arklay — 1934") [1/2 Slot]:** Rare vintage nitrate film reel recovered from the Cinema Manager's wall safe.
+* **Brass Projection Lens & Optical Prism [1/2 Slot]:** High-precision optical prism used to focus carbon-arc light onto proscenium photoelectric sensors.
+* **Track Switching Lever #3 [1 Slot]:** Detachable cast-iron mechanical handle required to align railway track points in the freight yard.
+* **Mayor Warren's Ivory Letter Opener [1/4 Slot]:** Decorative engraved blade bearing numerical cipher clues for the mayoral vault safe.
+
+---
+
+### H. MASTER QUICK-REFERENCE ITEM INDEX
+
+| Item Name | Category | Slot Size | Noise Impact | Durability / Capacity | Special Properties |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Handgun (9mm)** | Firearm | 1 Slot | +1 Tick | 15 Rnds / ⬜⬜⬜ | Close/Near range; grab counter |
+| **Shotgun (12-Gauge)** | Firearm | 2 Slots | +2 Ticks | 4 Shells / ⬜⬜⬜ | Close cone attack; stopping power |
+| **Shotgun Barrel Ext.** | Mod | 1/2 Slot | — | — | +1 to Far range rolls |
+| **Hunting Rifle** | Firearm | 2 Slots | +2 Ticks | 5 Rnds / ⬜⬜⬜ | Extreme range; armor penetration |
+| **Assault Rifle (5.56)** | Firearm | 2 Slots | +2 / +3 Ticks | 30 Rnds / ⬜⬜⬜ | Single, Burst, or Full-Auto cone |
+| **Magnum (.44)** | Firearm | 1 Slot | +3 Ticks | 6 Rnds / ⬜⬜⬜ | Armor piercing; massive kinetic damage |
+| **Grenade Launcher** | Firearm | 2 Slots | +3 Ticks | 1 Rnd / ⬜⬜⬜ | Explosive, Flame, or Acid rounds |
+| **Flare Gun** | Firearm | 1 Slot | +1 Tick | 1 Flare / ⬜⬜⬜ | Distracts Lickers; 60s burn |
+| **Combat Knife** | Melee | 1/2 Slot | 0 Ticks | ⬜⬜⬜ | Grab counter defense |
+| **Fire Axe** | Melee | 1 Slot | 0 Ticks | ⬜⬜⬜ | +2 on Force breaching checks |
+| **Industrial Crowbar** | Melee / Tool | 1 Slot | 0 Ticks | ⬜⬜⬜ | +2 on Force prying checks |
+| **Pipe Wrench** | Melee / Tool | 1 Slot | 0 Ticks | ⬜⬜ | Valve operation; blunt trauma |
+| **Molotov Cocktail** | Explosive | 1/2 Slot | +1 Tick | 1 Use | 10ft fire pool; prevents V-ACT |
+| **Frag Grenade** | Explosive | 1/2 Slot | +3 Ticks | 1 Use | 3 Area damage in Close radius |
+| **Flashbang** | Explosive | 1/2 Slot | +2 Ticks | 1 Use | Stuns sighted enemies / Lickers |
+| **Kevlar Vest** | Armor | 1 Slot | — | ⬜⬜ Armor | Absorbs damage 1:1 before Strain |
+| **Riot Armor** | Armor | 2 Slots | — | ⬜⬜⬜ Armor | 3 Armor boxes; -1 Finesse sprint |
+| **Green Herb (G)** | Medical | 1/4 Slot | — | 1 Use | Heals 2 Strain; cures Bleeding |
+| **Red Herb (R)** | Medical | 1/4 Slot | — | 1 Use | Catalyst; multiplies Green herb |
+| **Blue Herb (B)** | Medical | 1/4 Slot | — | 1 Use | Cures Poison; -1 Infection Stage |
+| **G+G Herb Mix** | Medical | 1/4 Slot | — | 1 Use | Full Strain restore (4 boxes) |
+| **G+R Herb Mix** | Medical | 1/4 Slot | — | 1 Use | Full Strain restore + 1 temp Armor |
+| **G+R+B Herb Mix** | Medical | 1/4 Slot | — | 1 Use | Full heal + condition cure + temp Armor |
+| **First Aid Spray** | Medical | 1/2 Slot | — | 1 Use | Full Strain restore & condition cure |
+| **Adrenaline Syrette** | Pharma | 1/4 Slot | — | 1 Use | Clears Stun; +2 physical rolls 1 rnd |
+| **Morphine Syrette** | Pharma | 1/4 Slot | — | 1 Use | Ignores injury penalties for 1 scene |
+| **Atropine Auto-Pen** | Pharma | 1/4 Slot | — | 1 Use | Instantly neutralizes poison toxins |
+| **QuickClot Gauze** | Pharma | 1/4 Slot | — | 2 Uses | Stops Bleeding without check |
+| **T-Virus Suppressant** | Pharma | 1/4 Slot | — | 1 Use | Halts Infection Track for 24h |
+| **Chemical Fluid (Std)** | Reagent | 1/4 Slot | — | 1 Bottle | Base for First Aid Spray / Acid |
+| **Chemical Fluid (High)**| Reagent | 1/4 Slot | — | 1 Bottle | Base for 40mm grenades / Antiviral |
+| **Gunpowder (A / B)** | Munitions | 1/4 Slot | — | 1 Canister | Compounded into handgun/shotgun ammo |
+| **Flashlight** | Tool | 1/2 Slot | — | ⬜⬜⬜ | Illuminates dark corridors |
+| **Lockpick Set** | Tool | 1/4 Slot | — | ⬜⬜⬜ | Opens locks (Finesse TN 12–16) |
+| **Bolt Cutters** | Tool | 1 Slot | — | ⬜⬜⬜ | Cuts chains, fences, cables |
+| **Typewriter Ribbon** | Save Item | 1/4 Slot | — | 2–3 Uses | Saves game state at safe rooms |
+| **Ceramic Fuses (15A)** | Hardware | 1/4 Slot | — | 1 Use | Restores power to breaker panels |
+| **Level B Keycard** | Key | 1/4 Slot | — | Infinite | Accesses Galleria service sub-levels |
+| **Level C Keycard** | Key | 1/4 Slot | — | Infinite | Accesses City Hall executive suites |
+| **Silver Film Canister** | Puzzle | 1/2 Slot | — | 1 Reel | Proscenium optical puzzle item |
+| **Brass Lens & Prism** | Puzzle | 1/2 Slot | — | 1 Set | Aligns projector light beam |
+| **Track Switch Lever** | Puzzle | 1 Slot | — | 1 Use | Aligns freight rail tracks |
+
 
 ## 7. THE AREA NOISE CLOCK ENGINE
 
