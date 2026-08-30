@@ -50,6 +50,8 @@
 * ☣️ **[[GM Survival Horror Compendium]]** — Area Noise Clock, Ammo economy, 24h asynchronous side-initiative.
 * 👾 **[[B.O.W. & Creature Bestiary]]** — T-103 Mr. X Tyrant, Lickers, Shamblers, Pack Hunters.
 * 📑 **[[Master Rules Glossary & Keywords]]** — Conditions, Herb synthesis combinations, Distance/Reach bands.
+* 🧪 **[[Chemical Supplies and Compounding Catalog]]** — Gunpowder A/B/High-Grade recipes, Chemical Fluid compounding, Adrenaline/Morphine injectors, and Umbrella bio-reagents.
+* 📦 **[[Master Campaign Scenario Items Catalog]]** — Complete zone-by-zone loot matrix and puzzle equipment.
 
 ---
 

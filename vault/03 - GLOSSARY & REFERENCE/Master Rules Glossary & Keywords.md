@@ -192,6 +192,21 @@ All medicinal herbs are compact items taking **1/4 Inventory Slot** (up to 4 her
 
 ---
 
+### D. CHEMICAL SUPPLIES, PHARMACEUTICALS & COMPOUNDING
+*See complete crafting tables and recipes in **[[Chemical Supplies and Compounding Catalog]]**.*
+
+* **Standard Chemical Fluid [1/4 Slot]:** Pressurized mixing base for synthesizing First Aid Sprays or specialized ammo.
+* **High-Grade Chemical Fluid [1/4 Slot]:** Concentrated nitric solvent for 40mm Grenade rounds and Antiviral serums.
+* **Gunpowder (Type A / Type B / High-Grade) [1/4 Slot]:** Granular propellant used to compound 9mm ammo, Shotgun shells, Magnum rounds, and specialist munitions.
+* **Epinephrine / Adrenaline Auto-Injector [1/4 Slot]:** Clears Stunned/Exhausted conditions; grants +2 to physical rolls for 1 round.
+* **Morphine Syrette [1/4 Slot]:** Battlefield analgesic that ignores all wound penalties for 1 scene.
+* **Atropine Antidote Pen [1/4 Slot]:** Clinical antidote that instantly cleanses Poison.
+* **Hemostatic Gauze / QuickClot [1/4 Slot]:** Kaolin clotting agent that instantly stops Bleeding without a check.
+* **T-Virus Suppressant (UMB-7) [1/4 Slot]:** Halts the Infection Track for 24 hours.
+* **Bio-Reagents (UMB No.3, NP-003, VP-017, V-JOLT) [1 Slot]:** Umbrella experimental chemical precursors used to synthesize biological defoliants and weaponized compounds.
+
+---
+
 ## 7. THE AREA NOISE CLOCK ENGINE
 
 The **Area Noise Clock (1 to 6 Ticks)** tracks ambient disturbance, gunfire echoes, and the heightened awareness of roaming infected and stalkers within the current sector.
