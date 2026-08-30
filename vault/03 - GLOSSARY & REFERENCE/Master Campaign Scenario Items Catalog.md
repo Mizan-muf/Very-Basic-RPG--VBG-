@@ -78,13 +78,13 @@ A comprehensive tactical database and index of all scenario items, search table 
 ### 💊 Consumable Drops, Herbs & Ammunition
 * **Box of 9mm Handgun Ammo** (*Multi-Zone*) — 9mm ammunition box (1d6+4 to 15 rounds).
 * **Box of 12-Gauge Shells / Riot Shells** (*Multi-Zone*) — Shotgun ammunition box (4 to 6 Shells).
-* **Green Herb / Planter / Bundle** (*Multi-Zone*) — Base healing herb stem (Restores 1 Strain, cures Bleeding).
+* **Green Herb / Planter / Bundle** (*Multi-Zone*) — Base healing herb stem (Cures Bleeding; does not restore Strain).
 * **Red Herb** (*Stage 1 Zone 1.3, Stage 2.1 Zone 2.1C*) — Potent botanical synthesizer (Combines with Green Herb for G+R Full-Heal).
 * **Blue Herb / Pot** (*Stage 2 Plaza, Stage 2.2 Zone 2.2A, Stage 3 Zone 3.2*) — Toxin neutralizing herb (Cures Poison, reduces Infection).
-* **First Aid Bandages / Sterile Pressure Bandages** (*Multi-Zone*) — Field medical dressings (Restores 1 Strain, cures Bleeding).
+* **First Aid Bandages / Sterile Pressure Bandages** (*Multi-Zone*) — Field medical dressings (Cures Bleeding; does not restore Strain).
 * **First Aid Spray Canister** (*Multi-Zone*) — Full medical spray canister (Full Strain restoration, cures all physical conditions).
 * **Emergency Flare / Flare Box** (*Stage 2 Node 2.3, Stage 2.2 Zone 2.2A*) — Magnesium heat flare (Blinds/distracts Lickers for 2 turns).
-* **Food Rations** (*Stage 3, Zone 3.1*) — Packaged food rations (Restores 1 Strain out of combat).
+* **Food Rations** (*Stage 3, Zone 3.1*) — Packaged food rations (Emergency Food Rations).
 
 ---
 
@@ -96,7 +96,7 @@ A comprehensive tactical database and index of all scenario items, search table 
 * **Search Table Loot (1d6 Roll Table):**
   - **Roll 1–2:** Discarded shopping bags / Broken cosmetics (Nothing).
   - **Roll 3:** **Pocket Penlight** (Illuminates Close band, ⬜⬜ Durability).
-  - **Roll 4:** **First Aid Bandages** (Restores 1 Strain; cures Bleeding).
+  - **Roll 4:** **First Aid Bandages** (Cures Bleeding; does not restore Strain).
   - **Roll 5:** **Green Herb Planter** (1 Green Herb stem from fountain planter).
   - **Roll 6:** **Box of 9mm Handgun Ammo** (1d6+4 rounds behind Pharm-Plus checkout).
 * **Access Control:** **Keycard Level B** (Freight Elevator lock bypass).
@@ -129,7 +129,7 @@ A comprehensive tactical database and index of all scenario items, search table 
 
 #### [[Node 2.1 - Branch A (The Bus Convoy Route)]]
 * **Passenger Scavenge (Under Seat 4):** **Tire Iron** (⬜⬜ Durability / Deals 1 damage, +1 Force).
-* **Overhead Rack Cache:** **First Aid Bandages** (Restores 1 Strain, cures Bleeding).
+* **Overhead Rack Cache:** **First Aid Bandages** (Cures Bleeding; does not restore Strain).
 
 #### [[Node 2.2 - Branch B (The East River Run)]]
 * **Maintenance Skiff Search:**
@@ -276,9 +276,9 @@ A comprehensive tactical database and index of all scenario items, search table 
 | **Mayoral Mahogany Desk Riddle** | Puzzle Clue | Zone 2.1A Desk | N/A | Clue for clock hands (08:15) and stag relief (90° W) |
 | **Grand Gala Premiere Poster** | Puzzle Clue | Zone 3.1 Lobby | N/A | Premiere date "July 24, 1934" -> Safe code `07 - 24` |
 | **Manager's Journal** | Memo / File | Zone 3.3 Safe | N/A | Documents catacombs connecting stage to museum |
-| **Green Herb** | Consumable | Multi-Zone | 1/4 Slot | Restores 1 Strain; cures Bleeding |
+| **Green Herb** | Consumable | Multi-Zone | 1/4 Slot | Cures Bleeding; does not restore Strain |
 | **Red Herb** | Consumable | Zone 1.3 / 2.1C | 1/4 Slot | Mixes with Green Herb for G+R Full-Heal |
 | **Blue Herb** | Consumable | Plaza / 2.2A / 3.2 | 1/4 Slot | Cures Poisoning; lowers Virus Infection |
 | **First Aid Spray Canister** | Consumable | Multi-Zone | 1 Full Slot | Restores full Strain; cures all physical conditions |
-| **First Aid / Sterile Bandages** | Consumable | Multi-Zone | 1/4 Slot | Restores 1 Strain; cures Bleeding |
-| **Food Rations** | Consumable | Zone 3.1 Counter | 2 Rations | Restores 1 Strain out of combat |
+| **First Aid / Sterile Bandages** | Consumable | Multi-Zone | 1/4 Slot | Cures Bleeding; does not restore Strain |
+| **Food Rations** | Consumable | Zone 3.1 Counter | 2 Rations | Emergency Food Supplies |

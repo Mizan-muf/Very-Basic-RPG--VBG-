@@ -27,4 +27,4 @@
 
 ## 🔍 Passenger Scavenge (During Transit)
 * **Under Seat 4:** **Tire Iron** (⬜⬜ Durability / Deals 1 damage, +1 Force).
-* **First Aid Kit on Overhead Rack:** **First Aid Bandages** (Cures Bleeding, restores 1 Strain).
+* **First Aid Kit on Overhead Rack:** **First Aid Bandages** (Cures Bleeding; does not restore Strain).

@@ -100,3 +100,8 @@ Every active sector or building floor operates on a **0 to 6 Tick Noise Clock**:
 * **15 PP:** Learn a new Minor Trait (+1 Bonus).
 * **20 PP:** Unlock a new Tactical Specialization Domain.
 * **25 PP:** Gain +1 Permanent Inventory Slot (Maximum 6 slots).
+
+
+### Strict Healing Economy (Herbs & FAS Only)
+* **No Natural HP Regeneration:** Safe room rests and downtime scenes do NOT restore Strain boxes.
+* **Only Herbs & First Aid Spray Heal Strain:** Field dressings, bandages, and suture kits only cure the **Bleeding** condition. Food and rations only satisfy hunger or narrative needs. Strain can ONLY be recovered by consuming Green Herbs (or Green Herb compounds) or First Aid Sprays.

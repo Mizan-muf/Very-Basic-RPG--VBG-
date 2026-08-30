@@ -32,7 +32,7 @@ The explosion illuminates the entire sector and reverberates across downtown. Wi
 ---
 
 ## 🔍 Search Points & Scavenge Table (1d6)
-1. **Convenience Store Counter:** 1 Zippo Lighter & Pack of Beef Jerky Rations (Restores 1 Strain).
+1. **Convenience Store Counter:** 1 Zippo Lighter & Pack of Beef Jerky Rations (Relieves Hunger / Flavor).
 2. **Auto Service Bay:** Heavy Tire Iron (⬜⬜⬜) & Aerosol Lubricant Spray.
 3. **Police Cruiser Trunk:** 1 Box of 12-Gauge Shotgun Shells (6 Shells).
 4. **Tool Rack:** Bolt Cutters (⬜⬜⬜) & 20A Ceramic Fuse.

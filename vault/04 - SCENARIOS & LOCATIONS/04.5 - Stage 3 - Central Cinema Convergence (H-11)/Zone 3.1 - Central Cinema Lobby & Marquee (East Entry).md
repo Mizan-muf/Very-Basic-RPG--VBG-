@@ -25,5 +25,5 @@ A framed glass poster case by the stairs reads:
 * **Puzzle Solution:** Office Safe Code is **`07 - 24`**.
 
 ### 2. Concessions Counter
-* **Loot:** 2 Rations (Restores 1 Strain out of combat), Heavy Brass Fire Extinguisher (⬜⬜ Durability).
+* **Loot:** 2 Rations (Emergency Food Supplies), Heavy Brass Fire Extinguisher (⬜⬜ Durability).
 * **Ticket Booth Box:** **Brass Manager's Key** (Unlocks Manager's Office in Zone 3.3).

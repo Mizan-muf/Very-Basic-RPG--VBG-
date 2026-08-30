@@ -95,13 +95,16 @@ Zombie bites and biological critical failures advance the track by +1 Stage:
 * **Combat Knife (1 Slot, ⬜⬜⬜ 3 Durability):** Close defense & grab counters. Breaks permanently when all 3 boxes are marked (no repairs).
 * **Heavy Tools (2 Slots, ⬜⬜⬜ 3 Durability):** Fireaxe, Crowbar. +1 to Force breaching rolls.
 
-### Medical Items
-* **Green Herb (G, 1/4 Slot):** Restores 1 Strain, cures Bleeding.
-* **Green + Green (G+G, 1/4 Slot):** Restores 3 Strain, cures Bleeding.
-* **Green + Blue (G+B, 1/4 Slot):** Restores 1 Strain, cures Bleeding & Poisoned, reduces Infection by -1 Stage.
-* **Green + Red (G+R, 1/4 Slot):** Full Strain recovery, cures Bleeding & Limb Damaged.
-* **Green + Red + Blue (G+R+B, 1/4 Slot):** Full Strain recovery, cures all conditions, reduces Infection by -1 Stage.
-* **First Aid Spray (1 Slot):** Full Strain recovery, cures all physical conditions.
+### Medical Items & Healing Economy
+> [!danger] **STRICT SURVIVAL HORROR HEALING RULE**
+> **Strain restoration is strictly limited to First Aid Sprays and Green Herb mixtures.** Bandages, suture kits, hemostatic gauze, morphine, food rations, and resting do **NOT** restore Strain boxes (they only treat conditions such as Bleeding or Poison).
+
+* **Green Herb (G, 1/4 Slot):** Restores 2 Strain, cures Bleeding.
+* **Green + Green (G+G, 1/4 Slot):** Fully restores all 4 Strain, cures Bleeding.
+* **Green + Blue (G+B, 1/4 Slot):** Restores 2 Strain, cures Bleeding & Poisoned, and reduces Infection by -1 Stage.
+* **Green + Red (G+R, 1/4 Slot):** Fully restores all 4 Strain, cures all physical conditions, and grants +1 temporary Armor box.
+* **Green + Red + Blue (G+R+B, 1/4 Slot):** Fully restores all Strain, cures all conditions, reduces Infection by -1 Stage, and grants +1 temporary Armor box.
+* **First Aid Spray (1/2 Slot):** Fully restores all 4 Strain boxes and cures all physical conditions.
 
 ---
 

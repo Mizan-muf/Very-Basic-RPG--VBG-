@@ -25,7 +25,7 @@
 Searching retail counters requires 1 exploration action:
 1. **1–2:** Discarded shopping bags / Broken cosmetics (Nothing).
 2. **3:** **Pocket Penlight** (Illuminates Close distance band, ⬜⬜ Durability).
-3. **4:** **First Aid Bandages** (Restores 1 Strain; cures Bleeding).
+3. **4:** **Sterile Pressure Bandages** (Cures Bleeding; does not restore Strain).
 4. **5:** **Green Herb Planter** (Yields 1 Green Herb stem from the fountain planter).
 5. **6:** **Box of 9mm Handgun Ammo** (1d6+4 rounds behind the pharmacy checkout).
 

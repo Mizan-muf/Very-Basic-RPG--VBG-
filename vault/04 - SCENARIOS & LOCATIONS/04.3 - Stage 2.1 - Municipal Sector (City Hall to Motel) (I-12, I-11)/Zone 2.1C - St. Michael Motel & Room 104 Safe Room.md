@@ -32,7 +32,7 @@
 1. **Bedside Nightstand:** Typewriter Ink Ribbon (3 Uses) & Zippo lighter fluid.
 2. **Bathroom Medicine Cabinet:** 1 Adrenaline Auto-Injector & Sterile Gauze.
 3. **Motel Office Key Rack:** Master Motel Key (Unlocks adjacent rooms for supply searches).
-4. **Kitchenette Cupboard:** Canned rations (Restores 1 Strain) & 1 Green Herb planter.
+4. **Kitchenette Cupboard:** Canned rations (Relieves Hunger / Flavor) & 1 Green Herb planter.
 5. **Underbed Storage:** Steel Gun Box (Locked — .44 Magnum Revolver).
 6. **Luggage Trunk:** 1 Kevlar Tactical Vest (⬜⬜ Armor).
 
